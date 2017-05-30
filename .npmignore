@@ -1,0 +1,11 @@
+.idea
+.github
+demo
+npm-shrinkwrap.json
+.editorconfig
+.eslintignore
+.eslintrc
+.gitattributes
+.gitignore
+webpack.config.dev.js
+webpack.config.js

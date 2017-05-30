@@ -1,0 +1,51 @@
+{
+  "name": "vue-flatpickr-component",
+  "version": "1.0.0",
+  "description": "Vue JS component for Flatpickr datetime picker",
+  "main": "dist/vue-flatpickr.min.js",
+  "module": "src/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ankurk91/vue-flatpickr-component.git"
+  },
+  "keywords": [
+    "vue",
+    "flatpickr",
+    "datepicker"
+  ],
+  "author": "ankurk91",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ankurk91/vue-flatpickr-component/issues"
+  },
+  "homepage": "https://github.com/ankurk91/vue-flatpickr-component",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint --ext .js,.vue --fix src",
+    "dev": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.config.dev.js",
+    "build": "node_modules/webpack/bin/webpack.js --hide-modules -p --progress"
+  },
+  "dependencies": {
+    "flatpickr": "^2.6.3"
+  },
+  "devDependencies": {
+    "babel-core": "^6.24.0",
+    "babel-loader": "^6.4.1",
+    "babel-preset-env": "^1.5.1",
+    "bootstrap": "^3.3.7",
+    "clean-webpack-plugin": "^0.1.16",
+    "css-loader": "^0.28.4",
+    "file-loader": "^0.11.1",
+    "html-webpack-plugin": "^2.28.0",
+    "jquery": "^3.2.1",
+    "style-loader": "^0.18.1",
+    "vue": "^2.3.3",
+    "vue-loader": "^12.2.1",
+    "vue-template-compiler": "^2.3.3",
+    "webpack": "^2.6.1",
+    "webpack-dev-server": "^2.4.5"
+  },
+  "peerDependencies": {
+    "vue": ">=2.3.3"
+  }
+}

@@ -1,0 +1,6 @@
+# http://eslint.org/docs/user-guide/command-line-interface#ignoring-files-from-linting
+/node_modules/*
+/build/*
+/dist/*
+/demo/*
+/docs/*
