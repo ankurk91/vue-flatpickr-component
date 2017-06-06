@@ -1,0 +1,27 @@
+{
+  "name": "vue-flatpickr-component",
+  "description": "Vue JS component for Flatpickr datetime picker",
+  "main": "dist/vue-flatpickr.min.js",
+  "moduleType": "umd",
+  "authors": [
+    "ankurk91"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "vue",
+    "flatpickr",
+    "datepicker"
+  ],
+  "homepage": "https://github.com/ankurk91/vue-flatpickr-component",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "demo"
+  ],
+  "dependencies": {
+    "flatpickr": "^2.6.3"
+  }
+}

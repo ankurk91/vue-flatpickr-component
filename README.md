@@ -3,7 +3,8 @@
 > Vue JS v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
 
 [![downloads](https://img.shields.io/npm/dt/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
-[![version](https://img.shields.io/npm/v/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
+[![npm-version](https://img.shields.io/npm/v/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
+[![Bower](https://img.shields.io/bower/v/vue-flatpickr-component.svg)](https://bower.io)
 [![license](https://img.shields.io/github/license/ankurk91/vue-flatpickr-component.svg)]()
 
 ### Installation

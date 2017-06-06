@@ -2,6 +2,7 @@
 .github
 demo
 .babelrc
+bower.json
 npm-shrinkwrap.json
 .editorconfig
 .eslintignore
