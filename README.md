@@ -2,12 +2,13 @@
 
 > Vue JS v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
 
+[![downloads](https://img.shields.io/npm/dt/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
+[![version](https://img.shields.io/npm/v/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
 [![license](https://img.shields.io/github/license/ankurk91/vue-flatpickr-component.svg)]()
 
 ### Installation
 ```bash
-# todo - publish on npm
-npm install https://github.com/ankurk91/vue-flatpickr-component.git --save
+npm install vue-flatpickr-component --save
 ```
 
 ### Usage
@@ -154,4 +155,4 @@ npm run dev
 * This should open the demo page at ``http://localhost:9000``
 
 ### License
-MIT License
+[MIT](LICENSE.txt) License

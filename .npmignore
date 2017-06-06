@@ -1,6 +1,7 @@
 .idea
 .github
 demo
+.babelrc
 npm-shrinkwrap.json
 .editorconfig
 .eslintignore
