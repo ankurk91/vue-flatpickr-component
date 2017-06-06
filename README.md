@@ -26,7 +26,7 @@ npm install vue-flatpickr-component --save
   export default {    
     data () {
       return {
-        date: '',       
+        date: null,       
       }
     },
     components: {
@@ -37,20 +37,27 @@ npm install vue-flatpickr-component --save
 ```
 
 **Detailed example**
-* By-default the component is based on Bootstrap 3 [input group](http://getbootstrap.com/components/#input-groups)
+* This example is based on Bootstrap 3 [input group](http://getbootstrap.com/components/#input-groups)
 ```html
 <template>
   <section>
     <div class="form-group">
       <label>Select a date</label>
-      <flat-pickr
-              v-model="date"
-              placeholder="Select date"
-              :config="config"
-              :required="true"
-              input-class="date-input"
-              input-name="date">
-      </flat-pickr>
+      <div class="input-group">
+        <flat-pickr
+                v-model="date"
+                placeholder="Select date"
+                :config="config"
+                :required="true"
+                input-class="date-input"
+                input-name="date">
+        </flat-pickr>
+        <div class="input-group-btn">
+          <button class="btn btn-default" type="button" title="Toggle" data-toggle>
+            <i class="glyphicon glyphicon-calendar"><span aria-hidden="true" class="sr-only">Toggle</span></i>
+          </button>
+        </div>
+      </div>
     </div>
     <pre>Selected date is - {{date}}</pre>
   </section>
@@ -58,7 +65,8 @@ npm install vue-flatpickr-component --save
 
 <script type="text/javascript">
   import flatPickr from 'vue-flatpickr-component';
-
+  import 'bootstrap/dist/css/bootstrap.css';
+  
   // Theme is optional
   import 'flatpickr/dist/themes/material_blue.css';
   // Locale is optional
@@ -72,6 +80,7 @@ npm install vue-flatpickr-component --save
         date: '2018-02-02',
         // Get more form https://chmln.github.io/flatpickr/options/
         config: {
+          wrap: true,
           altFormat: 'M	j, Y',
           altInput: true,
           dateFormat: "Y-m-d",
@@ -108,11 +117,13 @@ The component accepts these props
 ### Install without webpack (module bundler)
 * Include required files
 ```html
-<link rel="stylesheet" href="/flatpickr.min.css">
+<!-- Bootstrap is optional -->
 <link rel="stylesheet" href="/bootstrap.min.css">
-
-<script src="/vue.min.js"></script>
+<!-- Flatpickr related files -->
+<link rel="stylesheet" href="/flatpickr.min.css">
 <script src="/flatpickr.min.js"></script>
+<!-- Vue js -->
+<script src="/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="/vue-flatpickr.min.js"></script>
 ```
@@ -132,14 +143,14 @@ Vue.component('flat-pickr', VueFlatpickr.default);
   new Vue({
     el: '#app',
     data: {
-      date: '2018-01-01'
+      date: null
     }
   });
 </script>
 ```
 
-### todo
-- [ ] Make ``wrap`` optional
+### @todo
+- [x] Make ``wrap`` optional
 - [ ] Add more examples, bulma ?
 
 ### Run demo on localhost

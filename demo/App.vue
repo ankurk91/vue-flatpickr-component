@@ -6,13 +6,15 @@
         <form method="post" onsubmit="return false">
           <div class="form-group">
             <label>Select date</label>
-            <flat-pickr v-model="date"
-                        placeholder="Select date"
-                        :config="config"
-                        :required="true"
-                        input-class="date-input-class"
-                        input-name="date-input-name"
-            >
+            <div class="input-group">
+              <flat-pickr v-model="date"
+                          placeholder="Select date"
+                          :config="config"
+                          :required="true"
+                          input-class="date-input-class"
+                          input-name="date-input-name"
+              >
+              </flat-pickr>
               <div class="input-group-btn">
                 <button class="btn btn-default" type="button" title="Toggle" data-toggle>
                   <i class="glyphicon glyphicon-calendar"><span aria-hidden="true" class="sr-only">Toggle</span></i>
@@ -21,8 +23,7 @@
                   <i class="glyphicon glyphicon-remove"><span aria-hidden="true" class="sr-only">Clear</span></i>
                 </button>
               </div>
-
-            </flat-pickr>
+            </div>
           </div>
           <div class="row">
             <div class="col-md-4">
@@ -53,7 +54,14 @@
           </div>
           <div class="form-group">
             <label>Select time</label>
-            <flat-pickr :config="timePicker" value="" placeholder="Time"></flat-pickr>
+            <div class="input-group">
+              <flat-pickr :config="timePicker" value="" placeholder="Time"></flat-pickr>
+              <div class="input-group-btn">
+                <button class="btn btn-default" type="button" title="Toggle" data-toggle>
+                  <i class="glyphicon glyphicon-time"><span aria-hidden="true" class="sr-only">Toggle</span></i>
+                </button>
+              </div>
+            </div>
           </div>
           <div class="form-group">
             <label>Select date (localization)</label>
@@ -118,11 +126,13 @@
       return {
         date: '2017-06-01',
         config: {
+          wrap: true,
           altFormat: 'M	j, Y',
           altInput: true,
           dateFormat: "Y-m-d",
         },
         timePicker: {
+          wrap: true,
           enableTime: true,
           enableSeconds: true,
           noCalendar: true

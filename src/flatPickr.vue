@@ -1,21 +1,14 @@
 <template>
-  <div class="input-group control has-addons" data-wrap="true">
-    <input type="text"
-           class="form-control flatpickr-input"
-           :class="inputClass"
-           :name="inputName"
-           :placeholder="placeholder"
-           :required="required"
-           v-model="mutableValue"
-           data-input/>
-    <slot>
-      <div class="input-group-btn">
-        <button class="btn btn-default" type="button" title="Toggle" data-toggle>
-          <i class="glyphicon glyphicon-calendar"><span aria-hidden="true" class="sr-only">Toggle</span></i>
-        </button>
-      </div>
-    </slot>
-  </div>
+
+  <input type="text"
+         class="form-control input"
+         :class="inputClass"
+         :name="inputName"
+         :placeholder="placeholder"
+         :required="required"
+         v-model="mutableValue"
+         data-input>
+
 </template>
 
 <script type="text/javascript">
@@ -33,7 +26,7 @@
       config: {
         type: Object,
         default: () => ({
-          wrap: true
+          wrap: false
         })
       },
       placeholder: {
@@ -62,7 +55,9 @@
     mounted () {
       // Load date-picker
       if (!this.instance) {
-        this.instance = new Flatpickr(this.$el, this.config);
+        // Bind on parent element if wrap is true
+        let elem = this.config.wrap ? this.$el.parentNode : this.$el;
+        this.instance = new Flatpickr(elem, this.config);
       }
     },
     beforeDestroy () {
