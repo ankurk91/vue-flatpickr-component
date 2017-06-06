@@ -25,37 +25,54 @@
             </flat-pickr>
           </div>
           <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
                 <button type="button" class="btn btn-default" @click.prevent="setNewDate()">
                   Set new date
                 </button>
               </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
               <div class="form-group">
                 <button type="button" class="btn btn-default" @click.prevent="updateConfig()">
-                  Update config
+                  Change mode
+                </button>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#date-modal">Open in
+                  modal
                 </button>
               </div>
             </div>
           </div>
           <div class="form-group">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#date-modal">Open in modal
-            </button>
+            <label>Select datetime</label>
+            <flat-pickr :config="dateTimePicker" value="" placeholder="Date Time"></flat-pickr>
           </div>
+          <div class="form-group">
+            <label>Select time</label>
+            <flat-pickr :config="timePicker" value="" placeholder="Time"></flat-pickr>
+          </div>
+          <div class="form-group">
+            <label>Select date (localization)</label>
+            <flat-pickr :config="localeConfig" value="" placeholder="Date"></flat-pickr>
+          </div>
+
         </form>
       </div>
       <aside class="col-md-4">
-        <div class="panel panel-default">
+        <div class="panel panel-info">
           <div class="panel-heading">
-            Info
+            Links
           </div>
           <div class="panel-body">
-            <label>Selected date is</label>
-            <pre>{{date}}</pre>
-            <label>Current config</label>
-            <pre>{{config}}</pre>
+            <ul>
+              <li><a href="https://github.com/ankurk91/vue-flatpickr-component" target="_blank">Github</a></li>
+              <li><a href="https://www.npmjs.com/package/vue-flatpickr-component" target="_blank">npm</a></li>
+              <li><a href="https://chmln.github.io/flatpickr" rel="noreferrer" target="_blank">Flatpickr</a></li>
+            </ul>
           </div>
         </div>
       </aside>
@@ -73,7 +90,7 @@
             <form method="post" action="/" onsubmit="return false">
               <div class="form-group">
                 <label>Select a date</label>
-                <flat-pickr v-model="modalDate"></flat-pickr>
+                <flat-pickr value=""></flat-pickr>
               </div>
             </form>
           </div>
@@ -91,7 +108,9 @@
 <script type="text/javascript">
   import flatPickr from '../src/index';
   // Theme is optional
-  import 'flatpickr/dist/themes/material_blue.css';
+  import 'flatpickr/dist/themes/material_orange.css';
+  // Locale is optional
+  const Hindi = require("flatpickr/dist/l10n/hi.js").hi;
 
   export default {
     name: 'app',
@@ -103,7 +122,18 @@
           altInput: true,
           dateFormat: "Y-m-d",
         },
-        modalDate: '',
+        timePicker: {
+          enableTime: true,
+          enableSeconds: true,
+          noCalendar: true
+        },
+        dateTimePicker: {
+          enableTime: true,
+          dateFormat: 'd-m-Y H:i'
+        },
+        localeConfig: {
+          locale: Hindi
+        }
       }
     },
     components: {
