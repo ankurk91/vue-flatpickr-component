@@ -1,7 +1,7 @@
 <template>
   <div class="input-group control has-addons" data-wrap="true">
     <input type="text"
-           class="form-control"
+           class="form-control flatpickr-input"
            :class="inputClass"
            :name="inputName"
            :placeholder="placeholder"
@@ -25,8 +25,8 @@
   export default {
     props: {
       value: {
-        type: String,
-        value: '',
+        type: [String, null],
+        value: null,
         required: true
       },
       // https://chmln.github.io/flatpickr/options/
