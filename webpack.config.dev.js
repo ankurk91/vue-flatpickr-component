@@ -7,7 +7,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   context: __dirname, //home directory for webpack
   resolve: {
-    modules: [path.resolve(__dirname, 'src'), path.resolve(__dirname, 'demo'), 'node_modules'],
+    modules: [
+      path.resolve(__dirname, 'src'),
+      path.resolve(__dirname, 'demo'),
+      'node_modules'
+    ],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },

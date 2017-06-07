@@ -1,11 +1,12 @@
 # Vue-flatPickr
 
-> Vue JS v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
+> Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
 
+[![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://github.com/ankurk91/vue-flatpickr-component/)
 [![downloads](https://img.shields.io/npm/dt/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
 [![npm-version](https://img.shields.io/npm/v/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
-[![Bower](https://img.shields.io/bower/v/vue-flatpickr-component.svg)](https://bower.io)
-[![license](https://img.shields.io/github/license/ankurk91/vue-flatpickr-component.svg)]()
+[![github-tag](https://img.shields.io/github/tag/ankurk91/vue-flatpickr-component.svg?maxAge=1800)](https://github.com/ankurk91/vue-flatpickr-component/)
+[![license](https://img.shields.io/github/license/ankurk91/vue-flatpickr-component.svg?maxAge=604800)]()
 
 ### Installation
 ```bash
@@ -106,27 +107,27 @@ npm install vue-flatpickr-component --save
 ### Props
 The component accepts these props
 
-| Attribute    | Type               | Description |
-| :---         |     :---:          | :---            |
-| v-model      | String (required)  | Set, Get date-picker value |
-| config       | Object             | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
-| placeholder  | String             | Set placeholder to input |
-| input-class   | String OR Object  | Add CSS class to input  |
-| input-name    | String             | Set input field name  |
-| required     | Boolean            | Make input field required |
+| Attribute    | Required   | Type               | Description      |
+| :---         |  :---:     | :---:              | :---            |
+| v-model      |  Yes       | String OR Date Object OR Array of objects | Set, Get date-picker value |
+| config       |  No        | Object             | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
+| placeholder  |  No        | String             | Set placeholder to input |
+| input-class  |  No        | String OR Object   | Add CSS class to input  |
+| input-name   |  No        | String             | Set input field name  |
+| required     |  No        | Boolean            | Make input field required |
 
 ### Install without webpack (module bundler)
 * Include required files
 ```html
 <!-- Bootstrap is optional -->
-<link rel="stylesheet" href="/bootstrap.min.css">
+<link rel="stylesheet" href="bootstrap.min.css">
 <!-- Flatpickr related files -->
-<link rel="stylesheet" href="/flatpickr.min.css">
-<script src="/flatpickr.min.js"></script>
+<link rel="stylesheet" href="flatpickr.min.css">
+<script src="flatpickr.min.js"></script>
 <!-- Vue js -->
-<script src="/vue.min.js"></script>
+<script src="vue.min.js"></script>
 <!-- Lastly add this package -->
-<script src="/vue-flatpickr.min.js"></script>
+<script src="vue-flatpickr.min.js"></script>
 ```
 * Initialize as global component
 ```js

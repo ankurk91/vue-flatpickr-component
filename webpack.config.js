@@ -7,13 +7,17 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 module.exports = {
   context: __dirname, //home directory for webpack
   resolve: {
-    modules: [path.resolve(__dirname, 'src'), 'node_modules'],
+    modules: [
+      path.resolve(__dirname, 'src'),
+      'node_modules'
+    ],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
     extensions: ['.js', '.jsx', '.vue'],
   },
   entry: './src/index.js',
+  // Don't include these in build
   externals: [
     'vue',
     'flatpickr',
