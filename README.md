@@ -78,7 +78,7 @@ npm install vue-flatpickr-component --save
     data () {
       return {
         // Initial value
-        date: '2018-02-02',
+        date: new Date(),
         // Get more form https://chmln.github.io/flatpickr/options/
         config: {
           wrap: true,

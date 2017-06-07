@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.2
+- Allow array of objects and date object as default value
+
 ## 1.1.0
 - Make ``wrap`` optional
 - From now, you need to wrap by your-self and pass ``config.wrap`` as true

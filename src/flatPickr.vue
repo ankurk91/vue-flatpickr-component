@@ -18,7 +18,7 @@
   export default {
     props: {
       value: {
-        type: [String, null],
+        // Don't validate
         value: null,
         required: true
       },

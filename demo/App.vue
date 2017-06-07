@@ -124,7 +124,7 @@
     name: 'app',
     data (){
       return {
-        date: '2017-06-01',
+        date: new Date(),
         config: {
           wrap: true,
           altFormat: 'M	j, Y',
