@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.1.3
+- Regenerate build files
+
 ## 1.1.2
 - Allow array of objects and date object as default value
 
