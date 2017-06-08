@@ -1,4 +1,4 @@
-import VueFlatpickr from './flatPickr.vue';
+import component from './flatPickr.vue';
 
-export default VueFlatpickr;
-export { VueFlatpickr };
+export default component;
+export {component};

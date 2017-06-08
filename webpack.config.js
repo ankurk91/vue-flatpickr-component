@@ -49,7 +49,7 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(['./dist']),
   ],
-  devtool: '#source-map',
+  devtool: false,
   target: 'web',
   performance: {
     hints: false
