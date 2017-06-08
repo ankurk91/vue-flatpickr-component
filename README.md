@@ -129,10 +129,6 @@ The component accepts these props
 <!-- Lastly add this package -->
 <script src="vue-flatpickr.min.js"></script>
 ```
-* Initialize as global component
-```js
-Vue.component('flat-pickr', VueFlatpickr.default);
-```
 * Use the component anywhere in your app
 ```html
 <main id="app">
@@ -142,14 +138,18 @@ Vue.component('flat-pickr', VueFlatpickr.default);
   </div>
 </main>
 <script>
+  //Initialize as global component
+  Vue.component('flat-pickr', VueFlatpickr.default);
+  
   new Vue({
     el: '#app',
     data: {
       date: null
-    }
+    },    
   });
 </script>
 ```
+* As of now above example only works in ``flatpickr@next``, [see](https://github.com/chmln/flatpickr/commit/9392c76685b229b545e76abd3b2082da26e3ce60)
 
 ### Run demo on localhost
 * Clone this repo
