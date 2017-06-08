@@ -151,10 +151,6 @@ Vue.component('flat-pickr', VueFlatpickr.default);
 </script>
 ```
 
-### @todo
-- [x] Make ``wrap`` optional
-- [ ] Add more examples, bulma ?
-
 ### Run demo on localhost
 * Clone this repo
 * Install dependencies
