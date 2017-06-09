@@ -1,6 +1,6 @@
 {
-  "name": "vue-flatpickr",
-  "version": "1.0.0",
+  "name": "vue-flatpickr-component",
+  "version": "1.1.5",
   "dependencies": {
     "abbrev": {
       "version": "1.1.0",
@@ -3497,9 +3497,9 @@
       "dev": true
     },
     "vue": {
-      "version": "2.3.3",
-      "from": "vue@latest",
-      "resolved": "https://registry.npmjs.org/vue/-/vue-2.3.3.tgz",
+      "version": "2.3.4",
+      "from": "vue@2.3.4",
+      "resolved": "https://registry.npmjs.org/vue/-/vue-2.3.4.tgz",
       "dev": true
     },
     "vue-hot-reload-api": {
@@ -3537,9 +3537,9 @@
       }
     },
     "vue-template-compiler": {
-      "version": "2.3.3",
-      "from": "vue-template-compiler@>=2.3.3 <3.0.0",
-      "resolved": "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.3.3.tgz",
+      "version": "2.3.4",
+      "from": "vue-template-compiler@2.3.4",
+      "resolved": "https://registry.npmjs.org/vue-template-compiler/-/vue-template-compiler-2.3.4.tgz",
       "dev": true
     },
     "vue-template-es2015-compiler": {
