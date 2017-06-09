@@ -30,8 +30,8 @@
     "flatpickr": ">=2.6.0"
   },
   "devDependencies": {
-    "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.0.0",
     "babel-preset-env": "^1.5.1",
     "bootstrap": "^3.3.7",
     "clean-webpack-plugin": "^0.1.16",

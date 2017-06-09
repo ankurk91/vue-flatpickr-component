@@ -163,15 +163,15 @@
       "dev": true
     },
     "babel-core": {
-      "version": "6.24.1",
-      "from": "babel-core@>=6.24.0 <7.0.0",
-      "resolved": "https://registry.npmjs.org/babel-core/-/babel-core-6.24.1.tgz",
+      "version": "6.25.0",
+      "from": "babel-core@6.25.0",
+      "resolved": "https://registry.npmjs.org/babel-core/-/babel-core-6.25.0.tgz",
       "dev": true
     },
     "babel-generator": {
-      "version": "6.24.1",
-      "from": "babel-generator@>=6.24.1 <7.0.0",
-      "resolved": "https://registry.npmjs.org/babel-generator/-/babel-generator-6.24.1.tgz",
+      "version": "6.25.0",
+      "from": "babel-generator@>=6.25.0 <7.0.0",
+      "resolved": "https://registry.npmjs.org/babel-generator/-/babel-generator-6.25.0.tgz",
       "dev": true
     },
     "babel-helper-builder-binary-assignment-operator-visitor": {
@@ -247,10 +247,18 @@
       "dev": true
     },
     "babel-loader": {
-      "version": "6.4.1",
-      "from": "babel-loader@>=6.4.1 <7.0.0",
-      "resolved": "https://registry.npmjs.org/babel-loader/-/babel-loader-6.4.1.tgz",
-      "dev": true
+      "version": "7.0.0",
+      "from": "babel-loader@7.0.0",
+      "resolved": "https://registry.npmjs.org/babel-loader/-/babel-loader-7.0.0.tgz",
+      "dev": true,
+      "dependencies": {
+        "loader-utils": {
+          "version": "1.1.0",
+          "from": "loader-utils@>=1.0.2 <2.0.0",
+          "resolved": "https://registry.npmjs.org/loader-utils/-/loader-utils-1.1.0.tgz",
+          "dev": true
+        }
+      }
     },
     "babel-messages": {
       "version": "6.23.0",
@@ -439,9 +447,9 @@
       "dev": true
     },
     "babel-preset-env": {
-      "version": "1.5.1",
-      "from": "babel-preset-env@>=1.3.2 <2.0.0",
-      "resolved": "https://registry.npmjs.org/babel-preset-env/-/babel-preset-env-1.5.1.tgz",
+      "version": "1.5.2",
+      "from": "babel-preset-env@1.5.2",
+      "resolved": "https://registry.npmjs.org/babel-preset-env/-/babel-preset-env-1.5.2.tgz",
       "dev": true
     },
     "babel-register": {
@@ -457,21 +465,21 @@
       "dev": true
     },
     "babel-template": {
-      "version": "6.24.1",
-      "from": "babel-template@>=6.24.1 <7.0.0",
-      "resolved": "https://registry.npmjs.org/babel-template/-/babel-template-6.24.1.tgz",
+      "version": "6.25.0",
+      "from": "babel-template@>=6.25.0 <7.0.0",
+      "resolved": "https://registry.npmjs.org/babel-template/-/babel-template-6.25.0.tgz",
       "dev": true
     },
     "babel-traverse": {
-      "version": "6.24.1",
-      "from": "babel-traverse@>=6.24.1 <7.0.0",
-      "resolved": "https://registry.npmjs.org/babel-traverse/-/babel-traverse-6.24.1.tgz",
+      "version": "6.25.0",
+      "from": "babel-traverse@>=6.25.0 <7.0.0",
+      "resolved": "https://registry.npmjs.org/babel-traverse/-/babel-traverse-6.25.0.tgz",
       "dev": true
     },
     "babel-types": {
-      "version": "6.24.1",
-      "from": "babel-types@>=6.24.1 <7.0.0",
-      "resolved": "https://registry.npmjs.org/babel-types/-/babel-types-6.24.1.tgz",
+      "version": "6.25.0",
+      "from": "babel-types@>=6.25.0 <7.0.0",
+      "resolved": "https://registry.npmjs.org/babel-types/-/babel-types-6.25.0.tgz",
       "dev": true
     },
     "babylon": {
@@ -665,9 +673,9 @@
       "dev": true
     },
     "caniuse-lite": {
-      "version": "1.0.30000676",
+      "version": "1.0.30000680",
       "from": "caniuse-lite@>=1.0.30000670 <2.0.0",
-      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30000676.tgz",
+      "resolved": "https://registry.npmjs.org/caniuse-lite/-/caniuse-lite-1.0.30000680.tgz",
       "dev": true
     },
     "center-align": {
@@ -1404,9 +1412,9 @@
       "dev": true
     },
     "globals": {
-      "version": "9.17.0",
+      "version": "9.18.0",
       "from": "globals@>=9.0.0 <10.0.0",
-      "resolved": "https://registry.npmjs.org/globals/-/globals-9.17.0.tgz",
+      "resolved": "https://registry.npmjs.org/globals/-/globals-9.18.0.tgz",
       "dev": true
     },
     "graceful-fs": {
