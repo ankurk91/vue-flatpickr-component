@@ -53,7 +53,7 @@
       };
     },
     mounted () {
-      // Load date-picker
+      // Load flatPickr
       if (!this.instance) {
         // Bind on parent element if wrap is true
         let elem = this.config.wrap ? this.$el.parentNode : this.$el;

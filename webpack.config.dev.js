@@ -15,7 +15,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['.js', '.jsx', '.vue'],
+    extensions: ['.js', '.jsx', '.json', '.vue'],
   },
   entry: {
     app: './demo/index.js',
@@ -31,10 +31,6 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          loaders: {}
-          // other vue-loader options go here
-        }
       },
       {
         test: /\.js$/,
@@ -95,7 +91,7 @@ module.exports = {
     quiet: false,
     stats: 'errors-only'
   },
-  devtool: '#cheap-eval-source-map',
+  devtool: '#cheap-module-eval-source-map',
   target: 'web'
 };
 

@@ -1,9 +1,9 @@
 <template>
   <section class="container">
-    <h1 class="page-header">Vue flatPicker Demo</h1>
+    <h1 class="page-header">Vue.js flatPicker Demo</h1>
     <div class="row">
       <div class="col-md-8">
-        <form method="post" onsubmit="return false">
+        <form method="post" action="/" onsubmit="return false">
 
           <div class="row">
             <div class="col-md-4">
@@ -75,7 +75,7 @@
 
           <div class="form-group">
             <label>Select date (localization)</label>
-            <flat-pickr :config="configs.locale" value="" placeholder="Date"></flat-pickr>
+            <flat-pickr :config="configs.locale" value=""></flat-pickr>
           </div>
 
           <div class="form-group">
@@ -87,7 +87,7 @@
 
           <div class="form-group">
             <label>Select date (inline)</label>
-            <flat-pickr :config="configs.inline" v-model="date" placeholder="Date"></flat-pickr>
+            <flat-pickr :config="configs.inline" v-model="date"></flat-pickr>
           </div>
 
         </form>
@@ -129,9 +129,9 @@
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
           </div>
-        </div><!-- /.modal-content -->
-      </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+        </div>
+      </div>
+    </div>
 
   </section>
 </template>
@@ -167,7 +167,8 @@
             dateFormat: 'd-m-Y H:i'
           },
           locale: {
-            locale: Hindi
+            locale: Hindi,
+            onChange: this.onChange
           },
           inline: {
             inline: true
@@ -191,7 +192,12 @@
       },
       changeTheme(){
         require('flatpickr/dist/themes/material_blue.css');
-      }
+      },
+      methods: {
+        onChange (selectedDates, dateStr, instance) {
+          console.log('Date change hook');
+        }
+      },
     }
   }
 </script>

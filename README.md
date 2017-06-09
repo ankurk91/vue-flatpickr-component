@@ -8,12 +8,22 @@
 [![github-tag](https://img.shields.io/github/tag/ankurk91/vue-flatpickr-component.svg?maxAge=1800)](https://github.com/ankurk91/vue-flatpickr-component/)
 [![license](https://img.shields.io/github/license/ankurk91/vue-flatpickr-component.svg?maxAge=604800)]()
 
-### Installation
+## Installation
 ```bash
 npm install vue-flatpickr-component --save
 ```
 
-### Usage
+## Features
+* Reactive value (v-modal)
+    - You can change flatpickr value programmatically 
+* Reactive [config](https://chmln.github.io/flatpickr/options/) options
+    - You can change config options dynamically
+    - Component will watch for any changes and redraw itself
+* Compatible with [Bootstrap](http://getbootstrap.com/), [Bulma](http://bulma.io/) or any other CSS framework
+* Supports [wrapped](https://chmln.github.io/flatpickr/examples/#flatpickr-external-elements) mode
+    - Just set ``wrap:true`` in config and component will take care of all
+
+## Usage
 **Minimal example**
 ```html
 <template>
@@ -82,41 +92,34 @@ npm install vue-flatpickr-component --save
         date: new Date(),
         // Get more form https://chmln.github.io/flatpickr/options/
         config: {
-          wrap: true,
+          wrap: true, // set wrap to true when using 'input-group'
           altFormat: 'M	j, Y',
           altInput: true,
           dateFormat: "Y-m-d",
-          locale: Hindi, // locale for this instance only
-          // You can add hooks
-          onChange: this.onChange,
+          locale: Hindi, // locale for this instance only          
         },                
       }
     },
     components: {
       flatPickr
-    },
-    methods: {
-      onChange (selectedDates, dateStr, instance) {
-        console.log('Date was changed');
-      }
-    }
+    },    
   }
 </script>
 ```
 
-### Props
+## Props
 The component accepts these props
 
 | Attribute    | Required   | Type               | Description      |
 | :---         |  :---:     | :---:              | :---            |
-| v-model      |  Yes       | String OR Date Object OR Array of objects | Set, Get date-picker value |
+| v-model      |  Yes       | String / Date Object / Array | Set or Get date-picker value |
 | config       |  No        | Object             | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
-| placeholder  |  No        | String             | Set placeholder to input |
-| input-class  |  No        | String OR Object   | Add CSS class to input  |
+| placeholder  |  No        | String             | Set placeholder on input |
+| input-class  |  No        | String / Object   | Add CSS class to input  |
 | input-name   |  No        | String             | Set input field name  |
 | required     |  No        | Boolean            | Make input field required |
 
-### Install without webpack (module bundler)
+## Install without webpack (module bundler)
 * Include required files
 ```html
 <!-- Bootstrap is optional -->
@@ -149,10 +152,11 @@ The component accepts these props
   });
 </script>
 ```
-* As of now above example only works in ``flatpickr@next``, [see](https://github.com/chmln/flatpickr/commit/9392c76685b229b545e76abd3b2082da26e3ce60)
+* Unfortunately above example works only in ``flatpickr@next`` version, [see](https://github.com/chmln/flatpickr/commit/9392c76685b229b545e76abd3b2082da26e3ce60)
 
-### Run demo on localhost
+## Run demo on localhost
 * Clone this repo
+* Make sure you have node-js >=6.10
 * Install dependencies
 ``
 npm install
@@ -163,5 +167,5 @@ npm run dev
 ``
 * This should open the demo page at ``http://localhost:9000``
 
-### License
+## License
 [MIT](LICENSE.txt) License

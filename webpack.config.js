@@ -14,7 +14,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['.js', '.jsx', '.vue'],
+    extensions: ['.js', '.jsx', '.json', '.vue']
   },
   entry: './src/index.js',
   // Don't include these in build
@@ -34,10 +34,6 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
-        options: {
-          loaders: {}
-          // other vue-loader options go here
-        }
       },
       {
         test: /\.js$/,
