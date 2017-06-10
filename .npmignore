@@ -1,6 +1,8 @@
-.idea
-.github
-demo
+# Don't publish these files and folders
+/.idea/
+/.github/
+/examples/
+/docs/
 .babelrc
 bower.json
 npm-shrinkwrap.json

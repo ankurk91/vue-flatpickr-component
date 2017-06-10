@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <h1 class="page-header">Vue.js flatPicker Demo</h1>
+    <h1 class="page-header">Vue.js flatPicker Examples</h1>
     <div class="row">
       <div class="col-md-8">
         <form method="post" action="/" onsubmit="return false">
@@ -9,14 +9,14 @@
             <div class="col-md-4">
               <div class="form-group">
                 <button type="button" class="btn btn-default" @click.prevent="setNewDate()">
-                  Set new date
+                  Set new date programmatically
                 </button>
               </div>
             </div>
             <div class="col-md-4">
               <div class="form-group">
                 <button type="button" class="btn btn-default" @click.prevent="updateConfig()">
-                  Change mode
+                  Reactive configs (Change mode)
                 </button>
               </div>
             </div>
@@ -195,7 +195,7 @@
       },
       methods: {
         onChange (selectedDates, dateStr, instance) {
-          console.log('Date change hook');
+          console.log('Date change hook was called');
         }
       },
     }

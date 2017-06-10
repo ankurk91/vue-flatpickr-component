@@ -5,11 +5,11 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  context: __dirname, //home directory for webpack
+  context: __dirname,
   resolve: {
     modules: [
       path.resolve(__dirname, 'src'),
-      path.resolve(__dirname, 'demo'),
+      path.resolve(__dirname, 'examples'),
       'node_modules'
     ],
     alias: {
@@ -18,7 +18,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json', '.vue'],
   },
   entry: {
-    app: './demo/index.js',
+    app: './examples/index.js',
     vendor: ['vue', 'flatpickr', 'jquery', 'bootstrap']
   },
   output: {
@@ -57,7 +57,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       hash: false,
-      template: './demo/index.html',
+      template: './examples/index.html',
       minify: {
         removeComments: false,
         collapseWhitespace: false,
@@ -81,7 +81,7 @@ module.exports = {
   ],
   // Dev server related configs
   devServer: {
-    contentBase: path.resolve(__dirname, 'demo'),
+    contentBase: path.resolve(__dirname, 'examples'),
     port: 9000,
     host: 'localhost',
     open: true,

@@ -10,6 +10,7 @@
   "keywords": [
     "vue",
     "flatpickr",
+    "vue-flatpickr",
     "datepicker"
   ],
   "homepage": "https://github.com/ankurk91/vue-flatpickr-component",
@@ -19,7 +20,8 @@
     "bower_components",
     "test",
     "tests",
-    "demo"
+    "examples",
+    "docs"
   ],
   "dependencies": {
     "flatpickr": "^2.6.3"

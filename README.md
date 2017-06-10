@@ -154,7 +154,7 @@ The component accepts these props
 ```
 * Unfortunately above example works only in ``flatpickr@next`` version, [see](https://github.com/chmln/flatpickr/commit/9392c76685b229b545e76abd3b2082da26e3ce60)
 
-## Run demo on localhost
+## Run examples on your localhost
 * Clone this repo
 * Make sure you have node-js >=6.10
 * Install dependencies
