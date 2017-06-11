@@ -119,26 +119,21 @@ The component accepts these props
 | input-name   |  No        | String             | Set input field name  |
 | required     |  No        | Boolean            | Make input field required |
 
-## Install without webpack (module bundler)
+## Install in non-module environments (without webpack)
 * Include required files
 ```html
-<!-- Bootstrap is optional -->
-<link rel="stylesheet" href="bootstrap.min.css">
 <!-- Flatpickr related files -->
-<link rel="stylesheet" href="flatpickr.min.css">
+<link href="flatpickr.min.css" rel="stylesheet">
 <script src="flatpickr.min.js"></script>
 <!-- Vue js -->
 <script src="vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="vue-flatpickr.min.js"></script>
 ```
-* Use the component anywhere in your app
+* Use the component anywhere in your app like this
 ```html
-<main id="app">
-  <div class="form-group">
-    <label>Select date</label>
-    <flat-pickr v-model="date"></flat-pickr>
-  </div>
+<main id="app">  
+    <flat-pickr v-model="date"></flat-pickr> 
 </main>
 <script>
   //Initialize as global component
@@ -152,7 +147,7 @@ The component accepts these props
   });
 </script>
 ```
-* Unfortunately above example works only in ``flatpickr@next`` version, [see](https://github.com/chmln/flatpickr/commit/9392c76685b229b545e76abd3b2082da26e3ce60)
+* Above example works only in flatPickr v3.x
 
 ## Run examples on your localhost
 * Clone this repo

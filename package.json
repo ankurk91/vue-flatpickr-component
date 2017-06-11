@@ -1,7 +1,7 @@
 {
   "name": "vue-flatpickr-component",
   "version": "1.1.6",
-  "description": "Vue.js component for Flatpickr datetime picker",
+  "description": "Vue.js component for Flatpickr date-time picker",
   "main": "dist/vue-flatpickr.min.js",
   "module": "src/index.js",
   "repository": {
@@ -27,7 +27,7 @@
     "build": "node_modules/webpack/bin/webpack.js --hide-modules -p --progress"
   },
   "dependencies": {
-    "flatpickr": ">=2.6.0"
+    "flatpickr": "^2.6.0 || ^3.0.5"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",

@@ -53,7 +53,7 @@
       };
     },
     mounted () {
-      // Load flatPickr
+      // Load flatPickr if not loaded yet
       if (!this.instance) {
         // Bind on parent element if wrap is true
         let elem = this.config.wrap ? this.$el.parentNode : this.$el;
