@@ -49,35 +49,35 @@
     data () {
       return {
         mutableValue: this.value,
-        instance: null
+        fp: null
       };
     },
     mounted () {
       // Load flatPickr if not loaded yet
-      if (!this.instance) {
+      if (!this.fp) {
         // Bind on parent element if wrap is true
         let elem = this.config.wrap ? this.$el.parentNode : this.$el;
-        this.instance = new Flatpickr(elem, this.config);
+        this.fp = new Flatpickr(elem, this.config);
       }
     },
     beforeDestroy () {
       // Free up memory
-      if (this.instance) {
-        this.instance.destroy();
-        this.instance = null;
+      if (this.fp) {
+        this.fp.destroy();
+        this.fp = null;
       }
     },
     watch: {
       config (newConfig) {
-        this.instance.config = Object.assign(this.instance.config, newConfig);
-        this.instance.redraw();
-        this.instance.setDate(this.value, true);
+        this.fp.config = Object.assign(this.fp.config, newConfig);
+        this.fp.redraw();
+        this.fp.setDate(this.value, true);
       },
       mutableValue (newValue){
         this.$emit('input', newValue);
       },
       value (newValue){
-        this.instance.setDate(newValue, true);
+        this.fp.setDate(newValue, true);
       }
     },
   };
