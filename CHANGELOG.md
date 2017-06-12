@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.2.0
+- Allow flatPickr v3.x stable
+- Rename ``instance`` to ``fp``, if you were accessing it through ``$refs`` this may be a breaking change for you
+
 ## 1.1.3
 - Regenerate build files
 
