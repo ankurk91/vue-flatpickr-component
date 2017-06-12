@@ -14,7 +14,7 @@ npm install vue-flatpickr-component --save
 ```
 
 ## Features
-* Reactive value (v-modal)
+* Reactive ``v-model`` value
     - You can change flatpickr value programmatically 
 * Reactive [config](https://chmln.github.io/flatpickr/options/) options
     - You can change config options dynamically
@@ -149,9 +149,9 @@ The component accepts these props
 ```
 * Above example works only in flatPickr v3.x
 
-## Run examples on your localhost
+### Run examples on your localhost
 * Clone this repo
-* Make sure you have node-js >=6.10
+* Make sure you have node-js >=6.10 and npm >=4.6.1
 * Install dependencies
 ``
 npm install
@@ -162,5 +162,5 @@ npm run dev
 ``
 * This should open the demo page at ``http://localhost:9000``
 
-## License
+### License
 [MIT](LICENSE.txt) License
