@@ -1,6 +1,6 @@
 <template>
   <section class="container">
-    <h1 class="page-header">Vue.js flatPicker Examples</h1>
+    <h1 class="page-header">Vue.js flatPicker examples</h1>
     <div class="row">
       <div class="col-md-8">
         <form method="post" action="/" onsubmit="return false">
@@ -37,7 +37,7 @@
           <div class="form-group">
             <label>Select date (wrap)</label>
             <div class="input-group">
-              <flat-pickr v-model="date"
+              <flat-pickr v-model="dateBasic"
                           placeholder="Select date"
                           :config="configs.wrap"
                           :required="true"
@@ -58,13 +58,13 @@
 
           <div class="form-group">
             <label>Select datetime</label>
-            <flat-pickr :config="configs.dateTimePicker" value="" placeholder="Date Time"></flat-pickr>
+            <flat-pickr :config="configs.dateTimePicker" v-model="dateTime" placeholder="Date Time"></flat-pickr>
           </div>
 
           <div class="form-group">
             <label>Select time</label>
             <div class="input-group">
-              <flat-pickr :config="configs.timePicker" value="" placeholder="Time"></flat-pickr>
+              <flat-pickr :config="configs.timePicker" v-model="time" placeholder="Time"></flat-pickr>
               <div class="input-group-btn">
                 <button class="btn btn-default" type="button" title="Toggle" data-toggle>
                   <i class="glyphicon glyphicon-time"><span aria-hidden="true" class="sr-only">Toggle</span></i>
@@ -75,7 +75,7 @@
 
           <div class="form-group">
             <label>Select date (localization)</label>
-            <flat-pickr :config="configs.locale" value=""></flat-pickr>
+            <flat-pickr :config="configs.locale" v-model="dateLocale"></flat-pickr>
           </div>
 
           <div class="form-group">
@@ -87,7 +87,7 @@
 
           <div class="form-group">
             <label>Select date (inline)</label>
-            <flat-pickr :config="configs.inline" v-model="date"></flat-pickr>
+            <flat-pickr :config="configs.inline" v-model="dateInline"></flat-pickr>
           </div>
 
         </form>
@@ -102,6 +102,9 @@
               <li><a href="https://github.com/ankurk91/vue-flatpickr-component" target="_blank">Github</a></li>
               <li><a href="https://www.npmjs.com/package/vue-flatpickr-component" target="_blank">npm</a></li>
               <li><a href="https://chmln.github.io/flatpickr" rel="noreferrer" target="_blank">Flatpickr</a></li>
+              <li><a
+                href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
+                rel="noreferrer" target="_blank">Vue.js Dev tools</a></li>
             </ul>
           </div>
         </div>
@@ -121,7 +124,7 @@
             <form method="post" action="/" onsubmit="return false">
               <div class="form-group">
                 <label>Select a date</label>
-                <flat-pickr value=""></flat-pickr>
+                <flat-pickr v-model="dateModal"></flat-pickr>
               </div>
             </form>
           </div>
@@ -147,7 +150,13 @@
     name: 'app',
     data (){
       return {
-        date: new Date(),
+        dateBasic: new Date(),
+        dateTime: null,
+        time: null,
+        date: '2018-01-01',
+        dateLocale: null,
+        dateInline: null,
+        dateModal: '',
         configs: {
           basic: {},
           wrap: {
