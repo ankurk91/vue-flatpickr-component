@@ -53,7 +53,6 @@ module.exports = {
     ]
   },
   plugins: [
-    // Minify HTML + Auto inject assets in html
     new HtmlWebpackPlugin({
       inject: true,
       hash: false,
@@ -82,7 +81,7 @@ module.exports = {
   // Dev server related configs
   devServer: {
     contentBase: path.resolve(__dirname, 'examples'),
-    port: 9000,
+    port: 8080,
     host: 'localhost',
     open: true,
     inline: true,

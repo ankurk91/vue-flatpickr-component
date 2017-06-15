@@ -17,7 +17,7 @@ module.exports = {
     extensions: ['.js', '.jsx', '.json', '.vue']
   },
   entry: './src/index.js',
-  // Don't include these in build
+  // Don't include theme into library build
   externals: [
     'vue',
     'flatpickr',

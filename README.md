@@ -11,6 +11,8 @@
 ## Installation
 ```bash
 npm install vue-flatpickr-component --save
+# OR
+yarn add vue-flatpickr-component
 ```
 
 ## Features
@@ -27,12 +29,12 @@ npm install vue-flatpickr-component --save
 **Minimal example**
 ```html
 <template>
-  <section>
+  <div>
     <flat-pickr v-model="date"></flat-pickr>
-  </section>
+  </div>
 </template>
 
-<script type="text/javascript">
+<script>
   import flatPickr from 'vue-flatpickr-component';
  
   export default {    
@@ -75,7 +77,7 @@ npm install vue-flatpickr-component --save
   </section>
 </template>
 
-<script type="text/javascript">
+<script>
   import flatPickr from 'vue-flatpickr-component';
   import 'bootstrap/dist/css/bootstrap.css';
   
@@ -128,7 +130,7 @@ The component accepts these props
 <!-- Vue js -->
 <script src="vue.min.js"></script>
 <!-- Lastly add this package -->
-<script src="vue-flatpickr.min.js"></script>
+<script src="https://unpkg.com/vue-flatpickr-component@1.2.0/dist/vue-flatpickr.min.js"></script>
 ```
 * Use the component anywhere in your app like this
 ```html
@@ -160,7 +162,7 @@ npm install
 ``
 npm run dev
 ``
-* This should open the demo page at ``http://localhost:9000``
+* This should open the demo page at ``http://localhost:8080``
 
 ### License
 [MIT](LICENSE.txt) License
