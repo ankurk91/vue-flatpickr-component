@@ -1,6 +1,6 @@
 {
   "name": "vue-flatpickr-component",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Vue.js component for Flatpickr date-time picker",
   "main": "dist/vue-flatpickr.min.js",
   "module": "src/index.js",
