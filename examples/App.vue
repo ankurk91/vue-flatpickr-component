@@ -3,7 +3,7 @@
     <h1 class="page-header">Vue.js flatPicker examples</h1>
     <div class="row">
       <div class="col-md-8">
-        <form method="post" action="/" onsubmit="return false">
+        <form method="post" action="/" @submit.prevent="submit()">
 
           <div class="row">
             <div class="col-md-4">
@@ -90,6 +90,19 @@
             <flat-pickr :config="configs.inline" v-model="dateInline"></flat-pickr>
           </div>
 
+          <div class="form-group" :class="{'has-error' : errors.has('date-of-birth')}">
+            <label>Select date (vee-validate)</label>
+            <flat-pickr v-model="dateValidate"
+                        data-vv-name="date-of-birth"
+                        v-validate="{required:true}"
+                        placeholder="Date of birth"
+            ></flat-pickr>
+            <span v-show="errors.has('date-of-birth')" class="help-block">{{ errors.first('date-of-birth') }}</span>
+          </div>
+
+          <hr>
+          <button class="btn btn-primary" type="submit">Validate form</button>
+
         </form>
       </div>
       <aside class="col-md-4">
@@ -105,6 +118,7 @@
               <li><a
                 href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
                 rel="noreferrer" target="_blank">Vue.js Dev tools</a></li>
+              <li><a href="https://github.com/logaretm/vee-validate" target="_blank">vee-validate</a></li>
             </ul>
           </div>
         </div>
@@ -157,6 +171,7 @@
         dateLocale: null,
         dateInline: null,
         dateModal: '',
+        dateValidate: null,
         configs: {
           basic: {},
           wrap: {
@@ -202,11 +217,17 @@
       changeTheme(){
         require('flatpickr/dist/themes/material_blue.css');
       },
-      methods: {
-        onChange (selectedDates, dateStr, instance) {
-          console.log('Date change hook was called');
-        }
+      onChange (selectedDates, dateStr, instance) {
+        console.log('Date change hook was called');
       },
+      submit: function () {
+        console.log('Form submit event');
+        // http://vee-validate.logaretm.com/examples.html#component-example
+        this.$validator.validateAll().then(result => {
+          // eslint-disable-next-line
+          alert(`Validation Result: ${result}`);
+        });
+      }
     }
   }
 </script>

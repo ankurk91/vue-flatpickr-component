@@ -3,6 +3,10 @@
 import Vue from 'vue';
 Vue.config.productionTip = false;
 
+// vee-validate is just for demo
+import VeeValidate from 'vee-validate';
+Vue.use(VeeValidate);
+
 window.$ = window.jQuery = require('jquery');
 require('bootstrap');
 import 'bootstrap/dist/css/bootstrap.css';

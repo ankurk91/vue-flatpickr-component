@@ -1,6 +1,6 @@
 {
   "name": "vue-flatpickr-component",
-  "version": "1.1.6",
+  "version": "1.2.1",
   "dependencies": {
     "abbrev": {
       "version": "1.1.0",
@@ -3490,6 +3490,12 @@
       "version": "1.1.1",
       "from": "vary@>=1.1.0 <1.2.0",
       "resolved": "https://registry.npmjs.org/vary/-/vary-1.1.1.tgz",
+      "dev": true
+    },
+    "vee-validate": {
+      "version": "2.0.0-rc.5",
+      "from": "vee-validate@latest",
+      "resolved": "https://registry.npmjs.org/vee-validate/-/vee-validate-2.0.0-rc.5.tgz",
       "dev": true
     },
     "vendors": {
