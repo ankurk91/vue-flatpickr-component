@@ -69,7 +69,9 @@ yarn add vue-flatpickr-component
         </flat-pickr>
         <div class="input-group-btn">
           <button class="btn btn-default" type="button" title="Toggle" data-toggle>
-            <i class="glyphicon glyphicon-calendar"><span aria-hidden="true" class="sr-only">Toggle</span></i>
+            <i class="glyphicon glyphicon-calendar">
+              <span aria-hidden="true" class="sr-only">Toggle</span>
+            </i>
           </button>
         </div>
       </div>
@@ -84,7 +86,7 @@ yarn add vue-flatpickr-component
   
   // Theme is optional
   import 'flatpickr/dist/themes/material_blue.css';
-  // Locale is optional
+  // l10n is optional
   const Hindi = require("flatpickr/dist/l10n/hi.js").hi;
   
   export default {
@@ -131,7 +133,7 @@ The component accepts these props
 <!-- Vue js -->
 <script src="vue.min.js"></script>
 <!-- Lastly add this package -->
-<script src="https://unpkg.com/vue-flatpickr-component@1.2.0/dist/vue-flatpickr.min.js"></script>
+<script src="https://unpkg.com/vue-flatpickr-component"></script>
 ```
 * Use the component anywhere in your app like this
 ```html
