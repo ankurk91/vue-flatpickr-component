@@ -3,41 +3,42 @@
     <h1 class="page-header">Vue.js flatPicker examples</h1>
     <div class="row">
       <div class="col-md-8">
-        <form method="post" action="/" @submit.prevent="submit()">
 
-          <div class="row">
-            <div class="col-md-4">
-              <div class="form-group">
-                <button type="button" class="btn btn-default" @click.prevent="setNewDate()">
-                  Set new date programmatically
-                </button>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <button type="button" class="btn btn-default" @click.prevent="updateConfig()">
-                  Reactive configs (Change mode)
-                </button>
-              </div>
-            </div>
-            <div class="col-md-4">
-              <div class="form-group">
-                <button type="button" class="btn btn-default" @click.prevent="changeTheme()">
-                  Change theme to blue
-                </button>
-              </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="form-group">
+              <button type="button" class="btn btn-default" @click.prevent="setNewDate()">
+                Set new date programmatically
+              </button>
             </div>
           </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <button type="button" class="btn btn-default" @click.prevent="updateConfig()">
+                Reactive configs (Change mode)
+              </button>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="form-group">
+              <button type="button" class="btn btn-default" @click.prevent="changeTheme()">
+                Change theme to blue
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <form method="post" action="/" @submit.prevent="submit()">
 
           <div class="form-group">
             <label>Select date (basic)</label>
-            <flat-pickr v-model="date" :config="configs.basic"></flat-pickr>
+            <flat-pickr v-model="form.dateBasic" :config="configs.basic"></flat-pickr>
           </div>
 
           <div class="form-group">
             <label>Select date (wrap)</label>
             <div class="input-group">
-              <flat-pickr v-model="dateBasic"
+              <flat-pickr v-model="form.date"
                           placeholder="Select date"
                           :config="configs.wrap"
                           :required="true"
@@ -58,13 +59,13 @@
 
           <div class="form-group">
             <label>Select datetime</label>
-            <flat-pickr :config="configs.dateTimePicker" v-model="dateTime" placeholder="Date Time"></flat-pickr>
+            <flat-pickr :config="configs.dateTimePicker" v-model="form.dateTime" placeholder="Date Time"></flat-pickr>
           </div>
 
           <div class="form-group">
             <label>Select time</label>
             <div class="input-group">
-              <flat-pickr :config="configs.timePicker" v-model="time" placeholder="Time"></flat-pickr>
+              <flat-pickr :config="configs.timePicker" v-model="form.time" placeholder="Time"></flat-pickr>
               <div class="input-group-btn">
                 <button class="btn btn-default" type="button" title="Toggle" data-toggle>
                   <i class="glyphicon glyphicon-time"><span aria-hidden="true" class="sr-only">Toggle</span></i>
@@ -75,7 +76,7 @@
 
           <div class="form-group">
             <label>Select date (localization)</label>
-            <flat-pickr :config="configs.locale" v-model="dateLocale"></flat-pickr>
+            <flat-pickr :config="configs.locale" v-model="form.dateLocale"></flat-pickr>
           </div>
 
           <div class="form-group">
@@ -87,12 +88,12 @@
 
           <div class="form-group">
             <label>Select date (inline)</label>
-            <flat-pickr :config="configs.inline" v-model="dateInline"></flat-pickr>
+            <flat-pickr :config="configs.inline" v-model="form.dateInline"></flat-pickr>
           </div>
 
           <div class="form-group" :class="{'has-error' : errors.has('date-of-birth')}">
             <label>Select date (vee-validate)</label>
-            <flat-pickr v-model="dateValidate"
+            <flat-pickr v-model="form.dateValidate"
                         data-vv-name="date-of-birth"
                         v-validate="{required:true}"
                         placeholder="Date of birth"
@@ -138,7 +139,7 @@
             <form method="post" action="/" onsubmit="return false">
               <div class="form-group">
                 <label>Select a date</label>
-                <flat-pickr v-model="dateModal"></flat-pickr>
+                <flat-pickr v-model="form.dateModal"></flat-pickr>
               </div>
             </form>
           </div>
@@ -157,21 +158,23 @@
   import flatPickr from '../src/index';
   // Theme is optional
   import 'flatpickr/dist/themes/material_orange.css';
-  // Locale is optional
+  // l10n is optional
   const Hindi = require("flatpickr/dist/l10n/hi.js").hi;
 
   export default {
     name: 'app',
     data (){
       return {
-        dateBasic: new Date(),
-        dateTime: null,
-        time: null,
-        date: '2018-01-01',
-        dateLocale: null,
-        dateInline: null,
-        dateModal: '',
-        dateValidate: null,
+        form: {
+          dateBasic: new Date(),
+          dateTime: null,
+          time: null,
+          date: '2017-01-01',
+          dateLocale: null,
+          dateInline: null,
+          dateModal: '',
+          dateValidate: null,
+        },
         configs: {
           basic: {},
           wrap: {
@@ -206,7 +209,7 @@
     methods: {
       setNewDate(){
         console.log('Set new date');
-        this.date = '2018-01-01';
+        this.form.dateBasic = '2018-12-01';
       },
       updateConfig(){
         console.log('Update config');
@@ -220,8 +223,9 @@
       onChange (selectedDates, dateStr, instance) {
         console.log('Date change hook was called');
       },
-      submit: function () {
+      submit () {
         console.log('Form submit event');
+        console.log(this.form);
         // http://vee-validate.logaretm.com/examples.html#component-example
         this.$validator.validateAll().then(result => {
           // eslint-disable-next-line

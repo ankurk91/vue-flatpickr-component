@@ -13,13 +13,14 @@
 
 <script type="text/javascript">
   import Flatpickr from 'flatpickr';
+  // You have to configure webpack to load css
   import 'flatpickr/dist/flatpickr.css';
 
   export default {
     props: {
       value: {
         // Don't validate
-        value: null,
+        default: null,
         required: true
       },
       // https://chmln.github.io/flatpickr/options/
