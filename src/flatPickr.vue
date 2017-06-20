@@ -68,21 +68,33 @@
       }
     },
     watch: {
+      /**
+       * Watch for any config changes and redraw date-picker
+       *
+       * @param newConfig
+       */
       config (newConfig) {
         this.fp.config = Object.assign(this.fp.config, newConfig);
         this.fp.redraw();
         this.fp.setDate(this.value, true);
       },
+      /**
+       * Watch for value changed by date-picker itself and notify parent component
+       *
+       * @param newValue
+       */
       mutableValue (newValue){
         this.$emit('input', newValue);
       },
+      /**
+       * Watch for changes from parent component and update DOM
+       *
+       * @param newValue
+       */
       value (newValue){
-        this.fp.setDate(newValue, true);
+        this.fp && this.fp.setDate(newValue, true);
       }
     },
   };
 </script>
 
-<style scoped>
-  /* Any scoped css may go here*/
-</style>
