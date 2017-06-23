@@ -22,7 +22,7 @@
           <div class="col-md-4">
             <div class="form-group">
               <button type="button" class="btn btn-default" @click.prevent="changeTheme()">
-                Change theme to blue
+                Change theme
               </button>
             </div>
           </div>
@@ -81,7 +81,7 @@
 
           <div class="form-group">
             <label>Works in modals as well </label>
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#date-modal">Open in
+            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#date-modal">Open in
               modal
             </button>
           </div>
@@ -157,7 +157,7 @@
 <script type="text/javascript">
   import flatPickr from '../src/index';
   // Theme is optional
-  import 'flatpickr/dist/themes/material_orange.css';
+  require('flatpickr/dist/themes/material_blue.css');
   // l10n is optional
   const Hindi = require("flatpickr/dist/l10n/hi.js").hi;
 
@@ -218,7 +218,7 @@
         };
       },
       changeTheme(){
-        require('flatpickr/dist/themes/material_blue.css');
+        require('flatpickr/dist/themes/material_orange.css');
       },
       onChange (selectedDates, dateStr, instance) {
         console.log('Date change hook was called');
