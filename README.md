@@ -117,7 +117,7 @@ The component accepts these props
 
 | Attribute    | Required   | Type               | Description      |
 | :---         |  :---:     | :---:              | :---            |
-| v-model      |  Yes       | String / Date Object / Array | Set or Get date-picker value |
+| v-model      |  Yes       | String / Date Object / Array / null | Set or Get date-picker value |
 | config       |  No        | Object             | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
 | placeholder  |  No        | String             | Set placeholder on input |
 | input-class  |  No        | String / Object   | Add CSS class to input  |
