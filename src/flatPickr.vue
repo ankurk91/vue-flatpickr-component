@@ -19,9 +19,11 @@
   export default {
     props: {
       value: {
-        // Don't validate
         default: null,
-        required: true
+        required: true,
+        validate (value){
+          return value === null || value instanceof Date || typeof value === 'string' || value instanceof Array
+        }
       },
       // https://chmln.github.io/flatpickr/options/
       config: {
@@ -72,7 +74,7 @@
       /**
        * Watch for any config changes and redraw date-picker
        *
-       * @param newConfig
+       * @param newConfig Object
        */
       config (newConfig) {
         this.fp.config = Object.assign(this.fp.config, newConfig);
