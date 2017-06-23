@@ -27,7 +27,7 @@
     "build": "node_modules/webpack/bin/webpack.js --hide-modules -p --progress"
   },
   "dependencies": {
-    "flatpickr": "^2.6.0 || ^3.0.5"
+    "flatpickr": "^2.6.0 || ^3.0.6"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
