@@ -22,7 +22,7 @@
         default: null,
         required: true,
         validate (value){
-          return value === null || value instanceof Date || typeof value === 'string' || value instanceof Array
+          return value === null || value instanceof Date || typeof value === 'string' || value instanceof String || value instanceof Array
         }
       },
       // https://chmln.github.io/flatpickr/options/
@@ -34,7 +34,7 @@
       },
       placeholder: {
         type: String,
-        default: 'Pick a date'
+        default: ''
       },
       inputClass: {
         type: [String, Object],
@@ -86,7 +86,7 @@
        *
        * @param newValue
        */
-      mutableValue (newValue){
+      mutableValue (newValue) {
         this.$emit('input', newValue);
       },
       /**
@@ -94,7 +94,7 @@
        *
        * @param newValue
        */
-      value (newValue){
+      value (newValue) {
         this.fp && this.fp.setDate(newValue, true);
       }
     },
