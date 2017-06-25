@@ -1,8 +1,10 @@
 # Contributing
 
 ###  Issue reporting
-* If the issue is related to flatpickr then report that issue on [flatpickr](https://github.com/chmln/flatpickr/issues) repo instead
+* If the issue is related to flatPickr then report that issue on [flatpickr](https://github.com/chmln/flatpickr/issues) repo instead
+    - Issues those are related to flatPickr may be closed without any reason
 * Follow ISSUE_TEMPLATE  
+
 
 ### Pull requests guidelines
 * Checkout a topic branch from the relevant branch, and merge back against that branch.
