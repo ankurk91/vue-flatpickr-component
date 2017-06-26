@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.0 (unreleased)
+## 2.0.0 (breaking)
 - Rename `input-name` prop to `name`
 - No longer support flatpickr v2.x, always pull v3.x
 - No longer importing flatpickr css, you need to import css by yourself, see examples
