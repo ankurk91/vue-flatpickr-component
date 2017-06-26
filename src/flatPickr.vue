@@ -42,7 +42,7 @@
       },
       inputName: {
         type: String,
-        default: 'date'
+        default: 'date-time'
       },
       required: {
         type: Boolean,
