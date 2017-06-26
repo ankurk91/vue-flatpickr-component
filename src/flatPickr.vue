@@ -3,7 +3,7 @@
   <input type="text"
          class="form-control input"
          :class="inputClass"
-         :name="inputName"
+         :name="name"
          :placeholder="placeholder"
          :required="required"
          v-model="mutableValue"
@@ -40,7 +40,7 @@
         type: [String, Object],
         default: ''
       },
-      inputName: {
+      name: {
         type: String,
         default: 'date-time'
       },

@@ -1,5 +1,8 @@
 # Changelog
 
+## 2.0.0 (unreleased)
+- Rename `input-name` prop to `name`
+
 ## 1.2.4
 - Improve value prop validation
 

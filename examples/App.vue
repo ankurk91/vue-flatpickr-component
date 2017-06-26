@@ -43,7 +43,7 @@
                           :config="configs.wrap"
                           :required="true"
                           input-class="date-input-class"
-                          input-name="date-input-name"
+                          name="date-name"
               >
               </flat-pickr>
               <div class="input-group-btn">
@@ -94,7 +94,7 @@
           <div class="form-group" :class="{'has-error' : errors.has('date-of-birth')}">
             <label>Select date (vee-validate)</label>
             <flat-pickr v-model="form.dateValidate"
-                        data-vv-name="date-of-birth"
+                        name="date-of-birth"
                         v-validate="{required:true}"
                         placeholder="Date of birth"
             ></flat-pickr>

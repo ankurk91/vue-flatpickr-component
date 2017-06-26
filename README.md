@@ -65,7 +65,7 @@ yarn add vue-flatpickr-component
                 :config="config"
                 :required="true"
                 input-class="date-input"
-                input-name="date">
+                name="date">
         </flat-pickr>
         <div class="input-group-btn">
           <button class="btn btn-default" type="button" title="Toggle" data-toggle>
@@ -121,7 +121,7 @@ The component accepts these props
 | config           | Object                             | `{wrap:false}`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
 | placeholder      | String                             | `''`                  | Set placeholder on input |
 | input-class      | String / Object                    | `''`                  | Add CSS class to input  |
-| input-name       | String                             | `'date-time'`          | Set input field name  |
+| name       | String                             | `'date-time'`          | Set input field name  |
 | required         | Boolean                            | `false`              | Make input field required |
 
 
