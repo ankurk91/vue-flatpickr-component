@@ -1,7 +1,10 @@
 # Changelog
 
+## 1.2.4
+- Improve value prop validation
+
 ## 1.2.3
-- Validate v-model
+- Add value prop validation
 
 ## 1.2.0
 - Allow flatPickr v3.x stable
