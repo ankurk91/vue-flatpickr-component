@@ -153,7 +153,6 @@ The component accepts these props
   });
 </script>
 ```
-* Above example works only in flatPickr v3.x
 
 ### Run examples on your localhost
 * Clone this repo
