@@ -37,7 +37,8 @@ yarn add vue-flatpickr-component
 
 <script>
   import flatPickr from 'vue-flatpickr-component';
- 
+  import 'flatpickr/dist/flatpickr.css';
+  
   export default {    
     data () {
       return {
@@ -83,7 +84,7 @@ yarn add vue-flatpickr-component
 <script>
   import flatPickr from 'vue-flatpickr-component';
   import 'bootstrap/dist/css/bootstrap.css';
-  
+  import 'flatpickr/dist/flatpickr.css';
   // Theme is optional
   import 'flatpickr/dist/themes/material_blue.css';
   // l10n is optional
@@ -129,10 +130,10 @@ The component accepts these props
 * Include required files
 ```html
 <!-- Flatpickr related files -->
-<link href="flatpickr.min.css" rel="stylesheet">
-<script src="flatpickr.min.js"></script>
+<link href="https://unpkg.com/flatpickr@3.0.6/dist/flatpickr.min.css" rel="stylesheet">
+<script src="https://unpkg.com/flatpickr@3.0.6/dist/flatpickr.min.js"></script>
 <!-- Vue js -->
-<script src="vue.min.js"></script>
+<script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="https://unpkg.com/vue-flatpickr-component"></script>
 ```

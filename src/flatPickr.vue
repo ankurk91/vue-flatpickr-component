@@ -13,8 +13,7 @@
 
 <script type="text/javascript">
   import Flatpickr from 'flatpickr';
-  // You have to configure webpack to load css
-  import 'flatpickr/dist/flatpickr.css';
+  // You have to css yourself
 
   export default {
     props: {

@@ -157,7 +157,8 @@
 
 <script type="text/javascript">
   import flatPickr from '../src/index';
-
+  // Need to add base css for flatpickr
+  import 'flatpickr/dist/flatpickr.css';
   // l10n is optional
   const Hindi = require("flatpickr/dist/l10n/hi.js").hi;
 
