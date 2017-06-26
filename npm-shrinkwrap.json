@@ -1,6 +1,6 @@
 {
   "name": "vue-flatpickr-component",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "dependencies": {
     "abbrev": {
       "version": "1.1.0",
@@ -247,9 +247,9 @@
       "dev": true
     },
     "babel-loader": {
-      "version": "7.0.0",
-      "from": "babel-loader@7.0.0",
-      "resolved": "https://registry.npmjs.org/babel-loader/-/babel-loader-7.0.0.tgz",
+      "version": "7.1.0",
+      "from": "babel-loader@>=7.1.0 <8.0.0",
+      "resolved": "https://registry.npmjs.org/babel-loader/-/babel-loader-7.1.0.tgz",
       "dev": true,
       "dependencies": {
         "loader-utils": {
@@ -1329,9 +1329,9 @@
       }
     },
     "find-cache-dir": {
-      "version": "0.1.1",
-      "from": "find-cache-dir@>=0.1.1 <0.2.0",
-      "resolved": "https://registry.npmjs.org/find-cache-dir/-/find-cache-dir-0.1.1.tgz",
+      "version": "1.0.0",
+      "from": "find-cache-dir@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/find-cache-dir/-/find-cache-dir-1.0.0.tgz",
       "dev": true
     },
     "find-up": {
@@ -1925,6 +1925,20 @@
       "resolved": "https://registry.npmjs.org/loader-utils/-/loader-utils-0.2.17.tgz",
       "dev": true
     },
+    "locate-path": {
+      "version": "2.0.0",
+      "from": "locate-path@>=2.0.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/locate-path/-/locate-path-2.0.0.tgz",
+      "dev": true,
+      "dependencies": {
+        "path-exists": {
+          "version": "3.0.0",
+          "from": "path-exists@>=3.0.0 <4.0.0",
+          "resolved": "https://registry.npmjs.org/path-exists/-/path-exists-3.0.0.tgz",
+          "dev": true
+        }
+      }
+    },
     "lodash": {
       "version": "4.17.4",
       "from": "lodash@>=4.2.0 <5.0.0",
@@ -1977,6 +1991,12 @@
       "version": "0.2.8",
       "from": "macaddress@>=0.2.8 <0.3.0",
       "resolved": "https://registry.npmjs.org/macaddress/-/macaddress-0.2.8.tgz",
+      "dev": true
+    },
+    "make-dir": {
+      "version": "1.0.0",
+      "from": "make-dir@>=1.0.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/make-dir/-/make-dir-1.0.0.tgz",
       "dev": true
     },
     "math-expression-evaluator": {
@@ -2269,6 +2289,18 @@
       "resolved": "https://registry.npmjs.org/os-tmpdir/-/os-tmpdir-1.0.2.tgz",
       "dev": true
     },
+    "p-limit": {
+      "version": "1.1.0",
+      "from": "p-limit@>=1.1.0 <2.0.0",
+      "resolved": "https://registry.npmjs.org/p-limit/-/p-limit-1.1.0.tgz",
+      "dev": true
+    },
+    "p-locate": {
+      "version": "2.0.0",
+      "from": "p-locate@>=2.0.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/p-locate/-/p-locate-2.0.0.tgz",
+      "dev": true
+    },
     "pako": {
       "version": "0.2.9",
       "from": "pako@>=0.2.0 <0.3.0",
@@ -2366,10 +2398,18 @@
       "dev": true
     },
     "pkg-dir": {
-      "version": "1.0.0",
-      "from": "pkg-dir@>=1.0.0 <2.0.0",
-      "resolved": "https://registry.npmjs.org/pkg-dir/-/pkg-dir-1.0.0.tgz",
-      "dev": true
+      "version": "2.0.0",
+      "from": "pkg-dir@>=2.0.0 <3.0.0",
+      "resolved": "https://registry.npmjs.org/pkg-dir/-/pkg-dir-2.0.0.tgz",
+      "dev": true,
+      "dependencies": {
+        "find-up": {
+          "version": "2.1.0",
+          "from": "find-up@>=2.1.0 <3.0.0",
+          "resolved": "https://registry.npmjs.org/find-up/-/find-up-2.1.0.tgz",
+          "dev": true
+        }
+      }
     },
     "portfinder": {
       "version": "1.0.13",
@@ -3493,9 +3533,9 @@
       "dev": true
     },
     "vee-validate": {
-      "version": "2.0.0-rc.5",
-      "from": "vee-validate@latest",
-      "resolved": "https://registry.npmjs.org/vee-validate/-/vee-validate-2.0.0-rc.5.tgz",
+      "version": "2.0.0-rc.6",
+      "from": "vee-validate@>=2.0.0-rc.6 <3.0.0",
+      "resolved": "https://registry.npmjs.org/vee-validate/-/vee-validate-2.0.0-rc.6.tgz",
       "dev": true
     },
     "vendors": {
@@ -3610,7 +3650,7 @@
     },
     "webpack-dev-server": {
       "version": "2.4.5",
-      "from": "webpack-dev-server@>=2.4.2 <3.0.0",
+      "from": "webpack-dev-server@2.4.5",
       "resolved": "https://registry.npmjs.org/webpack-dev-server/-/webpack-dev-server-2.4.5.tgz",
       "dev": true,
       "dependencies": {
