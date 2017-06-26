@@ -141,6 +141,7 @@
                 <label>Select a date</label>
                 <flat-pickr v-model="form.dateModal"></flat-pickr>
               </div>
+              <pre>{{form.dateModal}}</pre>
             </form>
           </div>
           <div class="modal-footer">
@@ -156,8 +157,7 @@
 
 <script type="text/javascript">
   import flatPickr from '../src/index';
-  // Theme is optional
-  require('flatpickr/dist/themes/material_blue.css');
+
   // l10n is optional
   const Hindi = require("flatpickr/dist/l10n/hi.js").hi;
 
@@ -194,7 +194,9 @@
             dateFormat: 'd-m-Y H:i'
           },
           locale: {
+            // https://chmln.github.io/flatpickr/localization/
             locale: Hindi,
+            // https://chmln.github.io/flatpickr/events/
             onChange: this.onChange
           },
           inline: {
@@ -218,7 +220,7 @@
         };
       },
       changeTheme(){
-        require('flatpickr/dist/themes/material_orange.css');
+        require('flatpickr/dist/themes/material_blue.css');
       },
       onChange (selectedDates, dateStr, instance) {
         console.log('Date change hook was called');
@@ -229,7 +231,7 @@
         // http://vee-validate.logaretm.com/examples.html#component-example
         this.$validator.validateAll().then(result => {
           // eslint-disable-next-line
-          alert(`Validation Result: ${result}`);
+          alert(`Form validation result: ${result}`);
         });
       }
     }
