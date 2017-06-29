@@ -10,9 +10,6 @@
 *.sublime-*
 .brackets.json
 _notes
-.tmproj
-.gradle/
-.settings/
 
 # logs and cache
 /logs/
@@ -68,3 +65,4 @@ composer.phar
 *.key
 
 # Project related
+*.tgz
