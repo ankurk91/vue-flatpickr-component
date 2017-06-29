@@ -9,11 +9,13 @@
 .eslintignore
 .eslintrc
 .gitattributes
-.gitignore
+/.gitignore
+.npmignore
 
 bower.json
 npm-shrinkwrap.json
 package-lock.json
+yarn.lock
 
 CONTRIBUTING.md
 
