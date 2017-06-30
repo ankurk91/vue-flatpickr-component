@@ -13,7 +13,7 @@
 
 <script type="text/javascript">
   import Flatpickr from 'flatpickr';
-  // You have to css yourself
+  // You have to import css yourself
 
   export default {
     props: {
