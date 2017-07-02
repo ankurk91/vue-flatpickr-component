@@ -49,5 +49,9 @@
   },
   "peerDependencies": {
     "vue": "^2.0.0"
+  },
+  "engines": {
+    "node": ">= 4.2.0",
+    "npm": ">= 3.0.0"
   }
 }
