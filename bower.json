@@ -24,7 +24,7 @@
     "docs"
   ],
   "dependencies": {
-    "flatpickr": "^2.6.0 || ^3.0.5",
-    "vue": ">=2.x"
+    "flatpickr": "^3.0.5",
+    "vue": "^2.0.0"
   }
 }
