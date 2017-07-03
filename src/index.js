@@ -1,6 +1,6 @@
 import component from './flatPickr.vue';
 
-const plugin = {
+const flatPickrPlugin = {
   install: (Vue, options) => {
     Vue.component('flat-pickr', component);
     require('flatpickr/dist/flatpickr.css');
@@ -8,4 +8,4 @@ const plugin = {
 };
 
 export default component;
-export {component, plugin};
+export {component, flatPickrPlugin};
