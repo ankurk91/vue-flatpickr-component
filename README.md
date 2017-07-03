@@ -82,10 +82,12 @@ yarn add vue-flatpickr-component
 </template>
 
 <script>
-  import flatPickr from 'vue-flatpickr-component';
+  // bootstrap is just for this example
   import 'bootstrap/dist/css/bootstrap.css';
+  // import this component
+  import flatPickr from 'vue-flatpickr-component';  
   import 'flatpickr/dist/flatpickr.css';
-  // Theme is optional
+  // theme is optional
   import 'flatpickr/dist/themes/material_blue.css';
   // l10n is optional
   const Hindi = require("flatpickr/dist/l10n/hi.js").hi;
@@ -122,8 +124,8 @@ The component accepts these props
 | config           | Object                             | `{wrap:false}`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
 | placeholder      | String                             | `''`                  | Set placeholder on input |
 | input-class      | String / Object                    | `''`                  | Add CSS class to input  |
-| name       | String                             | `'date-time'`          | Set input field name  |
-| required         | Boolean                            | `false`              | Make input field required |
+| name             | String                             | `'date-time'`         | Set input field name  |
+| required         | Boolean                            | `false`               | Make input field required |
 
 
 ## Install in non-module environments (without webpack)
