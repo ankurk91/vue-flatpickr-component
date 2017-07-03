@@ -1,17 +1,19 @@
 # Vue-flatPickr
 
-> Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
-
-[![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://github.com/ankurk91/vue-flatpickr-component/)
+[![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://vuejs.org/)
 [![downloads](https://img.shields.io/npm/dt/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
 [![npm-version](https://img.shields.io/npm/v/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
 [![github-tag](https://img.shields.io/github/tag/ankurk91/vue-flatpickr-component.svg?maxAge=1800)](https://github.com/ankurk91/vue-flatpickr-component/)
 [![license](https://img.shields.io/github/license/ankurk91/vue-flatpickr-component.svg?maxAge=1800)]()
 
+Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
+
 ## Installation
 ```bash
+# npm
 npm install vue-flatpickr-component --save
-# OR
+
+# Yarn
 yarn add vue-flatpickr-component
 ```
 
@@ -27,7 +29,7 @@ yarn add vue-flatpickr-component
 * Play nice with [vee-validate](https://github.com/logaretm/vee-validate) validation library
 
 ## Usage
-**Minimal example**
+#### Minimal example
 ```html
 <template>
   <div>
@@ -52,8 +54,8 @@ yarn add vue-flatpickr-component
 </script>
 ```
 
-**Detailed example**
-* This example is based on Bootstrap 3 [input group](http://getbootstrap.com/components/#input-groups)
+#### Detailed example
+This example is based on Bootstrap 3 [input group](http://getbootstrap.com/components/#input-groups)
 ```html
 <template>
   <section>
@@ -115,7 +117,7 @@ yarn add vue-flatpickr-component
 </script>
 ```
 
-**As plugin**
+#### As plugin
 ```js
   import Vue from 'vue';
   import {flatPickrPlugin} from 'vue-flatpickr-component';  
@@ -123,17 +125,17 @@ yarn add vue-flatpickr-component
 ```
 This will register a global component `<flat-pickr>` and also import required css file.
 
-## Props
-The component accepts these props
+## Available props
+The component accepts these props:
 
 | Attribute        | Type                               | Default              | Description      |
 | :---             | :---:                              | :---:                | :---             |
 | v-model / value  | String / Date Object / Array / null| `null`               | Set or Get date-picker value (required) |
 | config           | Object                             | `{wrap:false}`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
-| placeholder      | String                             | `''`                  | Set placeholder on input |
-| input-class      | String / Object                    | `''`                  | Add CSS class to input  |
-| name             | String                             | `'date-time'`         | Set input field name  |
-| required         | Boolean                            | `false`               | Make input field required |
+| placeholder      | String                             | `''`                 | Set placeholder on input |
+| input-class      | String / Object                    | `''`                 | Add CSS class to input  |
+| name             | String                             | `'date-time'`        | Set input field name  |
+| required         | Boolean                            | `false`              | Make input field required |
 
 
 ## Install in non-module environments (without webpack)
@@ -165,7 +167,7 @@ The component accepts these props
 </script>
 ```
 
-### Run examples on your localhost
+## Run examples on your localhost
 * Clone this repo
 * Make sure you have node-js >=6.10 and npm >=4.6.1
 * Install dependencies
@@ -176,7 +178,10 @@ npm install
 ``
 npm run dev
 ``
-* This should open the demo page at ``http://localhost:8080``
+* This should open the demo page at ``http://localhost:8080`` in your default web browser
 
-### License
+## Changelog
+Changelog for each release can found [here](CHANGELOG.md)
+
+## License
 [MIT](LICENSE.txt) License
