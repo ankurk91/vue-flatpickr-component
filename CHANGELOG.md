@@ -1,7 +1,7 @@
 # Changelog
 
-## 2.0.1 (unreleased) 
-- Expose ``install`` method
+## 2.1.0  
+- Expose ``install`` method, so that now you can use this package as a [plugin](https://vuejs.org/v2/guide/plugins.html)
 
 ## 2.0.0 (breaking)
 - Rename `input-name` prop to `name`

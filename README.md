@@ -115,6 +115,14 @@ yarn add vue-flatpickr-component
 </script>
 ```
 
+**As plugin**
+```js
+  import Vue from 'vue';
+  import {flatPickrPlugin} from 'vue-flatpickr-component';  
+  Vue.use(flatPickrPlugin);
+```
+This will register a global component `<flat-pickr>` and also import required css file.
+
 ## Props
 The component accepts these props
 
