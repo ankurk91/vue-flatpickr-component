@@ -1,6 +1,19 @@
 <template>
+
   <section class="container">
-    <h1 class="page-header">Vue.js flatPicker examples</h1>
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Vue-flatPickr Demo</a>
+        </div>
+
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="https://www.npmjs.com/package/vue-flatpickr-component" target="_blank"> npm</a></li>
+          <li><a href="https://github.com/ankurk91/vue-flatpickr-component" target="_blank"> Github</a></li>
+        </ul>
+      </div>
+    </nav>
+
     <div class="row">
       <div class="col-md-8">
 
@@ -102,10 +115,14 @@
           </div>
 
           <hr>
-          <button class="btn btn-primary" type="submit">Validate form</button>
+
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Validate form</button>
+          </div>
 
         </form>
       </div>
+
       <aside class="col-md-4">
         <div class="panel panel-info">
           <div class="panel-heading">
