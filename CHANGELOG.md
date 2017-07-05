@@ -1,5 +1,10 @@
 # Changelog
 
+
+## [2.3.0] (unreleased)
+- New way to use as plugin, old is deprecated
+
+
 ## [2.2.0](https://github.com/ankurk91/vue-flatpickr-component/compare/2.1.0...2.2.0)   
 - Rollback importing css, component is no longer importing any css
     - This also applies when using this package as plugin `Vue.use()` 

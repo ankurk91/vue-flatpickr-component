@@ -7,6 +7,7 @@ Vue.config.productionTip = false;
 import VeeValidate from 'vee-validate';
 Vue.use(VeeValidate);
 
+// jQuery is required by bootstrap to work
 window.$ = window.jQuery = require('jquery');
 require('bootstrap');
 import 'bootstrap/dist/css/bootstrap.css';

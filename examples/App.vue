@@ -173,6 +173,8 @@
 </template>
 
 <script type="text/javascript">
+  import Vue from 'vue';
+
   import flatPickr from '../src/index';
   // Need to add base css for flatpickr
   import 'flatpickr/dist/flatpickr.css';

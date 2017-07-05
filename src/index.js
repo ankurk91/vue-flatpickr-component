@@ -6,5 +6,7 @@ const flatPickrPlugin = {
   }
 };
 
+component.install = flatPickrPlugin.install;
+
 export default component;
 export {component, flatPickrPlugin};
