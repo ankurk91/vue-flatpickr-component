@@ -137,7 +137,7 @@ The component accepts these props:
 | input-class      | String / Object                    | `''`                 | Add CSS class to input  |
 | name             | String                             | `'date-time'`        | Set input field name  |
 | required         | Boolean                            | `false`              | Make input field required |
-| id               | String                             | `'date-time'`        | Set input field id  |
+| id               | String                             | `''`                 | Set input field id  |
 
 ## Install in non-module environments (without webpack)
 * Include required files
