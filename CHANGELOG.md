@@ -1,10 +1,11 @@
 # Changelog
 
 
-## [2.3.0] (unreleased)
-- New way to use as plugin, old is deprecated
+## [2.3.0](https://github.com/ankurk91/vue-flatpickr-component/compare/2.2.0...2.3.0)
+- New way to use as plugin, old one is deprecated, see new [example](https://github.com/ankurk91/vue-flatpickr-component#as-plugin)
+    - You should NOT import plugin like this
+    - `import {flatPickrPlugin} from 'vue-flatpickr-component';`
 - Add `id` prop
-
 
 ## [2.2.0](https://github.com/ankurk91/vue-flatpickr-component/compare/2.1.0...2.2.0)   
 - Rollback importing css, component is no longer importing any css

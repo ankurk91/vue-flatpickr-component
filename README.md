@@ -120,9 +120,9 @@ This example is based on Bootstrap 3 [input group](http://getbootstrap.com/compo
 #### As plugin
 ```js
   import Vue from 'vue';
-  import {flatPickrPlugin} from 'vue-flatpickr-component';
+  import flatPickr from 'vue-flatpickr-component';
   import 'flatpickr/dist/flatpickr.css';
-  Vue.use(flatPickrPlugin);
+  Vue.use(flatPickr);
 ```
 This will register a global component `<flat-pickr>`
 
