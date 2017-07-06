@@ -71,8 +71,8 @@
           </div>
 
           <div class="form-group">
-            <label>Select datetime</label>
-            <flat-pickr :config="configs.dateTimePicker" v-model="form.dateTime" placeholder="Date Time"></flat-pickr>
+            <label for="datetime-input">Select datetime</label>
+            <flat-pickr :config="configs.dateTimePicker" id="datetime-input" v-model="form.dateTime" placeholder="Date Time"></flat-pickr>
           </div>
 
           <div class="form-group">

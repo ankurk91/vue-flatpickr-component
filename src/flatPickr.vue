@@ -2,6 +2,7 @@
 
   <input type="text"
          class="form-control input"
+         :id="id"
          :class="inputClass"
          :name="name"
          :placeholder="placeholder"
@@ -46,7 +47,10 @@
       required: {
         type: Boolean,
         default: false
-      }
+      },
+      id: {
+        type: String,
+      },
     },
     data () {
       return {
