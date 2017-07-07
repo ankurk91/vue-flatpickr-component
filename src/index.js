@@ -1,7 +1,7 @@
 import component from './flatPickr.vue';
 
 const flatPickrPlugin = {
-  install: (Vue, options) => {
+  install: function (Vue, options) {
     Vue.component('flat-pickr', component);
   }
 };
