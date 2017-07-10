@@ -23,8 +23,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint --ext .js,.vue --fix src",
-    "dev": "node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.config.dev.js",
-    "build": "node_modules/webpack/bin/webpack.js --hide-modules -p --progress"
+    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.config.dev.js",
+    "build": "node ./node_modules/webpack/bin/webpack.js --hide-modules -p --progress"
   },
   "dependencies": {
     "flatpickr": "^3.0.6"
