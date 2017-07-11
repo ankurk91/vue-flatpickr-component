@@ -15,6 +15,12 @@
     "datepicker"
   ],
   "author": "ankurk91",
+  "contributors": [
+    {
+        "name": "Bombardier Transportation",
+        "url": "http://www.bombardier.com/en/transportation.html"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/ankurk91/vue-flatpickr-component/issues"
