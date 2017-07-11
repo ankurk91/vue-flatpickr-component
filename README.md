@@ -123,6 +123,7 @@ The component accepts these props
 | input-class      | String / Object                    | `''`                  | Add CSS class to input  |
 | input-name       | String                             | `'date-time'`          | Set input field name  |
 | required         | Boolean                            | `false`              | Make input field required |
+| id               | String                             | `''`                  | Set input field id  |
 
 
 ## Install in non-module environments (without webpack)
@@ -138,9 +139,9 @@ The component accepts these props
 ```
 * Use the component anywhere in your app like this
 ```html
-<main id="app">  
+<div id="app">  
     <flat-pickr v-model="date"></flat-pickr> 
-</main>
+</div>
 <script>
   //Initialize as global component
   Vue.component('flat-pickr', VueFlatpickr.default);

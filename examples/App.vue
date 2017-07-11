@@ -102,8 +102,9 @@
           </div>
 
           <hr>
-          <button class="btn btn-primary" type="submit">Validate form</button>
-
+          <div class="form-group">
+            <button class="btn btn-primary" type="submit">Validate form</button>
+          </div>
         </form>
       </div>
       <aside class="col-md-4">
