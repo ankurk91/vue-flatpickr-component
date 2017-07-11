@@ -13,13 +13,13 @@
 
 
 ### Development setup
-* You will need [node-js](http://nodejs.org/) v6.10+ with npm v4.6+
+* You will need [node-js](http://nodejs.org/) v6.10+ and [yarn](https://yarnpkg.com/en/docs/install) v0.27.x
 * After clone the repo, run:
 ```
-npm run install
+yarn install
 ```
 * Make changes in ``src`` folder
 * You can check if everything is working fine by running examples in browser
 ```
-npm run dev
+yarn run dev
 ```
