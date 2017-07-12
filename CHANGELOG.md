@@ -1,5 +1,8 @@
 # Changelog
 
+### 1.2.5
+- Add id prop
+
 ## 1.2.4
 - Improve value prop validation
 
