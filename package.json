@@ -3,7 +3,7 @@
   "version": "2.4.0",
   "description": "Vue.js component for Flatpickr date-time picker",
   "main": "dist/vue-flatpickr.min.js",
-  "module": "src/index.js",
+  "jsnext:main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ankurk91/vue-flatpickr-component.git"
