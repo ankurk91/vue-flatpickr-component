@@ -1,17 +1,19 @@
 # Vue-flatPickr
 
-> Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
-
 [![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://github.com/ankurk91/vue-flatpickr-component/)
 [![downloads](https://img.shields.io/npm/dt/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
 [![npm-version](https://img.shields.io/npm/v/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
 [![github-tag](https://img.shields.io/github/tag/ankurk91/vue-flatpickr-component.svg?maxAge=1800)](https://github.com/ankurk91/vue-flatpickr-component/)
 [![license](https://img.shields.io/github/license/ankurk91/vue-flatpickr-component.svg?maxAge=1800)]()
 
+Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
+
 ## Installation
 ```bash
+# npm
 npm install vue-flatpickr-component --save
-# OR
+
+# yarn
 yarn add vue-flatpickr-component
 ```
 
@@ -135,7 +137,7 @@ The component accepts these props
 <!-- Vue js -->
 <script src="vue.min.js"></script>
 <!-- Lastly add this package -->
-<script src="https://unpkg.com/vue-flatpickr-component"></script>
+<script src="https://unpkg.com/vue-flatpickr-component@1"></script>
 ```
 * Use the component anywhere in your app like this
 ```html
@@ -158,14 +160,14 @@ The component accepts these props
 
 ### Run examples on your localhost
 * Clone this repo
-* Make sure you have node-js >=6.10 and npm >=4.6.1
+* Make sure you have node-js >=6.10 and yarn >=0.27.5
 * Install dependencies
 ``
-npm install
+yarn install
 ``
 * Run webpack dev server
 ``
-npm run dev
+yarn start
 ``
 * This should open the demo page at ``http://localhost:8080``
 
