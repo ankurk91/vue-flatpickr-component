@@ -91,7 +91,6 @@ module.exports = {
     stats: 'errors-only'
   },
   devtool: '#cheap-module-eval-source-map',
-  target: 'web'
 };
 
 

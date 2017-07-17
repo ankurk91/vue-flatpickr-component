@@ -21,13 +21,14 @@ module.exports = {
   externals: [
     'vue',
     'flatpickr',
-    'flatpickr/dist/flatpickr.css'
+    'flatpickr/dist/flatpickr.css',
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),// where to store build files
     filename: "vue-flatpickr.min.js", // build file name
     library: 'VueFlatpickr',
-    libraryTarget: 'umd'
+    libraryTarget: 'umd',
+    umdNamedDefine: true,
   },
   module: {
     rules: [
@@ -46,8 +47,7 @@ module.exports = {
     new CleanWebpackPlugin(['./dist']),
   ],
   devtool: false,
-  target: 'web',
   performance: {
-    hints: false
+    hints: false,
   }
 };
