@@ -72,7 +72,8 @@
 
           <div class="form-group">
             <label for="datetime-input">Select datetime</label>
-            <flat-pickr :config="configs.dateTimePicker" id="datetime-input" v-model="form.dateTime" placeholder="Date Time"></flat-pickr>
+            <flat-pickr :config="configs.dateTimePicker" id="datetime-input" v-model="form.dateTime"
+                        placeholder="Date Time"></flat-pickr>
           </div>
 
           <div class="form-group">
@@ -114,10 +115,15 @@
             <span v-show="errors.has('date-of-birth')" class="help-block">{{ errors.first('date-of-birth') }}</span>
           </div>
 
+          <div class="form-group">
+            <label>Select date (confirm plugin)</label>
+            <flat-pickr :config="configs.plugins" v-model="form.datePlugin"></flat-pickr>
+          </div>
+
           <hr>
 
           <div class="form-group">
-            <button class="btn btn-primary" type="submit">Validate form</button>
+            <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-ok"></i> Validate form</button>
           </div>
 
         </form>
@@ -134,8 +140,8 @@
               <li><a href="https://www.npmjs.com/package/vue-flatpickr-component" target="_blank">npm</a></li>
               <li><a href="https://chmln.github.io/flatpickr" rel="noreferrer" target="_blank">Flatpickr</a></li>
               <li><a
-                href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
-                rel="noreferrer" target="_blank">Vue.js Dev tools</a></li>
+                      href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
+                      rel="noreferrer" target="_blank">Vue.js Dev tools</a></li>
               <li><a href="https://github.com/logaretm/vee-validate" target="_blank">vee-validate</a></li>
             </ul>
           </div>
@@ -149,7 +155,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-              aria-hidden="true">&times;</span></button>
+                    aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Modal example</h4>
           </div>
           <div class="modal-body">
@@ -181,9 +187,14 @@
   // l10n is optional
   const Hindi = require("flatpickr/dist/l10n/hi.js").hi;
 
+  // Plugins are optional
+  // https://chmln.github.io/flatpickr/plugins/
+  import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate';
+  import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
+
   export default {
     name: 'app',
-    data (){
+    data() {
       return {
         form: {
           dateBasic: new Date(),
@@ -194,6 +205,7 @@
           dateInline: null,
           dateModal: '',
           dateValidate: null,
+          datePlugin: null
         },
         configs: {
           basic: {},
@@ -221,6 +233,10 @@
           },
           inline: {
             inline: true
+          },
+          plugins: {
+            enableTime: true,
+            plugins: [new ConfirmDatePlugin({confirmText: 'Done'})]
           }
         },
       }
@@ -229,23 +245,23 @@
       flatPickr
     },
     methods: {
-      setNewDate(){
+      setNewDate() {
         console.log('Set new date');
         this.form.dateBasic = '2018-12-01';
       },
-      updateConfig(){
+      updateConfig() {
         console.log('Update config');
         this.configs.basic = {
           mode: 'range',
         };
       },
-      changeTheme(){
+      changeTheme() {
         require('flatpickr/dist/themes/material_blue.css');
       },
-      onChange (selectedDates, dateStr, instance) {
+      onChange(selectedDates, dateStr, instance) {
         console.log('Date change hook was called');
       },
-      submit () {
+      submit() {
         console.log('Form submit event');
         console.log(this.form);
         // http://vee-validate.logaretm.com/examples.html#component-example
