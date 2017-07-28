@@ -8,6 +8,9 @@
 
 Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
 
+## Matter Notes
+Used for the datepicker in Matter Dashboards
+
 ## Installation
 ```bash
 # npm

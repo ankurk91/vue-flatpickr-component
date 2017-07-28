@@ -51,6 +51,10 @@
       id: {
         type: String,
       },
+      open: {
+        type: Boolean,
+        default: false
+      }
     },
     data () {
       return {
@@ -99,8 +103,13 @@
        */
       value (newValue) {
         this.fp && this.fp.setDate(newValue, true);
+      },
+
+      open (newValue) {
+        newValue === true ?
+          this.fp.open() :
+          this.fp.close()
       }
-    },
+    }
   };
 </script>
-
