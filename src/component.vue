@@ -84,6 +84,7 @@
         this.fp.redraw();
         this.fp.setDate(this.value, true);
       },
+
       /**
        * Watch for value changed by date-picker itself and notify parent component
        *
@@ -92,6 +93,7 @@
       mutableValue (newValue) {
         this.$emit('input', newValue);
       },
+
       /**
        * Watch for changes from parent component and update DOM
        *
