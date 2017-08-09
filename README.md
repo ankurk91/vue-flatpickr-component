@@ -66,8 +66,7 @@ This example is based on Bootstrap 3 [input group](http://getbootstrap.com/compo
                 v-model="date"
                 placeholder="Select date"
                 :config="config"
-                :required="true"
-                input-class="date-input"
+                :required="true"                
                 name="date">
         </flat-pickr>
         <div class="input-group-btn">
@@ -134,7 +133,7 @@ The component accepts these props:
 | v-model / value  | String / Date Object / Array / null| `null`               | Set or Get date-picker value (required) |
 | config           | Object                             | `{wrap:false}`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
 | placeholder      | String                             | `''`                 | Set placeholder on input |
-| input-class      | String / Object                    | `''`                 | Add CSS class to input  |
+| input-class      | String / Object                    | `'form-control input'` | Set CSS class to input  |
 | name             | String                             | `'date-time'`        | Set input field name  |
 | required         | Boolean                            | `false`              | Make input field required |
 | id               | String                             | `''`                 | Set input field id  |

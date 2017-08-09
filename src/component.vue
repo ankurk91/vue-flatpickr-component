@@ -1,7 +1,6 @@
 <template>
 
   <input type="text"
-         class="form-control input"
          :id="id"
          :class="inputClass"
          :name="name"
@@ -38,7 +37,7 @@
       },
       inputClass: {
         type: [String, Object],
-        default: ''
+        default: 'form-control input'
       },
       name: {
         type: String,
