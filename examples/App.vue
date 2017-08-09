@@ -55,7 +55,7 @@
                           placeholder="Select date"
                           :config="configs.wrap"
                           :required="true"
-                          input-class="date-input-class"
+                          input-class="form-control input date-input"
                           name="date-name"
               >
               </flat-pickr>
