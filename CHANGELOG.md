@@ -1,5 +1,17 @@
 # Changelog
 
+## [3.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/2.4.1...3.0.0) (Breaking)
+- Change: `flatPicker.vue` file name to `component.vue`
+   - This will be breaking for users who were directly importing `.vue` file
+- Change: Don't force `form-control` CSS class on input field, [#18](https://github.com/ankurk91/vue-flatpickr-component/pull/18)
+   - If you wants to add a new class on input, you need to do like this
+   - `<flatpickr :class="form-control custom-css-class">`
+   - `:class` prop will replace default CSS class on input field
+- Add: Ability to pass component name when used as plugin
+   - `Vue.use(flatPickr,'date-picker')`
+   - You can pass name as second parameter
+- Chore: Upgrade to webpack v3.x
+
 ## [2.4.0](https://github.com/ankurk91/vue-flatpickr-component/compare/2.3.0...2.4.0)
 - Fix UglifyJS issue
 

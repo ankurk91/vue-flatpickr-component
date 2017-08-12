@@ -67,6 +67,7 @@ This example is based on Bootstrap 3 [input group](http://getbootstrap.com/compo
                 placeholder="Select date"
                 :config="config"
                 :required="true"                
+                :class="form-control custom-input-class"                
                 name="date">
         </flat-pickr>
         <div class="input-group-btn">
@@ -132,8 +133,8 @@ The component accepts these props:
 | :---             | :---:                              | :---:                | :---             |
 | v-model / value  | String / Date Object / Array / null| `null`               | Set or Get date-picker value (required) |
 | config           | Object                             | `{wrap:false}`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
-| placeholder      | String                             | `''`                 | Set placeholder on input |
-| input-class      | String / Object                    | `'form-control input'` | Set CSS class to input  |
+| placeholder      | String                             | `''`                 | Set placeholder on input field |
+| input-class      | String / Object                    | `'form-control input'` | Set CSS class on input field |
 | name             | String                             | `'date-time'`        | Set input field name  |
 | required         | Boolean                            | `false`              | Make input field required |
 | id               | String                             | `''`                 | Set input field id  |
@@ -142,10 +143,10 @@ The component accepts these props:
 * Include required files
 ```html
 <!-- Flatpickr related files -->
-<link href="https://unpkg.com/flatpickr@3.0.6/dist/flatpickr.min.css" rel="stylesheet">
-<script src="https://unpkg.com/flatpickr@3.0.6/dist/flatpickr.min.js"></script>
+<link href="https://unpkg.com/flatpickr@3.0.7/dist/flatpickr.min.css" rel="stylesheet">
+<script src="https://unpkg.com/flatpickr@3.0.7/dist/flatpickr.min.js"></script>
 <!-- Vue js -->
-<script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+<script src="https://unpkg.com/vue@2.4.2/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="https://unpkg.com/vue-flatpickr-component"></script>
 ```
