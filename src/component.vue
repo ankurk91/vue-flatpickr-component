@@ -78,10 +78,13 @@
        *
        * @param newConfig Object
        */
-      config (newConfig) {
-        this.fp.config = Object.assign(this.fp.config, newConfig);
-        this.fp.redraw();
-        this.fp.setDate(this.value, true);
+      config: {
+        handler: function (newConfig) {
+          this.fp.config = Object.assign(this.fp.config, newConfig);
+          this.fp.redraw();
+          this.fp.setDate(this.value, true);
+        },
+        deep: true
       },
 
       /**
