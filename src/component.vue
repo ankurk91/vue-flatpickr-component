@@ -20,7 +20,7 @@
       value: {
         default: null,
         required: true,
-        validate (value){
+        validate(value) {
           return value === null || value instanceof Date || typeof value === 'string' || value instanceof String || value instanceof Array
         }
       },
@@ -51,13 +51,13 @@
         type: String,
       },
     },
-    data () {
+    data() {
       return {
         mutableValue: this.value,
         fp: null
       };
     },
-    mounted () {
+    mounted() {
       // Load flatPickr if not loaded yet
       if (!this.fp) {
         // Bind on parent element if wrap is true
@@ -65,7 +65,7 @@
         this.fp = new Flatpickr(elem, this.config);
       }
     },
-    beforeDestroy () {
+    beforeDestroy() {
       // Free up memory
       if (this.fp) {
         this.fp.destroy();
@@ -78,7 +78,7 @@
        *
        * @param newConfig Object
        */
-      config (newConfig) {
+      config(newConfig) {
         this.fp.config = Object.assign(this.fp.config, newConfig);
         this.fp.redraw();
         this.fp.setDate(this.value, true);
@@ -89,7 +89,7 @@
        *
        * @param newValue
        */
-      mutableValue (newValue) {
+      mutableValue(newValue) {
         this.$emit('input', newValue);
       },
 
@@ -98,7 +98,7 @@
        *
        * @param newValue
        */
-      value (newValue) {
+      value(newValue) {
         this.fp && this.fp.setDate(newValue, true);
       }
     },

@@ -23,6 +23,7 @@ yarn add vue-flatpickr-component
 * Reactive [config](https://chmln.github.io/flatpickr/options/) options
     - You can change config options dynamically
     - Component will watch for any changes and redraw itself
+    - You are suggested to modify config via [Vue.set](https://vuejs.org/v2/api/#Vue-set)
 * Compatible with [Bootstrap](http://getbootstrap.com/), [Bulma](http://bulma.io/) or any other CSS framework
 * Supports [wrapped](https://chmln.github.io/flatpickr/examples/#flatpickr-external-elements) mode
     - Just set ``wrap:true`` in config and component will take care of all

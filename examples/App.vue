@@ -140,8 +140,8 @@
               <li><a href="https://www.npmjs.com/package/vue-flatpickr-component" target="_blank">npm</a></li>
               <li><a href="https://chmln.github.io/flatpickr" rel="noreferrer" target="_blank">Flatpickr</a></li>
               <li><a
-                      href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
-                      rel="noreferrer" target="_blank">Vue.js Dev tools</a></li>
+                href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
+                rel="noreferrer" target="_blank">Vue.js Dev tools</a></li>
               <li><a href="https://github.com/logaretm/vee-validate" target="_blank">vee-validate</a></li>
             </ul>
           </div>
@@ -155,7 +155,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-                    aria-hidden="true">&times;</span></button>
+              aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Modal example</h4>
           </div>
           <div class="modal-body">
@@ -251,9 +251,9 @@
       },
       updateConfig() {
         console.log('Update config');
-        this.configs.basic = {
-          mode: 'range',
-        };
+        // Right way to modify config runtime
+        // https://vuejs.org/v2/api/#Vue-set
+        this.$set(this.configs.basic, 'mode', 'range');
       },
       changeTheme() {
         require('flatpickr/dist/themes/material_blue.css');
