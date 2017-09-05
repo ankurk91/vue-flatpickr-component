@@ -7,6 +7,7 @@
          :placeholder="placeholder"
          :required="required"
          v-model="mutableValue"
+         @blur="emitBlur"
          data-input>
 
 </template>
@@ -49,6 +50,13 @@
       },
       id: {
         type: String,
+      },
+    },
+    methods: {
+      emitBlur(event) {
+        const value = event.target.value;
+
+        this.$emit('blur', value);
       },
     },
     data() {
