@@ -60,9 +60,18 @@
     mounted() {
       // Load flatPickr if not loaded yet
       if (!this.fp) {
+
+        //todo preserve old change event
+        //todo find other ways to emit this event
+        this.config.onChange = ((selectedDates, dateStr, instance) => {
+          //todo event names should camelCased ?
+          this.$emit('onChange', selectedDates, dateStr, instance)
+        });
+
         // Bind on parent element if wrap is true
         let elem = this.config.wrap ? this.$el.parentNode : this.$el;
         this.fp = new Flatpickr(elem, this.config);
+
       }
     },
     beforeDestroy() {

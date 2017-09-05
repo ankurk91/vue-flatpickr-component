@@ -55,6 +55,7 @@
                           placeholder="Select date"
                           :config="configs.wrap"
                           :required="true"
+                          @onChange="listenToOnChangeEvent"
                           input-class="form-control input date-input"
                           name="date-name"
               >
@@ -260,6 +261,9 @@
       },
       onChange(selectedDates, dateStr, instance) {
         console.log('Date change hook was called');
+      },
+      listenToOnChangeEvent(selectedDates, dateStr, instance) {
+        console.log('listenToOnChangeEvent', dateStr);
       },
       submit() {
         console.log('Form submit event');
