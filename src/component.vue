@@ -54,15 +54,22 @@
     data() {
       return {
         mutableValue: this.value,
-        fp: null
+        fp: null,
+        oldOnChange: null,
       };
     },
     mounted() {
       // Load flatPickr if not loaded yet
       if (!this.fp) {
+        // Backup original handler
+        this.oldOnChange = this.config.onChange;
+        // Hook our handler
+        this.config.onChange = this.onChange;
+
         // Bind on parent element if wrap is true
         let elem = this.config.wrap ? this.$el.parentNode : this.$el;
         this.fp = new Flatpickr(elem, this.config);
+
       }
     },
     beforeDestroy() {
@@ -70,6 +77,18 @@
       if (this.fp) {
         this.fp.destroy();
         this.fp = null;
+      }
+    },
+    methods: {
+      /**
+       * Emit on-change event
+       */
+      onChange(...args) {
+        // Call original handler if registered
+        if (typeof this.oldOnChange === 'function') {
+          this.oldOnChange(...args);
+        }
+        this.$emit('onChange', ...args);
       }
     },
     watch: {

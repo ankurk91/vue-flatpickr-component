@@ -55,6 +55,7 @@
                           placeholder="Select date"
                           :config="configs.wrap"
                           :required="true"
+                          @onChange="listenToOnChangeEvent"
                           input-class="form-control input date-input"
                           name="date-name"
               >
@@ -279,7 +280,10 @@
         require('flatpickr/dist/themes/material_blue.css');
       },
       onChange(selectedDates, dateStr, instance) {
-        console.log('Date change hook was called');
+        console.log('Date change hook was called', dateStr);
+      },
+      listenToOnChangeEvent(selectedDates, dateStr, instance) {
+        console.log('listen To OnChange Event', dateStr);
       },
       submit() {
         console.log('Form submit event');
