@@ -117,7 +117,18 @@
 
           <div class="form-group">
             <label>Select date (confirm plugin)</label>
-            <flat-pickr :config="configs.plugins" v-model="form.datePlugin"></flat-pickr>
+            <flat-pickr :config="configs.confirmPlugin" v-model="form.datePlugin"></flat-pickr>
+          </div>
+
+          <div class="row">
+            <div class="col-md-6">
+              <label>From date</label>
+              <flat-pickr :config="configs.rangePlugin" v-model="form.dateStart"></flat-pickr>
+            </div>
+            <div class="col-md-6">
+              <label>To date</label>
+              <flat-pickr :config="configs.rangePlugin" id="end-date" v-model="form.dateEnd"></flat-pickr>
+            </div>
           </div>
 
           <hr>
@@ -192,6 +203,8 @@
   import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate';
   import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
 
+  import rangePlugin from 'flatpickr/dist/plugins/rangePlugin';
+
   export default {
     name: 'app',
     data() {
@@ -205,7 +218,9 @@
           dateInline: null,
           dateModal: '',
           dateValidate: null,
-          datePlugin: null
+          datePlugin: null,
+          dateStart: null,
+          dateEnd: null
         },
         configs: {
           basic: {},
@@ -234,9 +249,14 @@
           inline: {
             inline: true
           },
-          plugins: {
+          confirmPlugin: {
             enableTime: true,
             plugins: [new ConfirmDatePlugin({confirmText: 'Done'})]
+          },
+          rangePlugin: {
+            plugins: [new rangePlugin({input: "#end-date"})],
+            minDate: "today",
+            altInput: true
           }
         },
       }
