@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.0](https://github.com/ankurk91/vue-flatpickr-component/compare/3.0.0...3.1.0) 
+* Add: Emit `onChange` event, [#20](https://github.com/ankurk91/vue-flatpickr-component/issues/20)
+
 ## [3.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/2.4.1...3.0.0) (Breaking)
 - Change: `flatPicker.vue` file name to `component.vue`
    - This will be breaking for users who were directly importing `.vue` file
