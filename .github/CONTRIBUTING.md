@@ -18,7 +18,7 @@
 ```
 yarn install
 ```
-* Make changes in ``src`` folder
+* Make changes in ``src`` folder, don't touch `dist` folder
 * You can check if everything is working fine by running examples in browser
 ```
 yarn run dev
