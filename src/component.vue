@@ -118,6 +118,9 @@
        * @param newValue
        */
       value(newValue) {
+        // Prevent onChange event being triggered multiple times
+        if (newValue === this.mutableValue) return;
+        // Notify flatpickr instance that there is a change in date
         this.fp && this.fp.setDate(newValue, true);
       }
     },
