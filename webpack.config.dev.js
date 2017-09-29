@@ -15,7 +15,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['.js', '.jsx', '.json', '.vue'],
+    extensions: ['.js', '.json', '.vue'],
   },
   entry: {
     app: './examples/index.js',

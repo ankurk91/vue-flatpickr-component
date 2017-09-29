@@ -14,10 +14,10 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
     },
-    extensions: ['.js', '.jsx', '.json', '.vue']
+    extensions: ['.js', '.json', '.vue']
   },
   entry: './src/index.js',
-  // Don't include theme into library build
+  // Don't include them into library build
   externals: [
     'vue',
     'flatpickr',
