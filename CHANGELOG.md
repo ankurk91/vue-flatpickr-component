@@ -1,5 +1,8 @@
 # Changelog
 
+## [4.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.3...4.0.0) unreleased
+* Change: Change `onChange` event name to `on-change`
+
 ## [3.1.3](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.2...3.1.3) 
 * Fix: value prop validation 
 

@@ -3,6 +3,9 @@
 /.github/
 /examples/
 /docs/
+/test/
+/__test__/
+/coverage/
 
 .babelrc
 .editorconfig
@@ -11,6 +14,7 @@
 .gitattributes
 /.gitignore
 .npmignore
+.travis.yml
 
 bower.json
 npm-shrinkwrap.json

@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/ankurk91/vue-flatpickr-component",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node ./node_modules/jest/bin/jest.js",
     "lint": "eslint --ext .js,.vue --fix src",
     "start": "npm run dev",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.config.dev.js",
@@ -39,6 +39,8 @@
     "css-loader": "^0.28.4",
     "file-loader": "^1.1.4",
     "html-webpack-plugin": "^2.30.1",
+    "jest": "^21.2.1",
+    "jest-vue": "^0.7.0",
     "jquery": "^3.2.1",
     "style-loader": "^0.18.1",
     "unminified-webpack-plugin": "^1.2.0",
@@ -46,6 +48,7 @@
     "vue": "^2.4.2",
     "vue-loader": "^13.0.4",
     "vue-template-compiler": "^2.4.2",
+    "vue-test-utils": "^1.0.0-beta.1",
     "webpack": "^3.5.3",
     "webpack-dev-server": "^2.7.1"
   },
@@ -55,5 +58,20 @@
   "engines": {
     "node": ">= 4.2.0",
     "npm": ">= 3.0.0"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "jsx",
+      "node",
+      "vue"
+    ],
+    "transform": {
+      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+      ".*\\.(vue)$": "<rootDir>/node_modules/jest-vue"
+    },
+    "mapCoverage": true,
+    "collectCoverage": true
   }
 }

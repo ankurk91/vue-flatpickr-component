@@ -1,6 +1,6 @@
 # Contributing
 
-###  Issue reporting
+### Issue reporting
 * If the issue is related to flatPickr then report that issue on [flatpickr](https://github.com/chmln/flatpickr/issues) repo instead
     - Issues those are related to flatPickr may be closed without any reason
 * Follow ISSUE_TEMPLATE  
@@ -18,8 +18,9 @@
 ```
 yarn install
 ```
-* Make changes in ``src`` folder, don't touch `dist` folder
-* You can check if everything is working fine by running examples in browser
+* Make changes in ``src`` folder
+* Write/update test case for the feature/fix you made 
+* You can check if everything is working fine by running tests
 ```
-yarn run dev
+yarn test
 ```
