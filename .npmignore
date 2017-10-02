@@ -17,7 +17,5 @@ npm-shrinkwrap.json
 package-lock.json
 yarn.lock
 
-CONTRIBUTING.md
-
 webpack.config.dev.js
 webpack.config.js
