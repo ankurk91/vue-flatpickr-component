@@ -54,8 +54,17 @@
     },
     data() {
       return {
+        /**
+         * Props can not be mutated directly so lets copy to a local property
+         */
         mutableValue: this.value,
+        /**
+         * The flatpickr instance
+         */
         fp: null,
+        /**
+         * onChange method backup
+         */
         oldOnChange: null,
       };
     },
@@ -91,7 +100,7 @@
         if (typeof this.oldOnChange === 'function') {
           this.oldOnChange(...args);
         }
-        this.$emit('onChange', ...args);
+        this.$emit('on-change', ...args);
       }
     },
     watch: {

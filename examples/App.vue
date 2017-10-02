@@ -55,10 +55,10 @@
                           placeholder="Select date"
                           :config="configs.wrap"
                           :required="true"
-                          @onChange="listenToOnChangeEvent"
-                          ref="datePickerWrap"
+                          @on-change="listenToOnChangeEvent"
                           input-class="form-control input date-input"
                           name="date-name"
+                          ref="datePickerWrap"
               >
               </flat-pickr>
               <div class="input-group-btn">
