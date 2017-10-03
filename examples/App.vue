@@ -56,6 +56,7 @@
                           :config="configs.wrap"
                           :required="true"
                           @onChange="listenToOnChangeEvent"
+                          ref="datePickerWrap"
                           input-class="form-control input date-input"
                           name="date-name"
               >
@@ -294,6 +295,12 @@
           alert(`Form validation result: ${result}`);
         });
       }
+    },
+    mounted() {
+      let flatPickrInstance = this.$refs.datePickerWrap.fp;
+      // Do something with instance
+      // https://chmln.github.io/flatpickr/instance-methods-properties-elements/
+      console.log(flatPickrInstance)
     }
   }
 </script>
