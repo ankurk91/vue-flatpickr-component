@@ -16,6 +16,7 @@
   // You have to import css yourself
 
   export default {
+    name: 'flat-pickr',
     props: {
       value: {
         default: null,

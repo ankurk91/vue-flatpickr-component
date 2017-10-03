@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.1](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.0...3.1.1) 
+* Fix: Prevent `onChange` event being emitted twice 
+
 ## [3.1.0](https://github.com/ankurk91/vue-flatpickr-component/compare/3.0.0...3.1.0) 
 * Add: Emit `onChange` event, [#20](https://github.com/ankurk91/vue-flatpickr-component/issues/20)
 
