@@ -1,5 +1,8 @@
 # Changelog
 
+## [3.1.2](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.1...3.1.2) 
+* Fix: Prevent multiple `onChange` event after component destroy, [#27](https://github.com/ankurk91/vue-flatpickr-component/issues/27)
+
 ## [3.1.1](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.0...3.1.1) 
 * Fix: Prevent `onChange` event being emitted twice 
 
