@@ -78,6 +78,8 @@
       if (this.fp) {
         this.fp.destroy();
         this.fp = null;
+        this.oldOnChange = null;
+        this.config.onChange = null
       }
     },
     methods: {
