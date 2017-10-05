@@ -1,4 +1,4 @@
-import {mount, shallow} from 'vue-test-utils'
+import {shallow} from 'vue-test-utils'
 
 import Component from '../../src/component.vue';
 
@@ -8,6 +8,7 @@ describe('Flatpickr component', () => {
 
   beforeEach(() => {
     wrapper = shallow(Component, {
+      attachToDocument: true,
       propsData: {
         value: new Date()
       }

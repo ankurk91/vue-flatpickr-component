@@ -1,4 +1,4 @@
-import {mount, shallow} from 'vue-test-utils'
+import {shallow} from 'vue-test-utils'
 
 import Component from '../../src/component.vue';
 
@@ -19,6 +19,10 @@ describe('Flatpickr watchers', () => {
     });
   });
 
+  afterEach(() => {
+    wrapper.vm.$destroy();
+  });
+
   test('emits change event on value change', () => {
     const stub = jest.fn();
     wrapper.vm.$on('on-change', stub);
@@ -27,7 +31,20 @@ describe('Flatpickr watchers', () => {
     stub.mockClear();
   });
 
-  test('update configs runtime', () => {
+  test('calls original onChange method on value change', () => {
+    const spy = jest.spyOn(wrapper.vm, 'oldOnChange');
+    wrapper.setProps({value: '2017-10-04'});
+
+    expect(spy).toHaveBeenCalled();
+    spy.mockReset();
+  });
+
+  test('update input value in DOM on value change', () => {
+    wrapper.setProps({value: '2019-10-04'});
+    expect(wrapper.vm.$el.value).toEqual('2019-10-04');
+  });
+
+  test('updates configs runtime', () => {
     wrapper.setProps({config: {time_24hr: true}});
     expect(wrapper.vm.fp.config).toHaveProperty('time_24hr', true);
   });

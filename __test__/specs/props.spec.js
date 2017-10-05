@@ -1,4 +1,4 @@
-import {mount, shallow} from 'vue-test-utils'
+import {shallow} from 'vue-test-utils'
 
 import Component from '../../src/component.vue';
 
@@ -20,8 +20,13 @@ describe('Flatpickr props', () => {
 
   beforeEach(() => {
     wrapper = shallow(Component, {
+      attachToDocument: true,
       propsData: props
     });
+  });
+
+  afterEach(() => {
+    wrapper.vm.$destroy();
   });
 
   test('accepts css class via prop', () => {
