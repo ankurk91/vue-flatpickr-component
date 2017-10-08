@@ -68,7 +68,7 @@ This example is based on Bootstrap 3 [input group](http://getbootstrap.com/compo
                 placeholder="Select date"
                 :config="config"
                 :required="true"                
-                :class="form-control custom-input-class"                
+                input-class="form-control custom-input-class"                
                 name="date">
         </flat-pickr>
         <div class="input-group-btn">
@@ -147,7 +147,7 @@ The component accepts these props:
 <link href="https://unpkg.com/flatpickr@3.0.7/dist/flatpickr.min.css" rel="stylesheet">
 <script src="https://unpkg.com/flatpickr@3.0.7/dist/flatpickr.min.js"></script>
 <!-- Vue js -->
-<script src="https://unpkg.com/vue@2.4.2/dist/vue.min.js"></script>
+<script src="https://unpkg.com/vue@2.4/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="https://unpkg.com/vue-flatpickr-component"></script>
 ```

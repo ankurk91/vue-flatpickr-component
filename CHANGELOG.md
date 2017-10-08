@@ -14,7 +14,7 @@
    - This will be breaking for users who were directly importing `.vue` file
 - Change: Don't force `form-control` CSS class on input field, [#18](https://github.com/ankurk91/vue-flatpickr-component/pull/18)
    - If you wants to add a new class on input, you need to do like this
-   - `<flatpickr :class="form-control custom-css-class">`
+   - `<flatpickr input-class="form-control custom-css-class">`
    - `:class` prop will replace default CSS class on input field
 - Add: Ability to pass component name when used as plugin
    - `Vue.use(flatPickr,'date-picker')`
