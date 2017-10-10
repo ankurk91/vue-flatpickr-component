@@ -21,7 +21,7 @@
       value: {
         default: null,
         required: true,
-        validate(value) {
+        validator(value) {
           return value === null || value instanceof Date || typeof value === 'string' || value instanceof String || value instanceof Array
         }
       },
