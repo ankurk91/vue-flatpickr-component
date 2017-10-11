@@ -6,6 +6,7 @@
 * tests: add test case with coverage
 * chore: `dist` folder is no longer a part of repo, it will be published on npm only. It means bower no longer supported.
 * Docs: fix css class prop example in readme
+* Fix: IE11 support
 
 ## [3.1.3](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.2...3.1.3) 
 * Fix: value prop validation 

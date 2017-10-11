@@ -6,12 +6,17 @@
         "modules": false,
         "targets": {
           "browsers": [
-            "> 2%"
+            "> 2%",
+            "last 2 versions",
+            "ie 11"
           ],
           "uglify": true
         }
       }
     ]
+  ],
+  "plugins": [
+    "transform-object-assign"
   ],
   "env": {
     "test": {
