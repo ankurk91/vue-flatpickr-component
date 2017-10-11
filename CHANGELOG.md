@@ -1,12 +1,14 @@
 # Changelog
 
 ## [4.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.3...4.0.0) unreleased (breaking)
-* Change: Change `onChange` event name to `on-change`
-* Fix: v-model validator method typo
+* Change: 
+    - Upgrade to flatpickr [v4.x](https://github.com/chmln/flatpickr/releases/tag/v4.0.0)
+    - Change `onChange` event name to `on-change`
+* Fix: 
+    - v-model validator method typo
+    - IE11 support
 * tests: add test case with coverage
 * chore: `dist` folder is no longer a part of repo, it will be published on npm only. It means bower no longer supported.
-* Docs: fix css class prop example in readme
-* Fix: IE11 support
 
 ## [3.1.3](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.2...3.1.3) 
 * Fix: value prop validation 
