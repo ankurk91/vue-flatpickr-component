@@ -1,6 +1,6 @@
 # Changelog
 
-## [4.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.3...4.0.0) unreleased (breaking)
+## [4.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.3...4.0.0) (breaking)
 * Change: 
     - Upgrade to flatpickr [v4.x](https://github.com/chmln/flatpickr/releases/tag/v4.0.0)
     - Change `onChange` event name to `on-change`
