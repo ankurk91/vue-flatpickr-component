@@ -198,7 +198,7 @@
   // Need to add base css for flatpickr
   import 'flatpickr/dist/flatpickr.css';
   // l10n is optional
-  const Hindi = require("flatpickr/dist/l10n/hi.js").hi;
+  import {Hindi} from 'flatpickr/dist/l10n/hi';
 
   // Plugins are optional
   // https://chmln.github.io/flatpickr/plugins/
