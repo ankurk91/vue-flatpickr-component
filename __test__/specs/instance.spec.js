@@ -23,7 +23,7 @@ describe('Flatpickr component', () => {
     expect(wrapper.is('input')).toBe(true);
   });
 
-  test('opens datepicker when click', () => {
+  test('opens datepicker when focus', () => {
     let input = wrapper.find('input');
     input.trigger('focus');
     expect(input.hasClass('active')).toBe(true);

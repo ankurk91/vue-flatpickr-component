@@ -10,14 +10,9 @@
 
 Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
 
-## Installation
-```bash
-# npm
-npm install vue-flatpickr-component --save
+:point_right: This branch is only for v4.x, [click here](https://github.com/ankurk91/vue-flatpickr-component/tree/v3.x) for Flatpickr v3.x
 
-# Yarn
-yarn add vue-flatpickr-component
-```
+## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/63kzdwLx/)
 
 ## Features
 * Reactive ``v-model`` value
@@ -30,6 +25,15 @@ yarn add vue-flatpickr-component
 * Supports [wrapped](https://chmln.github.io/flatpickr/examples/#flatpickr-external-elements) mode
     - Just set ``wrap:true`` in config and component will take care of all
 * Play nice with [vee-validate](https://github.com/logaretm/vee-validate) validation library
+
+## Installation
+```bash
+# npm
+npm install vue-flatpickr-component --save
+
+# Yarn
+yarn add vue-flatpickr-component
+```
 
 ## Usage
 #### Minimal example
@@ -173,7 +177,7 @@ The component accepts these props:
 
 ## Run examples on your localhost
 * Clone this repo
-* Make sure you have node-js >=6.10 and yarn >=1.x
+* You should have node-js >=6.10 and yarn >=1.x pre-installed
 * Install dependencies
 ``
 yarn install
@@ -184,8 +188,16 @@ yarn start
 ``
 * This should open the demo page at ``http://localhost:8080`` in your default web browser
 
+### Testing
+* This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils) for testing.
+* Tests can be found in `__test__` folder.
+* Execute tests with this command
+```bash
+yarn test
+```
+
 ## Changelog
-Changelog for each release can be found [here](CHANGELOG.md)
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## License
 [MIT](LICENSE.txt) License
