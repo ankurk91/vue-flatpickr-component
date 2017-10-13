@@ -153,7 +153,7 @@ The component accepts these props:
 <link href="https://unpkg.com/flatpickr@4/dist/flatpickr.min.css" rel="stylesheet">
 <script src="https://unpkg.com/flatpickr@4/dist/flatpickr.min.js"></script>
 <!-- Vue js -->
-<script src="https://unpkg.com/vue@2.4/dist/vue.min.js"></script>
+<script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
 <script src="https://unpkg.com/vue-flatpickr-component"></script>
 ```

@@ -2,6 +2,8 @@ import Plugin from '../../src/index';
 // Lets import full build
 import Vue from 'vue/dist/vue.common';
 
+Vue.config.productionTip = false;
+
 describe('Flatpickr global component', () => {
 
   // Make a copy of local vue

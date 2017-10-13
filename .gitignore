@@ -9,6 +9,7 @@
 .project
 *.sublime-*
 .brackets.json
+.vscode
 _notes
 
 # logs and cache
