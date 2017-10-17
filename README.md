@@ -62,7 +62,7 @@ yarn add vue-flatpickr-component
 ```
 
 #### Detailed example
-This example is based on Bootstrap 3 [input group](http://getbootstrap.com/components/#input-groups)
+This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs/4.0/components/input-group/)
 ```html
 <template>
   <section>
@@ -79,7 +79,7 @@ This example is based on Bootstrap 3 [input group](http://getbootstrap.com/compo
         </flat-pickr>
         <div class="input-group-btn">
           <button class="btn btn-default" type="button" title="Toggle" data-toggle>
-            <i class="glyphicon glyphicon-calendar">
+            <i class="fa fa-calendar">
               <span aria-hidden="true" class="sr-only">Toggle</span>
             </i>
           </button>

@@ -1,47 +1,53 @@
 <template>
 
   <section class="container">
-    <nav class="navbar navbar-default">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <a class="navbar-brand" href="#">Vue-flatPickr Demo</a>
-        </div>
 
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="https://www.npmjs.com/package/vue-flatpickr-component" target="_blank"> npm</a></li>
-          <li><a href="https://github.com/ankurk91/vue-flatpickr-component" target="_blank"> Github</a></li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <span class="navbar-brand mb-0">Vue-flatPickr Demo</span>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="https://www.npmjs.com/package/vue-flatpickr-component"
+               target="_blank"> npm</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="https://github.com/ankurk91/vue-flatpickr-component"
+               target="_blank"> Github</a></li>
         </ul>
       </div>
     </nav>
-
+    <p class="mb-2"></p>
     <div class="row">
       <div class="col-md-8">
 
         <div class="row">
           <div class="col-md-4">
             <div class="form-group">
-              <button type="button" class="btn btn-default" @click.prevent="setNewDate()">
+              <button type="button" class="btn btn-secondary" @click.prevent="setNewDate()">
                 Set new date programmatically
               </button>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <button type="button" class="btn btn-default" @click.prevent="updateConfig()">
-                Reactive configs (Change mode)
+              <button type="button" class="btn btn-secondary" @click.prevent="updateConfig()">
+                Reactive configs
               </button>
             </div>
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <button type="button" class="btn btn-default" @click.prevent="changeTheme()">
+              <button type="button" class="btn btn-secondary" @click.prevent="changeTheme()">
                 Change theme
               </button>
             </div>
           </div>
         </div>
 
-        <form method="post" action="/" @submit.prevent="submit()">
+        <form class="card card-body" method="post" action="/" @submit.prevent="submit()">
 
           <div class="form-group">
             <label>Select date (basic)</label>
@@ -62,11 +68,11 @@
               >
               </flat-pickr>
               <div class="input-group-btn">
-                <button class="btn btn-default" type="button" title="Toggle" data-toggle>
-                  <i class="glyphicon glyphicon-calendar"><span aria-hidden="true" class="sr-only">Toggle</span></i>
+                <button class="btn btn-success" type="button" title="Toggle" data-toggle>
+                  Toggle
                 </button>
-                <button class="btn btn-default" type="button" title="Clear" data-clear>
-                  <i class="glyphicon glyphicon-remove"><span aria-hidden="true" class="sr-only">Clear</span></i>
+                <button class="btn btn-danger" type="button" title="Clear" data-clear>
+                  Clear
                 </button>
               </div>
             </div>
@@ -83,8 +89,8 @@
             <div class="input-group">
               <flat-pickr :config="configs.timePicker" v-model="form.time" placeholder="Time"></flat-pickr>
               <div class="input-group-btn">
-                <button class="btn btn-default" type="button" title="Toggle" data-toggle>
-                  <i class="glyphicon glyphicon-time"><span aria-hidden="true" class="sr-only">Toggle</span></i>
+                <button class="btn btn-secondary" type="button" title="Toggle" data-toggle>
+                  Clock
                 </button>
               </div>
             </div>
@@ -107,14 +113,16 @@
             <flat-pickr :config="configs.inline" v-model="form.dateInline"></flat-pickr>
           </div>
 
-          <div class="form-group" :class="{'has-error' : errors.has('date-of-birth')}">
+          <div class="form-group">
             <label>Select date (vee-validate)</label>
             <flat-pickr v-model="form.dateValidate"
                         name="date-of-birth"
                         v-validate="{required:true}"
                         placeholder="Date of birth"
+                        :class="{'is-invalid' : errors.has('date-of-birth')}"
             ></flat-pickr>
-            <span v-show="errors.has('date-of-birth')" class="help-block">{{ errors.first('date-of-birth') }}</span>
+            <span v-show="errors.has('date-of-birth')" class="invalid-feedback">{{ errors.first('date-of-birth')
+              }}</span>
           </div>
 
           <div class="form-group">
@@ -124,34 +132,38 @@
 
           <div class="row">
             <div class="col-md-6">
-              <label>From date</label>
-              <flat-pickr :config="configs.rangePlugin" v-model="form.dateStart"></flat-pickr>
+              <div class="form-group">
+                <label>From date</label>
+                <flat-pickr :config="configs.rangePlugin" v-model="form.dateStart"></flat-pickr>
+              </div>
             </div>
             <div class="col-md-6">
-              <label>To date</label>
-              <flat-pickr :config="configs.rangePlugin" id="end-date" v-model="form.dateEnd"></flat-pickr>
+              <div class="form-group">
+                <label>To date</label>
+                <flat-pickr :config="configs.rangePlugin" id="end-date" v-model="form.dateEnd"></flat-pickr>
+              </div>
             </div>
           </div>
 
           <hr>
 
           <div class="form-group">
-            <button class="btn btn-primary" type="submit"><i class="glyphicon glyphicon-ok"></i> Validate form</button>
+            <button class="btn btn-primary" type="submit">Validate form</button>
           </div>
 
         </form>
       </div>
 
       <aside class="col-md-4">
-        <div class="panel panel-info">
-          <div class="panel-heading">
+        <div class="card">
+          <div class="card-header">
             Links
           </div>
-          <div class="panel-body">
+          <div class="card-body">
             <ul>
               <li><a href="https://github.com/ankurk91/vue-flatpickr-component" target="_blank">Github</a></li>
               <li><a href="https://www.npmjs.com/package/vue-flatpickr-component" target="_blank">npm</a></li>
-              <li><a href="https://chmln.github.io/flatpickr" rel="noreferrer" target="_blank">Flatpickr</a></li>
+              <li><a href="https://chmln.github.io/flatpickr" rel="noreferrer" target="_blank">Flatpickr docs</a></li>
               <li><a
                 href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
                 rel="noreferrer" target="_blank">Vue.js Dev tools</a></li>
@@ -163,13 +175,14 @@
     </div>
 
     <!-- bs modal -->
-    <div class="modal fade" tabindex="-1" role="dialog" id="date-modal">
+    <div class="modal fade" id="date-modal">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-              aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title">Modal example</h4>
+            <h5 class="modal-title">Modal example</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <div class="modal-body">
             <form method="post" action="/" onsubmit="return false">
@@ -181,8 +194,8 @@
             </form>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
