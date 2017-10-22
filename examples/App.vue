@@ -283,7 +283,7 @@
     methods: {
       setNewDate() {
         console.log('Set new date');
-        this.form.dateBasic = '2018-12-01';
+        this.form.dateBasic = new Date();
       },
       updateConfig() {
         console.log('Update config');

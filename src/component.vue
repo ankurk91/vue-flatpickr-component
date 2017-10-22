@@ -1,7 +1,7 @@
 <template>
 
   <input type="text"
-         v-model="mutableValue"
+         @input="onInput($event)"
          data-input>
 
 </template>
@@ -31,10 +31,6 @@
     data() {
       return {
         /**
-         * Props can not be mutated directly so lets copy to a local property
-         */
-        mutableValue: this.value,
-        /**
          * The flatpickr instance
          */
         fp: null,
@@ -45,27 +41,20 @@
       };
     },
     mounted() {
-      // Load flatPickr only if not loaded yet
-      /* istanbul ignore else */
-      if (!this.fp) {
-        // Backup original handler
-        this.oldOnChange = this.config.onChange;
-        // Hook our handler
-        this.config.onChange = this.onChange;
-        // Init flatpickr
-        this.fp = new Flatpickr(this.getElem(), this.config);
+      // Return early if flatPickr is already loaded
+      /* istanbul ignore if */
+      if (this.fp) return;
 
-      }
-    },
-    beforeDestroy() {
-      // Free up memory
-      /* istanbul ignore else */
-      if (this.fp) {
-        this.fp.destroy();
-        this.fp = null;
-        this.oldOnChange = null;
-        this.config.onChange = null
-      }
+      // Backup original handler
+      this.oldOnChange = this.config.onChange;
+      // Hook our handler
+      this.config.onChange = this.onChange;
+
+      // Init flatpickr
+      this.fp = new Flatpickr(this.getElem(), this.config);
+      // Set initial date
+      this.fp.setDate(this.value, true);
+
     },
     methods: {
       /**
@@ -86,7 +75,16 @@
           this.oldOnChange(...args);
         }
         this.$emit('on-change', ...args);
-      }
+      },
+
+      /**
+       * Watch for value changed by date-picker itself and notify parent component
+       *
+       * @param $event
+       */
+      onInput($event) {
+        this.$emit('input', $event.target.value);
+      },
     },
     watch: {
       /**
@@ -101,24 +99,23 @@
       },
 
       /**
-       * Watch for value changed by date-picker itself and notify parent component
-       *
-       * @param newValue
-       */
-      mutableValue(newValue) {
-        this.$emit('input', newValue);
-      },
-
-      /**
        * Watch for changes from parent component and update DOM
        *
        * @param newValue
        */
       value(newValue) {
-        // Prevent onChange event being triggered multiple times
-        if (newValue === this.mutableValue) return;
         // Notify flatpickr instance that there is a change in date
         this.fp && this.fp.setDate(newValue, true);
+      }
+    },
+    beforeDestroy() {
+      // Free up memory
+      /* istanbul ignore else */
+      if (this.fp) {
+        this.fp.destroy();
+        this.fp = null;
+        this.oldOnChange = null;
+        this.config.onChange = null
       }
     },
   };

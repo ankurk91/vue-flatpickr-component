@@ -22,6 +22,7 @@
   "homepage": "https://github.com/ankurk91/vue-flatpickr-component",
   "scripts": {
     "test": "node ./node_modules/jest/bin/jest.js",
+    "test:watch": "npm run test -- --watch --onlyChanged --notify",
     "lint": "eslint --ext .js,.vue --fix src",
     "start": "npm run dev",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.config.dev.js",
