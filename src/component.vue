@@ -96,8 +96,8 @@
        */
       config(newConfig) {
         this.fp.config = Object.assign(this.fp.config, newConfig);
+        this.fp.jumpToDate();
         this.fp.redraw();
-        this.fp.setDate(this.value, true);
       },
 
       /**
