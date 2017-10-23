@@ -15,7 +15,7 @@ describe('Flatpickr global component', () => {
 
     let app = localVue.extend({
       template: `<div id="app">
-                  <date-picker class="date-picker" :value="date"></date-picker>
+                  <date-picker class="form-control" name="date" :value="date"></date-picker>
                  </div>`,
       data() {
         return {
@@ -26,8 +26,11 @@ describe('Flatpickr global component', () => {
 
     let wrapper = new app().$mount();
 
-    expect(wrapper.$el.firstChild.tagName).toBe('INPUT');
-    expect(wrapper.$el.firstChild.value).toBe('2017-10-04');
+    let elem = wrapper.$el.firstChild;
+    expect(elem.tagName).toBe('INPUT');
+    expect(elem.value).toBe('2017-10-04');
+    expect(elem.getAttribute('class')).toContain('form-control');
+    expect(elem.getAttribute('name')).toBe('date');
 
   });
 

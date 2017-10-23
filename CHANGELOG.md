@@ -1,5 +1,16 @@
 # Changelog
 
+## [5.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/4.0.0...5.0.0) (unreleased)
+* Change:
+    - `input-class` prop has been removed, you can always use Vue.js inbuilt [class](https://vuejs.org/v2/guide/class-and-style.html#With-Components) binding
+    ```html
+    <flat-pickr v-model="date" class="form-control input"></flat-pickr>
+    ```
+    - Similarly `name`, `id`, `placeholder` and `required` props has been removed, you can still specify any number of attributes on component
+    ```html
+        <flat-pickr v-model="date" name="date-of-birth" id="js-date" placeholder="Select date" aria-required="true"></flat-pickr>
+    ```
+
 ## [4.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.3...4.0.0) (breaking)
 * Change: 
     - Upgrade to flatpickr [v4.x](https://github.com/chmln/flatpickr/releases/tag/v4.0.0)

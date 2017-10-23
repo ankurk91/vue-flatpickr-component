@@ -1,11 +1,6 @@
 <template>
 
   <input type="text"
-         :id="id"
-         :class="inputClass"
-         :name="name"
-         :placeholder="placeholder"
-         :required="required"
          v-model="mutableValue"
          data-input>
 
@@ -32,25 +27,6 @@
           wrap: false
         })
       },
-      placeholder: {
-        type: String,
-        default: ''
-      },
-      inputClass: {
-        type: [String, Object],
-        default: 'form-control input'
-      },
-      name: {
-        type: String,
-        default: 'date-time'
-      },
-      required: {
-        type: Boolean,
-        default: false
-      },
-      id: {
-        type: String,
-      },
     },
     data() {
       return {
@@ -63,27 +39,27 @@
          */
         fp: null,
         /**
-         * onChange method backup
+         * config.onChange method backup
          */
         oldOnChange: null,
       };
     },
     mounted() {
-      // Load flatPickr if not loaded yet
+      // Load flatPickr only if not loaded yet
+      /* istanbul ignore else */
       if (!this.fp) {
         // Backup original handler
         this.oldOnChange = this.config.onChange;
         // Hook our handler
         this.config.onChange = this.onChange;
-
-        // Bind on parent element if wrap is true
-        let elem = this.config.wrap ? this.$el.parentNode : this.$el;
-        this.fp = new Flatpickr(elem, this.config);
+        // Init flatpickr
+        this.fp = new Flatpickr(this.getElem(), this.config);
 
       }
     },
     beforeDestroy() {
       // Free up memory
+      /* istanbul ignore else */
       if (this.fp) {
         this.fp.destroy();
         this.fp = null;
@@ -93,10 +69,19 @@
     },
     methods: {
       /**
+       * Get the HTML node where to bind the flatpickr
+       * Bind on parent element if wrap is true
+       */
+      getElem() {
+        return this.config.wrap ? this.$el.parentNode : this.$el
+      },
+
+      /**
        * Emit on-change event
        */
       onChange(...args) {
         // Call original handler if registered
+        /* istanbul ignore else */
         if (typeof this.oldOnChange === 'function') {
           this.oldOnChange(...args);
         }

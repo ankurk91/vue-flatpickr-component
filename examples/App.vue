@@ -51,7 +51,7 @@
 
           <div class="form-group">
             <label>Select date (basic)</label>
-            <flat-pickr v-model="form.dateBasic" :config="configs.basic"></flat-pickr>
+            <flat-pickr v-model="form.dateBasic" class="form-control" :config="configs.basic"></flat-pickr>
           </div>
 
           <div class="form-group">
@@ -62,7 +62,7 @@
                           :config="configs.wrap"
                           :required="true"
                           @on-change="listenToOnChangeEvent"
-                          input-class="form-control input date-input"
+                          class="form-control"
                           name="date-name"
                           ref="datePickerWrap"
               >
@@ -80,14 +80,14 @@
 
           <div class="form-group">
             <label for="datetime-input">Select datetime</label>
-            <flat-pickr :config="configs.dateTimePicker" id="datetime-input" v-model="form.dateTime"
+            <flat-pickr :config="configs.dateTimePicker" id="datetime-input" class="form-control" v-model="form.dateTime"
                         placeholder="Date Time"></flat-pickr>
           </div>
 
           <div class="form-group">
             <label>Select time</label>
             <div class="input-group">
-              <flat-pickr :config="configs.timePicker" v-model="form.time" placeholder="Time"></flat-pickr>
+              <flat-pickr :config="configs.timePicker" class="form-control" v-model="form.time" placeholder="Time"></flat-pickr>
               <div class="input-group-btn">
                 <button class="btn btn-secondary" type="button" title="Toggle" data-toggle>
                   Clock
@@ -98,7 +98,7 @@
 
           <div class="form-group">
             <label>Select date (localization)</label>
-            <flat-pickr :config="configs.locale" v-model="form.dateLocale"></flat-pickr>
+            <flat-pickr class="form-control" :config="configs.locale" v-model="form.dateLocale"></flat-pickr>
           </div>
 
           <div class="form-group">
@@ -110,7 +110,7 @@
 
           <div class="form-group">
             <label>Select date (inline)</label>
-            <flat-pickr :config="configs.inline" v-model="form.dateInline"></flat-pickr>
+            <flat-pickr class="form-control" :config="configs.inline" v-model="form.dateInline"></flat-pickr>
           </div>
 
           <div class="form-group">
@@ -119,6 +119,7 @@
                         name="date-of-birth"
                         v-validate="{required:true}"
                         placeholder="Date of birth"
+                        class="form-control"
                         :class="{'is-invalid' : errors.has('date-of-birth')}"
             ></flat-pickr>
             <span v-show="errors.has('date-of-birth')" class="invalid-feedback">{{ errors.first('date-of-birth')
@@ -127,20 +128,20 @@
 
           <div class="form-group">
             <label>Select date (confirm plugin)</label>
-            <flat-pickr :config="configs.confirmPlugin" v-model="form.datePlugin"></flat-pickr>
+            <flat-pickr class="form-control" :config="configs.confirmPlugin" v-model="form.datePlugin"></flat-pickr>
           </div>
 
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label>From date</label>
-                <flat-pickr :config="configs.rangePlugin" v-model="form.dateStart"></flat-pickr>
+                <flat-pickr class="form-control" :config="configs.rangePlugin" v-model="form.dateStart"></flat-pickr>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>To date</label>
-                <flat-pickr :config="configs.rangePlugin" id="end-date" v-model="form.dateEnd"></flat-pickr>
+                <flat-pickr class="form-control" :config="configs.rangePlugin" id="end-date" v-model="form.dateEnd"></flat-pickr>
               </div>
             </div>
           </div>
@@ -188,7 +189,7 @@
             <form method="post" action="/" onsubmit="return false">
               <div class="form-group">
                 <label>Select a date</label>
-                <flat-pickr v-model="form.dateModal"></flat-pickr>
+                <flat-pickr class="form-control" v-model="form.dateModal"></flat-pickr>
               </div>
               <pre>{{form.dateModal}}</pre>
             </form>

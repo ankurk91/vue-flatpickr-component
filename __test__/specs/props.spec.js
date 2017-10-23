@@ -7,10 +7,6 @@ describe('Flatpickr props', () => {
   // Store for future usage
   const props = {
     value: '2017-10-04',
-    inputClass: 'input-field',
-    placeholder: 'select-a-date',
-    name: 'dob',
-    id: 'dob-field',
     config: {
       dateFormat: 'Y-m-d'
     }
@@ -27,26 +23,6 @@ describe('Flatpickr props', () => {
 
   afterEach(() => {
     wrapper.vm.$destroy();
-  });
-
-  test('accepts css class via prop', () => {
-    expect(wrapper.hasProp('inputClass', props.inputClass)).toBe(true);
-    expect(wrapper.hasClass(props.inputClass)).toBe(true);
-  });
-
-  test('accepts input name via prop', () => {
-    expect(wrapper.hasProp('name', props.name)).toBe(true);
-    expect(wrapper.hasAttribute('name', props.name)).toBe(true);
-  });
-
-  test('accepts input id via prop', () => {
-    expect(wrapper.hasProp('id', props.id)).toBe(true);
-    expect(wrapper.hasAttribute('id', props.id)).toBe(true);
-  });
-
-  test('accepts input placeholder via prop', () => {
-    expect(wrapper.hasProp('placeholder', props.placeholder)).toBe(true);
-    expect(wrapper.hasAttribute('placeholder', props.placeholder)).toBe(true);
   });
 
   test('accepts config via prop', () => {
