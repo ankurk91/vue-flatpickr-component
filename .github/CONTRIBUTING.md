@@ -14,7 +14,7 @@
 
 ### Development setup
 * You will need [node-js](http://nodejs.org/) v6.10+ and [yarn](https://yarnpkg.com/en/docs/install) v1.x
-* After clone the repo, run:
+* After cloning the repo, run:
 ```
 yarn install
 ```

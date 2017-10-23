@@ -30,6 +30,7 @@ module.exports = {
       {
         test: /\.vue$/,
         loader: 'vue-loader',
+        exclude: path.resolve(__dirname, 'node_modules'),
       },
       {
         test: /\.js$/,
@@ -68,7 +69,7 @@ module.exports = {
       }
     }),
     new webpack.ProvidePlugin({
-      Vue: 'vue',
+      Vue: ['vue/dist/vue.esm.js', 'default'],
       'window.Vue': 'vue',
       $: 'jquery',
       jQuery: 'jquery',
@@ -93,7 +94,7 @@ module.exports = {
   // Dev server related configs
   devServer: {
     contentBase: path.resolve(__dirname, 'examples'),
-    port: 8080,
+    port: 8000,
     host: 'localhost',
     open: true,
     inline: true,

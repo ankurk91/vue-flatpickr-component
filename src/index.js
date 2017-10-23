@@ -2,6 +2,7 @@ import component from './component.vue';
 
 const flatPickrPlugin = (Vue, params) => {
   let name = 'flat-pickr';
+  /* istanbul ignore else */
   if (typeof params === 'string') name = params;
 
   Vue.component(name, component);

@@ -20,4 +20,5 @@
 
 # Export ignore
 tests export-ignore
+__test__ export-ignore
 .github export-ignore

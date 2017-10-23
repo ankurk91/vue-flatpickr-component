@@ -186,15 +186,12 @@ yarn install
 ``
 yarn start
 ``
-* This should open the demo page at ``http://localhost:8080`` in your default web browser
+* This should open the demo page at ``http://localhost:8000`` in your default web browser
 
 ### Testing
 * This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils) for testing.
 * Tests can be found in `__test__` folder.
-* Execute tests with this command
-```bash
-yarn test
-```
+* Execute tests with this command `yarn test`
 
 ## Changelog
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
