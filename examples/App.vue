@@ -27,7 +27,7 @@
           <div class="col-md-4">
             <div class="form-group">
               <button type="button" class="btn btn-secondary" @click.prevent="setNewDate()">
-                Set new date programmatically
+                Set new date
               </button>
             </div>
           </div>
@@ -80,14 +80,16 @@
 
           <div class="form-group">
             <label for="datetime-input">Select datetime</label>
-            <flat-pickr :config="configs.dateTimePicker" id="datetime-input" class="form-control" v-model="form.dateTime"
+            <flat-pickr :config="configs.dateTimePicker" id="datetime-input" class="form-control"
+                        v-model="form.dateTime"
                         placeholder="Date Time"></flat-pickr>
           </div>
 
           <div class="form-group">
             <label>Select time</label>
             <div class="input-group">
-              <flat-pickr :config="configs.timePicker" class="form-control" v-model="form.time" placeholder="Time"></flat-pickr>
+              <flat-pickr :config="configs.timePicker" class="form-control" v-model="form.time"
+                          placeholder="Time"></flat-pickr>
               <div class="input-group-btn">
                 <button class="btn btn-secondary" type="button" title="Toggle" data-toggle>
                   Clock
@@ -128,22 +130,7 @@
 
           <div class="form-group">
             <label>Select date (confirm plugin)</label>
-            <flat-pickr class="form-control" :config="configs.confirmPlugin" v-model="form.datePlugin"></flat-pickr>
-          </div>
-
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>From date</label>
-                <flat-pickr class="form-control" :config="configs.rangePlugin" v-model="form.dateStart"></flat-pickr>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>To date</label>
-                <flat-pickr class="form-control" :config="configs.rangePlugin" id="end-date" v-model="form.dateEnd"></flat-pickr>
-              </div>
-            </div>
+            <flat-pickr class="form-control" :config="configs.confirmPlugin" v-model="form.dateConfirm"></flat-pickr>
           </div>
 
           <hr>
@@ -234,9 +221,7 @@
           dateInline: null,
           dateModal: '',
           dateValidate: null,
-          datePlugin: null,
-          dateStart: null,
-          dateEnd: null
+          dateConfirm: null,
         },
         configs: {
           basic: {},
@@ -267,12 +252,8 @@
           },
           confirmPlugin: {
             enableTime: true,
-            plugins: [new ConfirmDatePlugin({confirmText: 'Done'})]
-          },
-          rangePlugin: {
-            plugins: [new rangePlugin({input: "#end-date"})],
-            minDate: "today",
-            altInput: true
+            // https://chmln.github.io/flatpickr/plugins/
+            plugins: [new ConfirmDatePlugin()]
           }
         },
       }
@@ -314,7 +295,7 @@
       let flatPickrInstance = this.$refs.datePickerWrap.fp;
       // Do something with instance
       // https://chmln.github.io/flatpickr/instance-methods-properties-elements/
-      console.log(flatPickrInstance)
+      console.log('instance', flatPickrInstance)
     }
   }
 </script>
