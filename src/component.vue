@@ -17,7 +17,7 @@
         default: null,
         required: true,
         validator(value) {
-          return value === null || value instanceof Date || typeof value === 'string' || value instanceof String || value instanceof Array
+          return value === null || value instanceof Date || typeof value === 'string' || value instanceof String || value instanceof Array || typeof value === 'number'
         }
       },
       // https://chmln.github.io/flatpickr/options/

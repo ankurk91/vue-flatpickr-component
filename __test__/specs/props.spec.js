@@ -44,6 +44,7 @@ describe('Flatpickr props', () => {
     expect(vModel.validator(null)).toBe(true);
     expect(vModel.validator('2017-12-12')).toBe(true);
     expect(vModel.validator(['2017-12-12'])).toBe(true);
+    expect(vModel.validator(+new Date())).toBe(true);
 
   });
 

@@ -136,10 +136,10 @@ This will register a global component `<flat-pickr>`
 ## Available props
 The component accepts these props:
 
-| Attribute        | Type                               | Default              | Description      |
-| :---             | :---:                              | :---:                | :---             |
-| v-model / value  | String / Date Object / Array / null| `null`               | Set or Get date-picker value (required) |
-| config           | Object                             | `{wrap:false}`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
+| Attribute        | Type                                            | Default              | Description      |
+| :---             | :---:                                           | :---:                | :---             |
+| v-model / value  | String / Date Object / Array / Timestamps / null| `null`               | Set or Get date-picker value (required) |
+| config           | Object                                          | `{wrap:false}`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
 
 ## Install in non-module environments (without webpack)
 * Include required files

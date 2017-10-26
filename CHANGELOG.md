@@ -10,6 +10,8 @@
     ```html
         <flat-pickr v-model="date" name="date-of-birth" id="js-date" placeholder="Select date" aria-required="true"></flat-pickr>
     ```
+* Add:
+    - Allow timestamps as value    
 
 ## [4.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/3.1.3...4.0.0) (breaking)
 * Change: 

@@ -218,7 +218,7 @@
           time: null,
           date: '2017-01-01',
           dateLocale: null,
-          dateInline: null,
+          dateInline: +new Date(),
           dateModal: '',
           dateValidate: null,
           dateConfirm: null,
