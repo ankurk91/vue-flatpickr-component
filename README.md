@@ -159,7 +159,7 @@ The component accepts these props:
 </main>
 <script>
   // Initialize as global component
-  Vue.component('flat-pickr', VueFlatpickr.default);
+  Vue.component('flat-pickr', VueFlatpickr);
   
   new Vue({
     el: '#app',

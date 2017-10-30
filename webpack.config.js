@@ -26,9 +26,10 @@ module.exports = {
   ],
   output: {
     path: path.resolve(__dirname, 'dist'),// where to store build files
-    filename: "vue-flatpickr.min.js", // build file name
+    filename: 'vue-flatpickr.min.js', // build file name
     library: 'VueFlatpickr',
     libraryTarget: 'umd',
+    libraryExport: 'default',
     umdNamedDefine: true,
   },
   module: {

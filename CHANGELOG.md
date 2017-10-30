@@ -10,6 +10,10 @@
     ```html
         <flat-pickr v-model="date" name="date-of-birth" id="js-date" placeholder="Select date" aria-required="true"></flat-pickr>
     ```
+    - Non module environment usage
+    ```js
+    Vue.component('flat-pickr', VueFlatpickr);
+    ```
 * Add:
     - Allow timestamps as value    
 

@@ -7,7 +7,7 @@ node_js:
 
 # Speed up git clones
 git:
-  depth: 1
+  depth: 10
   submodules: false
 
 # Install custom version
