@@ -10,7 +10,7 @@
 
 Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
 
-:point_right: This branch is only for v4.x, [click here](https://github.com/ankurk91/vue-flatpickr-component/tree/v3.x) for Flatpickr v3.x
+:point_right: If you are looking for documentation for older version then switch respective version branch 
 
 ## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/63kzdwLx/)
 
