@@ -29,14 +29,14 @@
     "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {
-    "flatpickr": "^4.0.6"
+    "flatpickr": "^4.0.7"
   },
   "devDependencies": {
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.0",
     "babel-plugin-transform-object-assign": "^6.22.0",
     "babel-preset-env": "^1.6.1",
-    "bootstrap": "^4.0.0-beta.2",
+    "bootstrap": "^3.3.7",
     "clean-webpack-plugin": "^0.1.16",
     "css-loader": "^0.28.4",
     "file-loader": "^1.1.4",
@@ -45,15 +45,15 @@
     "jquery": "^3.2.1",
     "popper.js": "^1.12.6",
     "style-loader": "^0.19.0",
-    "unminified-webpack-plugin": "^1.2.0",
-    "vee-validate": "^2.0.0-rc.12",
-    "vue": "^2.5.2",
-    "vue-jest": "^1.0.0",
-    "vue-loader": "^13.3.0",
-    "vue-template-compiler": "^2.5.2",
-    "vue-test-utils": "^1.0.0-beta.3",
+    "unminified-webpack-plugin": "^1.4.2",
+    "vee-validate": "^2.0.0-rc.21",
+    "vue": "^2.5.3",
+    "vue-jest": "^1.0.2",
+    "vue-loader": "^13.5.0",
+    "vue-template-compiler": "^2.5.3",
+    "vue-test-utils": "^1.0.0-beta.4",
     "webpack": "^3.8.1",
-    "webpack-dev-server": "^2.9.3"
+    "webpack-dev-server": "^2.9.4"
   },
   "peerDependencies": {
     "vue": "^2.0.0"
