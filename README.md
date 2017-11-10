@@ -150,7 +150,7 @@ The component accepts these props:
 <!-- Vue js -->
 <script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
-<script src="https://unpkg.com/vue-flatpickr-component"></script>
+<script src="https://unpkg.com/vue-flatpickr-component@5"></script>
 ```
 * Use the component anywhere in your app like this
 ```html
