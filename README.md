@@ -10,7 +10,7 @@
 
 Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
 
-:point_right: If you are looking for documentation for older version then switch respective version branch 
+:point_right: If you are looking for the documentation of older version then switch to respective version branch. 
 
 ## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/63kzdwLx/)
 
@@ -109,7 +109,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
         date: new Date(),
         // Get more form https://chmln.github.io/flatpickr/options/
         config: {
-          wrap: true, // set wrap to true when using 'input-group'
+          wrap: true, // set wrap to true only when using 'input-group'
           altFormat: 'M	j, Y',
           altInput: true,
           dateFormat: 'Y-m-d',

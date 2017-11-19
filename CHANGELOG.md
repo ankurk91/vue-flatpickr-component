@@ -1,6 +1,6 @@
 # Changelog
 
-## [5.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/4.0.0...5.0.0) (unreleased)
+## [5.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/4.0.0...5.0.0) (breaking)
 * Change:
     - `input-class` prop has been removed, you can always use Vue.js inbuilt [class](https://vuejs.org/v2/guide/class-and-style.html#With-Components) binding
     ```html
