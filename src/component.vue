@@ -105,7 +105,7 @@
        */
       value(newValue) {
         // Notify flatpickr instance that there is a change in date
-        this.fp && this.fp.setDate(newValue, true);
+        this.fp && !this.fp.config.allowInput && this.fp.setDate(newValue, true);
       }
     },
     beforeDestroy() {
@@ -120,4 +120,3 @@
     },
   };
 </script>
-

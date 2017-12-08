@@ -133,6 +133,11 @@
             <flat-pickr class="form-control" :config="configs.confirmPlugin" v-model="form.dateConfirm"></flat-pickr>
           </div>
 
+          <div class="form-group">
+            <label>Select date (allow input <code>{{ configs.allowInput.dateFormat }}</code>)</label>
+            <flat-pickr class="form-control" :config="configs.allowInput" v-model="form.allowInput"></flat-pickr>
+          </div>
+
           <hr>
 
           <div class="form-group">
@@ -222,6 +227,7 @@
           dateModal: '',
           dateValidate: null,
           dateConfirm: null,
+          allowInput: null
         },
         configs: {
           basic: {},
@@ -254,6 +260,10 @@
             enableTime: true,
             // https://chmln.github.io/flatpickr/plugins/
             plugins: [new ConfirmDatePlugin()]
+          },
+          allowInput: {
+            allowInput: true,
+            dateFormat: 'Y-m-d'
           }
         },
       }
