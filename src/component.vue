@@ -105,6 +105,7 @@
        */
       value(newValue) {
         // Notify flatpickr instance that there is a change in date
+        // Don't update DOM when allowInput is set to true
         this.fp && !this.fp.config.allowInput && this.fp.setDate(newValue, true);
       }
     },

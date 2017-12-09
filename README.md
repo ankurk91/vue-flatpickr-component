@@ -138,7 +138,7 @@ The component accepts these props:
 
 | Attribute        | Type                                            | Default              | Description      |
 | :---             | :---:                                           | :---:                | :---             |
-| v-model / value  | String / Date Object / Array / Timestamps / null| `null`               | Set or Get date-picker value (required) |
+| v-model / value  | String / Date Object / Array / Timestamp / null | `null`               | Set or Get date-picker value (required) |
 | config           | Object                                          | `{wrap:false}`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
 
 ## Install in non-module environments (without webpack)
