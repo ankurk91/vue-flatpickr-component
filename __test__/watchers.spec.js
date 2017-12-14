@@ -1,6 +1,6 @@
 import {shallow} from 'vue-test-utils'
 
-import Component from '../../src/component.vue';
+import Component from '../src/component.vue';
 
 describe('Flatpickr watchers', () => {
 
@@ -21,7 +21,7 @@ describe('Flatpickr watchers', () => {
   });
 
   afterEach(() => {
-    wrapper.vm.$destroy();
+    wrapper.destroy();
   });
 
   test('emits change event on value change', () => {

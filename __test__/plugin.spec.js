@@ -1,4 +1,4 @@
-import Plugin from '../../src/index';
+import Plugin from '../src/index';
 // Lets import full build
 import Vue from 'vue/dist/vue.common';
 

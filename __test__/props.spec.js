@@ -1,6 +1,6 @@
 import {shallow} from 'vue-test-utils'
 
-import Component from '../../src/component.vue';
+import Component from '../src/component.vue';
 
 describe('Flatpickr props', () => {
 
@@ -22,17 +22,17 @@ describe('Flatpickr props', () => {
   });
 
   afterEach(() => {
-    wrapper.vm.$destroy();
+    wrapper.destroy();
   });
 
   test('accepts config via prop', () => {
-    expect(wrapper.hasProp('config', props.config)).toBe(true);
+    expect(wrapper.props().config).toEqual(props.config);
     // fp contains the flatpickr instance
     expect(wrapper.vm.fp.config).toHaveProperty('dateFormat', props.config.dateFormat);
   });
 
   test('accepts value via prop', () => {
-    expect(wrapper.hasProp('value', props.value)).toBe(true);
+    expect(wrapper.props().value).toBe(props.value);
   });
 
   test('validates v-model', () => {

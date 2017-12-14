@@ -1,6 +1,6 @@
 import {shallow} from 'vue-test-utils'
 
-import Component from '../../src/component.vue';
+import Component from '../src/component.vue';
 
 describe('Flatpickr component', () => {
 
@@ -26,11 +26,11 @@ describe('Flatpickr component', () => {
   test('opens datepicker when focus', () => {
     let input = wrapper.find('input');
     input.trigger('focus');
-    expect(input.hasClass('active')).toBe(true);
+    expect(input.classes()).toContain('active');
   });
 
   test('clean up on destroy', () => {
-    wrapper.vm.$destroy();
+    wrapper.destroy();
     expect(wrapper.isEmpty()).toBe(true);
     expect(wrapper.vm.$data.fp).toBe(null);
   });
