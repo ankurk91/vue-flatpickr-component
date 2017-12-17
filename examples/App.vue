@@ -218,7 +218,7 @@
     data() {
       return {
         form: {
-          dateBasic: new Date(),
+          dateBasic: null,
           dateTime: null,
           time: null,
           date: '2017-01-01',

@@ -1,4 +1,6 @@
 import Plugin from '../src/index';
+import {mount} from 'vue-test-utils';
+
 // Lets import full build
 import Vue from 'vue/dist/vue.common';
 
@@ -13,9 +15,9 @@ describe('Flatpickr global component', () => {
 
   test('works as plugin', () => {
 
-    let app = localVue.extend({
+    let app = localVue.component('app', {
       template: `<div id="app">
-                  <date-picker class="form-control" name="date" :value="date"></date-picker>
+                  <date-picker class="form-control" name="date" v-model="date"></date-picker>
                  </div>`,
       data() {
         return {
@@ -24,14 +26,18 @@ describe('Flatpickr global component', () => {
       }
     });
 
-    let wrapper = new app().$mount();
+    let wrapper = mount(app, {
+      attachToDocument: true,
+      localVue
+    });
 
-    let elem = wrapper.$el.firstChild;
+    let elem = wrapper.vm.$el.firstChild;
     expect(elem.tagName).toBe('INPUT');
     expect(elem.value).toBe('2017-10-04');
     expect(elem.getAttribute('class')).toContain('form-control');
     expect(elem.getAttribute('name')).toBe('date');
 
+    wrapper.destroy();
   });
 
 });
