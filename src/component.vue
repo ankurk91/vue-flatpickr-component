@@ -104,6 +104,8 @@
        * @param newValue
        */
       value(newValue) {
+        // Prevent updates if v-model value is same as input's current value
+        if (newValue === this.$el.value) return;
         // Make sure we have a flatpickr instance
         this.fp &&
         // Don't update DOM when allowInput is set to true
