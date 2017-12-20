@@ -8,7 +8,6 @@ describe('Flatpickr watchers', () => {
 
   beforeEach(() => {
     wrapper = shallow(Component, {
-      attachToDocument: true,
       propsData: {
         value: null,
         config: {
@@ -22,6 +21,7 @@ describe('Flatpickr watchers', () => {
 
   afterEach(() => {
     wrapper.destroy();
+    wrapper = null;
   });
 
   test('emits change event on value change', () => {

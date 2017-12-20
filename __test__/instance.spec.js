@@ -2,13 +2,12 @@ import {shallow} from 'vue-test-utils'
 
 import Component from '../src/component.vue';
 
-describe('Flatpickr component', () => {
+describe('Flatpickr component instance', () => {
 
   let wrapper;
 
   beforeEach(() => {
     wrapper = shallow(Component, {
-      attachToDocument: true,
       propsData: {
         value: new Date()
       }
@@ -24,9 +23,8 @@ describe('Flatpickr component', () => {
   });
 
   test('opens datepicker when focus', () => {
-    let input = wrapper.find('input');
-    input.trigger('focus');
-    expect(input.classes()).toContain('active');
+    wrapper.trigger('focus');
+    expect(wrapper.classes()).toContain('active');
   });
 
   test('clean up on destroy', () => {
