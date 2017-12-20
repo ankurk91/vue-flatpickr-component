@@ -1,5 +1,8 @@
 # Changelog
 
+## [5.0.2](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.1...5.0.2) 
+* Fix: `input` event was being emitted twice, [#44](https://github.com/ankurk91/vue-flatpickr-component/issues/44), [#29](https://github.com/ankurk91/vue-flatpickr-component/issues/29)
+
 ## [5.0.1](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.0...5.0.1) 
 * Fix: Don't update DOM when `allowInput` is set to true in config
 
