@@ -108,8 +108,6 @@
         if (newValue === this.$el.value) return;
         // Make sure we have a flatpickr instance
         this.fp &&
-        // Don't update DOM when allowInput is set to true
-        !this.fp.config.allowInput &&
         // Notify flatpickr instance that there is a change in value
         this.fp.setDate(newValue, true);
       }
