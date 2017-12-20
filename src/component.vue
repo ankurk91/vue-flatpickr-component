@@ -1,7 +1,7 @@
 <template>
 
   <input type="text"
-         @input="onInput($event)"
+         @input="onInput"
          data-input>
 
 </template>
@@ -80,10 +80,10 @@
       /**
        * Watch for value changed by date-picker itself and notify parent component
        *
-       * @param $event
+       * @param event
        */
-      onInput($event) {
-        this.$emit('input', $event.target.value);
+      onInput(event) {
+        this.$emit('input', event.target.value);
       },
     },
     watch: {
@@ -94,6 +94,7 @@
        */
       config(newConfig) {
         this.fp.config = Object.assign({}, this.fp.config, newConfig);
+        // Note: jumpToDate method also calls redraw()
         this.fp.jumpToDate();
       },
 
@@ -103,9 +104,12 @@
        * @param newValue
        */
       value(newValue) {
-        // Notify flatpickr instance that there is a change in date
+        // Make sure we have a flatpickr instance
+        this.fp &&
         // Don't update DOM when allowInput is set to true
-        this.fp && !this.fp.config.allowInput && this.fp.setDate(newValue, true);
+        !this.fp.config.allowInput &&
+        // Notify flatpickr instance that there is a change in value
+        this.fp.setDate(newValue, true);
       }
     },
     beforeDestroy() {
