@@ -24,21 +24,9 @@ describe('Flatpickr watchers', () => {
     wrapper = null;
   });
 
-  test('emits change event on value change', () => {
-    const stub = jest.fn();
-    wrapper.vm.$on('on-change', stub);
-    wrapper.setProps({value: '2017-10-04'});
-
-    expect(stub).toHaveBeenCalled();
-    stub.mockClear();
-  });
-
-  test('calls original onChange method on value change', () => {
-    const spy = jest.spyOn(wrapper.vm, 'oldOnChange');
-    wrapper.setProps({value: '2017-10-04'});
-
-    expect(spy).toHaveBeenCalled();
-    spy.mockReset();
+  test('emits on-change event on value change', () => {
+    wrapper.setProps({value: '2015-10-04'});
+    expect(wrapper.emitted()['on-change'].length).toBe(1)
   });
 
   test('updates input value in DOM on value change', () => {
