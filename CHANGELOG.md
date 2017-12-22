@@ -1,5 +1,8 @@
 # Changelog
 
+## [5.0.3](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.2...5.0.3) 
+* Fix: a bug where changes in `config` object properties were not being detected
+
 ## [5.0.2](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.1...5.0.2) 
 * Fix: `input` event was being emitted twice, [#44](https://github.com/ankurk91/vue-flatpickr-component/issues/44), [#29](https://github.com/ankurk91/vue-flatpickr-component/issues/29)
 
