@@ -1,5 +1,8 @@
 # Changelog
 
+## [5.0.4](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.3...5.0.4) 
+* Revert the changes made in v5.0.3
+
 ## [5.0.3](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.2...5.0.3) 
 * Fix: a bug where changes in `config` object properties were not being detected
 
