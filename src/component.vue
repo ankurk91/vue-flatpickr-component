@@ -92,13 +92,10 @@
        *
        * @param newConfig Object
        */
-      config: {
-        deep: true,
-        handler(newConfig) {
-          this.fp.config = Object.assign({}, this.fp.config, newConfig);
-          // Note: jumpToDate method also calls redraw()
-          this.fp.jumpToDate();
-        },
+      config(newConfig) {
+        this.fp.config = Object.assign({}, this.fp.config, newConfig);
+        // Note: jumpToDate method also calls redraw()
+        this.fp.jumpToDate();
       },
 
       /**
