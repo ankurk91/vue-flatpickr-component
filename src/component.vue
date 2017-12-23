@@ -92,12 +92,12 @@
        *
        * @param newConfig Object
        */
-      config(newConfig) {
-        this.fp.config = Object.assign({}, this.fp.config, newConfig);
-        // Note: jumpToDate method also calls redraw()
-        this.fp.jumpToDate();
+      config: {
+        deep: false,
+        handler(newConfig) {
+          this.fp.set(newConfig);
+        }
       },
-
       /**
        * Watch for changes from parent component and update DOM
        *
