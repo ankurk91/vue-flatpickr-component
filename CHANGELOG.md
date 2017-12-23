@@ -1,5 +1,8 @@
 # Changelog
 
+## [5.0.5](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.4...5.0.5) 
+* Internal: Remove the need of `Object.assign`
+
 ## [5.0.4](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.3...5.0.4) 
 * Revert the changes made in v5.0.3
 
