@@ -236,6 +236,7 @@
             altFormat: 'M	j, Y',
             altInput: true,
             dateFormat: "Y-m-d",
+            minDate: new Date()
           },
           timePicker: {
             wrap: true,
@@ -292,8 +293,7 @@
         console.log('listen To OnChange Event', dateStr);
       },
       submit() {
-        console.log('Form submit event');
-        console.log(this.form);
+        console.log('Form submit event', this.form);
         // http://vee-validate.logaretm.com/examples.html#component-example
         this.$validator.validateAll().then(result => {
           // eslint-disable-next-line

@@ -21,6 +21,7 @@ Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-t
     - You can change config options dynamically
     - Component will watch for any changes and redraw itself
     - You are suggested to modify config via [Vue.set](https://vuejs.org/v2/api/#Vue-set)
+* Emits all possible [events](https://chmln.github.io/flatpickr/events/)
 * Compatible with [Bootstrap](http://getbootstrap.com/), [Bulma](http://bulma.io/) or any other CSS framework
 * Supports [wrapped](https://chmln.github.io/flatpickr/examples/#flatpickr-external-elements) mode
     - Just set ``wrap:true`` in config and component will take care of all
@@ -71,8 +72,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
       <div class="input-group">
         <flat-pickr
                 v-model="date"
-                :config="config"                                
-                :required="true"                
+                :config="config"                                                          
                 class="form-control" 
                 placeholder="Select date"               
                 name="date">
@@ -82,6 +82,11 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
             <i class="fa fa-calendar">
               <span aria-hidden="true" class="sr-only">Toggle</span>
             </i>
+          </button>
+          <button class="btn btn-default" type="button" title="Clear" data-clear>
+            <i class="fa fa-times">
+              <span aria-hidden="true" class="sr-only">Clear</span>
+            </i>               
           </button>
         </div>
       </div>
@@ -97,6 +102,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
   import flatPickr from 'vue-flatpickr-component';  
   import 'flatpickr/dist/flatpickr.css';
   // theme is optional
+  // try more themes at - https://chmln.github.io/flatpickr/themes/
   import 'flatpickr/dist/themes/material_blue.css';
   // l10n is optional
   import {Hindi} from 'flatpickr/dist/l10n/hi';
@@ -133,6 +139,14 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
 ```
 This will register a global component `<flat-pickr>`
 
+## Events
+* The components emits all possible events, you can listen to them in your component
+```html
+<flat-pickr v-model="date" @on-change="doSomethingOnChange" @on-close="doSomethingOnClose"></flat-pickr>
+```
+* Events names has been converted to kebab case
+* You can still pass your methods in config like original flatpickr do.
+
 ## Available props
 The component accepts these props:
 
@@ -150,7 +164,7 @@ The component accepts these props:
 <!-- Vue js -->
 <script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
-<script src="https://unpkg.com/vue-flatpickr-component@5"></script>
+<script src="https://unpkg.com/vue-flatpickr-component@6"></script>
 ```
 * Use the component anywhere in your app like this
 ```html
@@ -172,12 +186,12 @@ The component accepts these props:
 
 ## Run examples on your localhost
 * Clone this repo
-* You should have node-js >=6.10 and yarn >=1.x pre-installed
+* You should have node-js >=6.10 || >=9.x and yarn >=1.x pre-installed
 * Install dependencies `yarn install`
 * Run webpack dev server `yarn start`
 * This should open the demo page at ``http://localhost:8000`` in your default web browser
 
-### Testing
+## Testing
 * This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils) for testing.
 * Tests can be found in `__test__` folder.
 * Execute tests with this command `yarn test`

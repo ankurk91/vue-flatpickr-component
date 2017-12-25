@@ -13,7 +13,7 @@
 
 
 ### Development setup
-* You will need [node-js](http://nodejs.org/) v6.10+ and [yarn](https://yarnpkg.com/en/docs/install) v1.x
+* You will need [node-js](http://nodejs.org/) >=6.10 || >=9.0 and [yarn](https://yarnpkg.com/en/docs/install) v1.x
 * After cloning the repo, run:
 ```
 yarn install
