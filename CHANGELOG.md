@@ -3,6 +3,7 @@
 ## [6.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.5...6.0.0) 
 * Add: emit all events, fixes [#37](https://github.com/ankurk91/vue-flatpickr-component/issues/37)
 * Fix: dynamically change configs, [#20](https://github.com/ankurk91/vue-flatpickr-component/issues/20)
+* Change: export name, default export remains same
 
 ## [5.0.5](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.4...5.0.5) 
 * Internal: Remove the need of `Object.assign`

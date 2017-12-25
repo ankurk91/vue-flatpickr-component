@@ -1,14 +1,14 @@
-import component from './component.vue';
+import Component from './component.vue';
 
-const flatPickrPlugin = (Vue, params) => {
+const Plugin = (Vue, params) => {
   let name = 'flat-pickr';
   /* istanbul ignore else */
   if (typeof params === 'string') name = params;
 
-  Vue.component(name, component);
+  Vue.component(name, Component);
 };
 
-component.install = flatPickrPlugin;
+Component.install = Plugin;
 
-export default component;
-export {component, flatPickrPlugin};
+export default Component;
+export {Component, Plugin};
