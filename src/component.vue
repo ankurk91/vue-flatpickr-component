@@ -10,6 +10,29 @@
   import Flatpickr from 'flatpickr';
   // You have to import css yourself
 
+  // All available hooks, copied from flatpickr source
+  const hooks = [
+    'onChange',
+    'onClose',
+    'onDayCreate',
+    'onDestroy',
+    'onKeyDown',
+    'onMonthChange',
+    'onOpen',
+    'onParseConfig',
+    'onReady',
+    'onValueUpdate',
+    'onYearChange',
+  ];
+
+  const camelToKebab = (string) => {
+    return string.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
+  };
+
+  const arrayify = (obj) => {
+    return obj instanceof Array ? obj : [obj];
+  };
+
   export default {
     name: 'flat-pickr',
     props: {
@@ -34,10 +57,6 @@
          * The flatpickr instance
          */
         fp: null,
-        /**
-         * config.onChange method backup
-         */
-        oldOnChange: null,
       };
     },
     mounted() {
@@ -45,10 +64,12 @@
       /* istanbul ignore if */
       if (this.fp) return;
 
-      // Backup original handler
-      this.oldOnChange = this.config.onChange;
-      // Hook our handler
-      this.config.onChange = this.onChange;
+      // Inject our method into hooks array
+      hooks.forEach((hook) => {
+        this.config[hook] = arrayify(this.config[hook] || []).concat((...args) => {
+          this.$emit(camelToKebab(hook), ...args)
+        });
+      });
 
       // Init flatpickr
       this.fp = new Flatpickr(this.getElem(), this.config);
@@ -58,23 +79,11 @@
     },
     methods: {
       /**
-       * Get the HTML node where to bind the flatpickr
+       * Get the HTML node where flatpickr to be attached
        * Bind on parent element if wrap is true
        */
       getElem() {
         return this.config.wrap ? this.$el.parentNode : this.$el
-      },
-
-      /**
-       * Emit on-change event
-       */
-      onChange(...args) {
-        // Call original handler if registered
-        /* istanbul ignore else */
-        if (typeof this.oldOnChange === 'function') {
-          this.oldOnChange(...args);
-        }
-        this.$emit('on-change', ...args);
       },
 
       /**
@@ -93,8 +102,12 @@
        * @param newConfig Object
        */
       config: {
-        deep: false,
+        deep: true,
         handler(newConfig) {
+          // Workaround: Don't pass hooks to configs again
+          hooks.forEach((hook) => {
+            delete newConfig[hook];
+          });
           this.fp.set(newConfig);
         }
       },
@@ -112,14 +125,14 @@
         this.fp.setDate(newValue, true);
       }
     },
+    /**
+     * Free up memory
+     */
     beforeDestroy() {
-      // Free up memory
       /* istanbul ignore else */
       if (this.fp) {
         this.fp.destroy();
         this.fp = null;
-        this.oldOnChange = null;
-        this.config.onChange = null
       }
     },
   };
