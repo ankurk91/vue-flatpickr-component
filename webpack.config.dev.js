@@ -10,7 +10,7 @@ module.exports = {
     modules: [
       path.resolve(__dirname, 'src'),
       path.resolve(__dirname, 'examples'),
-      'node_modules'
+      path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
       'vue$': 'vue/dist/vue.esm.js'
@@ -64,8 +64,6 @@ module.exports = {
         minifyJS: false,
         minifyCSS: false,
         minifyURLs: false
-        // More options here
-        // https://github.com/kangax/html-minifier#options-quick-reference
       }
     }),
     new webpack.ProvidePlugin({

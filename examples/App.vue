@@ -67,7 +67,7 @@
                           ref="datePickerWrap"
               >
               </flat-pickr>
-              <div class="input-group-btn">
+              <div class="input-group-append">
                 <button class="btn btn-success" type="button" title="Toggle" data-toggle>
                   Toggle
                 </button>
@@ -90,7 +90,7 @@
             <div class="input-group">
               <flat-pickr :config="configs.timePicker" class="form-control" v-model="form.time"
                           placeholder="Time"></flat-pickr>
-              <div class="input-group-btn">
+              <div class="input-group-append">
                 <button class="btn btn-secondary" type="button" title="Toggle" data-toggle>
                   Clock
                 </button>

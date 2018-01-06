@@ -34,5 +34,5 @@ spaces_around_operators = true
 indent_brace_style = 1TBS
 spaces_around_brackets = both
 
-[*.{scss,css,js,html,json,vue,yml,babelrc,eslintrc}]
+[*.{scss,css,js,ts,html,json,vue,yml,babelrc,eslintrc}]
 indent_size = 2

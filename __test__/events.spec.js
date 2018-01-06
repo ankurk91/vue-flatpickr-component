@@ -21,6 +21,7 @@ describe('Flatpickr events', () => {
   afterEach(() => {
     wrapper.destroy();
     wrapper = null;
+    jest.resetAllMocks();
   });
 
   test('emits change event on value change', () => {
@@ -29,7 +30,6 @@ describe('Flatpickr events', () => {
     wrapper.setProps({value: '2017-10-04'});
 
     expect(stub).toHaveBeenCalled();
-    stub.mockClear();
   });
 
   test('emits open event on focus', () => {
@@ -38,14 +38,12 @@ describe('Flatpickr events', () => {
     wrapper.trigger('focus');
 
     expect(stub).toHaveBeenCalled();
-    stub.mockClear();
   });
 
   test('calls original onChange method on value change', () => {
     wrapper.setProps({value: '2017-10-04'});
 
     expect(onChangeStub).toHaveBeenCalled();
-    onChangeStub.mockReset();
   });
 
 

@@ -20,7 +20,7 @@ describe('Flatpickr watchers', () => {
     wrapper = null;
   });
 
-  test('updates input value in DOM on value change', () => {
+  test('updates input value in DOM on value changed from parent component', () => {
     wrapper.setProps({value: '2019-10-04'});
     expect(wrapper.vm.$el.value).toEqual('2019-10-04');
   });

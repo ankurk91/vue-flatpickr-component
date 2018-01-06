@@ -10,7 +10,6 @@
 *.sublime-*
 .brackets.json
 .vscode
-_notes
 
 # logs and cache
 /logs/
@@ -51,9 +50,6 @@ node_modules/
 
 # bower packages
 bower_components/
-
-# svn folders
-.svn/
 
 # Composer, exclude on root vendor folder
 /vendor/

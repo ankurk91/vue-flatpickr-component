@@ -7,20 +7,17 @@
 
 
 ### Pull requests guidelines
-* Checkout a topic branch from the relevant branch, and merge back against that branch.
+* Always create a separate branch from `master` branch for your commits.
+* One concern one PR.
 * It's OK to have multiple small commits as you work on the PR - we will let GitHub automatically squash it before merging.
-* Work in ``src`` folder never touch or commit in ``dist`` folder
 
 
 ### Development setup
-* You will need [node-js](http://nodejs.org/) >=6.10 || >=9.0 and [yarn](https://yarnpkg.com/en/docs/install) v1.x
-* After cloning the repo, run:
-```
-yarn install
-```
+* Install [node-js](http://nodejs.org/) >=6.10 || >=9.0 and [yarn](https://yarnpkg.com/en/docs/install) v1.x
+* Clone the repo
+* Create a separate branch `git checkout -b your-branch-name`
+* Install dependencies : `yarn install`
 * Make changes in ``src`` folder
 * Write/update test case for the feature/fix you made 
-* You can check if everything is working fine by running tests
-```
-yarn test
-```
+* You can check if everything is working fine by running tests `yarn test`
+

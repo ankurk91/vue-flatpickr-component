@@ -5,12 +5,12 @@ describe('Flatpickr global component', () => {
 
   // Make a copy of local vue
   let localVue = createLocalVue();
-  // Define a global component
+  // Define the global component
   localVue.use(Component, 'date-picker');
 
   test('works as plugin', () => {
 
-    let app = localVue.component('app', {
+    let app = {
       template: `<div id="app">
                   <date-picker class="form-control" name="date" v-model="date"></date-picker>
                  </div>`,
@@ -19,7 +19,7 @@ describe('Flatpickr global component', () => {
           date: '2017-10-04'
         }
       }
-    });
+    };
 
     let wrapper = mount(app, {
       localVue
@@ -31,7 +31,7 @@ describe('Flatpickr global component', () => {
     expect(input.is('input')).toBe(true);
     expect(input.vm.$el.value).toBe('2017-10-04');
     expect(input.classes()).toContain('form-control');
-    expect(input.vm.$el.getAttribute('name')).toBe('date');
+    expect(input.attributes().name).toBe('date');
 
     wrapper.destroy();
   });

@@ -26,7 +26,6 @@ describe('Flatpickr props', () => {
 
   test('accepts config via prop', () => {
     expect(wrapper.props().config).toEqual(props.config);
-    // fp contains the flatpickr instance
     expect(wrapper.vm.fp.config).toHaveProperty('dateFormat', props.config.dateFormat);
   });
 
