@@ -1,5 +1,12 @@
 # Changelog
 
+## [6.1.0](https://github.com/ankurk91/vue-flatpickr-component/compare/6.0.0...6.1.0) 
+* Add: `events` props to customise the emitted events, fixes [#53](https://github.com/ankurk91/vue-flatpickr-component/issues/53)
+    ```html
+    <flatpickr v-model="date" :events="['onChange']">
+    ```
+    - `events` prop is optional and component emits all events when prop is not specified.
+
 ## [6.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.5...6.0.0) 
 * Add: emit all events, fixes [#37](https://github.com/ankurk91/vue-flatpickr-component/issues/37)
 * Fix: dynamically change configs, [#20](https://github.com/ankurk91/vue-flatpickr-component/issues/20)

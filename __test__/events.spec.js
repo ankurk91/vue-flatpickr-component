@@ -46,5 +46,24 @@ describe('Flatpickr events', () => {
     expect(onChangeStub).toHaveBeenCalled();
   });
 
+  test('emits only those are specified via prop', () => {
+    wrapper = shallow(Component, {
+      propsData: {
+        value: null,
+        events: ['onChange']
+      }
+    });
+
+    const onOpen = jest.fn();
+    wrapper.vm.$on('on-open', onOpen);
+    wrapper.trigger('focus');
+    expect(onOpen).not.toHaveBeenCalled();
+
+    const onChange = jest.fn();
+    wrapper.vm.$on('on-change', onChange);
+    wrapper.setProps({value: '2017-10-04'});
+    expect(onChange).toHaveBeenCalled();
+  });
+
 
 });
