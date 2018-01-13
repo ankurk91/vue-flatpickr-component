@@ -1,5 +1,5 @@
 import Component from '../src/index';
-import {mount, createLocalVue} from 'vue-test-utils';
+import {mount, createLocalVue} from '@vue/test-utils';
 
 describe('Flatpickr global component', () => {
 
