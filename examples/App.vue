@@ -138,6 +138,23 @@
             <flat-pickr class="form-control" :config="configs.allowInput" v-model="form.allowInput"></flat-pickr>
           </div>
 
+          <div class="row">
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>Start date </label>
+                <flat-pickr class="form-control" :config="configs.start" v-model="form.dateStart"
+                            @on-change="onStartChange"></flat-pickr>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="form-group">
+                <label>End date </label>
+                <flat-pickr class="form-control" :config="configs.end" v-model="form.dateEnd"
+                            @on-change="onEndChange"></flat-pickr>
+              </div>
+            </div>
+          </div>
+
           <hr>
 
           <div class="form-group">
@@ -227,7 +244,9 @@
           dateModal: '',
           dateValidate: null,
           dateConfirm: null,
-          allowInput: null
+          allowInput: null,
+          dateStart: null,
+          dateEnd: null,
         },
         configs: {
           basic: {},
@@ -265,6 +284,13 @@
           allowInput: {
             allowInput: true,
             dateFormat: 'Y-m-d'
+          },
+          start: {
+            minDate: new Date(),
+            maxDate: null
+          },
+          end: {
+            minDate: null
           }
         },
       }
@@ -299,6 +325,12 @@
           // eslint-disable-next-line
           alert(`Form validation result: ${result}`);
         });
+      },
+      onStartChange(selectedDates, dateStr, instance) {
+        this.$set(this.configs.end, 'minDate', dateStr);
+      },
+      onEndChange(selectedDates, dateStr, instance) {
+        this.$set(this.configs.start, 'maxDate', dateStr);
       }
     },
     mounted() {
