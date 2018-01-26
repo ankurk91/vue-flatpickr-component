@@ -65,5 +65,9 @@ describe('Flatpickr events', () => {
     expect(onChange).toHaveBeenCalled();
   });
 
+  test('does not emit on-change event on mount', () => {
+    expect(onChangeStub).not.toHaveBeenCalled();
+  });
+
 
 });

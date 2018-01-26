@@ -47,7 +47,8 @@
       config: {
         type: Object,
         default: () => ({
-          wrap: false
+          wrap: false,
+          defaultDate: null,
         })
       },
       events: {
@@ -75,11 +76,11 @@
         });
       });
 
+      // Set initial date without emitting any event
+      this.config.defaultDate = this.value || this.config.defaultDate;
+
       // Init flatpickr
       this.fp = new Flatpickr(this.getElem(), this.config);
-      // Set initial date
-      this.fp.setDate(this.value, true);
-
     },
     methods: {
       /**
