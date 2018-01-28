@@ -1,7 +1,11 @@
 # Changelog
 
+## [6.2.0](https://github.com/ankurk91/vue-flatpickr-component/compare/6.1.0...6.2.0)
+* Change: Don't emit `on-change` on component mount
+* Add: `on-pre-calendar-position` event
+
 ## [6.1.0](https://github.com/ankurk91/vue-flatpickr-component/compare/6.0.0...6.1.0) 
-* Add: `events` props to customise the emitted events, fixes [#53](https://github.com/ankurk91/vue-flatpickr-component/issues/53)
+* Add: `events` props to customise the emitted events, closes [#53](https://github.com/ankurk91/vue-flatpickr-component/issues/53)
     ```html
     <flatpickr v-model="date" :events="['onChange']">
     ```
@@ -9,7 +13,7 @@
 
 ## [6.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.5...6.0.0) 
 * Add: emit all events, fixes [#37](https://github.com/ankurk91/vue-flatpickr-component/issues/37)
-* Fix: dynamically change configs, [#20](https://github.com/ankurk91/vue-flatpickr-component/issues/20)
+* Fix: dynamically change configs, closes [#20](https://github.com/ankurk91/vue-flatpickr-component/issues/20)
 * Change: export name, default export remains same
 
 ## [5.0.5](https://github.com/ankurk91/vue-flatpickr-component/compare/5.0.4...5.0.5) 
