@@ -23,6 +23,7 @@
     'onReady',
     'onValueUpdate',
     'onYearChange',
+    'onPreCalendarPosition',
   ];
 
   const camelToKebab = (string) => {
