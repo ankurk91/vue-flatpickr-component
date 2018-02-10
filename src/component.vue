@@ -14,16 +14,18 @@
   const hooks = [
     'onChange',
     'onClose',
-    'onDayCreate',
     'onDestroy',
     'onKeyDown',
     'onMonthChange',
     'onOpen',
-    'onParseConfig',
-    'onReady',
-    'onValueUpdate',
     'onYearChange',
-    'onPreCalendarPosition',
+
+    // Let's not include these events
+    //'onValueUpdate',
+    //'onDayCreate',
+    //'onParseConfig',
+    //'onReady',
+    //'onPreCalendarPosition',
   ];
 
   const camelToKebab = (string) => {
