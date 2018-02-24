@@ -1,5 +1,9 @@
 # Changelog
 
+## [7.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/6.2.0...7.0.0) 
+* Change: Limit the default events to be emitted, [read more](https://github.com/ankurk91/vue-flatpickr-component/issues/59), [#53](https://github.com/ankurk91/vue-flatpickr-component/issues/53) 
+    - You can restore the old behaviour by using `events` props
+
 ## [6.2.0](https://github.com/ankurk91/vue-flatpickr-component/compare/6.1.0...6.2.0)
 * Change: Don't emit `on-change` on component mount
 * Add: `on-pre-calendar-position` event
