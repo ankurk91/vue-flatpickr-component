@@ -144,7 +144,7 @@ This will register a global component `<flat-pickr>`
 ```html
 <flat-pickr v-model="date" @on-change="doSomethingOnChange" @on-close="doSomethingOnClose"></flat-pickr>
 ```
-* Events names has been converted to kebab case
+* Events names has been converted to kebab-case.
 * You can still pass your methods in config like original flatpickr do.
 
 ## Available props
@@ -165,7 +165,7 @@ The component accepts these props:
 <!-- Vue js -->
 <script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
 <!-- Lastly add this package -->
-<script src="https://unpkg.com/vue-flatpickr-component@6"></script>
+<script src="https://unpkg.com/vue-flatpickr-component@7"></script>
 ```
 * Use the component anywhere in your app like this
 ```html
