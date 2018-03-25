@@ -310,7 +310,7 @@
         this.$set(this.configs.basic, 'mode', 'range');
       },
       changeTheme() {
-        require('flatpickr/dist/themes/material_blue.css');
+        require('flatpickr/dist/themes/material_red.css');
       },
       onChange(selectedDates, dateStr, instance) {
         console.log('Date change hook was called', dateStr);
