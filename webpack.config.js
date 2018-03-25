@@ -19,14 +19,18 @@ module.exports = {
   },
   entry: './src/index.js',
   // Don't include them into library build
-  externals: [
-    'vue',
-    'flatpickr',
-    'flatpickr/dist/flatpickr.css',
-  ],
+  externals: {
+    'vue': {
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue',
+      root: 'Vue'
+    },
+    'flatpickr': 'flatpickr'
+  },
   output: {
-    path: path.resolve(__dirname, 'dist'),// where to store build files
-    filename: 'vue-flatpickr.min.js', // build file name
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'vue-flatpickr.min.js',
     library: 'VueFlatpickr',
     libraryTarget: 'umd',
     libraryExport: 'default',

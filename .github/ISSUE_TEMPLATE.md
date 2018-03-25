@@ -6,7 +6,7 @@
 ```
 
 **Tell about your platform**
-* flatPickr version : 3.x.x
+* flatPickr version : 4.x.x
 * Vue.js version : 2.x.x
 * Browser name and version : Chrome|Firefox|Safari x.x.x
 * This package version : x.x.x
