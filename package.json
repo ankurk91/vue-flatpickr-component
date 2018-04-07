@@ -34,10 +34,10 @@
     "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {
-    "flatpickr": "^4.3.2"
+    "flatpickr": "^4.4.3"
   },
   "devDependencies": {
-    "@vue/test-utils": "^1.0.0-beta.12",
+    "@vue/test-utils": "^1.0.0-beta.13",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.0",
     "babel-preset-env": "^1.6.1",
