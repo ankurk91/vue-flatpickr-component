@@ -6,12 +6,12 @@
 
 </template>
 
-<script type="text/javascript">
+<script>
   import Flatpickr from 'flatpickr';
   // You have to import css yourself
 
-  // All available hooks, copied from flatpickr source
-  const hooks = [
+  // Events to emit, copied from flatpickr source
+  const includedEvents = [
     'onChange',
     'onClose',
     'onDestroy',
@@ -19,14 +19,19 @@
     'onMonthChange',
     'onOpen',
     'onYearChange',
-
-    // Let's not include these events
-    //'onValueUpdate',
-    //'onDayCreate',
-    //'onParseConfig',
-    //'onReady',
-    //'onPreCalendarPosition',
   ];
+
+  // Let's not emit these events by default
+  const excludedEvents = [
+    'onValueUpdate',
+    'onDayCreate',
+    'onParseConfig',
+    'onReady',
+    'onPreCalendarPosition',
+  ];
+
+  // Keep a copy of all events for later use
+  const allEvents = includedEvents.concat(excludedEvents);
 
   const camelToKebab = (string) => {
     return string.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
@@ -56,7 +61,7 @@
       },
       events: {
         type: Array,
-        default: () => hooks
+        default: () => includedEvents
       }
     },
     data() {
@@ -114,7 +119,8 @@
         handler(newConfig) {
           // Workaround: Don't pass hooks to configs again otherwise
           // previously registered hooks will stop working
-          hooks.forEach((hook) => {
+          // Notice: we are looping through all events
+          allEvents.forEach((hook) => {
             delete newConfig[hook];
           });
           this.fp.set(newConfig);
