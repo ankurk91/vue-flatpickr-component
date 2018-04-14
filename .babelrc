@@ -15,6 +15,9 @@
       }
     ]
   ],
+  "plugins": [
+    "transform-object-assign"
+  ],
   "env": {
     "test": {
       "presets": [
