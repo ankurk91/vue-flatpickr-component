@@ -77,14 +77,14 @@
       };
     },
     mounted() {
-      // Return early if flatPickr is already loaded
+      // Return early if flatpickr is already loaded
       /* istanbul ignore if */
       if (this.fp) return;
 
       // Don't mutate original object on parent component
       let safeConfig = cloneObject(this.config);
 
-      // Inject our method into events array
+      // Inject our methods into events array
       this.events.forEach((hook) => {
         safeConfig[hook] = arrayify(safeConfig[hook] || []).concat((...args) => {
           this.$emit(camelToKebab(hook), ...args)

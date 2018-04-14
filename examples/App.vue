@@ -4,11 +4,11 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <span class="navbar-brand mb-0">Vue-flatPickr Demo</span>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
+      <div class="collapse navbar-collapse" id="mobile-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
             <a class="nav-link" href="https://www.npmjs.com/package/vue-flatpickr-component"
@@ -214,7 +214,7 @@
   </section>
 </template>
 
-<script type="text/javascript">
+<script>
   import Vue from 'vue';
 
   import flatPickr from '../src/index';
@@ -227,8 +227,6 @@
   // https://chmln.github.io/flatpickr/plugins/
   import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate';
   import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
-
-  import rangePlugin from 'flatpickr/dist/plugins/rangePlugin';
 
   export default {
     name: 'app',
