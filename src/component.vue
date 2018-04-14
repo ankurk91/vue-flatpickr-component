@@ -41,6 +41,10 @@
     return obj instanceof Array ? obj : [obj];
   };
 
+  const cloneObject = (obj) => {
+    return Object.assign({}, obj);
+  };
+
   export default {
     name: 'flat-pickr',
     props: {
@@ -77,18 +81,21 @@
       /* istanbul ignore if */
       if (this.fp) return;
 
+      // Don't mutate original object on parent component
+      let safeConfig = cloneObject(this.config);
+
       // Inject our method into events array
       this.events.forEach((hook) => {
-        this.config[hook] = arrayify(this.config[hook] || []).concat((...args) => {
+        safeConfig[hook] = arrayify(safeConfig[hook] || []).concat((...args) => {
           this.$emit(camelToKebab(hook), ...args)
         });
       });
 
       // Set initial date without emitting any event
-      this.config.defaultDate = this.value || this.config.defaultDate;
+      safeConfig.defaultDate = this.value || safeConfig.defaultDate;
 
       // Init flatpickr
-      this.fp = new Flatpickr(this.getElem(), this.config);
+      this.fp = new Flatpickr(this.getElem(), safeConfig);
     },
     methods: {
       /**
@@ -117,13 +124,15 @@
       config: {
         deep: true,
         handler(newConfig) {
+          let safeConfig = cloneObject(newConfig);
           // Workaround: Don't pass hooks to configs again otherwise
           // previously registered hooks will stop working
           // Notice: we are looping through all events
+          // This also means that new callbacks can not passed once component has been initialized
           allEvents.forEach((hook) => {
-            delete newConfig[hook];
+            delete safeConfig[hook];
           });
-          this.fp.set(newConfig);
+          this.fp.set(safeConfig);
         }
       },
       /**
