@@ -3,6 +3,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader');
 
 module.exports = {
   context: __dirname,
@@ -87,7 +88,8 @@ module.exports = {
       }
     }),
     // Required when devServer.hot = true
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new VueLoaderPlugin(),
   ],
   // Dev server related configs
   devServer: {
