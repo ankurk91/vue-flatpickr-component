@@ -33,6 +33,9 @@
   // Keep a copy of all events for later use
   const allEvents = includedEvents.concat(excludedEvents);
 
+  // Passing these properties in `set()` method will cause flatpickr to trigger some callbacks
+  const configCallbacks = ['locale', 'showMonths'];
+
   const camelToKebab = (string) => {
     return string.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
   };
@@ -133,6 +136,13 @@
             delete safeConfig[hook];
           });
           this.fp.set(safeConfig);
+
+          // Workaround: Allow to change locale dynamically
+          configCallbacks.forEach((name) => {
+            if (typeof safeConfig[name] !== 'undefined') {
+              this.fp.set(name, safeConfig[name])
+            }
+          });
         }
       },
       /**

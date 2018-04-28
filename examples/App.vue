@@ -20,38 +20,33 @@
       </div>
     </nav>
     <p class="mb-2"></p>
+
     <div class="row">
       <div class="col-md-8">
 
-        <div class="row">
-          <div class="col-md-4">
-            <div class="form-group">
-              <button type="button" class="btn btn-secondary" @click.prevent="setNewDate()">
-                Set new date
-              </button>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <button type="button" class="btn btn-secondary" @click.prevent="updateConfig()">
-                Reactive configs
-              </button>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="form-group">
-              <button type="button" class="btn btn-secondary" @click.prevent="changeTheme()">
-                Change theme
-              </button>
-            </div>
-          </div>
-        </div>
+        <form class="mb-2 form-inline">
+          <button type="button" class="btn btn-secondary mr-2" @click.prevent="setNewDate">
+            Set new date
+          </button>
+          <button type="button" class="btn btn-secondary mx-2" @click.prevent="updateConfig">
+            Reactive configs
+          </button>
+          <button type="button" class="btn btn-secondary mx-2" @click.prevent="changeTheme">
+            Change theme
+          </button>
+          <button type="button" class="btn btn-secondary mx-2" @click.prevent="changeLocale">
+            Change locale
+          </button>
+        </form>
 
         <form class="card card-body" method="post" action="/" @submit.prevent="submit()">
 
           <div class="form-group">
             <label>Select date (basic)</label>
-            <flat-pickr v-model="form.dateBasic" class="form-control" :config="configs.basic"></flat-pickr>
+            <flat-pickr v-model="form.dateBasic"
+                        class="form-control"
+                        :config="configs.basic">
+            </flat-pickr>
           </div>
 
           <div class="form-group">
@@ -64,8 +59,7 @@
                           @on-change="listenToOnChangeEvent"
                           class="form-control"
                           name="date-name"
-                          ref="datePickerWrap"
-              >
+                          ref="datePickerWrap">
               </flat-pickr>
               <div class="input-group-append">
                 <button class="btn btn-success" type="button" title="Toggle" data-toggle>
@@ -80,16 +74,22 @@
 
           <div class="form-group">
             <label for="datetime-input">Select datetime</label>
-            <flat-pickr :config="configs.dateTimePicker" id="datetime-input" class="form-control"
+            <flat-pickr :config="configs.dateTimePicker"
+                        id="datetime-input"
+                        class="form-control"
                         v-model="form.dateTime"
-                        placeholder="Date Time"></flat-pickr>
+                        placeholder="Date Time">
+            </flat-pickr>
           </div>
 
           <div class="form-group">
             <label>Select time</label>
             <div class="input-group">
-              <flat-pickr :config="configs.timePicker" class="form-control" v-model="form.time"
-                          placeholder="Time"></flat-pickr>
+              <flat-pickr :config="configs.timePicker"
+                          class="form-control"
+                          v-model="form.time"
+                          placeholder="Time">
+              </flat-pickr>
               <div class="input-group-append">
                 <button class="btn btn-secondary" type="button" title="Toggle" data-toggle>
                   Clock
@@ -100,7 +100,11 @@
 
           <div class="form-group">
             <label>Select date (localization)</label>
-            <flat-pickr class="form-control" :config="configs.locale" v-model="form.dateLocale"></flat-pickr>
+            <flat-pickr
+              class="form-control"
+              :config="configs.locale"
+              v-model="form.dateLocale">
+            </flat-pickr>
           </div>
 
           <div class="form-group">
@@ -112,7 +116,10 @@
 
           <div class="form-group">
             <label>Select date (inline)</label>
-            <flat-pickr class="form-control" :config="configs.inline" v-model="form.dateInline"></flat-pickr>
+            <flat-pickr class="form-control"
+                        :config="configs.inline"
+                        v-model="form.dateInline">
+            </flat-pickr>
           </div>
 
           <div class="form-group">
@@ -130,27 +137,40 @@
 
           <div class="form-group">
             <label>Select date (confirm plugin)</label>
-            <flat-pickr class="form-control" :config="configs.confirmPlugin" v-model="form.dateConfirm"></flat-pickr>
+            <flat-pickr class="form-control"
+                        :config="configs.confirmPlugin"
+                        v-model="form.dateConfirm">
+            </flat-pickr>
           </div>
 
           <div class="form-group">
             <label>Select date (allow input <code>{{ configs.allowInput.dateFormat }}</code>)</label>
-            <flat-pickr class="form-control" :config="configs.allowInput" v-model="form.allowInput"></flat-pickr>
+            <flat-pickr class="form-control"
+                        :config="configs.allowInput"
+                        v-model="form.allowInput">
+
+            </flat-pickr>
           </div>
 
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
                 <label>Start date </label>
-                <flat-pickr class="form-control" :config="configs.start" v-model="form.dateStart"
-                            @on-change="onStartChange"></flat-pickr>
+                <flat-pickr class="form-control"
+                            :config="configs.start"
+                            v-model="form.dateStart"
+                            @on-change="onStartChange">
+                </flat-pickr>
               </div>
             </div>
             <div class="col-md-6">
               <div class="form-group">
                 <label>End date </label>
-                <flat-pickr class="form-control" :config="configs.end" v-model="form.dateEnd"
-                            @on-change="onEndChange"></flat-pickr>
+                <flat-pickr class="form-control"
+                            :config="configs.end"
+                            v-model="form.dateEnd"
+                            @on-change="onEndChange">
+                </flat-pickr>
               </div>
             </div>
           </div>
@@ -221,7 +241,8 @@
   // Need to add base css for flatpickr
   import 'flatpickr/dist/flatpickr.css';
   // l10n is optional
-  import {Hindi} from 'flatpickr/dist/l10n/hi';
+  import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi';
+  import {english as EnglishLocale} from 'flatpickr/dist/l10n/default.js'
 
   // Plugins are optional
   // https://chmln.github.io/flatpickr/plugins/
@@ -267,7 +288,7 @@
           },
           locale: {
             // https://chmln.github.io/flatpickr/localization/
-            locale: Hindi,
+            locale: HindiLocale,
             // https://chmln.github.io/flatpickr/events/
             onChange: this.onChange
           },
@@ -309,6 +330,10 @@
       },
       changeTheme() {
         require('flatpickr/dist/themes/material_red.css');
+      },
+      changeLocale() {
+        console.log('Changing locale to english');
+        this.$set(this.configs.locale, 'locale', EnglishLocale);
       },
       onChange(selectedDates, dateStr, instance) {
         console.log('Date change hook was called', dateStr);
