@@ -1,4 +1,6 @@
 import {shallow} from '@vue/test-utils'
+import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi';
+import {english as EnglishLocale} from 'flatpickr/dist/l10n/default.js'
 
 import Component from '../src/component.vue';
 
@@ -10,7 +12,9 @@ describe('Flatpickr watchers', () => {
     wrapper = shallow(Component, {
       propsData: {
         value: null,
-        config: {}
+        config: {
+          locale: HindiLocale
+        }
       }
     });
   });
@@ -31,6 +35,13 @@ describe('Flatpickr watchers', () => {
 
     wrapper.setProps({config: {time_24hr: false}});
     expect(wrapper.vm.fp.config).toHaveProperty('time_24hr', false);
+  });
+
+  test('updates locale runtime', () => {
+    expect(wrapper.vm.fp.config.locale.months.longhand[0]).not.toBe('January');
+
+    wrapper.setProps({config: {locale: EnglishLocale}});
+    expect(wrapper.vm.fp.config.locale.months.longhand[0]).toBe('January');
   });
 
 });
