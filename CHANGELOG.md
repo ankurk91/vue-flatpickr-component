@@ -1,5 +1,8 @@
 # Changelog
 
+## [7.0.2](https://github.com/ankurk91/vue-flatpickr-component/compare/7.0.1...7.0.2) 
+* Fix: Allow to update `locale` dynamically, fixes [#77](https://github.com/ankurk91/vue-flatpickr-component/issues/77) 
+
 ## [7.0.1](https://github.com/ankurk91/vue-flatpickr-component/compare/7.0.0...7.0.1) 
 * Fix: Don't mutate `config` object, fixes [#74](https://github.com/ankurk91/vue-flatpickr-component/issues/74) 
 * Fix: Delete all event callbacks before passing them to flatpickr in config watcher
