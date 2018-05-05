@@ -34,7 +34,7 @@
     "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {
-    "flatpickr": "^4.4.3"
+    "flatpickr": "^4.4.6"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.13",
