@@ -1,4 +1,4 @@
-import {shallow} from '@vue/test-utils'
+import {shallowMount} from '@vue/test-utils'
 
 import Component from '../src/component.vue';
 
@@ -15,7 +15,7 @@ describe('Flatpickr props', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(Component, {
+    wrapper = shallowMount(Component, {
       propsData: props
     });
   });
