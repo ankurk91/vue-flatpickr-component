@@ -3,7 +3,7 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { VueLoaderPlugin } = require('vue-loader');
+const {VueLoaderPlugin} = require('vue-loader');
 
 module.exports = {
   context: __dirname,
@@ -104,6 +104,12 @@ module.exports = {
     stats: 'errors-only'
   },
   devtool: '#cheap-module-eval-source-map',
+  performance: {
+    hints: false,
+  },
+  stats: {
+    modules: false,
+  }
 };
 
 

@@ -60,5 +60,8 @@ module.exports = {
   devtool: false,
   performance: {
     hints: false,
+  },
+  stats: {
+    modules: false,
   }
 };

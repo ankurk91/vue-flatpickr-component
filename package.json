@@ -30,7 +30,7 @@
     "test:watch": "npm run test -- --watch --onlyChanged --notify",
     "start": "npm run dev",
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.config.dev.js",
-    "build": "node ./node_modules/webpack/bin/webpack.js --hide-modules -p --progress",
+    "build": "node ./node_modules/webpack/bin/webpack.js -p --progress",
     "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {
