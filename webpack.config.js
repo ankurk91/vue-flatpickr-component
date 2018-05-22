@@ -4,13 +4,13 @@ const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
-const { VueLoaderPlugin } = require('vue-loader');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const {VueLoaderPlugin} = require('vue-loader');
 
 module.exports = {
   context: __dirname,
   resolve: {
     modules: [
-      path.resolve(__dirname, 'src'),
       path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
@@ -56,6 +56,21 @@ module.exports = {
     new UnminifiedWebpackPlugin(),
     new webpack.optimize.ModuleConcatenationPlugin(),
     new VueLoaderPlugin(),
+    new UglifyJsPlugin({
+      sourceMap: false,
+      uglifyOptions: {
+        output: {
+          comments: false,
+          beautify: false
+        },
+        compress: {
+          dead_code: true,
+          warnings: false,
+          drop_debugger: true,
+          drop_console: true
+        }
+      }
+    }),
   ],
   devtool: false,
   performance: {

@@ -29,8 +29,8 @@
     "test": "node ./node_modules/jest/bin/jest.js",
     "test:watch": "npm run test -- --watch --onlyChanged --notify",
     "start": "npm run dev",
-    "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --config=webpack.config.dev.js",
-    "build": "node ./node_modules/webpack/bin/webpack.js -p --progress",
+    "dev": "cross-env NODE_ENV=development node ./node_modules/webpack-serve/cli.js --config=webpack.config.dev.js",
+    "build": "cross-env NODE_ENV=production node ./node_modules/webpack-command/lib/cli.js --mode production",
     "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {
@@ -44,21 +44,23 @@
     "babel-preset-env": "^1.6.1",
     "bootstrap": "^4.0.0",
     "clean-webpack-plugin": "^0.1.18",
+    "cross-env": "^5.1.5",
     "css-loader": "^0.28.10",
     "file-loader": "^1.1.9",
-    "html-webpack-plugin": "^2.30.1",
-    "jest": "^22.4.2",
+    "html-webpack-plugin": "^3.2.0",
+    "jest": "^22.4.4",
     "jquery": "^3.3.1",
     "popper.js": "^1.12.9",
     "style-loader": "^0.21.0",
-    "unminified-webpack-plugin": "^1.4.2",
+    "unminified-webpack-plugin": "^2.0.0",
     "vee-validate": "^2.0.4",
     "vue": "^2.5.13",
-    "vue-jest": "^2.1.0",
-    "vue-loader": "^15.0.1",
+    "vue-jest": "^2.6.0",
+    "vue-loader": "^15.1.0",
     "vue-template-compiler": "^2.5.13",
-    "webpack": "^3.11.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack": "^4.8.3",
+    "webpack-command": "^0.2.0",
+    "webpack-serve": "^1.0.2"
   },
   "peerDependencies": {
     "vue": "^2.0.0"

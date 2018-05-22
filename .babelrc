@@ -6,8 +6,7 @@
         "modules": false,
         "targets": {
           "browsers": [
-            "defaults",
-            "ie 11"
+            "defaults"
           ],
           "uglify": true
         }
