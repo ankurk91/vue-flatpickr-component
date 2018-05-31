@@ -76,7 +76,13 @@ module.exports = {
   optimization: {
     runtimeChunk: false,
     splitChunks: {
-      chunks: 'all',
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
     }
   },
   plugins: [
@@ -115,7 +121,7 @@ module.exports = {
     logLevel: 'info',
     clipboard: false
   },
-  devtool: '#cheap-module-eval-source-map',
+  devtool: false,
   performance: {
     hints: false,
   },
