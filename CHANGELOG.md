@@ -1,5 +1,9 @@
 # Changelog
 
+## [7.0.3](https://github.com/ankurk91/vue-flatpickr-component/compare/7.0.2...7.0.3) 
+* Re-release v7.0.2, npm malfunction during publish, [#87](https://github.com/ankurk91/vue-flatpickr-component/issues/87)
+* Chore: update webpack to v4.x
+
 ## [7.0.2](https://github.com/ankurk91/vue-flatpickr-component/compare/7.0.1...7.0.2) 
 * Fix: Allow to update `locale` dynamically, fixes [#77](https://github.com/ankurk91/vue-flatpickr-component/issues/77) 
 
