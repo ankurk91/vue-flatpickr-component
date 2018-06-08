@@ -1,5 +1,8 @@
 # Changelog
 
+## [7.0.4](https://github.com/ankurk91/vue-flatpickr-component/compare/7.0.3...7.0.4)
+* Fix: umd build in webpack v4, [#89](https://github.com/ankurk91/vue-flatpickr-component/issues/89)
+
 ## [7.0.3](https://github.com/ankurk91/vue-flatpickr-component/compare/7.0.2...7.0.3) 
 * Re-release v7.0.2, npm malfunction during publish, [#87](https://github.com/ankurk91/vue-flatpickr-component/issues/87)
 * Chore: update webpack to v4.x
