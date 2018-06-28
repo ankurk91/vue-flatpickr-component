@@ -160,12 +160,12 @@ The component accepts these props:
 * Include required files
 ```html
 <!-- Flatpickr related files -->
-<link href="https://unpkg.com/flatpickr@4/dist/flatpickr.min.css" rel="stylesheet">
-<script src="https://unpkg.com/flatpickr@4/dist/flatpickr.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.js"></script>
 <!-- Vue js -->
-<script src="https://unpkg.com/vue@2.5/dist/vue.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5"></script>
 <!-- Lastly add this package -->
-<script src="https://unpkg.com/vue-flatpickr-component@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@7"></script>
 ```
 * Use the component anywhere in your app like this
 ```html
