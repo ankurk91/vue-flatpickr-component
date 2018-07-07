@@ -3,12 +3,7 @@
 
 language: node_js
 node_js:
-  - "9"
-
-# Speed up git clones
-git:
-  depth: 10
-  submodules: false
+  - "10"
 
 # Install specific version
 before_install:
