@@ -81,5 +81,6 @@ module.exports = {
   },
   stats: {
     modules: false,
-  }
+  },
+  bail: true
 };
