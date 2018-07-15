@@ -5,6 +5,11 @@ language: node_js
 node_js:
   - "10"
 
+# Speed up git clones
+git:
+  depth: 10
+  submodules: false
+
 # Install specific version
 before_install:
   - curl -o- -L https://yarnpkg.com/install.sh | bash -s -- --version 1.7.0

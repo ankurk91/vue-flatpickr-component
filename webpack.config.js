@@ -19,7 +19,6 @@ module.exports = {
     extensions: ['.js', '.json', '.vue']
   },
   entry: './src/index.js',
-  // Don't include them into library build
   externals: {
     'vue': {
       commonjs: 'vue',
@@ -37,7 +36,6 @@ module.exports = {
     libraryExport: 'default',
     umdNamedDefine: true,
     // Workaround to fix umd build, restore webpack v3 behaviour
-    // https://github.com/webpack/webpack/issues/6677
     // https://github.com/webpack/webpack/issues/6642
     globalObject: "typeof self !== 'undefined' ? self : this"
   },
@@ -82,5 +80,4 @@ module.exports = {
   stats: {
     modules: false,
   },
-  bail: true
 };

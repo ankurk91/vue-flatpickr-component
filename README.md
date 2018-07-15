@@ -26,7 +26,7 @@ Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-t
 * Compatible with [Bootstrap](http://getbootstrap.com/), [Bulma](http://bulma.io/) or any other CSS framework
 * Supports [wrapped](https://chmln.github.io/flatpickr/examples/#flatpickr-external-elements) mode
     - Just set ``wrap:true`` in config and component will take care of all
-* Play nice with [vee-validate](https://github.com/logaretm/vee-validate) validation library
+* Works with [vee-validate](https://github.com/logaretm/vee-validate) validation library
 
 ## Installation
 ```bash

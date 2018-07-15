@@ -50,7 +50,6 @@ module.exports = {
             loader: "css-loader",
             options: {
               sourceMap: true,
-              minimize: false
             }
           },
         ],
@@ -119,7 +118,7 @@ module.exports = {
     logLevel: 'info',
     clipboard: false
   },
-  devtool: false,
+  devtool: '#cheap-module-eval-source-map',
   performance: {
     hints: false,
   },
@@ -127,5 +126,3 @@ module.exports = {
     modules: false,
   }
 };
-
-
