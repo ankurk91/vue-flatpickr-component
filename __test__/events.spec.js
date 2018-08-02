@@ -1,4 +1,4 @@
-import {shallowMount} from '@vue/test-utils'
+import {mount} from '@vue/test-utils'
 
 import Component from '../src/component.vue';
 
@@ -8,7 +8,7 @@ describe('Flatpickr events', () => {
   let onChangeStub = jest.fn();
 
   beforeEach(() => {
-    wrapper = shallowMount(Component, {
+    wrapper = mount(Component, {
       propsData: {
         value: null,
         config: {
@@ -47,7 +47,7 @@ describe('Flatpickr events', () => {
   });
 
   test('emits only those are specified via prop', () => {
-    wrapper = shallowMount(Component, {
+    wrapper = mount(Component, {
       propsData: {
         value: null,
         events: ['onChange']
@@ -68,6 +68,5 @@ describe('Flatpickr events', () => {
   test('does not emit on-change event on mount', () => {
     expect(onChangeStub).not.toHaveBeenCalled();
   });
-
 
 });

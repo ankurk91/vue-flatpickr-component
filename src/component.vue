@@ -1,8 +1,6 @@
 <template>
 
-  <input type="text"
-         @input="onInput"
-         data-input>
+  <input type="text" @input="onInput" data-input>
 
 </template>
 
