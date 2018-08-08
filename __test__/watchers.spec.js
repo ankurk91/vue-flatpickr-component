@@ -1,4 +1,4 @@
-import {shallowMount} from '@vue/test-utils'
+import {mount} from '@vue/test-utils'
 import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi';
 import {english as EnglishLocale} from 'flatpickr/dist/l10n/default.js'
 
@@ -9,7 +9,7 @@ describe('Flatpickr watchers', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallowMount(Component, {
+    wrapper = mount(Component, {
       propsData: {
         value: null,
         config: {

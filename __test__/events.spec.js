@@ -69,4 +69,11 @@ describe('Flatpickr events', () => {
     expect(onChangeStub).not.toHaveBeenCalled();
   });
 
+  test('emits blur event', () => {
+    wrapper.setProps({value: '2019-10-04'});
+    wrapper.trigger('blur');
+
+    expect(wrapper.emitted().blur).toBeTruthy()
+  });
+
 });

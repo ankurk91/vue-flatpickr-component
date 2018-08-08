@@ -1,7 +1,5 @@
 <template>
-
-  <input type="text" @input="onInput" data-input>
-
+  <input type="text" @input="onInput" @blur="onBlur" data-input>
 </template>
 
 <script>
@@ -115,6 +113,14 @@
       onInput(event) {
         this.$emit('input', event.target.value);
       },
+      /**
+       * Blur event is required by many validation libraries
+       *
+       * @param event
+       */
+      onBlur(event) {
+        this.$emit('blur', event.target.value);
+      }
     },
     watch: {
       /**
