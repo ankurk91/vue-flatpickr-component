@@ -1,5 +1,8 @@
 # Changelog
 
+## [7.0.6](https://github.com/ankurk91/vue-flatpickr-component/compare/7.0.5...7.0.6)
+* Fix: `blur` event when `altInput` is true, [#102](https://github.com/ankurk91/vue-flatpickr-component/issues/102)
+
 ## [7.0.5](https://github.com/ankurk91/vue-flatpickr-component/compare/7.0.4...7.0.5)
 * Add: `blur` event, [#102](https://github.com/ankurk91/vue-flatpickr-component/issues/102)
 
