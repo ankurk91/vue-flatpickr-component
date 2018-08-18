@@ -1,5 +1,5 @@
 <template>
-  <input type="text" @input="onInput" @blur="onBlur" data-input>
+  <input type="text" @input="onInput" data-input>
 </template>
 
 <script>
@@ -95,6 +95,9 @@
 
       // Init flatpickr
       this.fp = new Flatpickr(this.getElem(), safeConfig);
+
+      // Attach blur event
+      this.fpInput().addEventListener('blur', this.onBlur)
     },
     methods: {
       /**
@@ -113,6 +116,14 @@
       onInput(event) {
         this.$emit('input', event.target.value);
       },
+
+      /**
+       * @return HTMLElement
+       */
+      fpInput() {
+        return this.fp.altInput || this.fp.input;
+      },
+
       /**
        * Blur event is required by many validation libraries
        *
@@ -169,6 +180,7 @@
     beforeDestroy() {
       /* istanbul ignore else */
       if (this.fp) {
+        this.fpInput().removeEventListener('blur', this.onBlur);
         this.fp.destroy();
         this.fp = null;
       }
