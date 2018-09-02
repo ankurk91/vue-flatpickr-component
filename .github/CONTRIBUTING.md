@@ -19,5 +19,5 @@
 * Install dependencies : `yarn install`
 * Make changes in ``src`` folder
 * Write/update test case for the feature/fix you made 
-* You can check if everything is working fine by running tests `yarn test`
+* You can check if everything is working fine by running `yarn test`
 

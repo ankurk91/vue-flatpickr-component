@@ -1,11 +1,7 @@
-# https://github.com/github/gitignore
 # http://git-scm.com/docs/gitignore
 
-# phpstorm, webstorm
-.idea/
-
-
-# sublime and other ide
+# different IDEs
+.idea
 .project
 *.sublime-*
 .brackets.json
@@ -29,7 +25,6 @@ ehthumbs.db
 *.save
 *.swp
 
-
 # Recycle bin folder used by different os
 .Trash-*
 $RECYCLE.BIN/
@@ -42,14 +37,8 @@ $RECYCLE.BIN/
 *.DS_Store
 .DS_Store?
 
-
 # node packages
-# https://docs.npmjs.com/misc/faq#should-i-check-my-node-modules-folder-into-git
 node_modules/
-
-
-# bower packages
-bower_components/
 
 # Composer, exclude on root vendor folder
 /vendor/
@@ -67,4 +56,3 @@ composer.phar
 /docs/
 /tmp/
 /coverage/
-
