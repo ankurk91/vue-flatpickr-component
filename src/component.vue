@@ -11,7 +11,6 @@
     'onChange',
     'onClose',
     'onDestroy',
-    'onKeyDown',
     'onMonthChange',
     'onOpen',
     'onYearChange',
@@ -24,6 +23,7 @@
     'onParseConfig',
     'onReady',
     'onPreCalendarPosition',
+    'onKeyDown',
   ];
 
   // Keep a copy of all events for later use
