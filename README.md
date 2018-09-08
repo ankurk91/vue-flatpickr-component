@@ -22,11 +22,11 @@ Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-t
     - You can change config options dynamically
     - Component will watch for any changes and redraw itself
     - You are suggested to modify config via [Vue.set](https://vuejs.org/v2/api/#Vue-set)
-* Emits all possible [events](https://chmln.github.io/flatpickr/events/)
+* Can emit all possible [events](https://chmln.github.io/flatpickr/events/)
 * Compatible with [Bootstrap](http://getbootstrap.com/), [Bulma](http://bulma.io/) or any other CSS framework
 * Supports [wrapped](https://chmln.github.io/flatpickr/examples/#flatpickr-external-elements) mode
     - Just set ``wrap:true`` in config and component will take care of all
-* Works with [vee-validate](https://github.com/logaretm/vee-validate) validation library
+* Works with [vee-validate](https://github.com/logaretm/vee-validate) and other validation libraries
 
 ## Installation
 ```bash
@@ -141,7 +141,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
 This will register a global component `<flat-pickr>`
 
 ## Events
-* The components emits all possible events, you can listen to them in your component
+* The component can emit all possible events, you can listen to them in your component
 ```html
 <flat-pickr v-model="date" @on-change="doSomethingOnChange" @on-close="doSomethingOnClose"></flat-pickr>
 ```
@@ -155,10 +155,9 @@ The component accepts these props:
 | :---             | :---:                                           | :---:                | :---             |
 | v-model / value  | String / Date Object / Array / Timestamp / null | `null`               | Set or Get date-picker value (required) |
 | config           | Object                                          | `{wrap:false}`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
-| events           | Array                                           | Array of all events  | Customise the [events](https://chmln.github.io/flatpickr/events/) to be emitted|
+| events           | Array                                           | Array of useful events  | Customise the [events](https://chmln.github.io/flatpickr/events/) to be emitted|
 
 ## Install in non-module environments (without webpack)
-* Include required files
 ```html
 <!-- Flatpickr related files -->
 <link href="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.css" rel="stylesheet">
@@ -167,22 +166,9 @@ The component accepts these props:
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5"></script>
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@7"></script>
-```
-* Use the component anywhere in your app like this
-```html
-<main id="app">  
-    <flat-pickr v-model="date" class="input"></flat-pickr> 
-</main>
 <script>
-  // Initialize as global component
-  Vue.component('flat-pickr', VueFlatpickr);
-  
-  new Vue({
-    el: '#app',
-    data: {
-      date: null
-    },    
-  });
+// Initialize as global component
+Vue.component('flat-pickr', VueFlatpickr);
 </script>
 ```
 
@@ -200,6 +186,14 @@ The component accepts these props:
 
 ## Changelog
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Caveats
+* :warning: Don't pass config option as inline literal object to `:config` prop.
+```html
+<!-- This will cause date picker to freeze -->
+<flat-picker v-model="card" :config="{dateFormat: 'd-m-Y H:i'}"></flat-picker>
+```
+* Vue.js can not detect changes when literal object/arrays passed within template, [see](https://github.com/vuejs/vue/issues/4060)
 
 ## License
 [MIT](LICENSE.txt) License
