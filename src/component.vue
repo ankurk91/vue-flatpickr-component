@@ -6,43 +6,14 @@
   import Flatpickr from 'flatpickr';
   // You have to import css yourself
 
-  // Events to emit, copied from flatpickr source
-  const includedEvents = [
-    'onChange',
-    'onClose',
-    'onDestroy',
-    'onMonthChange',
-    'onOpen',
-    'onYearChange',
-  ];
-
-  // Let's not emit these events by default
-  const excludedEvents = [
-    'onValueUpdate',
-    'onDayCreate',
-    'onParseConfig',
-    'onReady',
-    'onPreCalendarPosition',
-    'onKeyDown',
-  ];
+  import {includedEvents, excludedEvents} from "./events";
+  import {camelToKebab, cloneObject, arrayify} from "./util";
 
   // Keep a copy of all events for later use
   const allEvents = includedEvents.concat(excludedEvents);
 
   // Passing these properties in `set()` method will cause flatpickr to trigger some callbacks
   const configCallbacks = ['locale', 'showMonths'];
-
-  const camelToKebab = (string) => {
-    return string.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
-  };
-
-  const arrayify = (obj) => {
-    return obj instanceof Array ? obj : [obj];
-  };
-
-  const cloneObject = (obj) => {
-    return Object.assign({}, obj);
-  };
 
   export default {
     name: 'flat-pickr',
