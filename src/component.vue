@@ -85,7 +85,10 @@
        * @param event
        */
       onInput(event) {
-        this.$emit('input', event.target.value);
+        // Lets wait for DOM to be updated
+        this.$nextTick(() => {
+          this.$emit('input', event.target.value);
+        });
       },
 
       /**
