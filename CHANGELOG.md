@@ -1,5 +1,9 @@
 # Changelog
 
+## [8.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/7.0.6...8.0.0)
+* Fix: [#107](https://github.com/ankurk91/vue-flatpickr-component/issues/107)
+* Change: remove `onKeyDown` event, see [#100](https://github.com/ankurk91/vue-flatpickr-component/issues/100)
+
 ## [7.0.6](https://github.com/ankurk91/vue-flatpickr-component/compare/7.0.5...7.0.6)
 * Fix: `blur` event when `altInput` is true, [#102](https://github.com/ankurk91/vue-flatpickr-component/issues/102)
 
