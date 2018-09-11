@@ -25,12 +25,12 @@ describe('Flatpickr props', () => {
   });
 
   test('accepts config via prop', () => {
-    expect(wrapper.props().config).toEqual(props.config);
+    expect(wrapper.props('config')).toEqual(props.config);
     expect(wrapper.vm.fp.config).toHaveProperty('dateFormat', props.config.dateFormat);
   });
 
   test('accepts value via prop', () => {
-    expect(wrapper.props().value).toBe(props.value);
+    expect(wrapper.props('value')).toBe(props.value);
   });
 
   test('validates v-model', () => {

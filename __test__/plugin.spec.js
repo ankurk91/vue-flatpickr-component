@@ -31,7 +31,7 @@ describe('Flatpickr global component', () => {
     expect(input.is('input')).toBe(true);
     expect(input.vm.$el.value).toBe('2017-10-04');
     expect(input.classes()).toContain('form-control');
-    expect(input.attributes().name).toBe('date');
+    expect(input.attributes('name')).toBe('date');
 
     wrapper.destroy();
   });
