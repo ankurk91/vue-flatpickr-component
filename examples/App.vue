@@ -1,8 +1,6 @@
 <template>
-
-  <section class="container">
-
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div>
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark shadow-sm">
       <span class="navbar-brand mb-0">Vue-flatPickr Demo</span>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,227 +9,227 @@
       <div class="collapse navbar-collapse" id="mobile-nav">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link" href="https://www.npmjs.com/package/vue-flatpickr-component"
-               target="_blank"> npm</a></li>
-          <li class="nav-item">
             <a class="nav-link" href="https://github.com/ankurk91/vue-flatpickr-component"
-               target="_blank"> Github</a></li>
+               target="_blank"> GitHub</a></li>
         </ul>
       </div>
     </nav>
-    <p class="mb-2"></p>
 
-    <div class="row">
-      <div class="col-md-8">
+    <main class="container mt-3">
 
-        <form class="mb-2 form-inline">
-          <button type="button" class="btn btn-secondary mr-2" @click.prevent="setNewDate">
-            Set new date
-          </button>
-          <button type="button" class="btn btn-secondary mx-2" @click.prevent="updateConfig">
-            Reactive configs
-          </button>
-          <button type="button" class="btn btn-secondary mx-2" @click.prevent="changeTheme">
-            Change theme
-          </button>
-          <button type="button" class="btn btn-secondary mx-2" @click.prevent="changeLocale">
-            Change locale
-          </button>
-        </form>
+      <div class="row">
+        <div class="col-md-8">
 
-        <form class="card card-body" method="post" action="/" @submit.prevent="submit()">
+          <section class="card mb-3">
+            <div class="card-body">
+              <form class="form-inline">
+                <button type="button" class="btn btn-secondary mr-2" @click.prevent="setNewDate">
+                  Set new date
+                </button>
+                <button type="button" class="btn btn-secondary mx-2" @click.prevent="updateConfig">
+                  Reactive configs
+                </button>
+                <button type="button" class="btn btn-secondary mx-2" @click.prevent="changeLocale">
+                  Change locale
+                </button>
+              </form>
+            </div>
+          </section>
 
-          <div class="form-group">
-            <label>Select date (basic)</label>
-            <flat-pickr v-model="form.dateBasic"
-                        class="form-control"
-                        :config="configs.basic">
-            </flat-pickr>
-          </div>
+          <form class="card card-body" method="post" action="/" @submit.prevent="submit()">
 
-          <div class="form-group">
-            <label>Select date (wrap)</label>
-            <div class="input-group">
-              <flat-pickr v-model="form.date"
-                          placeholder="Select date"
-                          :config="configs.wrap"
-                          :required="true"
-                          @on-change="listenToOnChangeEvent"
+            <div class="form-group">
+              <label>Select date (basic)</label>
+              <flat-pickr v-model="form.dateBasic"
                           class="form-control"
-                          name="date-name"
-                          ref="datePickerWrap">
+                          :config="configs.basic">
               </flat-pickr>
-              <div class="input-group-append">
-                <button class="btn btn-success" type="button" title="Toggle" data-toggle>
-                  Toggle
-                </button>
-                <button class="btn btn-danger" type="button" title="Clear" data-clear>
-                  Clear
-                </button>
+            </div>
+
+            <div class="form-group">
+              <label>Select date (wrap)</label>
+              <div class="input-group">
+                <flat-pickr v-model="form.date"
+                            placeholder="Select date"
+                            :config="configs.wrap"
+                            :required="true"
+                            @on-change="listenToOnChangeEvent"
+                            class="form-control"
+                            name="date-name"
+                            ref="datePickerWrap">
+                </flat-pickr>
+                <div class="input-group-append">
+                  <button class="btn btn-success" type="button" title="Toggle" data-toggle>
+                    Toggle
+                  </button>
+                  <button class="btn btn-danger" type="button" title="Clear" data-clear>
+                    Clear
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label for="datetime-input">Select datetime</label>
-            <flat-pickr :config="configs.dateTimePicker"
-                        id="datetime-input"
-                        class="form-control"
-                        v-model="form.dateTime"
-                        placeholder="Date Time">
-            </flat-pickr>
-          </div>
-
-          <div class="form-group">
-            <label>Select time</label>
-            <div class="input-group">
-              <flat-pickr :config="configs.timePicker"
+            <div class="form-group">
+              <label for="datetime-input">Select datetime</label>
+              <flat-pickr :config="configs.dateTimePicker"
+                          id="datetime-input"
                           class="form-control"
-                          v-model="form.time"
-                          placeholder="Time">
+                          v-model="form.dateTime"
+                          placeholder="Date Time">
               </flat-pickr>
-              <div class="input-group-append">
-                <button class="btn btn-secondary" type="button" title="Toggle" data-toggle>
-                  Clock
-                </button>
+            </div>
+
+            <div class="form-group">
+              <label>Select time</label>
+              <div class="input-group">
+                <flat-pickr :config="configs.timePicker"
+                            class="form-control"
+                            v-model="form.time"
+                            placeholder="Time">
+                </flat-pickr>
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button" title="Toggle" data-toggle>
+                    Clock
+                  </button>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div class="form-group">
-            <label>Select date (localization)</label>
-            <flat-pickr
-              class="form-control"
-              :config="configs.locale"
-              v-model="form.dateLocale">
-            </flat-pickr>
-          </div>
+            <div class="form-group">
+              <label>Select date (localization)</label>
+              <flat-pickr
+                class="form-control"
+                :config="configs.locale"
+                v-model="form.dateLocale">
+              </flat-pickr>
+            </div>
 
-          <div class="form-group">
-            <label>Works in modals as well </label>
-            <button type="button" class="btn btn-info" data-toggle="modal" data-target="#date-modal">Open in
-              modal
-            </button>
-          </div>
+            <div class="form-group">
+              <label>Works in modals as well </label>
+              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#date-modal">Open in
+                modal
+              </button>
+            </div>
 
-          <div class="form-group">
-            <label>Select date (inline)</label>
-            <flat-pickr class="form-control"
-                        :config="configs.inline"
-                        v-model="form.dateInline">
-            </flat-pickr>
-          </div>
+            <div class="form-group">
+              <label>Select date (inline)</label>
+              <flat-pickr class="form-control"
+                          :config="configs.inline"
+                          v-model="form.dateInline">
+              </flat-pickr>
+            </div>
 
-          <div class="form-group">
-            <label>Select date (vee-validate)</label>
-            <flat-pickr v-model="form.dateValidate"
-                        name="date-of-birth"
-                        v-validate="{required:true}"
-                        placeholder="Date of birth"
-                        class="form-control"
-                        :class="{'is-invalid' : errors.has('date-of-birth')}"
-            ></flat-pickr>
-            <span v-show="errors.has('date-of-birth')" class="invalid-feedback">{{ errors.first('date-of-birth')
+            <div class="form-group">
+              <label>Select date (vee-validate)</label>
+              <flat-pickr v-model="form.dateValidate"
+                          name="date-of-birth"
+                          v-validate="{required:true}"
+                          placeholder="Date of birth"
+                          class="form-control"
+                          :class="{'is-invalid' : errors.has('date-of-birth')}"
+              ></flat-pickr>
+              <span v-show="errors.has('date-of-birth')" class="invalid-feedback">{{ errors.first('date-of-birth')
               }}</span>
-          </div>
+            </div>
 
-          <div class="form-group">
-            <label>Select date (confirm plugin)</label>
-            <flat-pickr class="form-control"
-                        :config="configs.confirmPlugin"
-                        v-model="form.dateConfirm">
-            </flat-pickr>
-          </div>
+            <div class="form-group">
+              <label>Select date (confirm plugin)</label>
+              <flat-pickr class="form-control"
+                          :config="configs.confirmPlugin"
+                          v-model="form.dateConfirm">
+              </flat-pickr>
+            </div>
 
-          <div class="form-group">
-            <label>Select date (allow input <code>{{ configs.allowInput.dateFormat }}</code>)</label>
-            <flat-pickr class="form-control"
-                        :config="configs.allowInput"
-                        v-model="form.allowInput">
+            <div class="form-group">
+              <label>Select date (allow input <code>{{ configs.allowInput.dateFormat }}</code>)</label>
+              <flat-pickr class="form-control"
+                          :config="configs.allowInput"
+                          v-model="form.allowInput">
 
-            </flat-pickr>
-          </div>
+              </flat-pickr>
+            </div>
 
-          <div class="row">
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>Start date </label>
-                <flat-pickr class="form-control"
-                            :config="configs.start"
-                            v-model="form.dateStart"
-                            @on-change="onStartChange">
-                </flat-pickr>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>Start date </label>
+                  <flat-pickr class="form-control"
+                              :config="configs.start"
+                              v-model="form.dateStart"
+                              @on-change="onStartChange">
+                  </flat-pickr>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label>End date </label>
+                  <flat-pickr class="form-control"
+                              :config="configs.end"
+                              v-model="form.dateEnd"
+                              @on-change="onEndChange">
+                  </flat-pickr>
+                </div>
               </div>
             </div>
-            <div class="col-md-6">
-              <div class="form-group">
-                <label>End date </label>
-                <flat-pickr class="form-control"
-                            :config="configs.end"
-                            v-model="form.dateEnd"
-                            @on-change="onEndChange">
-                </flat-pickr>
-              </div>
+
+            <hr>
+
+            <div class="form-group">
+              <button class="btn btn-primary" type="submit">Validate form</button>
+            </div>
+
+          </form>
+        </div>
+
+        <aside class="col-md-4">
+          <div class="card">
+            <div class="card-header">
+              Links
+            </div>
+            <div class="card-body">
+              <ul>
+                <li><a href="https://github.com/ankurk91/vue-flatpickr-component" target="_blank">Github</a></li>
+                <li><a href="https://www.npmjs.com/package/vue-flatpickr-component" target="_blank">npm</a></li>
+                <li><a href="https://chmln.github.io/flatpickr" rel="noreferrer" target="_blank">Flatpickr docs</a></li>
+                <li><a href="https://github.com/logaretm/vee-validate" target="_blank">vee-validate</a></li>
+              </ul>
             </div>
           </div>
-
-          <hr>
-
-          <div class="form-group">
-            <button class="btn btn-primary" type="submit">Validate form</button>
-          </div>
-
-        </form>
+        </aside>
       </div>
 
-      <aside class="col-md-4">
-        <div class="card">
-          <div class="card-header">
-            Links
-          </div>
-          <div class="card-body">
-            <ul>
-              <li><a href="https://github.com/ankurk91/vue-flatpickr-component" target="_blank">Github</a></li>
-              <li><a href="https://www.npmjs.com/package/vue-flatpickr-component" target="_blank">npm</a></li>
-              <li><a href="https://chmln.github.io/flatpickr" rel="noreferrer" target="_blank">Flatpickr docs</a></li>
-              <li><a
-                href="https://chrome.google.com/webstore/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd?hl=en"
-                rel="noreferrer" target="_blank">Vue.js Dev tools</a></li>
-              <li><a href="https://github.com/logaretm/vee-validate" target="_blank">vee-validate</a></li>
-            </ul>
-          </div>
-        </div>
-      </aside>
-    </div>
-
-    <!-- bs modal -->
-    <div class="modal fade" id="date-modal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title">Modal example</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form method="post" action="/" onsubmit="return false">
-              <div class="form-group">
-                <label>Select a date</label>
-                <flat-pickr class="form-control" v-model="form.dateModal"></flat-pickr>
-              </div>
-              <pre>{{form.dateModal}}</pre>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <div class="modal fade" id="date-modal">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title">Modal example</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="/" onsubmit="return false">
+                <div class="form-group">
+                  <label>Select a date</label>
+                  <flat-pickr class="form-control" v-model="form.dateModal"></flat-pickr>
+                </div>
+                <pre>{{form.dateModal}}</pre>
+              </form>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-  </section>
+      <footer class="text-center text-muted small mb-3 mt-3">
+        Created by <a href="https://twitter.com/ankurk91" target="_blank" rel="noopener¬">@ankurk91</a>
+      </footer>
+
+    </main>
+  </div>
 </template>
 
 <script>
@@ -239,7 +237,7 @@
 
   import flatPickr from '../src/index';
   // Need to add base css for flatpickr
-  import 'flatpickr/dist/flatpickr.css';
+  import 'flatpickr/dist/flatpickr.min.css';
   // l10n is optional
   import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi';
   import {english as EnglishLocale} from 'flatpickr/dist/l10n/default.js'
@@ -328,9 +326,6 @@
         // https://vuejs.org/v2/api/#Vue-set
         this.$set(this.configs.basic, 'mode', 'range');
       },
-      changeTheme() {
-        require('flatpickr/dist/themes/material_red.css');
-      },
       changeLocale() {
         console.log('Changing locale to english');
         this.$set(this.configs.locale, 'locale', EnglishLocale);
@@ -345,7 +340,6 @@
         console.log('Form submit event', this.form);
         // http://vee-validate.logaretm.com/examples.html#component-example
         this.$validator.validateAll().then(result => {
-          // eslint-disable-next-line
           alert(`Form validation result: ${result}`);
         });
       },

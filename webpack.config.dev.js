@@ -4,6 +4,11 @@ const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+
+const isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   mode: 'development',
@@ -17,9 +22,7 @@ module.exports = {
     },
     extensions: ['.js', '.json', '.vue'],
   },
-  entry: {
-    app: './examples/index.js',
-  },
+  entry: './examples/index.js',
   output: {
     path: path.resolve(__dirname, 'docs'),
     publicPath: '',
@@ -40,16 +43,17 @@ module.exports = {
       {
         test: /\.css$/,
         use: [
-          {
-            loader: "style-loader",
-            options: {
-              sourceMap: true,
-            }
-          },
+          isProduction ? MiniCssExtractPlugin.loader :
+            {
+              loader: "style-loader",
+              options: {
+                sourceMap: !isProduction,
+              }
+            },
           {
             loader: "css-loader",
             options: {
-              sourceMap: true,
+              sourceMap: !isProduction,
             }
           },
         ],
@@ -90,12 +94,12 @@ module.exports = {
       hash: false,
       template: './examples/index.html',
       minify: {
-        removeComments: false,
-        collapseWhitespace: false,
-        removeAttributeQuotes: false,
-        minifyJS: false,
-        minifyCSS: false,
-        minifyURLs: false
+        removeComments: isProduction,
+        collapseWhitespace: isProduction,
+        removeAttributeQuotes: isProduction,
+        minifyJS: isProduction,
+        minifyCSS: isProduction,
+        minifyURLs: isProduction,
       }
     }),
     new webpack.ProvidePlugin({
@@ -118,7 +122,7 @@ module.exports = {
     logLevel: 'info',
     clipboard: false
   },
-  devtool: '#cheap-module-eval-source-map',
+  devtool: isProduction ? false : '#cheap-module-eval-source-map',
   performance: {
     hints: false,
   },
@@ -126,3 +130,27 @@ module.exports = {
     modules: false,
   }
 };
+
+if (isProduction) {
+  module.exports.plugins.push(
+    new CleanWebpackPlugin(['docs']),
+    new MiniCssExtractPlugin({
+      filename: 'css/demo-[hash].css',
+    }),
+    new UglifyJsPlugin({
+      sourceMap: false,
+      uglifyOptions: {
+        output: {
+          comments: false,
+          beautify: false
+        },
+        compress: {
+          warnings: false,
+          drop_debugger: true,
+          drop_console: true
+        }
+      }
+    }),
+  )
+}
+
