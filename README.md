@@ -1,4 +1,4 @@
-# Vue-flatPickr
+# Vue flatPickr Component
 
 [![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://vuejs.org/)
 [![downloads](https://img.shields.io/npm/dt/vue-flatpickr-component.svg)](http://npm-stats.com/~packages/vue-flatpickr-component)
@@ -9,7 +9,7 @@
 [![build-status](https://travis-ci.org/ankurk91/vue-flatpickr-component.svg?branch=master)](https://travis-ci.org/ankurk91/vue-flatpickr-component)
 [![codecov](https://codecov.io/gh/ankurk91/vue-flatpickr-component/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-flatpickr-component)
 
-Vue.js v2.x component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
+Vue.js component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
 
 :point_right: If you are looking for the documentation of older version then switch to respective version branch. 
 
