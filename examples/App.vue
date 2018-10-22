@@ -157,6 +157,32 @@
               </div>
             </div>
 
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label>Disable field</label>
+                  <div class="input-group">
+                    <flat-pickr :config="configs.timePicker"
+                                class="form-control"
+                                v-model="form.dateDisabled"
+                                placeholder="Time"
+                                :disabled="disableField">
+                    </flat-pickr>
+                    <div class="input-group-append">
+                      <button
+                        class="btn"
+                        :class="{ 'btn-danger': !disableField, 'btn-primary': disableField }"
+                        type="button"
+                        @click="disableField = !disableField"
+                        :title="disableField ? 'Enable' : 'Disable'">
+                        {{ disableField ? 'Enable' : 'Disable' }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
             <hr>
 
             <div class="form-group">
@@ -218,6 +244,7 @@
     name: 'app',
     data() {
       return {
+        disableField: false,
         form: {
           dateBasic: null,
           dateTime: null,
@@ -230,6 +257,7 @@
           allowInput: null,
           dateStart: null,
           dateEnd: null,
+          dateDisabled: null,
         },
         configs: {
           basic: {},

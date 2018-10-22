@@ -36,7 +36,11 @@
       events: {
         type: Array,
         default: () => includedEvents
-      }
+      },
+      disabled: {
+        type: Boolean,
+        default: false,
+      },
     },
     data() {
       return {
@@ -146,8 +150,18 @@
         this.fp &&
         // Notify flatpickr instance that there is a change in value
         this.fp.setDate(newValue, true);
+      },
+
+      /**
+       * Watch for the disabled property and sets the value to the binded input.
+       *
+       * @param newState
+       */
+      disabled(newState) {
+        this.fpInput().setAttribute('disabled', newState);
       }
     },
+
     /**
      * Free up memory
      */
