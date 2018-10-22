@@ -1,25 +1,17 @@
 <template>
   <div>
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark shadow-sm">
+    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark shadow-sm mb-3">
       <span class="navbar-brand mb-0">Vue-flatPickr Demo</span>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav"
-              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="mobile-nav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="https://github.com/ankurk91/vue-flatpickr-component"
-               target="_blank"> GitHub</a></li>
-        </ul>
-      </div>
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://github.com/ankurk91/vue-flatpickr-component"
+             target="_blank">GitHub</a></li>
+      </ul>
     </nav>
 
-    <main class="container mt-3">
-
+    <main class="container">
       <div class="row">
         <div class="col-md-8">
-
           <section class="card mb-3">
             <div class="card-body">
               <form class="form-inline">
@@ -36,7 +28,7 @@
             </div>
           </section>
 
-          <form class="card card-body" method="post" action="/" @submit.prevent="submit()">
+          <form class="card card-body mb-3" method="post" action="/" @submit.prevent="submit()" novalidate>
 
             <div class="form-group">
               <label>Select date (basic)</label>
@@ -70,7 +62,7 @@
             </div>
 
             <div class="form-group">
-              <label for="datetime-input">Select datetime</label>
+              <label>Select datetime</label>
               <flat-pickr :config="configs.dateTimePicker"
                           id="datetime-input"
                           class="form-control"
@@ -102,13 +94,6 @@
                 :config="configs.locale"
                 v-model="form.dateLocale">
               </flat-pickr>
-            </div>
-
-            <div class="form-group">
-              <label>Works in modals as well </label>
-              <button type="button" class="btn btn-info" data-toggle="modal" data-target="#date-modal">Open in
-                modal
-              </button>
             </div>
 
             <div class="form-group">
@@ -181,7 +166,7 @@
           </form>
         </div>
 
-        <aside class="col-md-4">
+        <aside class="col-md-4 mb-3">
           <div class="card">
             <div class="card-header">
               Links
@@ -197,54 +182,36 @@
           </div>
         </aside>
       </div>
-
-      <div class="modal fade" id="date-modal">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Modal example</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <form method="post" action="/" onsubmit="return false">
-                <div class="form-group">
-                  <label>Select a date</label>
-                  <flat-pickr class="form-control" v-model="form.dateModal"></flat-pickr>
-                </div>
-                <pre>{{form.dateModal}}</pre>
-              </form>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-primary" data-dismiss="modal">Save</button>
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <footer class="text-center text-muted small mb-3 mt-3">
-        Created by <a href="https://twitter.com/ankurk91" target="_blank" rel="noopener¬">@ankurk91</a>
-      </footer>
-
     </main>
+    <footer class="text-center text-muted small mb-3">
+      Created by <a href="https://twitter.com/ankurk91" target="_blank" rel="noopener">@ankurk91</a>
+    </footer>
   </div>
 </template>
 
 <script>
   import Vue from 'vue';
+  import flatpickr from "flatpickr";
 
-  import flatPickr from '../src/index';
+  // Override Global settings
+  flatpickr.setDefaults({
+    disableMobile: true
+  });
+
+  // Init component
+  import flatPickrComponent from '../src/index.js';
+
+  Vue.use(flatPickrComponent);
+
   // Need to add base css for flatpickr
   import 'flatpickr/dist/flatpickr.min.css';
   // l10n is optional
-  import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi';
+  import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi.js';
   import {english as EnglishLocale} from 'flatpickr/dist/l10n/default.js'
 
   // Plugins are optional
   // https://chmln.github.io/flatpickr/plugins/
-  import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate';
+  import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate.js';
   import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
 
   export default {
@@ -258,7 +225,6 @@
           date: '2017-01-01',
           dateLocale: null,
           dateInline: +new Date(),
-          dateModal: '',
           dateValidate: null,
           dateConfirm: null,
           allowInput: null,
@@ -311,9 +277,6 @@
           }
         },
       }
-    },
-    components: {
-      flatPickr
     },
     methods: {
       setNewDate() {

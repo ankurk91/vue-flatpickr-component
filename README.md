@@ -1,4 +1,4 @@
-# Vue flatPickr Component
+# Vue FlatPickr Component
 
 [![vue-js](https://img.shields.io/badge/vue.js-2.x-brightgreen.svg?maxAge=604800)](https://vuejs.org/)
 [![downloads](https://img.shields.io/npm/dt/vue-flatpickr-component.svg)](http://npm-stats.com/~packages/vue-flatpickr-component)
@@ -13,7 +13,7 @@ Vue.js component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time p
 
 :point_right: If you are looking for the documentation of older version then switch to respective version branch. 
 
-## Demo on [JSFiddle](https://jsfiddle.net/ankurk91/63kzdwLx/)
+## [Demo](https://ankurk91.github.io/vue-flatpickr-component/) or [JSFiddle](https://jsfiddle.net/ankurk91/63kzdwLx/)
 
 ## Features
 * Reactive ``v-model`` value
@@ -106,7 +106,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
   // try more themes at - https://chmln.github.io/flatpickr/themes/
   import 'flatpickr/dist/themes/material_blue.css';
   // l10n is optional
-  import {Hindi} from 'flatpickr/dist/l10n/hi';
+  import {Hindi} from 'flatpickr/dist/l10n/hi.js';
   
   export default {
     name: 'yourComponent',
@@ -165,7 +165,7 @@ The component accepts these props:
 <!-- Vue js -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2.5"></script>
 <!-- Lastly add this package -->
-<script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@7"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@8"></script>
 <script>
 // Initialize as global component
 Vue.component('flat-pickr', VueFlatpickr);

@@ -18,7 +18,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.runtime.esm.js'
     },
     extensions: ['.js', '.json', '.vue'],
   },
@@ -105,10 +105,6 @@ module.exports = {
     new webpack.ProvidePlugin({
       Vue: ['vue/dist/vue.esm.js', 'default'],
       'window.Vue': 'vue',
-      $: 'jquery',
-      jQuery: 'jquery',
-      'window.jQuery': 'jquery',
-      Popper: ['popper.js', 'default'],
     }),
     new VueLoaderPlugin(),
   ],
