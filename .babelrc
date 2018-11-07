@@ -1,26 +1,26 @@
 {
   "presets": [
     [
-      "env",
+      "@babel/env",
       {
         "modules": false,
+        "forceAllTransforms": true,
         "targets": {
           "browsers": [
             "defaults"
-          ],
-          "uglify": true
+          ]
         }
       }
     ]
   ],
   "plugins": [
-    "transform-object-assign"
+    "@babel/transform-object-assign"
   ],
   "env": {
     "test": {
       "presets": [
         [
-          "env",
+          "@babel/env",
           {
             "targets": {
               "node": "current"

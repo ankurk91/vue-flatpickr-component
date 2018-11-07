@@ -27,22 +27,24 @@
   "homepage": "https://github.com/ankurk91/vue-flatpickr-component",
   "scripts": {
     "test": "jest",
-    "test:watch": "npm run test -- --watch --onlyChanged --notify",
-    "start": "npm run dev",
+    "test:watch": "yarn run test -- --watch --onlyChanged --notify",
+    "start": "yarn run dev",
     "dev": "cross-env NODE_ENV=development webpack-serve --config=webpack.config.dev.js",
     "docs": "cross-env NODE_ENV=production webpack --config=webpack.config.dev.js --progress --mode production",
     "build": "cross-env NODE_ENV=production webpack --progress --mode production",
-    "prepublishOnly": "npm run test && npm run build"
+    "prepublishOnly": "yarn run test && yarn run build"
   },
   "dependencies": {
     "flatpickr": "^4.5.1"
   },
   "devDependencies": {
+    "@babel/core": "^7.1.5",
+    "@babel/plugin-transform-object-assign": "^7.0.0",
+    "@babel/preset-env": "^7.1.5",
     "@vue/test-utils": "^1.0.0-beta.23",
-    "babel-core": "^6.25.0",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-transform-object-assign": "^6.22.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "7.0.0-bridge.0",
+    "babel-jest": "^23.6.0",
+    "babel-loader": "^8.0.4",
     "bootstrap": "^4.1.3",
     "clean-webpack-plugin": "^0.1.18",
     "cross-env": "^5.2.0",
@@ -78,8 +80,8 @@
       "vue"
     ],
     "transform": {
-      "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
-      ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+      "^.+\\.js$": "babel-jest",
+      ".*\\.(vue)$": "vue-jest"
     },
     "collectCoverage": true,
     "testURL": "http://localhost"
