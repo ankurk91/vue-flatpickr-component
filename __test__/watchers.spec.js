@@ -2,7 +2,7 @@ import {mount} from '@vue/test-utils'
 import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi';
 import {english as EnglishLocale} from 'flatpickr/dist/l10n/default.js'
 
-import Component from '../src/component.vue';
+import Component from '../src/component.js';
 
 describe('Flatpickr watchers', () => {
 
