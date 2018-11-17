@@ -105,7 +105,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
   // theme is optional
   // try more themes at - https://chmln.github.io/flatpickr/themes/
   import 'flatpickr/dist/themes/material_blue.css';
-  // l10n is optional
+  // localization is optional
   import {Hindi} from 'flatpickr/dist/l10n/hi.js';
   
   export default {
@@ -134,9 +134,9 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
 #### As plugin
 ```js
   import Vue from 'vue';
-  import flatPickr from 'vue-flatpickr-component';
+  import VueFlatPickr from 'vue-flatpickr-component';
   import 'flatpickr/dist/flatpickr.css';
-  Vue.use(flatPickr);
+  Vue.use(VueFlatPickr);
 ```
 This will register a global component `<flat-pickr>`
 
@@ -146,7 +146,7 @@ This will register a global component `<flat-pickr>`
 <flat-pickr v-model="date" @on-change="doSomethingOnChange" @on-close="doSomethingOnClose"></flat-pickr>
 ```
 * Events names has been converted to kebab-case.
-* You can still pass your methods in config like original flatpickr do.
+* You can still pass your methods in `:config` like original flatpickr do.
 
 ## Available props
 The component accepts these props:
