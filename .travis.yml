@@ -1,5 +1,3 @@
-# Config file for https://travis-ci.org/
-
 dist: xenial
 
 language: node_js

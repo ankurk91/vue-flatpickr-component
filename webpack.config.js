@@ -4,7 +4,7 @@ const webpack = require('webpack');
 const path = require('path');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 
 module.exports = {
@@ -55,13 +55,15 @@ module.exports = {
   },
   optimization: {
     minimizer: [
-      new UglifyJsPlugin({
+      new TerserPlugin({
         sourceMap: false,
-        uglifyOptions: {
+        terserOptions: {
           output: {
-            beautify: false
+            beautify: false,
+            safari10: true,
           },
           compress: {
+            drop_debugger: true,
             drop_console: true
           }
         }
@@ -79,5 +81,7 @@ module.exports = {
   },
   stats: {
     modules: false,
+    children: false,
+    entrypoints: false,
   },
 };

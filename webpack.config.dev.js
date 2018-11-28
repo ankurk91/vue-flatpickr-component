@@ -6,7 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
-const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
 
@@ -82,8 +82,9 @@ module.exports = {
       cacheGroups: {
         commons: {
           test: /[\\/]node_modules[\\/]/,
-          name: 'vendors',
-          chunks: 'all'
+          name: 'vendor',
+          chunks: 'all',
+          enforce: true
         }
       }
     },
@@ -127,6 +128,8 @@ module.exports = {
   },
   stats: {
     modules: false,
+    children: false,
+    entrypoints: false,
   }
 };
 
@@ -134,17 +137,19 @@ if (isProduction) {
   module.exports.plugins.push(
     new CleanWebpackPlugin(['docs']),
     new MiniCssExtractPlugin({
-      filename: 'css/demo-[hash].css',
+      filename: 'css/[name]-[hash].css',
     }),
   );
   module.exports.optimization.minimizer.push(
-    new UglifyJsPlugin({
+    new TerserPlugin({
       sourceMap: false,
-      uglifyOptions: {
+      terserOptions: {
         output: {
-          beautify: false
+          beautify: false,
+          safari10: true,
         },
         compress: {
+          drop_debugger: true,
           drop_console: true
         }
       }
