@@ -48,6 +48,7 @@
                             @on-change="listenToOnChangeEvent"
                             class="form-control"
                             name="date-name"
+                            :disabled="inputDisabled"
                             ref="datePickerWrap">
                 </flat-pickr>
                 <div class="input-group-append">
@@ -192,32 +193,30 @@
 <script>
   import Vue from 'vue';
   import flatpickr from "flatpickr";
+  // Init component
+  import flatPickrComponent from '../src/index.js';
+  // Need to add base css for flatpickr
+  import 'flatpickr/dist/flatpickr.min.css';
+  // l10n is optional
+  import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi.js';
+  import {english as EnglishLocale} from 'flatpickr/dist/l10n/default.js'
+  // Plugins are optional
+  // https://chmln.github.io/flatpickr/plugins/
+  import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate.js';
+  import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
 
   // Override Global settings
   flatpickr.setDefaults({
     disableMobile: true
   });
 
-  // Init component
-  import flatPickrComponent from '../src/index.js';
-
   Vue.use(flatPickrComponent);
-
-  // Need to add base css for flatpickr
-  import 'flatpickr/dist/flatpickr.min.css';
-  // l10n is optional
-  import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi.js';
-  import {english as EnglishLocale} from 'flatpickr/dist/l10n/default.js'
-
-  // Plugins are optional
-  // https://chmln.github.io/flatpickr/plugins/
-  import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate.js';
-  import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
 
   export default {
     name: 'app',
     data() {
       return {
+        inputDisabled: false,
         form: {
           dateBasic: null,
           dateTime: null,

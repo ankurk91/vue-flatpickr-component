@@ -1,8 +1,7 @@
 import Flatpickr from 'flatpickr';
+import {excludedEvents, includedEvents} from "./events.js";
+import {arrayify, camelToKebab, cloneObject} from "./util.js";
 // You have to import css yourself
-
-import {includedEvents, excludedEvents} from "./events.js";
-import {camelToKebab, cloneObject, arrayify} from "./util.js";
 
 // Keep a copy of all events for later use
 const allEvents = includedEvents.concat(excludedEvents);
@@ -17,6 +16,9 @@ export default {
       attrs: {
         type: 'text',
         'data-input': true,
+      },
+      props: {
+        disabled: this.disabled
       },
       on: {
         input: this.onInput
@@ -42,6 +44,10 @@ export default {
     events: {
       type: Array,
       default: () => includedEvents
+    },
+    disabled: {
+      type: Boolean,
+      default: true
     }
   },
   data() {
@@ -152,6 +158,19 @@ export default {
       this.fp &&
       // Notify flatpickr instance that there is a change in value
       this.fp.setDate(newValue, true);
+    },
+
+    /**
+     * Watch for the disabled property and sets the value to the real input.
+     *
+     * @param newState
+     */
+    disabled(newState) {
+      if (newState) {
+        this.fpInput().setAttribute('disabled', newState);
+      } else {
+        this.fpInput().removeAttribute('disabled');
+      }
     }
   },
   /**

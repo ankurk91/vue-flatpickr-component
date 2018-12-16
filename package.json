@@ -27,7 +27,7 @@
   "homepage": "https://github.com/ankurk91/vue-flatpickr-component",
   "scripts": {
     "test": "jest",
-    "test:watch": "yarn run test -- --watch --onlyChanged --notify",
+    "test:watch": "yarn run test --watch --notify",
     "start": "yarn run dev",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --progress --hot --config=webpack.config.dev.js",
     "docs": "cross-env NODE_ENV=production webpack --config=webpack.config.dev.js --progress --mode production",
@@ -82,6 +82,10 @@
       "^.+\\.js$": "babel-jest"
     },
     "collectCoverage": true,
-    "testURL": "http://localhost"
+    "testURL": "http://localhost",
+    "watchPathIgnorePatterns": [
+      "<rootDir>/examples/",
+      "/node_modules/"
+    ]
   }
 }

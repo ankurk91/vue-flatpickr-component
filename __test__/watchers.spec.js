@@ -44,4 +44,12 @@ describe('Flatpickr watchers', () => {
     expect(wrapper.vm.fp.config.locale.months.longhand[0]).toBe('January');
   });
 
+  test('updates disabled attribute runtime', () => {
+    wrapper.setProps({disabled: false});
+    expect(wrapper.vm.fpInput().disabled).toBeFalsy();
+
+    wrapper.setProps({disabled: true});
+    expect(wrapper.vm.fpInput().disabled).toBeTruthy();
+  });
+
 });
