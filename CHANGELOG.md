@@ -1,5 +1,11 @@
 # Changelog
 
+## [8.1.0](https://github.com/ankurk91/vue-flatpickr-component/compare/8.0.0...8.1.0)
+* Add: optional `disabled` prop, see [#124](https://github.com/ankurk91/vue-flatpickr-component/issues/124) and [#117](https://github.com/ankurk91/vue-flatpickr-component/pull/117)
+    - Note: the `disabled` prop accepts only Boolean values
+* Change: use render function instead of template to reduce build size
+* Chore: Babel 7
+
 ## [8.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/7.0.6...8.0.0)
 * Fix: [#107](https://github.com/ankurk91/vue-flatpickr-component/issues/107)
 * Change: remove `onKeyDown` event, see [#100](https://github.com/ankurk91/vue-flatpickr-component/issues/100). This is the only breaking change.
