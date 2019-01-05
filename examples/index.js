@@ -8,7 +8,7 @@ Vue.config.productionTip = false;
 import VeeValidate from 'vee-validate';
 
 Vue.use(VeeValidate, {
-  events: 'input|blur'
+  //events: 'input|blur'
 });
 
 // Just for demo
