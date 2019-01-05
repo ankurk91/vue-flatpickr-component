@@ -1,5 +1,9 @@
 # Changelog
 
+## [8.1.1](https://github.com/ankurk91/vue-flatpickr-component/compare/8.1.0...8.1.1)
+* Fix: [#126](https://github.com/ankurk91/vue-flatpickr-component/issues/126)
+       - `disabled` prop default value should be `false` to make vee-validate work 
+
 ## [8.1.0](https://github.com/ankurk91/vue-flatpickr-component/compare/8.0.0...8.1.0)
 * Add: optional `disabled` prop, see [#124](https://github.com/ankurk91/vue-flatpickr-component/issues/124) and [#117](https://github.com/ankurk91/vue-flatpickr-component/pull/117)
     - Note: the `disabled` prop accepts only Boolean values
