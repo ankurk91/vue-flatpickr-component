@@ -158,6 +158,24 @@
               </div>
             </div>
 
+            <div class="form-group">
+              <label>Select range </label>
+              <flat-pickr class="form-control"
+                          :config="configs.range"
+                          v-model="form.range">
+
+              </flat-pickr>
+            </div>
+
+            <div class="form-group">
+              <label>Select range (with value) </label>
+              <flat-pickr class="form-control"
+                          :config="configs.range"
+                          v-model="form.rangePreloaded">
+
+              </flat-pickr>
+            </div>
+
             <hr>
 
             <div class="form-group">
@@ -226,6 +244,8 @@
           dateInline: +new Date(),
           dateValidate: null,
           dateConfirm: null,
+          range: null,
+          rangePreloaded: ['2016-10-10', '2016-10-20'],
           allowInput: null,
           dateStart: null,
           dateEnd: null,
@@ -262,6 +282,9 @@
             enableTime: true,
             // https://chmln.github.io/flatpickr/plugins/
             plugins: [new ConfirmDatePlugin()]
+          },
+          range: {
+            mode: 'range'
           },
           allowInput: {
             allowInput: true,
