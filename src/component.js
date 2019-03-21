@@ -80,7 +80,11 @@ export default {
     this.fp = new Flatpickr(this.getElem(), safeConfig);
 
     // Attach blur event
-    this.fpInput().addEventListener('blur', this.onBlur)
+    this.fpInput().addEventListener('blur', this.onBlur);
+
+    // Immediate watch will fail before fp is set,
+    // so need to start watching after mount
+    this.$watch('disabled', this.watchDisabled, {immediate: true})
   },
   methods: {
     /**
@@ -117,6 +121,19 @@ export default {
      */
     onBlur(event) {
       this.$emit('blur', event.target.value);
+    },
+
+    /**
+     * Watch for the disabled property and sets the value to the real input.
+     *
+     * @param newState
+     */
+    watchDisabled(newState) {
+      if (newState) {
+        this.fpInput().setAttribute('disabled', newState);
+      } else {
+        this.fpInput().removeAttribute('disabled');
+      }
     }
   },
   watch: {
@@ -146,6 +163,7 @@ export default {
         });
       }
     },
+
     /**
      * Watch for changes from parent component and update DOM
      *
@@ -159,19 +177,6 @@ export default {
       // Notify flatpickr instance that there is a change in value
       this.fp.setDate(newValue, true);
     },
-
-    /**
-     * Watch for the disabled property and sets the value to the real input.
-     *
-     * @param newState
-     */
-    disabled(newState) {
-      if (newState) {
-        this.fpInput().setAttribute('disabled', newState);
-      } else {
-        this.fpInput().removeAttribute('disabled');
-      }
-    }
   },
   /**
    * Free up memory
