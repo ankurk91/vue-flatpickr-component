@@ -63,7 +63,7 @@ yarn add vue-flatpickr-component
 ```
 
 #### Detailed example
-This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs/4.0/components/input-group/)
+This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs/4.3/components/input-group/)
 ```html
 <template>
   <section>
@@ -153,7 +153,7 @@ The component accepts these props:
 | Attribute        | Type                                            | Default              | Description      |
 | :---             | :---:                                           | :---:                | :---             |
 | v-model / value  | String / Date Object / Array / Timestamp / null | `null`               | Set or Get date-picker value (required) |
-| config           | Object                                          | `{wrap:false}`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
+| config           | Object                                          | `{ wrap:false }`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
 | events           | Array                                           | Array of useful events  | Customise the [events](https://chmln.github.io/flatpickr/events/) to be emitted|
 
 ## Install in non-module environments (without webpack)
@@ -190,7 +190,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 * :warning: Don't pass config option as inline literal object to `:config` prop.
 ```html
 <!-- This will cause date picker to freeze -->
-<flat-picker v-model="card" :config="{dateFormat: 'd-m-Y H:i'}"></flat-picker>
+<flat-picker v-model="card" :config="{ dateFormat: 'd-m-Y H:i' }"></flat-picker>
 ```
 * Vue.js can not detect changes when literal object/arrays passed within template, [see](https://github.com/vuejs/vue/issues/4060)
 
