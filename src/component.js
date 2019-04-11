@@ -45,6 +45,10 @@ export default {
       type: Array,
       default: () => includedEvents
     },
+    updateOnBlur: {
+      type: Boolean,
+      default: false
+    },
     disabled: {
       type: Boolean,
       default: false
@@ -121,6 +125,10 @@ export default {
      */
     onBlur(event) {
       this.$emit('blur', event.target.value);
+
+      if (this.updateOnBlur) {
+        this.$emit('input', event.target.value);
+      }
     },
 
     /**
