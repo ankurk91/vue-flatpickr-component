@@ -105,7 +105,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
   // try more themes at - https://chmln.github.io/flatpickr/themes/
   import 'flatpickr/dist/themes/material_blue.css';
   // localization is optional
-  import {Hindi} from 'flatpickr/dist/l10n/hi.js';
+  import 'flatpickr/dist/l10n/hi';
   
   export default {
     name: 'yourComponent',
@@ -119,7 +119,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
           altFormat: 'M	j, Y',
           altInput: true,
           dateFormat: 'Y-m-d',
-          locale: Hindi, // locale for this instance only          
+          locale: 'hi', // locale for this instance only          
         },                
       }
     },
