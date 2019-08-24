@@ -116,7 +116,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
         // Get more form https://chmln.github.io/flatpickr/options/
         config: {
           wrap: true, // set wrap to true only when using 'input-group'
-          altFormat: 'M	j, Y',
+          altFormat: 'M j, Y',
           altInput: true,
           dateFormat: 'Y-m-d',
           locale: Hindi, // locale for this instance only          

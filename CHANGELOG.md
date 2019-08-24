@@ -1,5 +1,8 @@
 # Changelog
 
+## [8.1.3](https://github.com/ankurk91/vue-flatpickr-component/compare/8.1.2...8.1.3)
+* Fix: [#132](https://github.com/ankurk91/vue-flatpickr-component/issues/132)
+
 ## [8.1.2](https://github.com/ankurk91/vue-flatpickr-component/compare/8.1.1...8.1.2)
 * Fix: [#135](https://github.com/ankurk91/vue-flatpickr-component/issues/135)
        - Initial `disabled` prop value was not reflecting on input element
