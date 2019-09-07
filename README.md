@@ -1,11 +1,11 @@
 # Vue FlatPickr Component
 
-[![downloads](https://img.shields.io/npm/dt/vue-flatpickr-component.svg)](http://npm-stats.com/~packages/vue-flatpickr-component)
-[![](https://data.jsdelivr.com/v1/package/npm/vue-flatpickr-component/badge?style=rounded)](https://www.jsdelivr.com/package/npm/vue-flatpickr-component)
-[![npm-version](https://img.shields.io/npm/v/vue-flatpickr-component.svg)](https://www.npmjs.com/package/vue-flatpickr-component)
-[![github-tag](https://img.shields.io/github/tag/ankurk91/vue-flatpickr-component.svg?maxAge=1800)](https://github.com/ankurk91/vue-flatpickr-component/)
-[![license](https://img.shields.io/github/license/ankurk91/vue-flatpickr-component.svg?maxAge=1800)](https://yarnpkg.com/en/package/vue-flatpickr-component)
-[![build-status](https://travis-ci.org/ankurk91/vue-flatpickr-component.svg?branch=master)](https://travis-ci.org/ankurk91/vue-flatpickr-component)
+[![downloads](https://badgen.net/npm/dt/vue-flatpickr-component)](http://npm-stats.com/~packages/vue-flatpickr-component)
+[![jsdelivr](https://data.jsdelivr.com/v1/package/npm/vue-flatpickr-component/badge?style=rounded)](https://www.jsdelivr.com/package/npm/vue-flatpickr-component)
+[![npm-version](https://badgen.net/npm/v/vue-flatpickr-component)](https://www.npmjs.com/package/vue-flatpickr-component)
+[![github-tag](https://badgen.net/github/tag/ankurk91/vue-flatpickr-component)](https://github.com/ankurk91/vue-flatpickr-component/)
+[![license](https://badgen.net/github/license/ankurk91/vue-flatpickr-component)](https://yarnpkg.com/en/package/vue-flatpickr-component)
+[![build-status](https://travis-ci.com/ankurk91/vue-flatpickr-component.svg?branch=master)](https://travis-ci.com/ankurk91/vue-flatpickr-component)
 [![codecov](https://codecov.io/gh/ankurk91/vue-flatpickr-component/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-flatpickr-component)
 
 Vue.js component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
