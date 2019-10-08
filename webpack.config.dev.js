@@ -46,9 +46,6 @@ module.exports = {
           isProduction ? MiniCssExtractPlugin.loader :
             {
               loader: "style-loader",
-              options: {
-                sourceMap: !isProduction,
-              }
             },
           {
             loader: "css-loader",

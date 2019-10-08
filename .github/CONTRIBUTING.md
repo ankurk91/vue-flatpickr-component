@@ -13,7 +13,7 @@
 
 
 ### Development setup
-* Install [node-js](http://nodejs.org/) `>=6.10 <7.0.0 || >=9.x` and [yarn](https://yarnpkg.com/en/docs/install) v1.x
+* Install [node-js](http://nodejs.org/) `8.9.0>=`  and [yarn](https://yarnpkg.com/en/docs/install) v1.x
 * Clone the repo
 * Create a separate branch `git checkout -b your-branch-name`
 * Install dependencies : `yarn install`
