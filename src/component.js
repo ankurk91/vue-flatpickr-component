@@ -101,10 +101,10 @@ export default {
      * @param event
      */
     onInput(event) {
-      const value = event.target.value;
+      const input = event.target;
       // Lets wait for DOM to be updated
       this.$nextTick(() => {
-        this.$emit('input', value);
+        this.$emit('input', input.value);
       });
     },
 
