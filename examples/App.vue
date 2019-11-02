@@ -207,7 +207,10 @@
 
   // Override Global settings
   flatpickr.setDefaults({
-    disableMobile: true
+    disableMobile: true,
+    onClose: () => {
+      console.log("close event from global config")
+    }
   });
 
   Vue.use(flatPickrComponent);

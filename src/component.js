@@ -66,11 +66,17 @@ export default {
     // Don't mutate original object on parent component
     let safeConfig = cloneObject(this.config);
 
-    // Inject our methods into events array
     this.events.forEach((hook) => {
-      safeConfig[hook] = arrayify(safeConfig[hook] || []).concat((...args) => {
+      // Respect global callbacks registered via setDefault() method
+      let globalCallbacks = arrayify(Flatpickr.defaultConfig[hook] || []);
+
+      // Inject our own method along with user callback
+      let localCallback = (...args) => {
         this.$emit(camelToKebab(hook), ...args)
-      });
+      };
+
+      // Overwrite with merged array
+      safeConfig[hook] = arrayify(safeConfig[hook] || []).concat(globalCallbacks, localCallback);
     });
 
     // Set initial date without emitting any event
