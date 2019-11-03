@@ -68,7 +68,7 @@ export default {
 
     this.events.forEach((hook) => {
       // Respect global callbacks registered via setDefault() method
-      let globalCallbacks = arrayify(Flatpickr.defaultConfig[hook] || []);
+      let globalCallbacks = Flatpickr.defaultConfig[hook] || [];
 
       // Inject our own method along with user callback
       let localCallback = (...args) => {

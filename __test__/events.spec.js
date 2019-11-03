@@ -1,11 +1,17 @@
 import {mount} from '@vue/test-utils'
-
+import Flatpicker from 'flatpickr';
 import Component from '../src/component.js';
 
 describe('Flatpickr events', () => {
 
   let wrapper;
   let onChangeStub = jest.fn();
+
+  const globalOnChange = jest.fn();
+
+  Flatpicker.setDefaults({
+    onChange: globalOnChange
+  });
 
   beforeEach(() => {
     wrapper = mount(Component, {
@@ -86,6 +92,12 @@ describe('Flatpickr events', () => {
     wrapper.trigger('blur');
 
     expect(wrapper.emitted().blur).toBeTruthy()
+  });
+
+  test('respect global callbacks', () => {
+    wrapper.setProps({value: '2017-10-04'});
+    expect(globalOnChange).toHaveBeenCalled();
+    expect(onChangeStub).toHaveBeenCalled();
   });
 
 });
