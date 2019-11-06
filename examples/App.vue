@@ -106,19 +106,6 @@
             </div>
 
             <div class="form-group">
-              <label>Select date (vee-validate)</label>
-              <flat-pickr v-model="form.dateValidate"
-                          name="date-of-birth"
-                          v-validate="{required:true}"
-                          placeholder="Date of birth"
-                          class="form-control"
-                          :class="{'is-invalid' : errors.has('date-of-birth')}"
-              ></flat-pickr>
-              <span v-show="errors.has('date-of-birth')" class="invalid-feedback">{{ errors.first('date-of-birth')
-              }}</span>
-            </div>
-
-            <div class="form-group">
               <label>Select date (confirm plugin)</label>
               <flat-pickr class="form-control"
                           :config="configs.confirmPlugin"
@@ -131,7 +118,6 @@
               <flat-pickr class="form-control"
                           :config="configs.allowInput"
                           v-model="form.allowInput">
-
               </flat-pickr>
             </div>
 
@@ -161,7 +147,7 @@
             <hr>
 
             <div class="form-group">
-              <button class="btn btn-primary" type="submit">Validate form</button>
+              <button class="btn btn-primary" type="submit">Submit form</button>
             </div>
 
           </form>
@@ -177,7 +163,6 @@
                 <li><a href="https://github.com/ankurk91/vue-flatpickr-component" target="_blank">Github</a></li>
                 <li><a href="https://www.npmjs.com/package/vue-flatpickr-component" target="_blank">npm</a></li>
                 <li><a href="https://chmln.github.io/flatpickr" rel="noreferrer" target="_blank">Flatpickr docs</a></li>
-                <li><a href="https://github.com/logaretm/vee-validate" target="_blank">vee-validate</a></li>
               </ul>
             </div>
           </div>
@@ -227,7 +212,6 @@
           date: '2017-01-01',
           dateLocale: null,
           dateInline: +new Date(),
-          dateValidate: null,
           dateConfirm: null,
           allowInput: null,
           dateStart: null,
@@ -303,10 +287,6 @@
       },
       submit() {
         console.log('Form submit event', this.form);
-        // http://vee-validate.logaretm.com/examples.html#component-example
-        this.$validator.validateAll().then(result => {
-          alert(`Form validation result: ${result}`);
-        });
       },
       onStartChange(selectedDates, dateStr, instance) {
         this.$set(this.configs.end, 'minDate', dateStr);
