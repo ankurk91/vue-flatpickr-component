@@ -42,12 +42,16 @@ describe('Flatpickr events', () => {
     });
   });
 
-  test('emits on-change event on value change', () => {
+  test('emits on-change event on value change', (done) => {
     const stub = jest.fn();
     wrapper.vm.$on('on-change', stub);
     wrapper.setProps({value: '2017-10-04'});
 
-    expect(stub).toHaveBeenCalled();
+    wrapper.vm.$nextTick(() => {
+      expect(stub).toHaveBeenCalled();
+      done();
+    });
+
   });
 
   test('emits on-open event on focus', () => {
@@ -58,10 +62,14 @@ describe('Flatpickr events', () => {
     expect(stub).toHaveBeenCalled();
   });
 
-  test('calls original onChange method on value change', () => {
+  test('calls original onChange method on value change', (done) => {
     wrapper.setProps({value: '2017-10-04'});
 
-    expect(onChangeStub).toHaveBeenCalled();
+    wrapper.vm.$nextTick(() => {
+      expect(onChangeStub).toHaveBeenCalled();
+      done()
+    });
+
   });
 
   test('emits only those are specified via prop', () => {
@@ -75,12 +83,17 @@ describe('Flatpickr events', () => {
     const onOpen = jest.fn();
     wrapper.vm.$on('on-open', onOpen);
     wrapper.trigger('focus');
-    expect(onOpen).not.toHaveBeenCalled();
+    wrapper.vm.$nextTick(() => {
+      expect(onOpen).not.toHaveBeenCalled();
+    });
+
 
     const onChange = jest.fn();
     wrapper.vm.$on('on-change', onChange);
     wrapper.setProps({value: '2017-10-04'});
-    expect(onChange).toHaveBeenCalled();
+    wrapper.vm.$nextTick(() => {
+      expect(onChange).toHaveBeenCalled();
+    })
   });
 
   test('does not emit on-change event on mount', () => {
@@ -94,10 +107,15 @@ describe('Flatpickr events', () => {
     expect(wrapper.emitted().blur).toBeTruthy()
   });
 
-  test('respect global callbacks', () => {
+  test('respect global callbacks', (done) => {
     wrapper.setProps({value: '2017-10-04'});
-    expect(globalOnChange).toHaveBeenCalled();
-    expect(onChangeStub).toHaveBeenCalled();
+
+    wrapper.vm.$nextTick(() => {
+      expect(globalOnChange).toHaveBeenCalled();
+      expect(onChangeStub).toHaveBeenCalled();
+
+      done()
+    });
   });
 
 });

@@ -8,32 +8,30 @@
 [![build-status](https://travis-ci.com/ankurk91/vue-flatpickr-component.svg?branch=master)](https://travis-ci.com/ankurk91/vue-flatpickr-component)
 [![codecov](https://codecov.io/gh/ankurk91/vue-flatpickr-component/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-flatpickr-component)
 
-Vue.js component for [Flatpickr](https://chmln.github.io/flatpickr/) date-time picker
-
-:point_right: If you are looking for the documentation of older version then switch to respective version branch. 
+Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker
 
 ## [Demo](https://ankurk91.github.io/vue-flatpickr-component/) or [JSFiddle](https://jsfiddle.net/ankurk91/63kzdwLx/)
 
 ## Features
 * Reactive ``v-model`` value
     - You can change flatpickr value programmatically 
-* Reactive [config](https://chmln.github.io/flatpickr/options/) options
+* Reactive [config](https://flatpickr.js.org/options/) options
     - You can change config options dynamically
     - Component will watch for any changes and redraw itself
     - You are suggested to modify config via [Vue.set](https://vuejs.org/v2/api/#Vue-set)
-* Can emit all possible [events](https://chmln.github.io/flatpickr/events/)
+* Can emit all possible [events](https://flatpickr.js.org/events/)
 * Compatible with [Bootstrap](http://getbootstrap.com/), [Bulma](http://bulma.io/) or any other CSS framework
-* Supports [wrapped](https://chmln.github.io/flatpickr/examples/#flatpickr-external-elements) mode
+* Supports [wrapped](https://flatpickr.js.org/examples/#flatpickr-external-elements) mode
     - Just set ``wrap:true`` in config and component will take care of all
-* Works with [vee-validate](https://github.com/logaretm/vee-validate) and other validation libraries
+* Works with validation libraries
 
 ## Installation
 ```bash
-# npm
-npm install vue-flatpickr-component --save
-
 # Yarn
 yarn add vue-flatpickr-component
+
+# npm
+npm install vue-flatpickr-component --save
 ```
 
 ## Usage
@@ -102,7 +100,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
   import flatPickr from 'vue-flatpickr-component';  
   import 'flatpickr/dist/flatpickr.css';
   // theme is optional
-  // try more themes at - https://chmln.github.io/flatpickr/themes/
+  // try more themes at - https://flatpickr.js.org/themes/
   import 'flatpickr/dist/themes/material_blue.css';
   // localization is optional
   import {Hindi} from 'flatpickr/dist/l10n/hi.js';
@@ -113,7 +111,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
       return {
         // Initial value
         date: new Date(),
-        // Get more form https://chmln.github.io/flatpickr/options/
+        // Get more form https://flatpickr.js.org/options/
         config: {
           wrap: true, // set wrap to true only when using 'input-group'
           altFormat: 'M j, Y',
@@ -153,8 +151,8 @@ The component accepts these props:
 | Attribute        | Type                                            | Default              | Description      |
 | :---             | :---:                                           | :---:                | :---             |
 | v-model / value  | String / Date Object / Array / Timestamp / null | `null`               | Set or Get date-picker value (required) |
-| config           | Object                                          | `{ wrap:false }`       | Flatpickr configuration [options](https://chmln.github.io/flatpickr/options/)|
-| events           | Array                                           | Array of useful events  | Customise the [events](https://chmln.github.io/flatpickr/events/) to be emitted|
+| config           | Object                                          | `{ wrap:false }`       | Flatpickr configuration [options](https://flatpickr.js.org/options/)|
+| events           | Array                                           | Array of useful events  | Customise the [events](https://flatpickr.js.org/events/) to be emitted|
 
 ## Install in non-module environments (without webpack)
 ```html
@@ -173,7 +171,7 @@ Vue.component('flat-pickr', VueFlatpickr);
 
 ## Run examples on your localhost
 * Clone this repo
-* You should have node-js `8.9.0>=` and yarn `>=1.x` pre-installed
+* You should have node-js `10.13.0>=` and yarn `>=1.x` pre-installed
 * Install dependencies `yarn install`
 * Run webpack dev server `yarn start`
 * This should open the demo page at `http://localhost:9000` in your default web browser
