@@ -4,9 +4,9 @@
 [![jsdelivr](https://data.jsdelivr.com/v1/package/npm/vue-flatpickr-component/badge?style=rounded)](https://www.jsdelivr.com/package/npm/vue-flatpickr-component)
 [![npm-version](https://badgen.net/npm/v/vue-flatpickr-component)](https://www.npmjs.com/package/vue-flatpickr-component)
 [![github-tag](https://badgen.net/github/tag/ankurk91/vue-flatpickr-component)](https://github.com/ankurk91/vue-flatpickr-component/)
-[![license](https://badgen.net/github/license/ankurk91/vue-flatpickr-component)](https://yarnpkg.com/en/package/vue-flatpickr-component)
-[![build-status](https://travis-ci.com/ankurk91/vue-flatpickr-component.svg?branch=master)](https://travis-ci.com/ankurk91/vue-flatpickr-component)
+![build](https://github.com/ankurk91/vue-flatpickr-component/workflows/build/badge.svg)
 [![codecov](https://codecov.io/gh/ankurk91/vue-flatpickr-component/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-flatpickr-component)
+[![license](https://badgen.net/github/license/ankurk91/vue-flatpickr-component)](https://yarnpkg.com/en/package/vue-flatpickr-component)
 
 Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker
 
@@ -27,11 +27,11 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker
 
 ## Installation
 ```bash
-# Yarn
+# yarn
 yarn add vue-flatpickr-component
 
 # npm
-npm install vue-flatpickr-component --save
+npm install vue-flatpickr-component
 ```
 
 ## Usage
