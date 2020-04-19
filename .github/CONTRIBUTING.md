@@ -1,7 +1,7 @@
 # Contributing
 
 ### Issue reporting
-* If the issue is related to flatPickr then report that issue on [flatpickr](https://github.com/chmln/flatpickr/issues) repo instead
+* If the issue is related to flatPickr then report that issue on [flatpickr](https://github.com/flatpickr/flatpickr/issues) repo instead
     - Issues those are related to flatPickr may be closed without any reason
 * Follow ISSUE_TEMPLATE  
 

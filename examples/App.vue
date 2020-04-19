@@ -162,7 +162,7 @@
               <ul>
                 <li><a href="https://github.com/ankurk91/vue-flatpickr-component" target="_blank">Github</a></li>
                 <li><a href="https://www.npmjs.com/package/vue-flatpickr-component" target="_blank">npm</a></li>
-                <li><a href="https://chmln.github.io/flatpickr" rel="noreferrer" target="_blank">Flatpickr docs</a></li>
+                <li><a href="https://flatpickr.js.org/" rel="noreferrer" target="_blank">Flatpickr docs</a></li>
               </ul>
             </div>
           </div>

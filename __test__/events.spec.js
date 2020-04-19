@@ -30,28 +30,24 @@ describe('Flatpickr events', () => {
     jest.resetAllMocks();
   });
 
-  test('emits input event on value change by user', (done) => {
+  test('emits input event on value change by user', async () => {
     const stub = jest.fn();
     wrapper.vm.$on('input', stub);
     wrapper.vm.$el.value = '2019-10-04';
     wrapper.find('input').trigger('input');
+    await wrapper.vm.$nextTick();
 
-    wrapper.vm.$nextTick(() => {
-      expect(stub).toHaveBeenCalledWith("2019-10-04");
-      done();
-    });
+    expect(stub).toHaveBeenCalledWith("2019-10-04");
   });
 
-  test('emits on-change event on value change', (done) => {
+  test('emits on-change event on value change', async () => {
     const stub = jest.fn();
     wrapper.vm.$on('on-change', stub);
     wrapper.setProps({value: '2017-10-04'});
 
-    wrapper.vm.$nextTick(() => {
-      expect(stub).toHaveBeenCalled();
-      done();
-    });
+    await wrapper.vm.$nextTick();
 
+    expect(stub).toHaveBeenCalled();
   });
 
   test('emits on-open event on focus', () => {
@@ -62,17 +58,15 @@ describe('Flatpickr events', () => {
     expect(stub).toHaveBeenCalled();
   });
 
-  test('calls original onChange method on value change', (done) => {
+  test('calls original onChange method on value change', async () => {
     wrapper.setProps({value: '2017-10-04'});
 
-    wrapper.vm.$nextTick(() => {
-      expect(onChangeStub).toHaveBeenCalled();
-      done()
-    });
+    await wrapper.vm.$nextTick();
 
+    expect(onChangeStub).toHaveBeenCalled();
   });
 
-  test('emits only those are specified via prop', () => {
+  test('emits only those are specified via prop', async () => {
     wrapper = mount(Component, {
       propsData: {
         value: null,
@@ -83,17 +77,16 @@ describe('Flatpickr events', () => {
     const onOpen = jest.fn();
     wrapper.vm.$on('on-open', onOpen);
     wrapper.trigger('focus');
-    wrapper.vm.$nextTick(() => {
-      expect(onOpen).not.toHaveBeenCalled();
-    });
+    await wrapper.vm.$nextTick();
 
+    expect(onOpen).not.toHaveBeenCalled();
 
     const onChange = jest.fn();
     wrapper.vm.$on('on-change', onChange);
     wrapper.setProps({value: '2017-10-04'});
-    wrapper.vm.$nextTick(() => {
-      expect(onChange).toHaveBeenCalled();
-    })
+    await wrapper.vm.$nextTick();
+
+    expect(onChange).toHaveBeenCalled();
   });
 
   test('does not emit on-change event on mount', () => {
@@ -107,15 +100,13 @@ describe('Flatpickr events', () => {
     expect(wrapper.emitted().blur).toBeTruthy()
   });
 
-  test('respect global callbacks', (done) => {
+  test('respect global callbacks', async () => {
     wrapper.setProps({value: '2017-10-04'});
 
-    wrapper.vm.$nextTick(() => {
-      expect(globalOnChange).toHaveBeenCalled();
-      expect(onChangeStub).toHaveBeenCalled();
+    await wrapper.vm.$nextTick();
 
-      done()
-    });
+    expect(globalOnChange).toHaveBeenCalled();
+    expect(onChangeStub).toHaveBeenCalled();
   });
 
 });
