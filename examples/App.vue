@@ -121,6 +121,14 @@
               </flat-pickr>
             </div>
 
+            <div class="form-group">
+              <label>Month picker plugin</label>
+              <flat-pickr class="form-control"
+                          :config="configs.monthSelect"
+                          v-model="form.monthSelect">
+              </flat-pickr>
+            </div>
+
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
@@ -189,6 +197,8 @@
   // https://chmln.github.io/flatpickr/plugins/
   import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate.js';
   import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
+  import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect/index.js'
+  import 'flatpickr/dist/plugins/monthSelect/style.css'
 
   // Override Global settings
   flatpickr.setDefaults({
@@ -216,6 +226,7 @@
           allowInput: null,
           dateStart: null,
           dateEnd: null,
+          monthSelect: null,
         },
         configs: {
           basic: {},
@@ -260,6 +271,14 @@
           },
           end: {
             minDate: null
+          },
+          monthSelect: {
+            plugins: [
+              new monthSelectPlugin({
+                shorthand: true,
+                dateFormat: "m/Y",
+              })
+            ]
           }
         },
       }
