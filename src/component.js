@@ -6,7 +6,7 @@ import {arrayify, camelToKebab, cloneObject} from "./util.js";
 // Keep a copy of all events for later use
 const allEvents = includedEvents.concat(excludedEvents);
 
-// Passing these properties in `set()` method will cause flatpickr to trigger some internal callbacks
+// Passing these properties in `set()` method will cause flatpickr to trigger some callbacks
 const configCallbacks = ['locale', 'showMonths'];
 
 export default {
@@ -21,8 +21,7 @@ export default {
         disabled: this.disabled
       },
       on: {
-        input: this.onInput,
-        blur: this.onBlur,
+        input: this.onInput
       }
     })
   },
@@ -85,6 +84,9 @@ export default {
 
     // Init flatpickr
     this.fp = new Flatpickr(this.getElem(), safeConfig);
+
+    // Attach blur event
+    this.fpInput().addEventListener('blur', this.onBlur);
 
     // Immediate watch will fail before fp is set,
     // so need to start watching after mount
@@ -189,6 +191,7 @@ export default {
   beforeDestroy() {
     /* istanbul ignore else */
     if (this.fp) {
+      this.fpInput().removeEventListener('blur', this.onBlur);
       this.fp.destroy();
       this.fp = null;
     }
