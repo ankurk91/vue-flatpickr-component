@@ -188,7 +188,7 @@ export default {
   /**
    * Free up memory
    */
-  beforeDestroy() {
+  destroyed() {
     /* istanbul ignore else */
     if (this.fp) {
       this.fpInput().removeEventListener('blur', this.onBlur);
