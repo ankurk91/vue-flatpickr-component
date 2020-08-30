@@ -87,6 +87,7 @@ export default {
 
     // Attach blur event
     this.fpInput().addEventListener('blur', this.onBlur);
+    this.$on('on-close', this.onClose);
 
     // Immediate watch will fail before fp is set,
     // so need to start watching after mount
@@ -128,6 +129,13 @@ export default {
      */
     onBlur(event) {
       this.$emit('blur', event.target.value);
+    },
+
+    /**
+     * Flatpickr does not emit input event in some cases
+     */
+    onClose(selectedDates, dateStr) {
+      this.$emit('input', dateStr)
     },
 
     /**
