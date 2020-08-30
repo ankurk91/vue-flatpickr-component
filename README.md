@@ -142,7 +142,7 @@ This will register a global component `<flat-pickr>`
 ```html
 <flat-pickr v-model="date" @on-change="doSomethingOnChange" @on-close="doSomethingOnClose"></flat-pickr>
 ```
-* Events names has been converted to kebab-case.
+* Event names has been converted to kebab-case.
 * You can still pass your methods in `:config` like original flatpickr do.
 
 ## Available props
@@ -152,7 +152,7 @@ The component accepts these props:
 | :---             | :---:                                           | :---:                | :---             |
 | v-model / value  | String / Date Object / Array / Timestamp / null | `null`               | Set or Get date-picker value (required) |
 | config           | Object                                          | `{ wrap:false }`       | Flatpickr configuration [options](https://flatpickr.js.org/options/)|
-| events           | Array                                           | Array of useful events  | Customise the [events](https://flatpickr.js.org/events/) to be emitted|
+| events           | Array                                           | Array of sensible events  | Customise the [events](https://flatpickr.js.org/events/) to be emitted|
 
 ## Install in non-module environments (without webpack)
 ```html
@@ -190,7 +190,7 @@ Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recen
 <!-- This will cause date picker to freeze -->
 <flat-picker v-model="card" :config="{ dateFormat: 'd-m-Y H:i' }"></flat-picker>
 ```
-* Vue.js can not detect changes when literal object/arrays passed within template, [see](https://github.com/vuejs/vue/issues/4060)
+* Vue.js cannot detect changes when literal object/arrays passed within template, [see](https://github.com/vuejs/vue/issues/4060)
 
 ## License
 [MIT](LICENSE.txt) License
