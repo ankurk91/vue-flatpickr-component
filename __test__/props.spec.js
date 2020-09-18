@@ -6,7 +6,7 @@ describe('Flatpickr props', () => {
 
   // Store for future usage
   const props = {
-    value: '2017-10-04',
+    modelValue: '2017-10-04',
     config: {
       dateFormat: 'Y-m-d'
     }
@@ -21,7 +21,7 @@ describe('Flatpickr props', () => {
   });
 
   afterEach(() => {
-    wrapper.destroy();
+    wrapper.unmount();
   });
 
   test('accepts config via prop', () => {
@@ -30,11 +30,11 @@ describe('Flatpickr props', () => {
   });
 
   test('accepts value via prop', () => {
-    expect(wrapper.props('value')).toBe(props.value);
+    expect(wrapper.props('modelValue')).toBe(props.modelValue);
   });
 
   test('validates v-model', () => {
-    let vModel = wrapper.vm.$options.props.value;
+    let vModel = wrapper.vm.$options.props.modelValue;
 
     expect(vModel.validator(false)).toBe(false);
     expect(vModel.validator(undefined)).toBe(false);
@@ -44,7 +44,6 @@ describe('Flatpickr props', () => {
     expect(vModel.validator('2017-12-12')).toBe(true);
     expect(vModel.validator(['2017-12-12'])).toBe(true);
     expect(vModel.validator(+new Date())).toBe(true);
-
   });
 
 });

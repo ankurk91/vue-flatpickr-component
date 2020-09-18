@@ -1,19 +1,15 @@
 import Component from '../src/index';
-import {mount, createLocalVue} from '@vue/test-utils';
+import {mount} from '@vue/test-utils';
 
 describe('Flatpickr global component', () => {
-
-  // Make a copy of local vue
-  let localVue = createLocalVue();
-  // Define the global component
-  localVue.use(Component, 'date-picker');
 
   test('works as plugin', () => {
 
     let app = {
-      template: `<div id="app">
-                  <date-picker class="form-control" name="date" v-model="date"></date-picker>
-                 </div>`,
+      template: `
+        <div id="app">
+        <date-picker class="form-control" name="date" v-model="date"></date-picker>
+        </div>`,
       data() {
         return {
           date: '2017-10-04'
@@ -22,18 +18,22 @@ describe('Flatpickr global component', () => {
     };
 
     let wrapper = mount(app, {
-      localVue
+      global: {
+        components: {
+          datePicker: Component
+        }
+      }
     });
 
-    expect(wrapper.contains(Component)).toBe(true);
+    expect(wrapper.findComponent(Component)).toBeTruthy();
 
-    let input = wrapper.find(Component);
-    expect(input.is('input')).toBe(true);
+    let input = wrapper.getComponent(Component);
+    expect(input.find('input')).toBeTruthy();
     expect(input.vm.$el.value).toBe('2017-10-04');
     expect(input.classes()).toContain('form-control');
     expect(input.attributes('name')).toBe('date');
 
-    wrapper.destroy();
+    wrapper.unmount();
   });
 
 });

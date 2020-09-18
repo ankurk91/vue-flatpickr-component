@@ -18,7 +18,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
-      'vue$': 'vue/dist/vue.runtime.esm.js'
+      vue: "@vue/runtime-dom"
     },
     extensions: ['.js', '.json', '.vue'],
   },
@@ -100,9 +100,6 @@ module.exports = {
         minifyCSS: isProduction,
         minifyURLs: isProduction,
       }
-    }),
-    new webpack.ProvidePlugin({
-      Vue: ['vue/dist/vue.esm.js', 'default'],
     }),
     new VueLoaderPlugin(),
   ],

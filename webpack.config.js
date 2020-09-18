@@ -14,7 +14,7 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      vue: "@vue/runtime-dom"
     },
     extensions: ['.js', '.json', '.vue']
   },

@@ -18,7 +18,6 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker
 * Reactive [config](https://flatpickr.js.org/options/) options
     - You can change config options dynamically
     - Component will watch for any changes and redraw itself
-    - You are suggested to modify config via [Vue.set](https://vuejs.org/v2/api/#Vue-set)
 * Can emit all possible [events](https://flatpickr.js.org/events/)
 * Compatible with [Bootstrap](http://getbootstrap.com/), [Bulma](http://bulma.io/) or any other CSS framework
 * Supports [wrapped](https://flatpickr.js.org/examples/#flatpickr-external-elements) mode
@@ -28,10 +27,10 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker
 ## Installation
 ```bash
 # yarn
-yarn add vue-flatpickr-component
+yarn add vue-flatpickr-component@next
 
 # npm
-npm install vue-flatpickr-component
+npm install vue-flatpickr-component@next
 ```
 
 ## Usage
@@ -133,7 +132,8 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
   import Vue from 'vue';
   import VueFlatPickr from 'vue-flatpickr-component';
   import 'flatpickr/dist/flatpickr.css';
-  Vue.use(VueFlatPickr);
+  // Your app initialization logic goes here
+  app.use(VueFlatPickr);
 ```
 This will register a global component `<flat-pickr>`
 
@@ -143,7 +143,7 @@ This will register a global component `<flat-pickr>`
 <flat-pickr v-model="date" @on-change="doSomethingOnChange" @on-close="doSomethingOnClose"></flat-pickr>
 ```
 * Event names has been converted to kebab-case.
-* You can still pass your methods in `:config` like original flatpickr do.
+* You can still pass your callback methods in `:config` like original flatpickr do.
 
 ## Available props
 The component accepts these props:
@@ -160,12 +160,12 @@ The component accepts these props:
 <link href="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.js"></script>
 <!-- Vue js -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
 <!-- Lastly add this package -->
-<script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@8"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@9"></script>
 <script>
 // Initialize as global component
-Vue.component('flat-pickr', VueFlatpickr);
+app.component('flat-pickr', VueFlatpickr);
 </script>
 ```
 
@@ -177,20 +177,12 @@ Vue.component('flat-pickr', VueFlatpickr);
 * This should open the demo page at `http://localhost:9000` in your default web browser
 
 ## Testing
-* This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils) for testing.
+* This package is using [Jest](https://github.com/facebook/jest) and [vue-test-utils](https://github.com/vuejs/vue-test-utils-next) for testing.
 * Tests can be found in `__test__` folder.
 * Execute tests with this command `yarn test`
 
 ## Changelog
 Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
-
-## Caveats
-* :warning: Don't pass config option as inline literal object to `:config` prop.
-```html
-<!-- This will cause date picker to freeze -->
-<flat-picker v-model="card" :config="{ dateFormat: 'd-m-Y H:i' }"></flat-picker>
-```
-* Vue.js cannot detect changes when literal object/arrays passed within template, [see](https://github.com/vuejs/vue/issues/4060)
 
 ## License
 [MIT](LICENSE.txt) License

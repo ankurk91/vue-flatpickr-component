@@ -292,11 +292,11 @@ export default {
       console.log('Update config');
       // Right way to modify config runtime
       // https://vuejs.org/v2/api/#Vue-set
-      this.$set(this.configs.basic, 'mode', 'range');
+      this.configs.basic.mode = 'range';
     },
     changeLocale() {
       console.log('Changing locale to english');
-      this.$set(this.configs.locale, 'locale', EnglishLocale);
+      this.configs.locale.locale = EnglishLocale
     },
     onChange(selectedDates, dateStr, instance) {
       console.log('Date change hook was called', dateStr);
@@ -308,10 +308,10 @@ export default {
       console.log('Form submit event', this.form);
     },
     onStartChange(selectedDates, dateStr, instance) {
-      this.$set(this.configs.end, 'minDate', dateStr);
+      this.configs.end.minDate = dateStr
     },
     onEndChange(selectedDates, dateStr, instance) {
-      this.$set(this.configs.start, 'maxDate', dateStr);
+      this.configs.start.maxDate = dateStr
     }
   },
   mounted() {

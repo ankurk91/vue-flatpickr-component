@@ -1,5 +1,9 @@
 # Changelog
 
+## [9.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/8.1.6...9.0.0)
+* Drop support for Vue v2.x and add support for Vue v3.x
+* Drop IE 11 support
+
 ## [8.1.6](https://github.com/ankurk91/vue-flatpickr-component/compare/8.1.5...8.1.6)
 * Fix: [#196](https://github.com/ankurk91/vue-flatpickr-component/issues/196)
 

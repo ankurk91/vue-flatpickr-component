@@ -16,7 +16,7 @@ describe('Flatpickr events', () => {
   beforeEach(() => {
     wrapper = mount(Component, {
       propsData: {
-        value: null,
+        modelValue: null,
         config: {
           onChange: onChangeStub
         }
@@ -25,42 +25,36 @@ describe('Flatpickr events', () => {
   });
 
   afterEach(() => {
-    wrapper.destroy();
+    wrapper.unmount();
     wrapper = null;
     jest.resetAllMocks();
   });
 
   test('emits input event on value change by user', async () => {
-    const stub = jest.fn();
-    wrapper.vm.$on('input', stub);
     wrapper.vm.$el.value = '2019-10-04';
     wrapper.find('input').trigger('input');
     await wrapper.vm.$nextTick();
 
-    expect(stub).toHaveBeenCalledWith("2019-10-04");
+    expect(wrapper.emitted()).toHaveProperty('update:modelValue')
+    expect(wrapper.emitted()['update:modelValue'][0]).toEqual(["2019-10-04"])
   });
 
   test('emits on-change event on value change', async () => {
-    const stub = jest.fn();
-    wrapper.vm.$on('on-change', stub);
-    wrapper.setProps({value: '2017-10-04'});
-
+    wrapper.setProps({modelValue: '2017-10-04'});
     await wrapper.vm.$nextTick();
 
-    expect(stub).toHaveBeenCalled();
+    expect(wrapper.emitted()).toHaveProperty('on-change')
   });
 
-  test('emits on-open event on focus', () => {
-    const stub = jest.fn();
-    wrapper.vm.$on('on-open', stub);
+  test('emits on-open event on focus', async () => {
     wrapper.trigger('focus');
+    await wrapper.vm.$nextTick();
 
-    expect(stub).toHaveBeenCalled();
+    expect(wrapper.emitted()).toHaveProperty('on-open')
   });
 
   test('calls original onChange method on value change', async () => {
-    wrapper.setProps({value: '2017-10-04'});
-
+    wrapper.setProps({modelValue: '2017-10-04'});
     await wrapper.vm.$nextTick();
 
     expect(onChangeStub).toHaveBeenCalled();
@@ -69,24 +63,18 @@ describe('Flatpickr events', () => {
   test('emits only those are specified via prop', async () => {
     wrapper = mount(Component, {
       propsData: {
-        value: null,
+        modelValue: null,
         events: ['onChange']
       }
     });
 
-    const onOpen = jest.fn();
-    wrapper.vm.$on('on-open', onOpen);
     wrapper.trigger('focus');
     await wrapper.vm.$nextTick();
+    expect(wrapper.emitted()['on-open']).toBeFalsy()
 
-    expect(onOpen).not.toHaveBeenCalled();
-
-    const onChange = jest.fn();
-    wrapper.vm.$on('on-change', onChange);
-    wrapper.setProps({value: '2017-10-04'});
+    wrapper.setProps({modelValue: '2017-10-04'});
     await wrapper.vm.$nextTick();
-
-    expect(onChange).toHaveBeenCalled();
+    expect(wrapper.emitted()).toHaveProperty('on-change')
   });
 
   test('does not emit on-change event on mount', () => {
@@ -94,14 +82,14 @@ describe('Flatpickr events', () => {
   });
 
   test('emits blur event', () => {
-    wrapper.setProps({value: '2019-10-04'});
+    wrapper.setProps({modelValue: '2019-10-04'});
     wrapper.trigger('blur');
 
     expect(wrapper.emitted().blur).toBeTruthy()
   });
 
   test('respect global callbacks', async () => {
-    wrapper.setProps({value: '2017-10-04'});
+    wrapper.setProps({modelValue: '2017-10-04'});
 
     await wrapper.vm.$nextTick();
 

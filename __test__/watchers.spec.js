@@ -11,7 +11,7 @@ describe('Flatpickr watchers', () => {
   beforeEach(() => {
     wrapper = mount(Component, {
       propsData: {
-        value: null,
+        modelValue: null,
         config: {
           locale: HindiLocale
         }
@@ -20,7 +20,7 @@ describe('Flatpickr watchers', () => {
   });
 
   afterEach(() => {
-    wrapper.destroy();
+    wrapper.unmount();
     wrapper = null;
   });
 
@@ -31,7 +31,7 @@ describe('Flatpickr watchers', () => {
     expect(wrapper.vm.$el.value).toEqual('2019-10-04');
   });
 
-  test('updates configs runtime',async () => {
+  test('updates configs runtime', async () => {
     wrapper.setProps({config: {time_24hr: true}});
     await wrapper.vm.$nextTick();
 
@@ -52,7 +52,7 @@ describe('Flatpickr watchers', () => {
     expect(wrapper.vm.fp.config.locale.months.longhand[0]).toBe('January');
   });
 
-  test('updates disabled attribute runtime',async () => {
+  test('updates disabled attribute runtime', async () => {
     wrapper.setProps({disabled: false});
     await wrapper.vm.$nextTick();
 

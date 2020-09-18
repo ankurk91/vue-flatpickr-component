@@ -9,28 +9,18 @@ describe('Flatpickr component instance', () => {
   beforeEach(() => {
     wrapper = mount(Component, {
       propsData: {
-        value: new Date()
+        modelValue: new Date()
       }
     });
   });
 
-  test('is a Vue instance', () => {
-    expect(wrapper.isVueInstance()).toBe(true)
-  });
-
   test('renders input field', () => {
-    expect(wrapper.is('input')).toBe(true);
+    expect(wrapper.find('input').exists()).toBe(true);
   });
 
   test('opens datepicker when focus', () => {
     wrapper.trigger('focus');
     expect(wrapper.classes()).toContain('active');
-  });
-
-  test('clean up on destroy', () => {
-    wrapper.destroy();
-    expect(wrapper.isEmpty()).toBe(true);
-    expect(wrapper.vm.$data.fp).toBe(null);
   });
 
 });

@@ -4,18 +4,18 @@
       "@babel/preset-env",
       {
         "modules": false,
-        "forceAllTransforms": true,
+        "forceAllTransforms": false,
         "targets": {
           "browsers": [
-            "defaults"
+            "defaults",
+            "not dead",
+            "not ie 11"
           ]
         }
       }
     ]
   ],
-  "plugins": [
-    "@babel/plugin-transform-object-assign"
-  ],
+  "plugins": [],
   "env": {
     "test": {
       "presets": [
