@@ -184,141 +184,138 @@
 </template>
 
 <script>
-  import Vue from 'vue';
-  import flatpickr from "flatpickr";
-  // Init component
-  import flatPickrComponent from '../src/index.js';
-  // Need to add base css for flatpickr
-  import 'flatpickr/dist/flatpickr.min.css';
-  // l10n is optional
-  import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi.js';
-  import {english as EnglishLocale} from 'flatpickr/dist/l10n/default.js'
-  // Plugins are optional
-  // https://chmln.github.io/flatpickr/plugins/
-  import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate.js';
-  import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
-  import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect/index.js'
-  import 'flatpickr/dist/plugins/monthSelect/style.css'
+import flatpickr from "flatpickr";
+// Init component
+import flatPickrComponent from '../src/index.js';
+// Need to add base css for flatpickr
+import 'flatpickr/dist/flatpickr.min.css';
+// l10n is optional
+import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi.js';
+import {english as EnglishLocale} from 'flatpickr/dist/l10n/default.js'
+// Plugins are optional
+// https://chmln.github.io/flatpickr/plugins/
+import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate.js';
+import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
+import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect/index.js'
+import 'flatpickr/dist/plugins/monthSelect/style.css'
 
-  // Override Global settings
-  flatpickr.setDefaults({
-    disableMobile: true,
-    onClose: () => {
-      console.log("close event from global config")
-    }
-  });
-
-  Vue.use(flatPickrComponent);
-
-  export default {
-    name: 'app',
-    data() {
-      return {
-        inputDisabled: false,
-        form: {
-          dateBasic: null,
-          dateTime: null,
-          time: null,
-          date: '2017-01-01',
-          dateLocale: null,
-          dateInline: +new Date(),
-          dateConfirm: null,
-          allowInput: null,
-          dateStart: null,
-          dateEnd: null,
-          monthSelect: null,
-        },
-        configs: {
-          basic: {},
-          wrap: {
-            wrap: true,
-            altFormat: 'M	j, Y',
-            altInput: true,
-            dateFormat: "Y-m-d",
-            minDate: new Date()
-          },
-          timePicker: {
-            wrap: true,
-            enableTime: true,
-            enableSeconds: true,
-            noCalendar: true
-          },
-          dateTimePicker: {
-            enableTime: true,
-            dateFormat: 'd-m-Y H:i'
-          },
-          locale: {
-            // https://chmln.github.io/flatpickr/localization/
-            locale: HindiLocale,
-            // https://chmln.github.io/flatpickr/events/
-            onChange: this.onChange
-          },
-          inline: {
-            inline: true
-          },
-          confirmPlugin: {
-            enableTime: true,
-            // https://chmln.github.io/flatpickr/plugins/
-            plugins: [new ConfirmDatePlugin()]
-          },
-          allowInput: {
-            allowInput: true,
-            dateFormat: 'Y-m-d'
-          },
-          start: {
-            minDate: new Date(),
-            maxDate: null
-          },
-          end: {
-            minDate: null
-          },
-          monthSelect: {
-            plugins: [
-              new monthSelectPlugin({
-                shorthand: true,
-                dateFormat: "m/Y",
-              })
-            ]
-          }
-        },
-      }
-    },
-    methods: {
-      setNewDate() {
-        console.log('Set new date');
-        this.form.dateBasic = new Date();
-      },
-      updateConfig() {
-        console.log('Update config');
-        // Right way to modify config runtime
-        // https://vuejs.org/v2/api/#Vue-set
-        this.$set(this.configs.basic, 'mode', 'range');
-      },
-      changeLocale() {
-        console.log('Changing locale to english');
-        this.$set(this.configs.locale, 'locale', EnglishLocale);
-      },
-      onChange(selectedDates, dateStr, instance) {
-        console.log('Date change hook was called', dateStr);
-      },
-      listenToOnChangeEvent(selectedDates, dateStr, instance) {
-        console.log('listen To OnChange Event', dateStr);
-      },
-      submit() {
-        console.log('Form submit event', this.form);
-      },
-      onStartChange(selectedDates, dateStr, instance) {
-        this.$set(this.configs.end, 'minDate', dateStr);
-      },
-      onEndChange(selectedDates, dateStr, instance) {
-        this.$set(this.configs.start, 'maxDate', dateStr);
-      }
-    },
-    mounted() {
-      let flatPickrInstance = this.$refs.datePickerWrap.fp;
-      // Do something with instance
-      // https://chmln.github.io/flatpickr/instance-methods-properties-elements/
-      console.log('instance', flatPickrInstance)
-    }
+// Override Global settings
+flatpickr.setDefaults({
+  disableMobile: true,
+  onClose: () => {
+    console.log("close event from global config")
   }
+});
+
+export default {
+  name: 'app',
+  data() {
+    return {
+      inputDisabled: false,
+      form: {
+        dateBasic: null,
+        dateTime: null,
+        time: null,
+        date: '2017-01-01',
+        dateLocale: null,
+        dateInline: +new Date(),
+        dateConfirm: null,
+        allowInput: null,
+        dateStart: null,
+        dateEnd: null,
+        monthSelect: null,
+      },
+      configs: {
+        basic: {},
+        wrap: {
+          wrap: true,
+          altFormat: 'M	j, Y',
+          altInput: true,
+          dateFormat: "Y-m-d",
+          minDate: new Date()
+        },
+        timePicker: {
+          wrap: true,
+          enableTime: true,
+          enableSeconds: true,
+          noCalendar: true
+        },
+        dateTimePicker: {
+          enableTime: true,
+          dateFormat: 'd-m-Y H:i'
+        },
+        locale: {
+          // https://chmln.github.io/flatpickr/localization/
+          locale: HindiLocale,
+          // https://chmln.github.io/flatpickr/events/
+          onChange: this.onChange
+        },
+        inline: {
+          inline: true
+        },
+        confirmPlugin: {
+          enableTime: true,
+          // https://chmln.github.io/flatpickr/plugins/
+          plugins: [new ConfirmDatePlugin()]
+        },
+        allowInput: {
+          allowInput: true,
+          dateFormat: 'Y-m-d'
+        },
+        start: {
+          minDate: new Date(),
+          maxDate: null
+        },
+        end: {
+          minDate: null
+        },
+        monthSelect: {
+          plugins: [
+            new monthSelectPlugin({
+              shorthand: true,
+              dateFormat: "m/Y",
+            })
+          ]
+        }
+      },
+    }
+  },
+  components: {
+    flatPickr: flatPickrComponent
+  },
+  methods: {
+    setNewDate() {
+      console.log('Set new date');
+      this.form.dateBasic = new Date();
+    },
+    updateConfig() {
+      console.log('Update config');
+      // Right way to modify config runtime
+      // https://vuejs.org/v2/api/#Vue-set
+      this.$set(this.configs.basic, 'mode', 'range');
+    },
+    changeLocale() {
+      console.log('Changing locale to english');
+      this.$set(this.configs.locale, 'locale', EnglishLocale);
+    },
+    onChange(selectedDates, dateStr, instance) {
+      console.log('Date change hook was called', dateStr);
+    },
+    listenToOnChangeEvent(selectedDates, dateStr, instance) {
+      console.log('listen To OnChange Event', dateStr);
+    },
+    submit() {
+      console.log('Form submit event', this.form);
+    },
+    onStartChange(selectedDates, dateStr, instance) {
+      this.$set(this.configs.end, 'minDate', dateStr);
+    },
+    onEndChange(selectedDates, dateStr, instance) {
+      this.$set(this.configs.start, 'maxDate', dateStr);
+    }
+  },
+  mounted() {
+    //
+  }
+}
 </script>
