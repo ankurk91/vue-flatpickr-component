@@ -2,7 +2,7 @@ import Flatpickr from 'flatpickr';
 import {excludedEvents, includedEvents} from './events.js';
 import {arrayify, camelToKebab, cloneObject} from './util.js';
 // You have to import css yourself
-import {h, nextTick, ref} from 'vue';
+import {h, nextTick} from 'vue';
 
 // Keep a copy of all events for later use
 const allEvents = includedEvents.concat(excludedEvents);
@@ -196,7 +196,7 @@ export default {
      */
     modelValue(newValue) {
       // Prevent updates if v-model value is same as input's current value
-      if (newValue === ref('root').value) return;
+      if (newValue === this.$refs.root.value) return;
       // Make sure we have a flatpickr instance
       this.fp &&
       // Notify flatpickr instance that there is a change in value
