@@ -109,7 +109,7 @@ export default {
      * Bind on parent element if wrap is true
      */
     getElem() {
-      return this.config.wrap ? this.$el.parentNode : this.$el;
+      return this.config.wrap ? this.$refs.root.parentNode : this.$refs.root;
     },
 
     /**
