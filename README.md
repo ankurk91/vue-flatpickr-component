@@ -12,6 +12,13 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker
 
 ## [Demo](https://ankurk91.github.io/vue-flatpickr-component/) or [JSFiddle](https://jsfiddle.net/ankurk91/63kzdwLx/)
 
+### Version matrix
+
+| Vue.js version | Package version | Branch          |
+| :---           | :---:           | ---:           | 
+| 2.x            | 8.x             | [8.x](https://github.com/ankurk91/vue-flatpickr-component/tree/8.x) |
+| 3.x            | 9.x             | master          |
+
 ## Features
 * Reactive ``v-model`` value
     - You can change flatpickr value programmatically 
@@ -27,10 +34,10 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker
 ## Installation
 ```bash
 # yarn
-yarn add vue-flatpickr-component@next
+yarn add vue-flatpickr-component
 
 # npm
-npm install vue-flatpickr-component@next
+npm install vue-flatpickr-component
 ```
 
 ## Usage
