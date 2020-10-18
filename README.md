@@ -26,7 +26,7 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker
     - You can change config options dynamically
     - Component will watch for any changes and redraw itself
 * Can emit all possible [events](https://flatpickr.js.org/events/)
-* Compatible with [Bootstrap](http://getbootstrap.com/), [Bulma](http://bulma.io/) or any other CSS framework
+* Compatible with [Bootstrap](http://getbootstrap.com/) or any other CSS framework
 * Supports [wrapped](https://flatpickr.js.org/examples/#flatpickr-external-elements) mode
     - Just set ``wrap:true`` in config and component will take care of all
 * Works with validation libraries
@@ -67,7 +67,7 @@ npm install vue-flatpickr-component
 ```
 
 #### Detailed example
-This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs/4.3/components/input-group/)
+Using Bootstrap [input group](https://getbootstrap.com/docs/4.5/components/input-group/) and Font Awesome icons
 ```html
 <template>
   <section>
@@ -81,7 +81,7 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
                 placeholder="Select date"               
                 name="date">
         </flat-pickr>
-        <div class="input-group-btn">
+        <div class="input-group-append">
           <button class="btn btn-default" type="button" title="Toggle" data-toggle>
             <i class="fa fa-calendar">
               <span aria-hidden="true" class="sr-only">Toggle</span>
@@ -115,8 +115,8 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
     name: 'yourComponent',
     data () {
       return {
-        // Initial value
-        date: new Date(),
+        // Initial value can be a date object as well
+        date: '2020-10-16',
         // Get more form https://flatpickr.js.org/options/
         config: {
           wrap: true, // set wrap to true only when using 'input-group'
@@ -136,10 +136,11 @@ This example is based on Bootstrap 4 [input group](https://getbootstrap.com/docs
 
 #### As plugin
 ```js
-  import Vue from 'vue';
+  import {createApp} from 'vue';
   import VueFlatPickr from 'vue-flatpickr-component';
   import 'flatpickr/dist/flatpickr.css';
   // Your app initialization logic goes here
+  const app = createApp().mount('#app')
   app.use(VueFlatPickr);
 ```
 This will register a global component `<flat-pickr>`
@@ -157,9 +158,9 @@ The component accepts these props:
 
 | Attribute        | Type                                            | Default              | Description      |
 | :---             | :---:                                           | :---:                | :---             |
-| v-model / value  | String / Date Object / Array / Timestamp / null | `null`               | Set or Get date-picker value (required) |
+| v-model          | String / Date Object / Array / Timestamp / null | `null`               | Set or Get date-picker value (required) |
 | config           | Object                                          | `{ wrap:false }`       | Flatpickr configuration [options](https://flatpickr.js.org/options/)|
-| events           | Array                                           | Array of sensible events  | Customise the [events](https://flatpickr.js.org/events/) to be emitted|
+| events           | Array                                           | Array of sensible [events](./src/events.js#L2)  | Customise the [events](https://flatpickr.js.org/events/) to be emitted|
 
 ## Install in non-module environments (without webpack)
 ```html
@@ -172,7 +173,7 @@ The component accepts these props:
 <script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@9"></script>
 <script>
 // Initialize as global component
-app.component('flat-pickr', VueFlatpickr);
+yourAppInstance.component('flat-pickr', VueFlatpickr);
 </script>
 ```
 

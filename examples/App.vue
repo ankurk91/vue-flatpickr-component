@@ -313,9 +313,6 @@ export default {
     onEndChange(selectedDates, dateStr, instance) {
       this.configs.start.maxDate = dateStr
     }
-  },
-  mounted() {
-    //
   }
 }
 </script>
