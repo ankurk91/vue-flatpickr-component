@@ -28,10 +28,10 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker
 ## Installation
 ```bash
 # yarn
-yarn add vue-flatpickr-component
+yarn add vue-flatpickr-component@^8
 
 # npm
-npm install vue-flatpickr-component
+npm install vue-flatpickr-component@^8
 ```
 
 ## Usage
@@ -160,7 +160,7 @@ The component accepts these props:
 <link href="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.js"></script>
 <!-- Vue js -->
-<script src="https://cdn.jsdelivr.net/npm/vue@2.6"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@8"></script>
 <script>
