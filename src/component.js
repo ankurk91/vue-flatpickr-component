@@ -21,6 +21,10 @@ export default {
       ref: 'root'
     });
   },
+  emits: [
+    'blur',
+    'update:modelValue',
+  ].concat(allEvents.map(camelToKebab)),
   props: {
     modelValue: {
       default: null,
