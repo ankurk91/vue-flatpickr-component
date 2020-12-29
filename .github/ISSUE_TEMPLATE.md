@@ -8,7 +8,7 @@
 **Tell about your platform**
 * flatPickr version : 4.x.x
 * Vue.js version : 3.x
-* Browser name and version : Chrome|Firefox|Safari x.x.x
+* Browser name and version : Chrome|Firefox|Edge x.x.x
 * This package version : x.x.x
 
 **Current behavior**

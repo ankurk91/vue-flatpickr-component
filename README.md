@@ -8,7 +8,7 @@
 [![codecov](https://codecov.io/gh/ankurk91/vue-flatpickr-component/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-flatpickr-component)
 [![license](https://badgen.net/github/license/ankurk91/vue-flatpickr-component)](https://yarnpkg.com/en/package/vue-flatpickr-component)
 
-Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker
+Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
 
 ## [Demo](https://ankurk91.github.io/vue-flatpickr-component/) or [JSFiddle](https://jsfiddle.net/ankurk91/63kzdwLx/)
 
@@ -179,7 +179,7 @@ yourAppInstance.component('flat-pickr', VueFlatpickr);
 
 ## Run examples on your localhost
 * Clone this repo
-* You should have node-js `10.13.0>=` and yarn `>=1.x` pre-installed
+* You should have node-js `12.14.0>=` and yarn `>=1.x` pre-installed
 * Install dependencies `yarn install`
 * Run webpack dev server `yarn start`
 * This should open the demo page at `http://localhost:9000` in your default web browser
