@@ -35,13 +35,13 @@
     "prepublishOnly": "yarn run test && yarn run build"
   },
   "dependencies": {
-    "flatpickr": "^4.6.6"
+    "flatpickr": "^4.6.9"
   },
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/test-utils": "^2.0.0-beta.5",
+    "@vue/compiler-sfc": "^3.0.4",
+    "@vue/test-utils": "^2.0.0-beta.13",
     "babel-jest": "^26.3.0",
     "babel-loader": "^8.1.0",
     "bootstrap": "^4.5.2",
@@ -55,8 +55,8 @@
     "style-loader": "^1.2.1",
     "unminified-webpack-plugin": "^2.0.0",
     "vue": "^3.0.0",
-    "vue-jest": "^5.0.0-alpha.4",
-    "vue-loader": "^16.0.0-beta.7",
+    "vue-jest": "^5.0.0-alpha.7",
+    "vue-loader": "^16.0.0",
     "webpack": "^4.44.1",
     "webpack-cli": "^3.3.12",
     "webpack-dev-server": "^3.11.0"
