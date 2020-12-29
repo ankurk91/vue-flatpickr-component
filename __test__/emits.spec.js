@@ -1,16 +1,17 @@
 import Component from '../src/component.js';
 import {includedEvents} from '../src/events.js';
+import {camelToKebab} from "../src/util";
 
 describe('Flatpickr emits', () => {
 
-  test('emits contains all events that are emited in the component', async () => {
+  test('emits contains all events that are emitted in the component', async () => {
     const eventEmittedInComponent = ['blur', 'update:modelValue'];
 
     expect(Component.emits).toEqual(expect.arrayContaining(eventEmittedInComponent));
   });
 
-  test('emits contains all events that are emited from flatpicker and included by default', async () => {
-    const includedEventsInKebabCase = includedEvents.map(event => event.replace(/([A-Z])/g, "-$1").toLowerCase())
+  test('emits contains all events that are emitted from flatpicker and included by default', async () => {
+    const includedEventsInKebabCase = includedEvents.map(camelToKebab)
 
     expect(Component.emits).toEqual(expect.arrayContaining(includedEventsInKebabCase));
   });

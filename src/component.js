@@ -11,16 +11,6 @@ const allEvents = includedEvents.concat(excludedEvents);
 const configCallbacks = ['locale', 'showMonths'];
 
 export default {
-  emits: [
-    'blur',
-    'update:modelValue',
-    'on-change',
-    'on-close',
-    'on-destroy',
-    'on-month-change',
-    'on-open',
-    'on-year-change',
-  ],
   name: 'flat-pickr',
   render() {
     return h('input', {
@@ -31,6 +21,10 @@ export default {
       ref: 'root'
     });
   },
+  emits: [
+    'blur',
+    'update:modelValue',
+  ].concat(allEvents.map(camelToKebab)),
   props: {
     modelValue: {
       default: null,
