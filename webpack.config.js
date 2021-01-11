@@ -3,7 +3,6 @@
 const webpack = require('webpack');
 const path = require('path');
 const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 
@@ -14,11 +13,14 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
-      vue: "@vue/runtime-dom"
+      vue: '@vue/runtime-dom'
     },
     extensions: ['.js', '.json', '.vue']
   },
-  entry: './src/index.js',
+  entry: {
+    'vue-flatpickr': './src/index.js',
+    'vue-flatpickr.min': './src/index.js',
+  },
   externals: {
     'vue': {
       commonjs: 'vue',
@@ -30,14 +32,11 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'vue-flatpickr.min.js',
+    filename: '[name].js',
     library: 'VueFlatpickr',
     libraryTarget: 'umd',
     libraryExport: 'default',
     umdNamedDefine: true,
-    // Workaround to fix umd build, restore webpack v3 behaviour
-    // https://github.com/webpack/webpack/issues/6642
-    globalObject: "typeof self !== 'undefined' ? self : this"
   },
   module: {
     rules: [
@@ -54,16 +53,17 @@ module.exports = {
     ]
   },
   optimization: {
+    minimize: true,
     minimizer: [
       new TerserPlugin({
-        sourceMap: false,
+        include: /\.min\.js$/,
+        extractComments: false,
         terserOptions: {
           output: {
-            beautify: false,
+            comments: false,
           },
           compress: {
-            drop_debugger: true,
-            drop_console: true
+            drop_console: true,
           }
         }
       }),
@@ -71,7 +71,6 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new UnminifiedWebpackPlugin(),
     new VueLoaderPlugin(),
   ],
   devtool: false,

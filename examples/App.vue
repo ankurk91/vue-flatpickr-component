@@ -193,7 +193,7 @@ import 'flatpickr/dist/flatpickr.min.css';
 import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi.js';
 import {english as EnglishLocale} from 'flatpickr/dist/l10n/default.js'
 // Plugins are optional
-// https://chmln.github.io/flatpickr/plugins/
+// https://flatpickr.js.org/plugins/
 import ConfirmDatePlugin from 'flatpickr/dist/plugins/confirmDate/confirmDate.js';
 import 'flatpickr/dist/plugins/confirmDate/confirmDate.css';
 import monthSelectPlugin from 'flatpickr/dist/plugins/monthSelect/index.js'
@@ -245,9 +245,9 @@ export default {
           dateFormat: 'd-m-Y H:i'
         },
         locale: {
-          // https://chmln.github.io/flatpickr/localization/
+          // https://flatpickr.js.org/localization//
           locale: HindiLocale,
-          // https://chmln.github.io/flatpickr/events/
+          // https://flatpickr.js.org/events/
           onChange: this.onChange
         },
         inline: {
@@ -255,7 +255,7 @@ export default {
         },
         confirmPlugin: {
           enableTime: true,
-          // https://chmln.github.io/flatpickr/plugins/
+          // https://flatpickr.js.org/plugins/
           plugins: [new ConfirmDatePlugin()]
         },
         allowInput: {
@@ -290,8 +290,6 @@ export default {
     },
     updateConfig() {
       console.log('Update config');
-      // Right way to modify config runtime
-      // https://vuejs.org/v2/api/#Vue-set
       this.configs.basic.mode = 'range';
     },
     changeLocale() {
