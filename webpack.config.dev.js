@@ -112,10 +112,11 @@ module.exports = {
     host: 'localhost',
     port: 9000,
     open: true,
-    liveReload: false,
-    overlay: {
-      warnings: false,
-      errors: true
+    client: {
+      overlay: {
+        warnings: false,
+        errors: true
+      },
     },
     static: path.resolve(process.cwd(), 'docs'),
   },
