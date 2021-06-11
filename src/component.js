@@ -96,6 +96,9 @@ export default {
 
     // Set initial date without emitting any event
     safeConfig.defaultDate = this.modelValue || safeConfig.defaultDate;
+    if(safeConfig.dateFormat == 'U'){
+      safeConfig.defaultDate = parseInt(safeConfig.defaultDate) * 1000;
+    }
 
     // Init flatpickr
     this.fp = new Flatpickr(this.getElem(), safeConfig);
