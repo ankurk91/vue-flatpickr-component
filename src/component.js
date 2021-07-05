@@ -1,6 +1,6 @@
 import Flatpickr from 'flatpickr';
 import {excludedEvents, includedEvents} from "./events.js";
-import {arrayify, camelToKebab, cloneObject} from "./util.js";
+import {arrayify, camelToKebab, nullify, cloneObject} from "./util.js";
 // You have to import css yourself
 
 // Keep a copy of all events for later use
@@ -118,7 +118,7 @@ export default {
       const input = event.target;
       // Lets wait for DOM to be updated
       this.$nextTick(() => {
-        this.$emit('input', input.value);
+        this.$emit('input', nullify(input.value));
       });
     },
 
@@ -135,14 +135,14 @@ export default {
      * @param event
      */
     onBlur(event) {
-      this.$emit('blur', event.target.value);
+      this.$emit('blur', nullify(event.target.value));
     },
 
     /**
      * Flatpickr does not emit input event in some cases
      */
     onClose(selectedDates, dateStr) {
-      this.$emit('input', dateStr)
+      this.$emit('input', nullify(dateStr))
     },
 
     /**
@@ -193,7 +193,7 @@ export default {
      */
     value(newValue) {
       // Prevent updates if v-model value is same as input's current value
-      if (newValue === this.$el.value) return;
+      if (newValue === nullify(this.$el.value)) return;
       // Make sure we have a flatpickr instance
       this.fp &&
       // Notify flatpickr instance that there is a change in value
