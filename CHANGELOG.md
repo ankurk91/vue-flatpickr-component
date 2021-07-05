@@ -1,5 +1,8 @@
 # Changelog
 
+## [8.1.7](https://github.com/ankurk91/vue-flatpickr-component/compare/8.1.6...8.1.7)
+* Fix: [#224](https://github.com/ankurk91/vue-flatpickr-component/issues/224)
+
 ## [8.1.6](https://github.com/ankurk91/vue-flatpickr-component/compare/8.1.5...8.1.6)
 * Fix: [#196](https://github.com/ankurk91/vue-flatpickr-component/issues/196)
 

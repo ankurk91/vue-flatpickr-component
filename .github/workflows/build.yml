@@ -10,7 +10,7 @@ on:
       - master
       - dev
   schedule:
-    - cron: '0 0 1 * *'
+    - cron: '0 0 10 * *'
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
 
     steps:
       - uses: actions/checkout@v2
@@ -27,7 +27,7 @@ jobs:
           persist-credentials: false
 
       - name: Using Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
 
