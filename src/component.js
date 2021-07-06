@@ -1,6 +1,6 @@
 import Flatpickr from 'flatpickr';
 import {excludedEvents, includedEvents} from './events.js';
-import {arrayify, camelToKebab, cloneObject} from './util.js';
+import {arrayify, camelToKebab, cloneObject, nullify} from './util.js';
 // You have to import css yourself
 import {h, nextTick} from 'vue';
 
@@ -125,7 +125,7 @@ export default {
       const input = event.target;
       // Lets wait for DOM to be updated
       nextTick().then(() => {
-        this.$emit('update:modelValue', input.value);
+        this.$emit('update:modelValue', nullify(input.value));
       });
     },
 
@@ -142,7 +142,7 @@ export default {
      * @param event
      */
     onBlur(event) {
-      this.$emit('blur', event.target.value);
+      this.$emit('blur', nullify(event.target.value));
     },
 
     /**
@@ -200,7 +200,7 @@ export default {
      */
     modelValue(newValue) {
       // Prevent updates if v-model value is same as input's current value
-      if (newValue === this.$refs.root.value) return;
+      if (newValue === nullify(this.$refs.root.value)) return;
       // Make sure we have a flatpickr instance
       this.fp &&
       // Notify flatpickr instance that there is a change in value
