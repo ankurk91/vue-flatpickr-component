@@ -174,6 +174,10 @@ export default {
     config: {
       deep: true,
       handler(newConfig) {
+        if (!this.fp) {
+          return;
+        }
+
         let safeConfig = cloneObject(newConfig);
         // Workaround: Don't pass hooks to configs again otherwise
         // previously registered hooks will stop working
