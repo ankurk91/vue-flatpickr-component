@@ -108,7 +108,7 @@ module.exports = {
     new VueLoaderPlugin(),
   ],
   devServer: {
-    firewall: false,
+    allowedHosts: 'all',
     host: 'localhost',
     port: 9000,
     open: true,
