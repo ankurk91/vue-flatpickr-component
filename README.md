@@ -21,7 +21,7 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
 
 ## Features
 
-* Reactive ``v-model`` value
+* Reactive `v-model` value
     - You can change flatpickr value programmatically
 * Reactive [config](https://flatpickr.js.org/options/) options
     - You can change config options dynamically
@@ -29,7 +29,7 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
 * Can emit all possible [events](https://flatpickr.js.org/events/)
 * Compatible with [Bootstrap](http://getbootstrap.com/) or any other CSS framework
 * Supports [wrapped](https://flatpickr.js.org/examples/#flatpickr-external-elements) mode
-    - Just set ``wrap:true`` in config and component will take care of all
+    - Just set `wrap:true` in config and component will take care of all
 * Works with validation libraries
 
 ## Installation
@@ -73,7 +73,7 @@ npm install vue-flatpickr-component
 
 #### Detailed example
 
-Using Bootstrap [input group](https://getbootstrap.com/docs/4.5/components/input-group/) and Font Awesome icons
+Using Bootstrap [input group](https://getbootstrap.com/docs/4.6/components/input-group/) and Font Awesome icons
 
 ```html
 
