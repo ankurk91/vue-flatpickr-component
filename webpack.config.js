@@ -2,7 +2,6 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 
@@ -37,6 +36,7 @@ module.exports = {
     libraryTarget: 'umd',
     libraryExport: 'default',
     umdNamedDefine: true,
+    clean: true,
   },
   module: {
     rules: [
@@ -70,7 +70,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
     new VueLoaderPlugin(),
   ],
   devtool: false,

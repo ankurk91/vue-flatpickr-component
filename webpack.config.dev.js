@@ -5,7 +5,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -26,7 +25,8 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'docs'),
     publicPath: '',
-    filename: "js/[name].[chunkhash].js"
+    filename: "js/[name].[chunkhash].js",
+    clean: true
   },
   module: {
     rules: [
@@ -133,7 +133,6 @@ module.exports = {
 
 if (isProduction) {
   module.exports.plugins.push(
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
       filename: 'css/[name]-[chunkhash].css',
     }),
