@@ -3,7 +3,7 @@
 ## [9.0.5](https://github.com/ankurk91/vue-flatpickr-component/compare/9.0.4...9.0.5)
 
 * Fix: [#238](https://github.com/ankurk91/vue-flatpickr-component/pull/238)
-* 
+
 ## [9.0.4](https://github.com/ankurk91/vue-flatpickr-component/compare/9.0.3...9.0.4)
 
 * Fix: [#224](https://github.com/ankurk91/vue-flatpickr-component/issues/224)

@@ -108,9 +108,8 @@ module.exports = {
     new VueLoaderPlugin(),
   ],
   devServer: {
-    allowedHosts: 'all',
     host: 'localhost',
-    port: 9000,
+    port: 9002,
     open: true,
     client: {
       overlay: {

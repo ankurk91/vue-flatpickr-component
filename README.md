@@ -195,17 +195,17 @@ The component accepts these props:
 ## Run examples on your localhost
 
 * Clone this repo
-* You should have node-js `12.14.0>=` and yarn `>=1.x` pre-installed
-* Install dependencies `yarn install`
-* Run webpack dev server `yarn start`
-* This should open the demo page at `http://localhost:9000` in your default web browser
+* Make sure you have node-js `>=16.9` and [pnpm](https://pnpm.io/) `>=6.23` pre-installed
+* Install dependencies `pnpm install`
+* Run webpack dev server `npm start`
+* This should open the demo page in your default web browser
 
 ## Testing
 
 * This package is using [Jest](https://github.com/facebook/jest)
   and [vue-test-utils](https://github.com/vuejs/vue-test-utils-next) for testing.
 * Tests can be found in `__test__` folder.
-* Execute tests with this command `yarn test`
+* Execute tests with this command `npm test`
 
 ## Changelog
 

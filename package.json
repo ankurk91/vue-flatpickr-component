@@ -28,12 +28,12 @@
   "homepage": "https://github.com/ankurk91/vue-flatpickr-component",
   "scripts": {
     "test": "jest",
-    "test:watch": "yarn run test --watch --notify",
-    "start": "yarn run dev",
+    "test:watch": "npm run test --watch --notify",
+    "start": "npm run dev",
     "dev": "cross-env NODE_ENV=development webpack serve --progress --hot --config=webpack.config.dev.js",
     "docs": "cross-env NODE_ENV=production webpack --config=webpack.config.dev.js --progress --mode=production",
     "build": "cross-env NODE_ENV=production webpack --progress --mode=production",
-    "prepublishOnly": "yarn run test && yarn run build"
+    "prepublishOnly": "npm run test && npm run build"
   },
   "dependencies": {
     "flatpickr": "^4.6.9"
@@ -42,7 +42,7 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@vue/compiler-sfc": "^3.2.6",
-    "@vue/test-utils": "^2.0.0-rc.12",
+    "@vue/test-utils": "^2.0.0-rc.17",
     "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "bootstrap": "^4.6",
@@ -54,35 +54,15 @@
     "mini-css-extract-plugin": "^2.1.0",
     "style-loader": "^3.0.0",
     "vue": "^3.0",
-    "vue-jest": "^5.0.0-alpha.10",
     "vue-loader": "^16.0",
-    "webpack": "^5.51.1",
+    "webpack": "^5.65.0",
     "webpack-cli": "^4.8.0",
-    "webpack-dev-server": "^4.0.0"
+    "webpack-dev-server": "^4.6.0"
   },
   "peerDependencies": {
     "vue": "^3.0.0"
   },
   "engines": {
     "node": ">=10.13.0"
-  },
-  "jest": {
-    "testEnvironment": "jsdom",
-    "moduleFileExtensions": [
-      "js",
-      "json",
-      "jsx",
-      "node",
-      "vue"
-    ],
-    "transform": {
-      "^.+\\.js$": "babel-jest"
-    },
-    "collectCoverage": true,
-    "testURL": "http://localhost",
-    "watchPathIgnorePatterns": [
-      "<rootDir>/examples/",
-      "/node_modules/"
-    ]
   }
 }

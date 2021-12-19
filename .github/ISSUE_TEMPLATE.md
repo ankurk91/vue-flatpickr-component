@@ -1,4 +1,5 @@
 **I'm submitting a ...**  (check one with "x")
+
 ```
 [ ] Bug report => search github for a similar issue or PR before submitting
 [ ] Feature request
@@ -6,10 +7,11 @@
 ```
 
 **Tell about your platform**
+
 * flatPickr version : 4.x.x
 * Vue.js version : 3.x
 * Browser name and version : Chrome|Firefox|Edge x.x.x
-* This package version : x.x.x
+* This package version : 9.x.x
 
 **Current behavior**
 <!-- Describe how the bug manifests. -->

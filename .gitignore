@@ -1,17 +1,16 @@
 # http://git-scm.com/docs/gitignore
 
-# different IDEs
-.idea
-.project
+# various IDEs
+.idea/
 *.sublime-*
-.vscode
+.vscode/
 
 # logs and cache
+/logs/
 *.log
 npm-debug.log*
 .sass-cache
 .cache
-.php_cs.cache
 
 # OS generated files
 [Tt]humbs.db
@@ -35,12 +34,8 @@ $RECYCLE.BIN/
 *.DS_Store
 .DS_Store?
 
-# node packages
+# 3rd party vendor
 node_modules/
-
-# Composer, exclude on root vendor folder
-/vendor/
-composer.phar
 
 # Security tokens
 *.pem
