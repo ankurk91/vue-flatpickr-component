@@ -5,12 +5,10 @@ on:
     branches:
       - master
       - dev
-      - 8.x
   pull_request:
     branches:
       - master
       - dev
-      - 8.x
   schedule:
     - cron: '0 0 11 * *'
 
@@ -31,19 +29,25 @@ jobs:
       - name: Setup pnpm
         uses: pnpm/action-setup@v2.0.1
         with:
-          version: 6.23.0
+          version: 6.28.0
 
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      - run: npm run test
-      - run: bash <(curl -s https://codecov.io/bash)
+      - name: Execute tests
+        run: npm run test
+
+      - name: Upload coverage report
+        uses: codecov/codecov-action@v2
+        with:
+          fail_ci_if_error: false
+
       - run: npm run build
       - run: npm run docs
 
       - name: Deploy to gh-pages
         if: github.event_name == 'push' && github.ref == 'refs/heads/master'
-        uses: JamesIves/github-pages-deploy-action@4.1.8
+        uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: gh-pages
           folder: docs

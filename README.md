@@ -17,7 +17,7 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
 | Vue.js version | Package version | Branch          |
 | :---           | :---:           | ---:           | 
 | 2.x            | 8.x             | [8.x](https://github.com/ankurk91/vue-flatpickr-component/tree/8.x) |
-| 3.x            | 9.x             | master          |
+| 3.x            | 9.x             | `master`          |
 
 ## Features
 
@@ -35,11 +35,7 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
 ## Installation
 
 ```bash
-# yarn
-yarn add vue-flatpickr-component
-
-# npm
-npm install vue-flatpickr-component
+npm install vue-flatpickr-component@^9
 ```
 
 ## Usage
