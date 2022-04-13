@@ -1,5 +1,9 @@
 # Changelog
 
+## [9.0.6](https://github.com/ankurk91/vue-flatpickr-component/compare/9.0.5...9.0.6)
+
+* Fix: Possible `undefined` error, [#254](https://github.com/ankurk91/vue-flatpickr-component/pull/254)
+
 ## [9.0.5](https://github.com/ankurk91/vue-flatpickr-component/compare/9.0.4...9.0.5)
 
 * Fix: [#238](https://github.com/ankurk91/vue-flatpickr-component/pull/238)
