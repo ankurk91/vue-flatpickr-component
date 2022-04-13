@@ -204,7 +204,7 @@ export default {
      */
     modelValue(newValue) {
       // Prevent updates if v-model value is same as input's current value
-      if (newValue === nullify(this.$refs.root.value)) return;
+      if (!this.$refs.root || newValue === nullify(this.$refs.root.value)) return;
       // Make sure we have a flatpickr instance
       this.fp &&
       // Notify flatpickr instance that there is a change in value
