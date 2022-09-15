@@ -1,5 +1,17 @@
-import { PropType } from 'vue';
-declare const _default: import("vue").DefineComponent<{
+import {
+    AllowedComponentProps,
+    ExtractPropTypes,
+    ComponentCustomProps,
+    ComponentOptionsMixin,
+    DefineComponent,
+    PropType,
+    VNodeProps,
+} from "vue";
+import Flatpickr from "flatpickr";
+
+type FlatpickrEvent = "onChange" | "onClose" | "onDayCreate" | "onDestroy" | "onKeyDown" | "onMonthChange" | "onOpen" | "onParseConfig" | "onReady" | "onValueUpdate" | "onYearChange" | "onPreCalendarPosition";
+
+declare const _default: DefineComponent<{
     modelValue: {
         type: PropType<string | number | any[] | Date>;
         default: any;
@@ -7,14 +19,14 @@ declare const _default: import("vue").DefineComponent<{
         validator(value: unknown): boolean;
     };
     config: {
-        type: PropType<Partial<import("flatpickr/dist/types/options.js").BaseOptions>>;
+        type: PropType<Flatpickr.Options.Options>;
         default: () => {
             readonly wrap: false;
             readonly defaultDate: any;
         };
     };
     events: {
-        type: PropType<("onChange" | "onClose" | "onDayCreate" | "onDestroy" | "onKeyDown" | "onMonthChange" | "onOpen" | "onParseConfig" | "onReady" | "onValueUpdate" | "onYearChange" | "onPreCalendarPosition")[]>;
+        type: PropType<FlatpickrEvent[]>;
         default: () => ["onChange", "onClose", "onDestroy", "onMonthChange", "onOpen", "onYearChange"];
     };
     disabled: {
@@ -25,7 +37,7 @@ declare const _default: import("vue").DefineComponent<{
     /**
      * The flatpickr instance
      */
-    fp: import("flatpickr/dist/types/instance.js").Instance;
+    fp: Flatpickr.Instance;
 }, {}, {
     /**
      * Get the HTML node where flatpickr to be attached
@@ -58,7 +70,7 @@ declare const _default: import("vue").DefineComponent<{
      * @param newState
      */
     watchDisabled(newState: boolean): void;
-}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, ["blur", "update:modelValue", "on-change", "on-close", "on-destroy", "on-month-change", "on-open", "on-year-change", "on-value-update", "on-day-create", "on-parse-config", "on-ready", "on-pre-calendar-position", "on-key-down"], "blur" | "update:modelValue" | "on-change" | "on-close" | "on-destroy" | "on-month-change" | "on-open" | "on-year-change" | "on-value-update" | "on-day-create" | "on-parse-config" | "on-ready" | "on-pre-calendar-position" | "on-key-down", import("vue").VNodeProps & import("vue").AllowedComponentProps & import("vue").ComponentCustomProps, Readonly<import("vue").ExtractPropTypes<{
+}, ComponentOptionsMixin, ComponentOptionsMixin, ["blur", "update:modelValue", "on-change", "on-close", "on-destroy", "on-month-change", "on-open", "on-year-change", "on-value-update", "on-day-create", "on-parse-config", "on-ready", "on-pre-calendar-position", "on-key-down"], "blur" | "update:modelValue" | "on-change" | "on-close" | "on-destroy" | "on-month-change" | "on-open" | "on-year-change" | "on-value-update" | "on-day-create" | "on-parse-config" | "on-ready" | "on-pre-calendar-position" | "on-key-down", VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{
     modelValue: {
         type: PropType<string | number | any[] | Date>;
         default: any;
@@ -66,14 +78,14 @@ declare const _default: import("vue").DefineComponent<{
         validator(value: unknown): boolean;
     };
     config: {
-        type: PropType<Partial<import("flatpickr/dist/types/options.js").BaseOptions>>;
+        type: PropType<Flatpickr.Options.Options>;
         default: () => {
             readonly wrap: false;
             readonly defaultDate: any;
         };
     };
     events: {
-        type: PropType<("onChange" | "onClose" | "onDayCreate" | "onDestroy" | "onKeyDown" | "onMonthChange" | "onOpen" | "onParseConfig" | "onReady" | "onValueUpdate" | "onYearChange" | "onPreCalendarPosition")[]>;
+        type: PropType<FlatpickrEvent[]>;
         default: () => ["onChange", "onClose", "onDestroy", "onMonthChange", "onOpen", "onYearChange"];
     };
     disabled: {
@@ -102,6 +114,7 @@ declare const _default: import("vue").DefineComponent<{
         readonly defaultDate: any;
     };
     modelValue: string | number | any[] | Date;
-    events: ("onChange" | "onClose" | "onDayCreate" | "onDestroy" | "onKeyDown" | "onMonthChange" | "onOpen" | "onParseConfig" | "onReady" | "onValueUpdate" | "onYearChange" | "onPreCalendarPosition")[];
+    events: FlatpickrEvent[];
 }>;
+
 export default _default;
