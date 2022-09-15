@@ -4,6 +4,7 @@
   "description": "Vue.js component for Flatpickr date-time picker",
   "main": "dist/vue-flatpickr.js",
   "browser": "dist/vue-flatpickr.min.js",
+  "types": "./types/index.d.ts",
   "files": [
     "src",
     "dist",
