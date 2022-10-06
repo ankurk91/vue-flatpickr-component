@@ -1,11 +1,11 @@
 import Component from './component.js';
 
-const Plugin = (Vue, params) => {
+const Plugin = (app, params) => {
   let name = 'flat-pickr';
   /* istanbul ignore else */
   if (typeof params === 'string') name = params;
 
-  Vue.component(name, Component);
+  app.component(name, Component);
 };
 
 Component.install = Plugin;

@@ -19,7 +19,6 @@ module.exports = {
     alias: {
       vue: '@vue/runtime-dom'
     },
-    extensions: ['.js', '.json', '.vue'],
   },
   entry: './examples/index.js',
   output: {

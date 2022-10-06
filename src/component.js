@@ -12,6 +12,9 @@ const configCallbacks = ['locale', 'showMonths'];
 
 export default {
   name: 'flat-pickr',
+  compatConfig: {
+    MODE: 3,
+  },
   render() {
     return h('input', {
       type: 'text',
@@ -182,7 +185,7 @@ export default {
         // Workaround: Don't pass hooks to configs again otherwise
         // previously registered hooks will stop working
         // Notice: we are looping through all events
-        // This also means that new callbacks can not passed once component has been initialized
+        // This also means that new callbacks can not be passed once component has been initialized
         allEvents.forEach((hook) => {
           delete safeConfig[hook];
         });

@@ -14,7 +14,6 @@ module.exports = {
     alias: {
       vue: '@vue/runtime-dom'
     },
-    extensions: ['.js', '.json', '.vue']
   },
   entry: {
     'vue-flatpickr': './src/index.js',
