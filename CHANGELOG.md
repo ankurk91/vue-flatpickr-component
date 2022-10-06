@@ -1,5 +1,10 @@
 # Changelog
 
+## [9.0.8](https://github.com/ankurk91/vue-flatpickr-component/compare/9.0.6...9.0.8)
+
+* Add type definition
+* Allow to run with `@vue/compat`
+
 ## [9.0.6](https://github.com/ankurk91/vue-flatpickr-component/compare/9.0.5...9.0.6)
 
 * Fix: Possible `undefined` error, [#254](https://github.com/ankurk91/vue-flatpickr-component/pull/254)
