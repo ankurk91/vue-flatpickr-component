@@ -2,11 +2,11 @@ import {mount} from '@vue/test-utils'
 import {Hindi as HindiLocale} from 'flatpickr/dist/l10n/hi';
 import {english as EnglishLocale} from 'flatpickr/dist/l10n/default'
 
-import Component from '../src/component.js';
+import Component from '../src/component';
 
 describe('Flatpickr watchers', () => {
 
-  let wrapper;
+  let wrapper: any;
 
   beforeEach(() => {
     wrapper = mount(Component, {

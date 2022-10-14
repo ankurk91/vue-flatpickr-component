@@ -5,9 +5,9 @@
 [![npm-version](https://badgen.net/npm/v/vue-flatpickr-component)](https://www.npmjs.com/package/vue-flatpickr-component)
 [![github-tag](https://badgen.net/github/tag/ankurk91/vue-flatpickr-component)](https://github.com/ankurk91/vue-flatpickr-component/tags)
 [![build](https://github.com/ankurk91/vue-flatpickr-component/workflows/build/badge.svg)](https://github.com/ankurk91/vue-flatpickr-component/actions)
-[![codecov](https://codecov.io/gh/ankurk91/vue-flatpickr-component/branch/master/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-flatpickr-component)
-[![license](https://badgen.net/github/license/ankurk91/vue-flatpickr-component)](https://yarnpkg.com/en/package/vue-flatpickr-component)
-![TypeScript](https://badgen.net/badge/icon/Typed?icon=typescript&label&labelColor=blue&color=555555)
+[![codecov](https://codecov.io/gh/ankurk91/vue-flatpickr-component/branch/main/graph/badge.svg)](https://codecov.io/gh/ankurk91/vue-flatpickr-component)
+[![license](https://badgen.net/github/license/ankurk91/vue-flatpickr-component)](LICENSE.txt)
+![ts](https://badgen.net/badge/Built%20With/TypeScript/blue)
 
 Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
 
@@ -15,10 +15,10 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
 
 ### Version matrix
 
-|Vue.js version|Package version |                                                              Branch |
-|:-------------|:--------------:|--------------------------------------------------------------------:| 
-| 2.x          |      8.x       | [8.x](https://github.com/ankurk91/vue-flatpickr-component/tree/8.x) |
-| 3.x          |      10.x      |                                                            `master` |
+|Vue.js version| Package version |                                                              Branch |
+|:-------------|:---------------:|--------------------------------------------------------------------:| 
+| 2.x          |       8.x       | [8.x](https://github.com/ankurk91/vue-flatpickr-component/tree/8.x) |
+| 3.x          |      11.x       |                                                            `main` |
 
 ## Features
 
@@ -35,7 +35,7 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
 ## Installation
 
 ```bash
-npm install vue-flatpickr-component@^10
+npm install vue-flatpickr-component@^11
 ```
 
 ## Usage
@@ -48,21 +48,12 @@ npm install vue-flatpickr-component@^10
     <flat-pickr v-model="date"/>
 </template>
 
-<script>
+<script setup>
+    import {ref} from 'vue';
     import flatPickr from 'vue-flatpickr-component';
     import 'flatpickr/dist/flatpickr.css';
 
-    export default {
-        name: 'yourComponent'
-        data() {
-            return {
-                date: null,
-            }
-        },
-        components: {
-            flatPickr
-        }
-    }
+    const date = ref(null);
 </script>
 ```
 
@@ -99,7 +90,8 @@ Using Bootstrap [input group](https://getbootstrap.com/docs/4.6/components/input
     </section>
 </template>
 
-<script>
+<script setup>
+    import {ref} from 'vue';
     import 'bootstrap/dist/css/bootstrap.css';
     // import this component
     import flatPickr from 'vue-flatpickr-component';
@@ -110,26 +102,16 @@ Using Bootstrap [input group](https://getbootstrap.com/docs/4.6/components/input
     // localization is optional
     import {Hindi} from 'flatpickr/dist/l10n/hi.js';
 
-    export default {
-        name: 'yourComponent',
-        data() {
-            return {
-                // Initial value can be a date object as well
-                date: '2020-10-16',
-                // Read more at https://flatpickr.js.org/options/
-                config: {
-                    wrap: true, // set wrap to true only when using 'input-group'
-                    altFormat: 'M j, Y',
-                    altInput: true,
-                    dateFormat: 'Y-m-d',
-                    locale: Hindi, // locale for this instance only          
-                },
-            }
-        },
-        components: {
-            flatPickr
-        },
-    }
+    const date = ref('2022-10-28');
+
+    // Read more at https://flatpickr.js.org/options/
+    const config = ref({
+        wrap: true, // set wrap to true only when using 'input-group'
+        altFormat: 'M j, Y',
+        altInput: true,
+        dateFormat: 'Y-m-d',
+        locale: Hindi, // locale for this instance only          
+    });
 </script>
 ```
 
@@ -153,9 +135,9 @@ The component accepts these props:
 |:----------|:-----------------------------------------------:|:----------------------------------------------:|:-----------------------------------------------------------------------|
 | v-model   | String / Date Object / Array / Timestamp / null |                     `null`                     | Set or Get date-picker value (required)                                |
 | config    |                     Object                      |               `{ wrap: false }`                | Flatpickr configuration [options](https://flatpickr.js.org/options/)   |
-| events    |                      Array                      | Array of sensible [events](./src/events.js#L2) | Customise the [events](https://flatpickr.js.org/events/) to be emitted |
+| events    |                      Array                      | Array of sensible [events](./src/events.ts#L2) | Customise the [events](https://flatpickr.js.org/events/) to be emitted |
 
-## Install in non-module environments (without webpack)
+## Use in browser with CDN 
 
 ```html
 <!-- Flatpickr related files -->
@@ -164,7 +146,7 @@ The component accepts these props:
 <!-- Vue.js -->
 <script src="https://cdn.jsdelivr.net/npm/vue@3.2"></script>
 <!-- Lastly add this package -->
-<script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@10"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@11"></script>
 <script>
     const app = Vue.createApp({})
     app.component('flat-pickr', VueFlatpickr.default);

@@ -14,10 +14,11 @@ module.exports = {
     alias: {
       vue: '@vue/runtime-dom'
     },
+    extensions: ['.js', '.json', '.vue', '.tsx', '.ts']
   },
   entry: {
-    'index': './src/index.js',
-    'index.min': './src/index.js',
+    'index.umd': './src/index.ts',
+    'index.umd.min': './src/index.ts',
   },
   externals: {
     'vue': {
@@ -47,10 +48,15 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.js$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/,
-      },
+        test: /\.tsx?$/,
+        loader: require.resolve('ts-loader'),
+        options: {
+          transpileOnly: false,
+          experimentalWatchApi: true,
+          appendTsSuffixTo: [/\.vue$/]
+        },
+        exclude: /node_modules/
+      }
     ]
   },
   optimization: {

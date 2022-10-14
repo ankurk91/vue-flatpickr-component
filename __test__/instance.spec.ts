@@ -3,7 +3,7 @@ import Component from '../src/component';
 
 describe('Flatpickr component instance', () => {
 
-  let wrapper;
+  let wrapper: any;
 
   beforeEach(() => {
     wrapper = mount(Component, {

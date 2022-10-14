@@ -4,7 +4,7 @@ import Component from '../src/component';
 
 describe('Flatpickr events', () => {
 
-  let wrapper;
+  let wrapper: any;
   let onChangeStub = jest.fn();
 
   const globalOnChange = jest.fn();

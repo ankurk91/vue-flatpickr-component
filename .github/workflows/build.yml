@@ -3,11 +3,11 @@ name: build
 on:
   push:
     branches:
-      - master
+      - main
       - dev
   pull_request:
     branches:
-      - master
+      - main
       - dev
   schedule:
     - cron: '0 0 11 * *'

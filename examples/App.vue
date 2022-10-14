@@ -186,7 +186,7 @@
 <script>
 import flatpickr from "flatpickr";
 // Init component
-import flatPickrComponent from '../src/index.js';
+import flatPickrComponent from '../src/index';
 // Need to add base css for flatpickr
 import 'flatpickr/dist/flatpickr.min.css';
 // l10n is optional

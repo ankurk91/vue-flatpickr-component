@@ -11,7 +11,7 @@ describe('Flatpickr props', () => {
     }
   };
 
-  let wrapper;
+  let wrapper: any;
 
   beforeEach(() => {
     wrapper = mount(Component, {
@@ -31,18 +31,4 @@ describe('Flatpickr props', () => {
   test('accepts value via prop', () => {
     expect(wrapper.props('modelValue')).toBe(props.modelValue);
   });
-
-  test('validates v-model', () => {
-    let vModel = wrapper.vm.$options.props.modelValue;
-
-    expect(vModel.validator(false)).toBe(false);
-    expect(vModel.validator(undefined)).toBe(false);
-
-    expect(vModel.validator(new Date())).toBe(true);
-    expect(vModel.validator(null)).toBe(true);
-    expect(vModel.validator('2017-12-12')).toBe(true);
-    expect(vModel.validator(['2017-12-12'])).toBe(true);
-    expect(vModel.validator(+new Date())).toBe(true);
-  });
-
 });

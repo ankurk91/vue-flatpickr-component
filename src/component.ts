@@ -1,13 +1,14 @@
 import flatpickr from 'flatpickr';
-import {defineComponent, h} from 'vue';
+import {defineComponent, h, nextTick} from 'vue';
+import type {PropType} from 'vue'
 import {excludedEvents, includedEvents} from './events';
-import {arrayify, camelToKebab, nullify} from './util';
+import {camelToKebab, nullify, arrayify} from './util';
 
 // Keep a copy of all events for later use
-const allEvents = includedEvents.concat(excludedEvents);
+const allEvents = [...includedEvents, ...excludedEvents];
 
 // Passing these properties in `fp.set()` method will cause flatpickr to trigger some callbacks
-const configCallbacks = ['locale', 'showMonths'];
+const configCallbacks = ['locale', 'showMonths'] as (keyof flatpickr.Options.Options)[];
 
 export default defineComponent({
   name: 'FlatPickr',
@@ -25,32 +26,23 @@ export default defineComponent({
   emits: [
     'blur',
     'update:modelValue',
-  ].concat(allEvents.map(camelToKebab)),
+    ...allEvents.map(camelToKebab)
+  ],
   props: {
     modelValue: {
-      default: null,
+      type: [String, Number, Date, Array, null] as PropType<flatpickr.Options.DateOption | flatpickr.Options.DateOption[] | null>,
       required: true,
-      validator(value) {
-        return (
-          value === null ||
-          value instanceof Date ||
-          typeof value === 'string' ||
-          value instanceof String ||
-          value instanceof Array ||
-          typeof value === 'number'
-        );
-      }
     },
     // https://flatpickr.js.org/options/
     config: {
-      type: Object,
+      type: Object as PropType<flatpickr.Options.Options>,
       default: () => ({
         defaultDate: null,
         wrap: false,
       })
     },
     events: {
-      type: Array,
+      type: Array as PropType<flatpickr.Options.HookKey[]>,
       default: () => includedEvents
     },
     disabled: {
@@ -58,7 +50,11 @@ export default defineComponent({
       default: false
     },
   },
-  fp: null, // non-reactive
+  data() {
+    return {
+      fp: null as flatpickr.Instance | null, //todo make it non-reactive
+    }
+  },
   mounted() {
     // Return early if flatpickr is already loaded
     /* istanbul ignore if */
@@ -77,16 +73,16 @@ export default defineComponent({
     });
   },
   methods: {
-    prepareConfig() {
+    prepareConfig(): Partial<flatpickr.Options.Options> {
       // Don't mutate original object on parent component
-      let safeConfig = {...this.config};
+      let safeConfig: flatpickr.Options.Options = {...this.config};
 
       this.events.forEach((hook) => {
         // Respect global callbacks registered via setDefault() method
         let globalCallbacks = flatpickr.defaultConfig[hook] || [];
 
         // Inject our own method along with user's callbacks
-        let localCallback = (...args) => {
+        let localCallback: flatpickr.Options.Hook = (...args) => {
           this.$emit(camelToKebab(hook), ...args);
         };
 
@@ -97,8 +93,8 @@ export default defineComponent({
         );
       });
 
-      const onCloseCb = this.onClose.bind(this);
-      safeConfig['onClose'] = arrayify(safeConfig['onClose'] || []).concat(onCloseCb)
+      const onCloseCb = this.onClose.bind(this) as flatpickr.Options.Hook;
+      safeConfig['onClose'] = arrayify(safeConfig['onClose'] || []).concat(onCloseCb) as flatpickr.Options.Hook[]
 
       // Set initial date without emitting any event
       safeConfig.defaultDate = this.modelValue || safeConfig.defaultDate;
@@ -109,48 +105,45 @@ export default defineComponent({
      * Get the HTML node where flatpickr to be attached
      * Bind on parent element if wrap is true
      */
-    getElem() {
+    getElem(): HTMLInputElement {
       return this.config.wrap ? this.$el.parentNode : this.$el;
     },
 
     /**
      * Watch for value changed by date-picker itself and notify parent component
      */
-    onInput(event) {
-      const input = event.target;
+    onInput(event: InputEvent) {
+      const input = event.target as HTMLInputElement;
       // Let's wait for DOM to be updated
-      this.$nextTick(() => {
+      nextTick().then(() => {
         this.$emit('update:modelValue', nullify(input.value));
       });
     },
 
-    /**
-     * @return HTMLElement
-     */
-    fpInput() {
-      return this.fp.altInput || this.fp.input;
+    fpInput(): HTMLInputElement {
+      return this.fp!.altInput || this.fp!.input;
     },
 
     /**
      * Blur event is required by many validation libraries
      */
-    onBlur(event) {
-      this.$emit('blur', nullify(event.target.value));
+    onBlur(event: Event): void {
+      this.$emit('blur', nullify((event.target as HTMLInputElement).value));
     },
 
     /**
      * Flatpickr does not emit input event in some cases
      */
-    onClose(selectedDates, dateStr) {
+    onClose(selectedDates: Date[], dateStr: string) {
       this.$emit('update:modelValue', dateStr);
     },
 
     /**
      * Watch for the disabled property and sets the value to the real input.
      */
-    watchDisabled(newState) {
+    watchDisabled(newState: boolean) {
       if (newState) {
-        this.fpInput().setAttribute('disabled', newState);
+        this.fpInput().setAttribute('disabled', '');
       } else {
         this.fpInput().removeAttribute('disabled');
       }
@@ -165,7 +158,7 @@ export default defineComponent({
       handler(newConfig) {
         if (!this.fp) return;
 
-        let safeConfig = {...newConfig};
+        let safeConfig: flatpickr.Options.Options = {...newConfig};
         // Workaround: Don't pass hooks to configs again otherwise
         // previously registered hooks will stop working
         // Notice: we are looping through all events
@@ -173,12 +166,12 @@ export default defineComponent({
         allEvents.forEach((hook) => {
           delete safeConfig[hook];
         });
-        this.fp.set(safeConfig);
+        this.fp!.set(safeConfig);
 
         // Workaround: Allow to change locale dynamically
         configCallbacks.forEach((name) => {
           if (typeof safeConfig[name] !== 'undefined') {
-            this.fp.set(name, safeConfig[name]);
+            this.fp!.set(name as any, safeConfig[name]);
           }
         });
       }
@@ -187,13 +180,12 @@ export default defineComponent({
     /**
      * Watch for changes from parent component and update DOM
      */
-    modelValue(newValue) {
+    modelValue(newValue: any) {
       // Prevent updates if v-model value is same as input's current value
       if (!this.$el || newValue === nullify(this.$el.value)) return;
-      // Make sure we have a flatpickr instance
-      this.fp &&
+
       // Notify flatpickr instance that there is a change in value
-      this.fp.setDate(newValue, true);
+      this.fp?.setDate(newValue, true);
     }
   },
   beforeUnmount() {

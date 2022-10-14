@@ -9,17 +9,15 @@ module.exports = {
     ],
   },
   transform: {
-    '^.+\\.js$': 'babel-jest',
+    "^.+\\.tsx?$": "ts-jest"
   },
   moduleFileExtensions: [
+    'ts',
     'js',
-    'json',
-    'jsx',
-    'node',
-    'vue',
   ],
   watchPathIgnorePatterns: [
     "<rootDir>/examples/",
     "/node_modules/"
-  ]
+  ],
+  testRegex: "^.+\\.spec\\.tsx?$"
 }
