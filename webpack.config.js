@@ -69,6 +69,9 @@ module.exports = {
     ]
   },
   plugins: [
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+    }),
     new VueLoaderPlugin(),
   ],
   devtool: false,

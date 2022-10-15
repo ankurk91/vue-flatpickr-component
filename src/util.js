@@ -10,8 +10,4 @@ const nullify = (value) => {
   return (value && value.length) ? value : null;
 }
 
-const cloneObject = (obj) => {
-  return Object.assign({}, obj);
-};
-
-export {camelToKebab, arrayify, nullify, cloneObject}
+export {camelToKebab, arrayify, nullify}

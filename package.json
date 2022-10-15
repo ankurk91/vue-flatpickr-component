@@ -62,7 +62,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "peerDependencies": {
-    "vue": "^3.0.0"
+    "vue": "^3.2.0"
   },
   "engines": {
     "node": ">=12.13.0"

@@ -1,8 +1,8 @@
 import Flatpickr from 'flatpickr';
 import {excludedEvents, includedEvents} from './events.js';
-import {arrayify, camelToKebab, cloneObject, nullify} from './util.js';
+import {arrayify, camelToKebab, nullify} from './util.js';
 // You have to import css yourself
-import {h, nextTick} from 'vue';
+import {defineComponent, h, nextTick} from 'vue';
 
 // Keep a copy of all events for later use
 const allEvents = includedEvents.concat(excludedEvents);
@@ -10,7 +10,7 @@ const allEvents = includedEvents.concat(excludedEvents);
 // Passing these properties in `set()` method will cause flatpickr to trigger some callbacks
 const configCallbacks = ['locale', 'showMonths'];
 
-export default {
+export default defineComponent({
   name: 'flat-pickr',
   compatConfig: {
     MODE: 3,
@@ -21,7 +21,6 @@ export default {
       'data-input': true,
       disabled: this.disabled,
       onInput: this.onInput,
-      ref: 'root'
     });
   },
   emits: [
@@ -73,35 +72,8 @@ export default {
     /* istanbul ignore if */
     if (this.fp) return;
 
-    // Don't mutate original object on parent component
-    let safeConfig = cloneObject(this.config);
-
-    this.events.forEach((hook) => {
-      // Respect global callbacks registered via setDefault() method
-      let globalCallbacks = Flatpickr.defaultConfig[hook] || [];
-
-      // Inject our own method along with user callback
-      let localCallback = (...args) => {
-        this.$emit(camelToKebab(hook), ...args);
-      };
-
-      // Overwrite with merged array
-      safeConfig[hook] = arrayify(safeConfig[hook] || []).concat(
-        globalCallbacks,
-        localCallback
-      );
-    });
-
-    const onCloseCb = (...args) => {
-      this.onClose(...args)
-    };
-    safeConfig['onClose'] = arrayify(safeConfig['onClose'] || []).concat(onCloseCb)
-
-    // Set initial date without emitting any event
-    safeConfig.defaultDate = this.modelValue || safeConfig.defaultDate;
-
     // Init flatpickr
-    this.fp = new Flatpickr(this.getElem(), safeConfig);
+    this.fp = new Flatpickr(this.getElem(), this.prepareConfig());
 
     // Attach blur event
     this.fpInput().addEventListener('blur', this.onBlur);
@@ -111,22 +83,48 @@ export default {
     this.$watch('disabled', this.watchDisabled, {immediate: true});
   },
   methods: {
+    prepareConfig() {
+      // Don't mutate original object on parent component
+      let safeConfig = {...this.config};
+
+      this.events.forEach((hook) => {
+        // Respect global callbacks registered via setDefault() method
+        let globalCallbacks = Flatpickr.defaultConfig[hook] || [];
+
+        // Inject our own method along with user's callbacks
+        let localCallback = (...args) => {
+          this.$emit(camelToKebab(hook), ...args);
+        };
+
+        // Overwrite with merged array
+        safeConfig[hook] = arrayify(safeConfig[hook] || []).concat(
+          globalCallbacks,
+          localCallback
+        );
+      });
+
+      const onCloseCb = this.onClose.bind(this);
+      safeConfig['onClose'] = arrayify(safeConfig['onClose'] || []).concat(onCloseCb)
+
+      // Set initial date without emitting any event
+      safeConfig.defaultDate = this.modelValue || safeConfig.defaultDate;
+
+      return safeConfig;
+    },
     /**
      * Get the HTML node where flatpickr to be attached
      * Bind on parent element if wrap is true
      */
     getElem() {
-      return this.config.wrap ? this.$refs.root.parentNode : this.$refs.root;
+      return this.config.wrap ? this.$el.parentNode : this.$el;
     },
 
     /**
      * Watch for value changed by date-picker itself and notify parent component
-     *
-     * @param event
      */
     onInput(event) {
       const input = event.target;
-      // Lets wait for DOM to be updated
+      // Let's wait for DOM to be updated
       nextTick().then(() => {
         this.$emit('update:modelValue', nullify(input.value));
       });
@@ -141,8 +139,6 @@ export default {
 
     /**
      * Blur event is required by many validation libraries
-     *
-     * @param event
      */
     onBlur(event) {
       this.$emit('blur', nullify(event.target.value));
@@ -157,8 +153,6 @@ export default {
 
     /**
      * Watch for the disabled property and sets the value to the real input.
-     *
-     * @param newState
      */
     watchDisabled(newState) {
       if (newState) {
@@ -171,8 +165,6 @@ export default {
   watch: {
     /**
      * Watch for any config changes and redraw date-picker
-     *
-     * @param newConfig Object
      */
     config: {
       deep: true,
@@ -181,7 +173,7 @@ export default {
           return;
         }
 
-        let safeConfig = cloneObject(newConfig);
+        let safeConfig = {...newConfig};
         // Workaround: Don't pass hooks to configs again otherwise
         // previously registered hooks will stop working
         // Notice: we are looping through all events
@@ -202,21 +194,16 @@ export default {
 
     /**
      * Watch for changes from parent component and update DOM
-     *
-     * @param newValue
      */
     modelValue(newValue) {
       // Prevent updates if v-model value is same as input's current value
-      if (!this.$refs.root || newValue === nullify(this.$refs.root.value)) return;
+      if (!this.$el || newValue === nullify(this.$el.value)) return;
       // Make sure we have a flatpickr instance
       this.fp &&
       // Notify flatpickr instance that there is a change in value
       this.fp.setDate(newValue, true);
     }
   },
-  /**
-   * Free up memory
-   */
   beforeUnmount() {
     /* istanbul ignore else */
     if (this.fp) {
@@ -225,4 +212,4 @@ export default {
       this.fp = null;
     }
   }
-};
+});

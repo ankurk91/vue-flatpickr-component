@@ -256,7 +256,7 @@ export default {
         confirmPlugin: {
           enableTime: true,
           // https://flatpickr.js.org/plugins/
-          plugins: [new ConfirmDatePlugin()]
+          plugins: [new ConfirmDatePlugin({})]
         },
         allowInput: {
           allowInput: true,

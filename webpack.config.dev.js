@@ -104,6 +104,10 @@ module.exports = {
         minifyURLs: isProduction,
       }
     }),
+    new webpack.DefinePlugin({
+      __VUE_OPTIONS_API__: true,
+      __VUE_PROD_DEVTOOLS__: false
+    }),
     new VueLoaderPlugin(),
   ],
   devServer: {

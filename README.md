@@ -180,19 +180,20 @@ The component accepts these props:
 <link href="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.js"></script>
 <!-- Vue js -->
-<script src="https://cdn.jsdelivr.net/npm/vue@3"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue@3.2"></script>
 <!-- Lastly add this package -->
 <script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@9"></script>
 <script>
-    const app = Vue.createApp({}).mount("#app");
+    const app = Vue.createApp({})
     app.component('flat-pickr', VueFlatpickr);
+    app.mount("#app");
 </script>
 ```
 
 ## Run examples on your localhost
 
 * Clone this repo
-* Make sure you have node-js `>=16.9` and [pnpm](https://pnpm.io/) `>=7.x` pre-installed
+* Make sure you have node-js `>=18.9` and [pnpm](https://pnpm.io/) `>=7.x` pre-installed
 * Install dependencies `pnpm install`
 * Run webpack dev server `npm start`
 * This should open the demo page in your default web browser
