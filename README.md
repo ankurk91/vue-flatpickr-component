@@ -145,8 +145,9 @@ import {createApp} from 'vue';
 import VueFlatPickr from 'vue-flatpickr-component';
 import 'flatpickr/dist/flatpickr.css';
 // Your app initialization logic goes here
-const app = createApp().mount('#app')
+const app = createApp({});
 app.use(VueFlatPickr);
+app.mount('#app');
 ```
 
 This will register a global component `<flat-pickr>`

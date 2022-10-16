@@ -42,7 +42,7 @@ export default defineComponent({
         );
       }
     },
-    // https://chmln.github.io/flatpickr/options/
+    // https://flatpickr.js.org/options/
     config: {
       type: Object,
       default: () => ({
@@ -59,14 +59,7 @@ export default defineComponent({
       default: false
     }
   },
-  data() {
-    return {
-      /**
-       * The flatpickr instance
-       */
-      fp: null
-    };
-  },
+  fp: null, // non-reactive
   mounted() {
     // Return early if flatpickr is already loaded
     /* istanbul ignore if */
@@ -206,10 +199,9 @@ export default defineComponent({
   },
   beforeUnmount() {
     /* istanbul ignore else */
-    if (this.fp) {
-      this.fpInput().removeEventListener('blur', this.onBlur);
-      this.fp.destroy();
-      this.fp = null;
-    }
+    if (!this.fp) return
+    this.fpInput().removeEventListener('blur', this.onBlur);
+    this.fp.destroy();
+    this.fp = null;
   }
 });
