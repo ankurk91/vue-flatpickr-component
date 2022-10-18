@@ -1,8 +1,7 @@
 import Flatpickr from 'flatpickr';
 import {excludedEvents, includedEvents} from './events.js';
 import {arrayify, camelToKebab, nullify} from './util.js';
-// You have to import css yourself
-import {defineComponent, h, nextTick} from 'vue';
+import {defineComponent, h} from 'vue';
 
 // Keep a copy of all events for later use
 const allEvents = includedEvents.concat(excludedEvents);
@@ -11,7 +10,7 @@ const allEvents = includedEvents.concat(excludedEvents);
 const configCallbacks = ['locale', 'showMonths'];
 
 export default defineComponent({
-  name: 'flat-pickr',
+  name: 'Flatpickr',
   compatConfig: {
     MODE: 3,
   },
@@ -73,7 +72,9 @@ export default defineComponent({
 
     // Immediate watch will fail before fp is set,
     // so need to start watching after mount
-    this.$watch('disabled', this.watchDisabled, {immediate: true});
+    this.$watch('disabled', this.watchDisabled, {
+      immediate: true
+    });
   },
   methods: {
     prepareConfig() {
@@ -118,7 +119,7 @@ export default defineComponent({
     onInput(event) {
       const input = event.target;
       // Let's wait for DOM to be updated
-      nextTick().then(() => {
+      this.$nextTick(() => {
         this.$emit('update:modelValue', nullify(input.value));
       });
     },
@@ -162,9 +163,7 @@ export default defineComponent({
     config: {
       deep: true,
       handler(newConfig) {
-        if (!this.fp) {
-          return;
-        }
+        if (!this.fp) return;
 
         let safeConfig = {...newConfig};
         // Workaround: Don't pass hooks to configs again otherwise
@@ -199,7 +198,8 @@ export default defineComponent({
   },
   beforeUnmount() {
     /* istanbul ignore else */
-    if (!this.fp) return
+    if (!this.fp) return;
+
     this.fpInput().removeEventListener('blur', this.onBlur);
     this.fp.destroy();
     this.fp = null;
