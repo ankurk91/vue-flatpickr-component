@@ -1,16 +1,16 @@
-import Flatpickr from 'flatpickr';
-import {excludedEvents, includedEvents} from './events.js';
-import {arrayify, camelToKebab, nullify} from './util.js';
+import flatpickr from 'flatpickr';
 import {defineComponent, h} from 'vue';
+import {excludedEvents, includedEvents} from './events';
+import {arrayify, camelToKebab, nullify} from './util';
 
 // Keep a copy of all events for later use
 const allEvents = includedEvents.concat(excludedEvents);
 
-// Passing these properties in `set()` method will cause flatpickr to trigger some callbacks
+// Passing these properties in `fp.set()` method will cause flatpickr to trigger some callbacks
 const configCallbacks = ['locale', 'showMonths'];
 
 export default defineComponent({
-  name: 'Flatpickr',
+  name: 'FlatPickr',
   compatConfig: {
     MODE: 3,
   },
@@ -45,8 +45,8 @@ export default defineComponent({
     config: {
       type: Object,
       default: () => ({
+        defaultDate: null,
         wrap: false,
-        defaultDate: null
       })
     },
     events: {
@@ -56,7 +56,7 @@ export default defineComponent({
     disabled: {
       type: Boolean,
       default: false
-    }
+    },
   },
   fp: null, // non-reactive
   mounted() {
@@ -65,13 +65,13 @@ export default defineComponent({
     if (this.fp) return;
 
     // Init flatpickr
-    this.fp = new Flatpickr(this.getElem(), this.prepareConfig());
+    this.fp = flatpickr(this.getElem(), this.prepareConfig());
 
     // Attach blur event
     this.fpInput().addEventListener('blur', this.onBlur);
 
     // Immediate watch will fail before fp is set,
-    // so need to start watching after mount
+    // so we need to start watching after mount
     this.$watch('disabled', this.watchDisabled, {
       immediate: true
     });
@@ -83,7 +83,7 @@ export default defineComponent({
 
       this.events.forEach((hook) => {
         // Respect global callbacks registered via setDefault() method
-        let globalCallbacks = Flatpickr.defaultConfig[hook] || [];
+        let globalCallbacks = flatpickr.defaultConfig[hook] || [];
 
         // Inject our own method along with user's callbacks
         let localCallback = (...args) => {

@@ -15,10 +15,10 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
 
 ### Version matrix
 
-| Vue.js version | Package version | Branch          |
-| :---           | :---:           | ---:           | 
-| 2.x            | 8.x             | [8.x](https://github.com/ankurk91/vue-flatpickr-component/tree/8.x) |
-| 3.x            | 9.x             | `master`          |
+|Vue.js version|Package version |                                                              Branch |
+|:-------------|:--------------:|--------------------------------------------------------------------:| 
+| 2.x          |      8.x       | [8.x](https://github.com/ankurk91/vue-flatpickr-component/tree/8.x) |
+| 3.x          |      10.x      |                                                            `master` |
 
 ## Features
 
@@ -30,13 +30,12 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
 * Can emit all possible [events](https://flatpickr.js.org/events/)
 * Compatible with [Bootstrap](http://getbootstrap.com/) or any other CSS framework
 * Supports [wrapped](https://flatpickr.js.org/examples/#flatpickr--external-elements) mode
-    - Just set `wrap:true` in config and component will take care of all
 * Works with validation libraries
 
 ## Installation
 
 ```bash
-npm install vue-flatpickr-component@^9
+npm install vue-flatpickr-component@^10
 ```
 
 ## Usage
@@ -46,9 +45,7 @@ npm install vue-flatpickr-component@^9
 ```html
 
 <template>
-    <div>
-        <flat-pickr v-model="date"></flat-pickr>
-    </div>
+    <flat-pickr v-model="date"/>
 </template>
 
 <script>
@@ -56,6 +53,7 @@ npm install vue-flatpickr-component@^9
     import 'flatpickr/dist/flatpickr.css';
 
     export default {
+        name: 'yourComponent'
         data() {
             return {
                 date: null,
@@ -87,14 +85,12 @@ Using Bootstrap [input group](https://getbootstrap.com/docs/4.6/components/input
                     name="date"/>
                 <div class="input-group-append">
                     <button class="btn btn-default" type="button" title="Toggle" data-toggle>
-                        <i class="fa fa-calendar">
-                            <span aria-hidden="true" class="sr-only">Toggle</span>
-                        </i>
+                        <i class="fa fa-calendar"/>
+                        <span aria-hidden="true" class="sr-only">Toggle</span>
                     </button>
                     <button class="btn btn-default" type="button" title="Clear" data-clear>
-                        <i class="fa fa-times">
-                            <span aria-hidden="true" class="sr-only">Clear</span>
-                        </i>
+                        <i class="fa fa-times"/>
+                        <span aria-hidden="true" class="sr-only">Clear</span>
                     </button>
                 </div>
             </div>
@@ -104,7 +100,6 @@ Using Bootstrap [input group](https://getbootstrap.com/docs/4.6/components/input
 </template>
 
 <script>
-    // bootstrap is just for this example
     import 'bootstrap/dist/css/bootstrap.css';
     // import this component
     import flatPickr from 'vue-flatpickr-component';
@@ -121,7 +116,7 @@ Using Bootstrap [input group](https://getbootstrap.com/docs/4.6/components/input
             return {
                 // Initial value can be a date object as well
                 date: '2020-10-16',
-                // Get more form https://flatpickr.js.org/options/
+                // Read more at https://flatpickr.js.org/options/
                 config: {
                     wrap: true, // set wrap to true only when using 'input-group'
                     altFormat: 'M j, Y',
@@ -137,20 +132,6 @@ Using Bootstrap [input group](https://getbootstrap.com/docs/4.6/components/input
     }
 </script>
 ```
-
-#### As plugin
-
-```js
-import {createApp} from 'vue';
-import VueFlatPickr from 'vue-flatpickr-component';
-import 'flatpickr/dist/flatpickr.css';
-// Your app initialization logic goes here
-const app = createApp({});
-app.use(VueFlatPickr);
-app.mount('#app');
-```
-
-This will register a global component `<flat-pickr>`
 
 ## Events
 
@@ -168,11 +149,11 @@ This will register a global component `<flat-pickr>`
 
 The component accepts these props:
 
-| Attribute        | Type                                            | Default              | Description      |
-| :---             | :---:                                           | :---:                | :---             |
-| v-model          | String / Date Object / Array / Timestamp / null | `null`               | Set or Get date-picker value (required) |
-| config           | Object                                          | `{ wrap:false }`     | Flatpickr configuration [options](https://flatpickr.js.org/options/)|
-| events           | Array                                           | Array of sensible [events](./src/events.js#L2)  | Customise the [events](https://flatpickr.js.org/events/) to be emitted|
+| Attribute |                      Type                       |                    Default                     | Description                                                            |
+|:----------|:-----------------------------------------------:|:----------------------------------------------:|:-----------------------------------------------------------------------|
+| v-model   | String / Date Object / Array / Timestamp / null |                     `null`                     | Set or Get date-picker value (required)                                |
+| config    |                     Object                      |               `{ wrap: false }`                | Flatpickr configuration [options](https://flatpickr.js.org/options/)   |
+| events    |                      Array                      | Array of sensible [events](./src/events.js#L2) | Customise the [events](https://flatpickr.js.org/events/) to be emitted |
 
 ## Install in non-module environments (without webpack)
 
@@ -180,13 +161,13 @@ The component accepts these props:
 <!-- Flatpickr related files -->
 <link href="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/flatpickr@4/dist/flatpickr.min.js"></script>
-<!-- Vue js -->
+<!-- Vue.js -->
 <script src="https://cdn.jsdelivr.net/npm/vue@3.2"></script>
 <!-- Lastly add this package -->
-<script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@9"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue-flatpickr-component@10"></script>
 <script>
     const app = Vue.createApp({})
-    app.component('flat-pickr', VueFlatpickr);
+    app.component('flat-pickr', VueFlatpickr.default);
     app.mount("#app");
 </script>
 ```
@@ -202,7 +183,7 @@ The component accepts these props:
 ## Testing
 
 * This package is using [Jest](https://github.com/facebook/jest)
-  and [vue-test-utils](https://github.com/vuejs/vue-test-utils-next) for testing.
+  and [vue-test-utils](https://github.com/vuejs/test-utils) for testing.
 * Tests can be found in `__test__` folder.
 * Execute tests with this command `npm test`
 

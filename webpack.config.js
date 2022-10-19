@@ -16,8 +16,8 @@ module.exports = {
     },
   },
   entry: {
-    'vue-flatpickr': './src/index.js',
-    'vue-flatpickr.min': './src/index.js',
+    'index': './src/index.js',
+    'index.min': './src/index.js',
   },
   externals: {
     'vue': {
@@ -31,11 +31,13 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js',
-    library: 'VueFlatpickr',
-    libraryTarget: 'umd',
-    libraryExport: 'default',
-    umdNamedDefine: true,
+    library: {
+      name: 'VueFlatpickr',
+      type: 'umd',
+      umdNamedDefine: true,
+    },
     clean: true,
+    pathinfo: false,
   },
   module: {
     rules: [
@@ -53,6 +55,7 @@ module.exports = {
   },
   optimization: {
     minimize: true,
+    usedExports: false,
     minimizer: [
       new TerserPlugin({
         include: /\.min\.js$/,

@@ -1,5 +1,11 @@
 # Changelog
 
+## [10.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/9.0.8...10.0.0)
+
+* Remove plugin usage
+* Change export names for browser bundle
+* Check [Upgrade Guide](UPGRADING.md) for more
+
 ## [9.0.8](https://github.com/ankurk91/vue-flatpickr-component/compare/9.0.6...9.0.8)
 
 * Add type definition

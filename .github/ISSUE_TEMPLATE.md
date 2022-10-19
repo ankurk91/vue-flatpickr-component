@@ -11,7 +11,7 @@
 * flatPickr version : 4.6.x
 * Vue.js version : 3.2
 * Browser name and version : Chrome|Firefox|Edge x.x.x
-* This package version : 9.x.x
+* This package version : 10.x.x
 
 **Current behavior**
 <!-- Describe how the bug manifests. -->

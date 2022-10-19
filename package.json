@@ -2,8 +2,7 @@
   "name": "vue-flatpickr-component",
   "version": "9.0.8",
   "description": "Vue.js component for Flatpickr date-time picker",
-  "main": "dist/vue-flatpickr.js",
-  "browser": "dist/vue-flatpickr.min.js",
+  "main": "dist/index.js",
   "types": "./types/index.d.ts",
   "files": [
     "src",
@@ -16,10 +15,10 @@
   },
   "keywords": [
     "vue",
-    "flatpickr",
+    "flatpicker",
     "vue-flatpickr",
-    "datepicker",
-    "timepicker"
+    "date picker",
+    "time picker"
   ],
   "author": "ankurk91",
   "license": "MIT",
@@ -65,6 +64,6 @@
     "vue": "^3.2.0"
   },
   "engines": {
-    "node": ">=12.13.0"
+    "node": ">=14.13.0"
   }
 }

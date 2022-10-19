@@ -1,5 +1,5 @@
-import Component from '../src/component.js';
-import {includedEvents} from '../src/events.js';
+import Component from '../src/component';
+import {includedEvents} from '../src/events';
 import {camelToKebab} from "../src/util";
 
 describe('Flatpickr emits', () => {

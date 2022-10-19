@@ -58,8 +58,6 @@ declare const _default: DefineComponent<{
   getElem(): Element | null;
   /**
    * Watch for value changed by date-picker itself and notify parent component
-   *
-   * @param event
    */
   onInput(event: InputEvent): void;
   /**
@@ -68,8 +66,6 @@ declare const _default: DefineComponent<{
   fpInput(): HTMLInputElement;
   /**
    * Blur event is required by many validation libraries
-   *
-   * @param event
    */
   onBlur(event: FocusEvent): void;
   /**
@@ -78,8 +74,6 @@ declare const _default: DefineComponent<{
   onClose(selectedDates: Date[], dateStr: string): void;
   /**
    * Watch for the disabled property and sets the value to the real input.
-   *
-   * @param newState
    */
   watchDisabled(newState: boolean): void;
 }, ComponentOptionsMixin, ComponentOptionsMixin, ["blur", "update:modelValue", "on-change", "on-close", "on-destroy", "on-month-change", "on-open", "on-year-change", "on-value-update", "on-day-create", "on-parse-config", "on-ready", "on-pre-calendar-position", "on-key-down"], "blur" | "update:modelValue" | "on-change" | "on-close" | "on-destroy" | "on-month-change" | "on-open" | "on-year-change" | "on-value-update" | "on-day-create" | "on-parse-config" | "on-ready" | "on-pre-calendar-position" | "on-key-down", VNodeProps & AllowedComponentProps & ComponentCustomProps, Readonly<ExtractPropTypes<{

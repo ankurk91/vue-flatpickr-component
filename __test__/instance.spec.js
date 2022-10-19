@@ -1,6 +1,5 @@
 import {mount} from '@vue/test-utils'
-
-import Component from '../src/component.js';
+import Component from '../src/component';
 
 describe('Flatpickr component instance', () => {
 
