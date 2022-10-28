@@ -1,5 +1,9 @@
 # Changelog
 
+## [11.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/10.0.0...11.0.0)
+
+* Rewrite to Typescript
+
 ## [10.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/9.0.8...10.0.0)
 
 * Remove plugin usage
