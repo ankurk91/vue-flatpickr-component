@@ -73,9 +73,9 @@ export default defineComponent({
     });
   },
   methods: {
-    prepareConfig(): Partial<flatpickr.Options.Options> {
+    prepareConfig(): flatpickr.Options.Options {
       // Don't mutate original object on parent component
-      let safeConfig: flatpickr.Options.Options = {...this.config};
+      let safeConfig = {...this.config};
 
       this.events.forEach((hook) => {
         // Respect global callbacks registered via setDefault() method
