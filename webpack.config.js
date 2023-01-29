@@ -2,8 +2,6 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-const UnminifiedWebpackPlugin = require('unminified-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 
@@ -14,11 +12,13 @@ module.exports = {
       path.resolve(__dirname, 'node_modules'),
     ],
     alias: {
-      'vue$': 'vue/dist/vue.esm.js'
+      'vue$': 'vue/dist/vue.runtime.esm.js'
     },
-    extensions: ['.js', '.json', '.vue']
   },
-  entry: './src/index.js',
+  entry: {
+    'vue-flatpickr': './src/index.js',
+    'vue-flatpickr.min': './src/index.js',
+  },
   externals: {
     'vue': {
       commonjs: 'vue',
@@ -29,15 +29,16 @@ module.exports = {
     'flatpickr': 'flatpickr'
   },
   output: {
+    clean: true,
     path: path.resolve(__dirname, 'dist'),
-    filename: 'vue-flatpickr.min.js',
-    library: 'VueFlatpickr',
-    libraryTarget: 'umd',
-    libraryExport: 'default',
-    umdNamedDefine: true,
-    // Workaround to fix umd build, restore webpack v3 behaviour
-    // https://github.com/webpack/webpack/issues/6642
-    globalObject: "typeof self !== 'undefined' ? self : this"
+    filename: '[name].js',
+    library: {
+      name: 'VueFlatpickr',
+      type: 'umd',
+      umdNamedDefine: true,
+      export: 'default'
+    },
+    globalObject: 'this'
   },
   module: {
     rules: [
@@ -45,6 +46,12 @@ module.exports = {
         test: /\.vue$/,
         loader: 'vue-loader',
         exclude: /node_modules/,
+        options: {
+          compilerOptions: {
+            preserveWhitespace: false, //Deprecated
+            whitespace: 'condense',
+          }
+        }
       },
       {
         test: /\.js$/,
@@ -56,13 +63,13 @@ module.exports = {
   optimization: {
     minimizer: [
       new TerserPlugin({
-        sourceMap: false,
+        include: /\.min\.js$/,
+        extractComments: false,
         terserOptions: {
           output: {
-            beautify: false,
+            comments: false,
           },
           compress: {
-            drop_debugger: true,
             drop_console: true
           }
         }
@@ -70,8 +77,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(),
-    new UnminifiedWebpackPlugin(),
     new VueLoaderPlugin(),
   ],
   devtool: false,

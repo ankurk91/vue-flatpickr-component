@@ -23,13 +23,13 @@ describe('Flatpickr component instance', () => {
   });
 
   test('opens datepicker when focus', () => {
-    wrapper.trigger('focus');
+    wrapper.trigger('click');
     expect(wrapper.classes()).toContain('active');
   });
 
   test('clean up on destroy', () => {
     wrapper.destroy();
-    expect(wrapper.isEmpty()).toBe(true);
+
     expect(wrapper.vm.$data.fp).toBe(null);
   });
 

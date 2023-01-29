@@ -10,24 +10,13 @@
 *.min.* binary
 
 # Image files
-*.jpg binary
-*.jpeg binary
-*.png binary
-*.ico binary
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.gif   binary
+*.ico   binary
 
-# Other binary
-*.zip binary
-*.7z binary
-*.gz binary
-*.psd binary
-*.tar binary
-*.ttf binary
-*.eot binary
-*.woff binary
-*.woff2 binary
-
-# Export ignores
+# Export ignore
 tests export-ignore
 __test__ export-ignore
 .github export-ignore
-

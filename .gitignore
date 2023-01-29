@@ -1,10 +1,8 @@
 # http://git-scm.com/docs/gitignore
 
-# different IDEs
-.idea
-.project
-*.sublime-*
-.vscode
+# various IDEs
+.idea/
+.vscode/
 
 # logs and cache
 *.log
@@ -38,10 +36,6 @@ $RECYCLE.BIN/
 # node packages
 node_modules/
 
-# Composer, exclude on root vendor folder
-/vendor/
-composer.phar
-
 # Security tokens
 *.pem
 *.pub
@@ -50,7 +44,6 @@ composer.phar
 
 # Project related
 *.tgz
-/dist/
 /docs/
-/tmp/
+/dist/
 /coverage/

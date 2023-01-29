@@ -5,7 +5,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -20,13 +19,13 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.runtime.esm.js'
     },
-    extensions: ['.js', '.json', '.vue'],
   },
   entry: './examples/index.js',
   output: {
+    clean: true,
     path: path.resolve(__dirname, 'docs'),
     publicPath: '',
-    filename: "js/[name].[hash].js"
+    filename: "js/[name].[chunkhash].js"
   },
   module: {
     rules: [
@@ -49,9 +48,6 @@ module.exports = {
             },
           {
             loader: "css-loader",
-            options: {
-              sourceMap: !isProduction,
-            }
           },
         ],
       },
@@ -59,31 +55,23 @@ module.exports = {
         test: /\.jpe?g$|\.gif$|\.png$/i,
         loader: 'file-loader',
         options: {
-          name: '[path][name]-[hash].[ext]',
+          name: '[path][name]-[contenthash].[ext]',
         }
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
         loader: 'file-loader',
         options: {
-          name: '[path][name]-[hash].[ext]',
+          name: '[path][name]-[contenthash].[ext]',
         }
       }
 
     ]
   },
-  // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
   optimization: {
     runtimeChunk: false,
     splitChunks: {
-      cacheGroups: {
-        commons: {
-          test: /[\\/]node_modules[\\/]/,
-          name: 'vendor',
-          chunks: 'all',
-          enforce: true
-        }
-      }
+      chunks: 'all',
     },
     minimizer: [],
   },
@@ -102,23 +90,23 @@ module.exports = {
       }
     }),
     new webpack.ProvidePlugin({
-      Vue: ['vue/dist/vue.esm.js', 'default'],
+      Vue: ['vue/dist/vue.runtime.esm.js', 'default'],
     }),
     new VueLoaderPlugin(),
   ],
   devServer: {
-    contentBase: path.resolve(__dirname, 'docs'),
     host: 'localhost',
-    port: 9000,
+    port: 9002,
     open: true,
-    hot: true,
-    overlay: {
-      warnings: false,
-      errors: true
+    client: {
+      overlay: {
+        warnings: false,
+        errors: true
+      },
     },
-    stats: 'errors-only',
+    static: path.resolve(process.cwd(), 'docs'),
   },
-  devtool: isProduction ? false : '#cheap-module-eval-source-map',
+  devtool: isProduction ? 'source-map' : 'eval-cheap-source-map',
   performance: {
     hints: false,
   },
@@ -131,24 +119,21 @@ module.exports = {
 
 if (isProduction) {
   module.exports.plugins.push(
-    new CleanWebpackPlugin(),
     new MiniCssExtractPlugin({
-      filename: 'css/[name]-[hash].css',
+      filename: 'css/[name]-[chunkhash].css',
     }),
   );
   module.exports.optimization.minimizer.push(
     new TerserPlugin({
-      sourceMap: false,
+      extractComments: false,
       terserOptions: {
         output: {
-          beautify: false,
+          comments: false,
         },
         compress: {
-          drop_debugger: true,
           drop_console: true
         }
       }
     }),
   );
 }
-

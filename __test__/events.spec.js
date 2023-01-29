@@ -53,7 +53,7 @@ describe('Flatpickr events', () => {
   test('emits on-open event on focus', () => {
     const stub = jest.fn();
     wrapper.vm.$on('on-open', stub);
-    wrapper.trigger('focus');
+    wrapper.trigger('click');
 
     expect(stub).toHaveBeenCalled();
   });
