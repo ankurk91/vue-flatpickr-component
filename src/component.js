@@ -40,7 +40,7 @@ export default {
         );
       }
     },
-    // https://chmln.github.io/flatpickr/options/
+    // https://flatpickr.js.org/options/
     config: {
       type: Object,
       default: () => ({
@@ -116,7 +116,7 @@ export default {
      */
     onInput(event) {
       const input = event.target;
-      // Lets wait for DOM to be updated
+      // Let's wait for DOM to be updated
       this.$nextTick(() => {
         this.$emit('input', nullify(input.value));
       });
