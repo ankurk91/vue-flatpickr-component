@@ -39,6 +39,7 @@ module.exports = {
     },
     clean: true,
     pathinfo: false,
+    globalObject: 'this',
   },
   module: {
     rules: [
