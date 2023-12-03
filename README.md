@@ -38,6 +38,21 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
 npm install vue-flatpickr-component@^11
 ```
 
+#### Make FlatPickr available in all components
+
+Update main.js
+
+```js
+import FlatPickr from 'vue-flatpickr-component'
+import 'flatpickr/dist/flatpickr.css'
+
+..
+const app = createApp(App)
+...
+
+app.component('flat-pickr', FlatPickr)
+```
+
 ## Usage
 
 #### Minimal example
