@@ -29,13 +29,28 @@ Vue.js component for [Flatpickr](https://flatpickr.js.org/) date-time picker.
     - Component will watch for any changes and redraw itself
 * Can emit all possible [events](https://flatpickr.js.org/events/)
 * Compatible with [Bootstrap](http://getbootstrap.com/) or any other CSS framework
-* Supports [wrapped](https://flatpickr.js.org/examples/#flatpickr--external-elements) mode
+* Supports [wrapped](https://flatpickr.js.org/examples/#flatpickr--external-elements) modeMinimal exampl
 * Works with validation libraries
 
 ## Installation
 
 ```bash
 npm install vue-flatpickr-component@^11
+```
+
+#### Make FlatPickr available in all components
+
+Update main.js
+
+```js
+import FlatPickr from 'vue-flatpickr-component'
+import 'flatpickr/dist/flatpickr.css'
+
+..
+const app = createApp(App)
+...
+
+app.component('flat-pickr', FlatPickr)
 ```
 
 ## Usage
