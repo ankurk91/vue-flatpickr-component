@@ -1,5 +1,9 @@
 # Changelog
 
+## [11.0.4](https://github.com/ankurk91/vue-flatpickr-component/compare/11.0.3...11.0.4)
+
+* Fix issue, #283
+
 ## [11.0.3](https://github.com/ankurk91/vue-flatpickr-component/compare/11.0.2...11.0.3)
 
 * Fix SSR issue, #277
