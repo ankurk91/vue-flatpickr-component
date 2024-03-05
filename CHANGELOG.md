@@ -1,5 +1,9 @@
 # Changelog
 
+## [11.0.5](https://github.com/ankurk91/vue-flatpickr-component/compare/11.0.4...11.0.5)
+
+* Export types, #287
+
 ## [11.0.4](https://github.com/ankurk91/vue-flatpickr-component/compare/11.0.3...11.0.4)
 
 * Fix issue, #283
