@@ -157,7 +157,7 @@ The component accepts these props:
 ## Run examples on your localhost
 
 * Clone this repo
-* Make sure you have node-js `>=20.11` and [pnpm](https://pnpm.io/) `>=8.x` pre-installed
+* Make sure you have node-js `>=20.11` and [pnpm](https://pnpm.io/) `>=9.x` pre-installed
 * Install dependencies `pnpm install`
 * Run webpack dev server `npm start`
 * This should open the demo page in your default web browser
