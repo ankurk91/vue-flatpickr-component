@@ -2,9 +2,8 @@
 
 const webpack = require('webpack');
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlBundlerPlugin = require('html-bundler-webpack-plugin');
 const {VueLoaderPlugin} = require('vue-loader');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require('terser-webpack-plugin');
 
 const isProduction = process.env.NODE_ENV === 'production';
@@ -21,11 +20,9 @@ module.exports = {
     },
     extensions: ['.js', '.json', '.vue', '.tsx', '.ts']
   },
-  entry: './examples/index.js',
   output: {
     path: path.resolve(__dirname, 'docs'),
     publicPath: '',
-    filename: "js/[name].[chunkhash].js",
     clean: true
   },
   module: {
@@ -47,34 +44,22 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          isProduction ? MiniCssExtractPlugin.loader :
-            {
-              loader: "style-loader",
-            },
-          {
-            loader: "css-loader",
-            options: {
-              //
-            }
-          },
-        ],
+        use: ['css-loader'],
       },
       {
-        test: /\.jpe?g$|\.gif$|\.png$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name]-[contenthash].[ext]',
-        }
+        test: /\.(jpe?g|gif|png|ico)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'img/[name].[hash:8][ext][query]',
+        },
       },
       {
         test: /\.(woff|woff2|eot|ttf|svg)(\?.*$|$)/,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name]-[contenthash].[ext]',
-        }
+        type: 'asset/resource',
+        generator: {
+          filename: 'font/[name].[hash:8][ext][query]',
+        },
       }
-
     ]
   },
   // https://gist.github.com/sokra/1522d586b8e5c0f5072d7565c2bee693
@@ -97,24 +82,31 @@ module.exports = {
     minimizer: [],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      inject: true,
-      hash: false,
-      template: './examples/index.html',
-      minify: {
-        removeComments: isProduction,
-        collapseWhitespace: isProduction,
-        removeAttributeQuotes: isProduction,
-        minifyJS: isProduction,
-        minifyCSS: isProduction,
-        minifyURLs: isProduction,
-      }
-    }),
+    new VueLoaderPlugin(),
     new webpack.DefinePlugin({
       __VUE_OPTIONS_API__: true,
       __VUE_PROD_DEVTOOLS__: true
     }),
-    new VueLoaderPlugin(),
+    new HtmlBundlerPlugin({
+      entry: {
+        'index': './examples/index.html',
+      },
+      js: {
+        filename: 'js/[name]-[contenthash:8].js',
+      },
+      css: {
+        filename: 'css/[name]-[contenthash:8].css',
+      },
+      minify: 'auto',
+      minifyOptions: {
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true,
+        minifyJS: true,
+        minifyCSS: true,
+        minifyURLs: true,
+      }
+    }),
   ],
   devServer: {
     host: 'localhost',
@@ -124,6 +116,12 @@ module.exports = {
       overlay: {
         warnings: false,
         errors: true
+      },
+    },
+    watchFiles: {
+      paths: ['src/**/*.*', 'examples/**/*.*'],
+      options: {
+        usePolling: true,
       },
     },
     static: path.resolve(process.cwd(), 'docs'),
@@ -140,24 +138,15 @@ module.exports = {
 };
 
 if (isProduction) {
-  module.exports.plugins.push(
-    new MiniCssExtractPlugin({
-      filename: 'css/[name]-[chunkhash].css',
-    }),
-  );
   module.exports.optimization.minimizer.push(
     new TerserPlugin({
-      extractComments: false,
+      include: /\.js$/,
       terserOptions: {
-        output: {
-          comments: false,
-        },
         compress: {
           drop_debugger: true,
-          drop_console: true
+          drop_console: true,
         }
       }
     }),
   );
 }
-
