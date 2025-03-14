@@ -5,10 +5,6 @@
   "main": "dist/index.umd.js",
   "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
-  "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/index.umd.js"
-  },
   "files": [
     "src",
     "dist",
