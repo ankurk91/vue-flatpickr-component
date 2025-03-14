@@ -1,5 +1,9 @@
 # Changelog
 
+## [12.0.0](https://github.com/ankurk91/vue-flatpickr-component/compare/11.0.4...12.0.0)
+
+*  Revert PR #286 #287
+
 ## [11.0.5](https://github.com/ankurk91/vue-flatpickr-component/compare/11.0.4...11.0.5)
 
 * Export types, #287
